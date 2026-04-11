@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- SEO & Social -->
+<meta name="description" content="Interactive matching puzzles where you guess which company matches which political donation profile. Built on OpenSecrets data. Free, sourced, civic journalism.">
+<link rel="canonical" href="https://follow-the-money-index.moralfibermedia.com">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:title" content="Follow the Money — Puzzle Hub | Moral Fiber Media">
+<meta property="og:description" content="Interactive matching puzzles where you guess which company matches which political donation profile. Built on OpenSecrets data. Free, sourced, civic journalism.">
+<meta property="og:url" content="https://follow-the-money-index.moralfibermedia.com">
+<meta property="og:image" content="https://follow-the-money-index.moralfibermedia.com/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Follow the Money — Puzzle Hub | Moral Fiber Media">
+<meta name="twitter:description" content="Interactive matching puzzles where you guess which company matches which political donation profile. Built on OpenSecrets data. Free, sourced, civic journalism.">
+<meta name="twitter:image" content="https://follow-the-money-index.moralfibermedia.com/preview.png">
+
+<title>Follow the Money — Puzzle Hub | Moral Fiber Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --blue: #2c3e6b;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+  --green: #27ae60;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* FULL-BLEED */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.full-bleed-edge {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* MASTHEAD */
+.masthead {
+  text-align: center;
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 18px 0 14px;
+  margin-bottom: 6px;
+  animation: fadeIn 0.5s ease both;
+}
+.masthead .kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 7vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 10px 0 6px;
+}
+.masthead h1 em { font-style: italic; color: var(--red); }
+.masthead .sub {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.55;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dateline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 8px 0;
+  border-top: 1px solid var(--rule);
+  margin-top: 10px;
+}
+
+/* INTRO BAR */
+.intro-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 22px max(32px, calc(50vw - 460px));
+  margin-bottom: 32px;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  animation: fadeIn 0.6s 0.1s ease both;
+}
+.intro-bar strong { font-weight: 600; font-style: normal; color: #f0c040; }
+
+/* SECTION LABEL */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+/* PUZZLE GRID */
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.puzzle-card {
+  border: 3px solid var(--ink);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  animation: fadeIn 0.5s ease both;
+}
+.puzzle-card:nth-child(1) { animation-delay: 0.15s; }
+.puzzle-card:nth-child(2) { animation-delay: 0.25s; }
+.puzzle-card:nth-child(3) { animation-delay: 0.35s; }
+
+.puzzle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.card-header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-puzzle-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.card-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.6);
+}
+.card-status.live {
+  border-color: var(--green);
+  color: var(--green);
+}
+.card-status.coming {
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.35);
+}
+
+.card-body {
+  padding: 20px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--red);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.card-companies {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.company-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+.chip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--rule);
+  flex-shrink: 0;
+}
+.puzzle-card:hover .chip-dot { background: var(--gold); }
+
+/* SPECIAL EDITION */
+.puzzle-card.special-edition {
+  border-color: var(--gold);
+  position: relative;
+}
+.puzzle-card.special-edition .card-header {
+  background: linear-gradient(135deg, var(--ink) 0%, #2a1f0a 100%);
+}
+.puzzle-card.special-edition .card-puzzle-num {
+  color: var(--gold);
+}
+.puzzle-card.special-edition .card-title {
+  color: var(--gold);
+}
+.puzzle-card.special-edition .play-btn {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.puzzle-card.special-edition .play-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.puzzle-card.special-edition:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(184, 134, 11, 0.2);
+}
+
+.card-hook {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.play-btn {
+  display: block;
+  width: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 20px;
+  border: 3px solid var(--ink);
+  transition: all 0.2s;
+}
+.play-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.play-btn.disabled {
+  background: var(--rule);
+  border-color: var(--rule);
+  color: var(--muted);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* COMING SOON */
+.coming-soon-section {
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s 0.4s ease both;
+}
+
+.coming-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.coming-item {
+  border: 2px dashed var(--rule);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.coming-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--rule);
+  flex-shrink: 0;
+}
+.coming-info {
+  flex: 1;
+}
+.coming-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.coming-companies {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--rule);
+  letter-spacing: 0.5px;
+}
+
+/* HOW IT WORKS */
+.how-section {
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 28px 24px;
+  margin-bottom: 36px;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+.how-section .section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 600px) {
+  .how-steps { grid-template-columns: 1fr; }
+}
+.how-step {
+  text-align: center;
+}
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.step-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.step-desc {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* SHARE & FOLLOW */
+.share-section {
+  margin-top: 36px;
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 24px;
+  animation: fadeIn 0.5s 0.45s ease both;
+}
+.share-section .section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.share-section .section-sub {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.social-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+.social-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.social-icon { font-size: 16px; }
+.social-link.tip-link {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.social-link.tip-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* INSPIRED BY */
+.inspired-section {
+  margin-top: 28px;
+  animation: fadeIn 0.5s 0.5s ease both;
+}
+.inspired-link {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.inspired-link:hover { color: var(--red); }
+.inspired-link:hover .inspired-num { background: var(--red); }
+.inspired-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.15s;
+}
+.inspired-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.inspired-desc {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+.inspired-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* LICENSE */
+.license-block {
+  margin-top: 24px;
+  border-top: 3px solid var(--ink);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.license-row {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.license-row a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.license-row a:hover { color: var(--ink); }
+.license-tag {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.license-tag.data-tag { background: var(--muted); }
+
+
+/* FIGHTERS SECTION */
+.fighter-link.full-list-link {
+  border-style: dashed;
+  border-color: var(--gold);
+}
+.fighter-link.full-list-link:hover {
+  border-style: solid;
+  border-color: var(--gold);
+  background: var(--gold);
+  color: white;
+}
+.fighter-link.full-list-link:hover .fighter-icon {
+  background: rgba(255,255,255,0.2);
+}
+.fighter-link.full-list-link .fighter-icon {
+  background: var(--gold);
+}
+.fighters-section {
+  margin-top: 24px;
+  animation: fadeIn 0.5s 0.55s ease both;
+}
+.fighters-toggle {
+  width: 100%;
+  background: white;
+  border: 3px solid var(--ink);
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+.fighters-toggle:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.fighters-toggle:hover .fighters-arrow { color: var(--paper); }
+.fighters-toggle:hover .fighters-teaser { color: rgba(255,255,255,0.6); }
+.fighters-toggle-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.fighters-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+}
+.fighters-teaser {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.fighters-arrow {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--red);
+  transition: transform 0.3s, color 0.2s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.fighters-toggle.open .fighters-arrow {
+  transform: rotate(180deg);
+}
+.fighters-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border: 3px solid var(--ink);
+  border-top: none;
+}
+.fighters-list.open {
+  max-height: 2000px;
+}
+.fighters-list-inner {
+  padding: 20px 24px;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.fighter-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--rule);
+  transition: all 0.15s;
+}
+.fighter-link:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+.fighter-link:hover .fighter-icon { background: var(--red); }
+.fighter-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.fighter-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.fighter-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .social-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <div class="masthead full-bleed">
+    <div class="kicker">Moral Fiber Media · Interactive Series</div>
+    <h1>FOLLOW<br><em>THE MONEY</em></h1>
+    <div class="sub">Three companies. Three donation profiles. Can you match the company to the cash? Every dollar is public record.</div>
+    <div class="dateline">Data from OpenSecrets.org · All Federal Candidates · 2024 Cycle</div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-bar full-bleed-edge">
+    Every dollar you spend is a political act — someone is counting on you not paying attention. <strong>We pay attention.</strong> Tap. Match. Dive deeper. Every answer links directly to the source.
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section">
+    <div class="section-head">How It Works</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Check the Facts</div>
+        <div class="step-desc">Three unlabeled donation profiles — party split and total spend. The facts are all there. The question is: who do they belong to?</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Match Company to Fact</div>
+        <div class="step-desc">Tap a company, then tap the facts you think are theirs.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Dive Deeper</div>
+        <div class="step-desc">Each correct match reveals the OpenSecrets source link. Get all three right and the confetti flies.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE PUZZLES -->
+  <div class="section-label">Puzzles · Play Now</div>
+  <div class="puzzle-grid">
+
+    <!-- Puzzle #1 -->
+    <div class="puzzle-card">
+      <div class="card-header">
+        <div class="card-puzzle-num">Puzzle #1</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">"Hardware Giants"</div>
+        <div class="card-companies">
+          <div class="company-chip"><div class="chip-dot"></div> Ace Hardware</div>
+          <div class="company-chip"><div class="chip-dot"></div> Home Depot</div>
+          <div class="company-chip"><div class="chip-dot"></div> Lowe's</div>
+        </div>
+        <div class="card-hook">Weekend DIY — which parking lot do you pull into?</div>
+        <a class="play-btn" href="https://follow-the-hardware-giants-money.moralfibermedia.com">▶ Play Now</a>
+      </div>
+    </div>
+
+    <!-- Puzzle #2 -->
+    <div class="puzzle-card">
+      <div class="card-header">
+        <div class="card-puzzle-num">Puzzle #2</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">"Grocery Run"</div>
+        <div class="card-companies">
+          <div class="company-chip"><div class="chip-dot"></div> Walmart</div>
+          <div class="company-chip"><div class="chip-dot"></div> Kroger</div>
+          <div class="company-chip"><div class="chip-dot"></div> Costco</div>
+        </div>
+        <div class="card-hook">The biggest spender is nearly purple — can you spot it?</div>
+        <a class="play-btn" href="https://follow-the-money-grocery.moralfibermedia.com">▶ Play Now</a>
+      </div>
+    </div>
+
+    <!-- Puzzle #3 -->
+    <div class="puzzle-card">
+      <div class="card-header">
+        <div class="card-puzzle-num">Puzzle #3</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">"Your Whole Paycheck"</div>
+        <div class="card-companies">
+          <div class="company-chip"><div class="chip-dot"></div> Amazon (Whole Foods)</div>
+          <div class="company-chip"><div class="chip-dot"></div> Trader Joe's</div>
+          <div class="company-chip"><div class="chip-dot"></div> Publix</div>
+        </div>
+        <div class="card-hook">Two lean the same way — but one spends 31x more.</div>
+        <a class="play-btn" href="https://follow-the-money-whole-paycheck.moralfibermedia.com">▶ Play Now</a>
+      </div>
+    </div>
+
+    <!-- Puzzle #4 -->
+    <div class="puzzle-card">
+      <div class="card-header">
+        <div class="card-puzzle-num">Puzzle #4</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">"Can You Hear Me Now?"</div>
+        <div class="card-companies">
+          <div class="company-chip"><div class="chip-dot"></div> AT&T</div>
+          <div class="company-chip"><div class="chip-dot"></div> Verizon</div>
+          <div class="company-chip"><div class="chip-dot"></div> T-Mobile</div>
+        </div>
+        <div class="card-hook">One spent nothing. The other two look almost identical — almost.</div>
+        <a class="play-btn" href="https://follow-the-money-telecom.moralfibermedia.com">▶ Play Now</a>
+      </div>
+    </div>
+
+    <!-- Special Edition -->
+    <div class="puzzle-card special-edition">
+      <div class="card-header">
+        <div class="card-puzzle-num">★ Special Edition</div>
+        <div class="card-status live">Live</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">"Georgia on My Mind"</div>
+        <div class="card-companies">
+          <div class="company-chip"><div class="chip-dot"></div> Coca-Cola</div>
+          <div class="company-chip"><div class="chip-dot"></div> Delta Air Lines</div>
+          <div class="company-chip"><div class="chip-dot"></div> Home Depot</div>
+        </div>
+        <div class="card-hook">All three HQ'd in Georgia. All three in the spotlight since 2021.</div>
+        <a class="play-btn" href="https://follow-the-money-georgia.moralfibermedia.com">▶ Play Now</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMING SOON -->
+  <div class="coming-soon-section">
+    <div class="section-label">Coming Soon</div>
+    <div class="coming-list">
+      <div class="coming-item">
+        <div class="coming-num">#5</div>
+        <div class="coming-info">
+          <div class="coming-name">"Stream Wars"</div>
+          <div class="coming-companies">Netflix · Disney · Amazon</div>
+        </div>
+      </div>
+      <div class="coming-item">
+        <div class="coming-num">#6</div>
+        <div class="coming-info">
+          <div class="coming-name">"Fill 'Er Up"</div>
+          <div class="coming-companies">ExxonMobil · Chevron · Shell</div>
+        </div>
+      </div>
+      <div class="coming-item">
+        <div class="coming-num">#7</div>
+        <div class="coming-info">
+          <div class="coming-name">"Who Owns Your Feed?"</div>
+          <div class="coming-companies">Meta · Alphabet · Apple</div>
+        </div>
+      </div>
+      <div class="coming-item">
+        <div class="coming-num">#8</div>
+        <div class="coming-info">
+          <div class="coming-name">"Morning Fix"</div>
+          <div class="coming-companies">Starbucks · Dunkin' · McDonald's</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE & FOLLOW -->
+  <div class="share-section">
+    <div class="section-head">Share & Follow</div>
+    <div class="section-sub">Got an idea for the next puzzle? A company, an industry, a voting record? Send us your suggestions — we're building a series and your curiosity drives it.</div>
+    <div class="social-row">
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank"><span class="social-icon">▶</span> YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank"><span class="social-icon">♪</span> TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank"><span class="social-icon">🦋</span> Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank"><span class="social-icon">💬</span> Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank"><span class="social-icon">✉</span> Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank"><span class="social-icon">☕</span> Leave a Tip</a>
+    </div>
+  </div>
+
+  <!-- INSPIRED BY -->
+  <div class="inspired-section">
+    <div class="section-label">Inspired By…</div>
+    <a class="inspired-link" href="https://www.resistandunsubscribe.com/" target="_blank">
+      <div class="inspired-num">1</div>
+      <div>
+        <div class="inspired-title">Resist and Unsubscribe</div>
+        <div class="inspired-desc">Consumer-powered accountability — tracking corporate boycotts and their market impact</div>
+        <div class="inspired-url">resistandunsubscribe.com</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.nokings.org/" target="_blank">
+      <div class="inspired-num">2</div>
+      <div>
+        <div class="inspired-title">No Kings</div>
+        <div class="inspired-desc">Grassroots civic action — events, trainings, and know-your-rights resources</div>
+        <div class="inspired-url">nokings.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://ash.harvard.edu/ai-and-democracy-movements-project/" target="_blank">
+      <div class="inspired-num">3</div>
+      <div>
+        <div class="inspired-title">AI and Democracy Movements Project — Harvard Ash Center</div>
+        <div class="inspired-desc">Research at the intersection of artificial intelligence, civic engagement, and democratic participation</div>
+        <div class="inspired-url">ash.harvard.edu</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- PRO-DEMOCRACY FIGHTERS -->
+  <div class="fighters-section">
+    <button class="fighters-toggle" onclick="toggleFighters(this)">
+      <div class="fighters-toggle-left">
+        <div class="fighters-label">Pro-Democracy Fighters</div>
+        <div class="fighters-teaser">People and organizations on the front lines</div>
+      </div>
+      <div class="fighters-arrow">▼</div>
+    </button>
+    <div class="fighters-list" id="fightersList">
+      <div class="fighters-list-inner">
+        <a class="fighter-link" href="https://www.youtube.com/briantylercohen" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Brian Tyler Cohen</div>
+            <div class="fighter-desc">Political commentary · YouTube</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.inequalitymedia.org/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Inequality Media</div>
+            <div class="fighter-desc">Robert Reich · Economic explainers</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://kimberlywehle.com/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Kimberly Wehle</div>
+            <div class="fighter-desc">Constitutional law · Author · Legal analyst</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.youtube.com/@GlennKirschner2" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Glenn Kirschner</div>
+            <div class="fighter-desc">Justice Matters · Former federal prosecutor</div>
+          </div>
+        </a>
+        <a class="fighter-link full-list-link" href="https://fighters-index.moralfibermedia.com" target="_blank">
+          <div class="fighter-icon">→</div>
+          <div>
+            <div class="fighter-name">See the Full List</div>
+            <div class="fighter-desc">All pro-democracy fighters</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LICENSE -->
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>Puzzles licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank">CC BY-NC-SA 3.0</a> · Non-commercial use · Attribution required · Share alike</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank">Moral Fiber Media</a> · Data from <a href="https://www.opensecrets.org/open-data/credit-opensecrets" target="_blank">OpenSecrets.org</a></span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="https://legal.moralfibermedia.com" target="_blank">Privacy & Terms</a></span>
+    </div>
+  </div>
+
+</div>
+<script>
+
+function toggleFighters(btn) {
+  const list = document.getElementById('fightersList');
+  btn.classList.toggle('open');
+  list.classList.toggle('open');
+}
+</script>
+</body>
+</html>

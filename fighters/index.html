@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- SEO & Social -->
+<meta name="description" content="A curated directory of people and organizations on the front lines of democratic accountability. Maintained by Moral Fiber Media.">
+<link rel="canonical" href="https://fighters-index.moralfibermedia.com">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:title" content="Pro-Democracy Fighters | Moral Fiber Media">
+<meta property="og:description" content="A curated directory of people and organizations on the front lines of democratic accountability. Maintained by Moral Fiber Media.">
+<meta property="og:url" content="https://fighters-index.moralfibermedia.com">
+<meta property="og:image" content="https://fighters-index.moralfibermedia.com/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pro-Democracy Fighters | Moral Fiber Media">
+<meta name="twitter:description" content="A curated directory of people and organizations on the front lines of democratic accountability. Maintained by Moral Fiber Media.">
+<meta name="twitter:image" content="https://fighters-index.moralfibermedia.com/preview.png">
+
+<title>Pro-Democracy Fighters | Moral Fiber Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* FULL-BLEED */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.full-bleed-edge {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* MASTHEAD */
+.masthead {
+  text-align: center;
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 18px 0 14px;
+  margin-bottom: 6px;
+  animation: fadeIn 0.5s ease both;
+}
+.masthead .kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 10px 0 6px;
+}
+.masthead h1 em { font-style: italic; color: var(--red); }
+.masthead .sub {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.55;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* INTRO BAR */
+.intro-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 22px max(32px, calc(50vw - 460px));
+  margin-bottom: 32px;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  animation: fadeIn 0.6s 0.1s ease both;
+}
+.intro-bar strong { font-weight: 600; font-style: normal; color: #f0c040; }
+
+/* FIGHTER GRID */
+.fighters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+  animation: fadeIn 0.5s 0.2s ease both;
+}
+
+.fighter-card {
+  border: 3px solid var(--ink);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.2s ease;
+}
+.fighter-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border-color: var(--red);
+}
+.fighter-card:hover .fighter-card-icon { background: var(--red); }
+
+.fighter-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+}
+.fighter-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.fighter-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.fighter-card-desc {
+  padding: 0 20px 20px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.fighter-card-url {
+  margin-top: auto;
+  padding: 12px 20px;
+  border-top: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+/* BACK LINK */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  padding: 12px 24px;
+  transition: all 0.2s;
+  margin-bottom: 28px;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+.back-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* SHARE & FOLLOW */
+.share-section {
+  margin-top: 36px;
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 24px;
+  animation: fadeIn 0.5s 0.35s ease both;
+}
+.share-section .section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.share-section .section-sub {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.social-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+.social-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.social-icon { font-size: 16px; }
+.social-link.tip-link {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.social-link.tip-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* LICENSE */
+.license-block {
+  margin-top: 24px;
+  border-top: 3px solid var(--ink);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.license-row {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.license-row a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.license-row a:hover { color: var(--ink); }
+.license-tag {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 500px) {
+  .social-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <div class="masthead full-bleed">
+    <div class="kicker">Moral Fiber Media · Curated Directory</div>
+    <h1>PRO-DEMOCRACY<br><em>FIGHTERS</em></h1>
+    <div class="sub">People and organizations on the front lines of democratic accountability.</div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-bar full-bleed-edge">
+    This list grows. <strong>Know someone who belongs here? Tell us.</strong>
+  </div>
+
+  <!-- BACK TO PUZZLES -->
+  <a class="back-link" href="https://follow-the-money-index.moralfibermedia.com">← Back to Puzzles</a>
+
+  <!-- FIGHTERS -->
+  <div class="fighters-grid">
+
+    <a class="fighter-card" href="https://www.youtube.com/briantylercohen" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Brian Tyler Cohen</div>
+      </div>
+      <div class="fighter-card-desc">Political commentator breaking down the news with clarity and urgency. Host of No Lie with Brian Tyler Cohen.</div>
+      <div class="fighter-card-url">youtube.com/briantylercohen</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.youtube.com/@GlennKirschner2" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Glenn Kirschner</div>
+      </div>
+      <div class="fighter-card-desc">Former 30-year federal prosecutor. Host of Justice Matters — daily legal analysis connecting the dots on accountability.</div>
+      <div class="fighter-card-url">youtube.com/@GlennKirschner2</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.alfranken.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Al Franken</div>
+      </div>
+      <div class="fighter-card-desc">Former U.S. Senator, author, and podcast host. Political satire and commentary rooted in policy substance.</div>
+      <div class="fighter-card-url">alfranken.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://substack.com/@thattrippishow" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Joe Trippi</div>
+      </div>
+      <div class="fighter-card-desc">Veteran Democratic strategist and political consultant. Host of That Trippi Show — campaign strategy from the inside.</div>
+      <div class="fighter-card-url">substack.com/@thattrippishow</div>
+    </a>
+
+    <a class="fighter-card" href="https://davidpepper.substack.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">David Pepper</div>
+      </div>
+      <div class="fighter-card-desc">Democracy advocate, author, and former Ohio Democratic Party chair. Writes Pepperspectives on statehouse accountability.</div>
+      <div class="fighter-card-url">davidpepper.substack.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://reedgalen.substack.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Reed Galen</div>
+      </div>
+      <div class="fighter-card-desc">Lincoln Project co-founder and political strategist. Writes The Home Front on defending democratic institutions.</div>
+      <div class="fighter-card-url">reedgalen.substack.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.againstallenemies.net/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Rick Wilson</div>
+      </div>
+      <div class="fighter-card-desc">Lincoln Project co-founder, bestselling author, and Republican strategist turned pro-democracy advocate.</div>
+      <div class="fighter-card-url">againstallenemies.net</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.politicon.com/podcasts/sisters-in-law/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">#SistersInLaw</div>
+      </div>
+      <div class="fighter-card-desc">Webby Award-winning podcast with Joyce Vance, Jill Wine-Banks, Barb McQuade, and Kimberly Atkins Stohr. Legal and political analysis.</div>
+      <div class="fighter-card-url">politicon.com/podcasts/sisters-in-law</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.hopiumchronicles.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Simon Rosenberg</div>
+      </div>
+      <div class="fighter-card-desc">Democratic strategist who called the 2022 red wave bluff. Writes the Hopium Chronicles — data over doom.</div>
+      <div class="fighter-card-url">hopiumchronicles.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.inequalitymedia.org/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Inequality Media</div>
+      </div>
+      <div class="fighter-card-desc">Robert Reich's media organization producing economic explainers that cut through political noise with data and history.</div>
+      <div class="fighter-card-url">inequalitymedia.org</div>
+    </a>
+
+    <a class="fighter-card" href="https://kimberlywehle.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Kimberly Wehle</div>
+      </div>
+      <div class="fighter-card-desc">Constitutional law professor, author, and legal analyst translating the machinery of government into language everyone can use.</div>
+      <div class="fighter-card-url">kimberlywehle.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.johndellavolpe.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">John Della Volpe</div>
+      </div>
+      <div class="fighter-card-desc">Director of polling at the Harvard Institute of Politics. Author and expert on youth civic engagement.</div>
+      <div class="fighter-card-url">johndellavolpe.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://joycevance.substack.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Joyce Vance</div>
+      </div>
+      <div class="fighter-card-desc">Former U.S. Attorney for the Northern District of Alabama. Legal analyst, law professor, and civil rights voice.</div>
+      <div class="fighter-card-url">joycevance.substack.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.contrariannews.org" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">The Contrarian</div>
+      </div>
+      <div class="fighter-card-desc">Jennifer Rubin and Norman Eisen's pro-democracy news organization. Unflinching journalism — truthful, not neutral.</div>
+      <div class="fighter-card-url">contrariannews.org</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.jointheunion.us/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">The Union</div>
+      </div>
+      <div class="fighter-card-desc">Pro-democracy grassroots coalition. 192,000+ members across all 50 states with 100+ partner organizations.</div>
+      <div class="fighter-card-url">jointheunion.us</div>
+    </a>
+
+    <a class="fighter-card" href="https://lincolnproject.us/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">The Lincoln Project</div>
+      </div>
+      <div class="fighter-card-desc">Anti-authoritarian political action committee. Republicans and independents defending democratic norms.</div>
+      <div class="fighter-card-url">lincolnproject.us</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.youtube.com/@katiephangnews" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Katie Phang</div>
+      </div>
+      <div class="fighter-card-desc">Trial attorney and legal analyst. Formerly MSNBC, now delivering daily legal breakdowns on YouTube.</div>
+      <div class="fighter-card-url">youtube.com/@katiephangnews</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.democracydocket.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Democracy Docket</div>
+      </div>
+      <div class="fighter-card-desc">Marc Elias's voting rights platform. Tracking 1,000+ election law cases with the largest election litigation database in the country.</div>
+      <div class="fighter-card-url">democracydocket.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.crimsongoesblue.org/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Crimson Goes Blue</div>
+      </div>
+      <div class="fighter-card-desc">Harvard alumni-led organization mobilizing graduates for pro-democracy organizing and 2026 midterm engagement.</div>
+      <div class="fighter-card-url">crimsongoesblue.org</div>
+    </a>
+
+    <a class="fighter-card" href="https://heathercoxrichardson.substack.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Heather Cox Richardson</div>
+      </div>
+      <div class="fighter-card-desc">Historian, Boston College professor, and author of Letters from an American — the most-read political newsletter in the country. 2.9M subscribers.</div>
+      <div class="fighter-card-url">heathercoxrichardson.substack.com</div>
+    </a>
+
+    <a class="fighter-card" href="https://www.talkingfeds.com/" target="_blank">
+      <div class="fighter-card-header">
+        <div class="fighter-card-icon">✊</div>
+        <div class="fighter-card-name">Harry Litman</div>
+      </div>
+      <div class="fighter-card-desc">Former U.S. Attorney and Deputy Assistant AG. Creator of Talking Feds — roundtable legal analysis with former federal officials.</div>
+      <div class="fighter-card-url">talkingfeds.com</div>
+    </a>
+
+  </div>
+
+  <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.5px; text-align: center; margin-bottom: 28px; line-height: 1.6;">Listed here because we admire the work. If you'd like to be added or removed, reach us at <a href="/cdn-cgi/l/email-protection#b5d6dadbc1d4d6c1f5d8dac7d4d9d3dcd7d0c7d8d0d1dcd49bd6dad8" style="color: var(--muted); text-decoration: underline; text-underline-offset: 2px;"><span class="__cf_email__" data-cfemail="5f3c30312b3e3c2b1f32302d3e3339363d3a2d323a3b363e713c3032">[email&#160;protected]</span></a> or through any of our channels.</div>
+
+  <!-- SHARE & FOLLOW -->
+  <div class="share-section">
+    <div class="section-head">Share & Follow</div>
+    <div class="section-sub">Know a pro-democracy fighter who should be on this list? Send us their name — we're always adding to the roster.</div>
+    <div class="social-row">
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank"><span class="social-icon">▶</span> YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank"><span class="social-icon">♪</span> TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank"><span class="social-icon">🦋</span> Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank"><span class="social-icon">💬</span> Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank"><span class="social-icon">✉</span> Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank"><span class="social-icon">☕</span> Leave a Tip</a>
+    </div>
+  </div>
+
+  <!-- LICENSE -->
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This page is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> · Created by <a href="https://moralfibermedia.com" target="_blank">Moral Fiber Media</a></span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="https://legal.moralfibermedia.com" target="_blank">Privacy & Terms</a></span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

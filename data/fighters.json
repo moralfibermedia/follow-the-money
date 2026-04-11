@@ -1,0 +1,130 @@
+{
+  "fighters": [
+    {
+      "name": "Brian Tyler Cohen",
+      "url": "https://www.youtube.com/briantylercohen",
+      "description": "Political commentator breaking down the news with clarity and urgency. Host of No Lie with Brian Tyler Cohen.",
+      "display_url": "youtube.com/briantylercohen"
+    },
+    {
+      "name": "Glenn Kirschner",
+      "url": "https://www.youtube.com/@GlennKirschner2",
+      "description": "Former 30-year federal prosecutor. Host of Justice Matters \u2014 daily legal analysis connecting the dots on accountability.",
+      "display_url": "youtube.com/@GlennKirschner2"
+    },
+    {
+      "name": "Al Franken",
+      "url": "https://www.alfranken.com/",
+      "description": "Former U.S. Senator, author, and podcast host. Political satire and commentary rooted in policy substance.",
+      "display_url": "alfranken.com"
+    },
+    {
+      "name": "Joe Trippi",
+      "url": "https://substack.com/@thattrippishow",
+      "description": "Veteran Democratic strategist and political consultant. Host of That Trippi Show.",
+      "display_url": "substack.com/@thattrippishow"
+    },
+    {
+      "name": "David Pepper",
+      "url": "https://davidpepper.substack.com/",
+      "description": "Democracy advocate, author, and former Ohio Democratic Party chair. Writes Pepperspectives.",
+      "display_url": "davidpepper.substack.com"
+    },
+    {
+      "name": "Reed Galen",
+      "url": "https://reedgalen.substack.com/",
+      "description": "Lincoln Project co-founder and political strategist. Writes The Home Front.",
+      "display_url": "reedgalen.substack.com"
+    },
+    {
+      "name": "Rick Wilson",
+      "url": "https://www.againstallenemies.net/",
+      "description": "Lincoln Project co-founder, bestselling author, and Republican strategist turned pro-democracy advocate.",
+      "display_url": "againstallenemies.net"
+    },
+    {
+      "name": "#SistersInLaw",
+      "url": "https://www.politicon.com/podcasts/sisters-in-law/",
+      "description": "Webby Award-winning podcast with Joyce Vance, Jill Wine-Banks, Barb McQuade, and Kimberly Atkins Stohr.",
+      "display_url": "politicon.com/podcasts/sisters-in-law"
+    },
+    {
+      "name": "Simon Rosenberg",
+      "url": "https://www.hopiumchronicles.com/",
+      "description": "Democratic strategist who called the 2022 red wave bluff. Writes the Hopium Chronicles \u2014 data over doom.",
+      "display_url": "hopiumchronicles.com"
+    },
+    {
+      "name": "Inequality Media",
+      "url": "https://www.inequalitymedia.org/",
+      "description": "Robert Reich's media organization producing economic explainers that cut through political noise with data and history.",
+      "display_url": "inequalitymedia.org"
+    },
+    {
+      "name": "Kimberly Wehle",
+      "url": "https://kimberlywehle.com/",
+      "description": "Constitutional law professor, author, and legal analyst translating the machinery of government into language everyone can use.",
+      "display_url": "kimberlywehle.com"
+    },
+    {
+      "name": "John Della Volpe",
+      "url": "https://www.johndellavolpe.com/",
+      "description": "Director of polling at the Harvard Institute of Politics. Author and expert on youth civic engagement.",
+      "display_url": "johndellavolpe.com"
+    },
+    {
+      "name": "Joyce Vance",
+      "url": "https://joycevance.substack.com/",
+      "description": "Former U.S. Attorney for the Northern District of Alabama. Legal analyst, law professor, and civil rights voice.",
+      "display_url": "joycevance.substack.com"
+    },
+    {
+      "name": "The Contrarian",
+      "url": "https://www.contrariannews.org",
+      "description": "Jennifer Rubin and Norman Eisen's pro-democracy news organization. Unflinching journalism \u2014 truthful, not neutral.",
+      "display_url": "contrariannews.org"
+    },
+    {
+      "name": "The Union",
+      "url": "https://www.jointheunion.us/",
+      "description": "Pro-democracy grassroots coalition. 192,000+ members across all 50 states with 100+ partner organizations.",
+      "display_url": "jointheunion.us"
+    },
+    {
+      "name": "The Lincoln Project",
+      "url": "https://lincolnproject.us/",
+      "description": "Anti-authoritarian political action committee. Republicans and independents defending democratic norms.",
+      "display_url": "lincolnproject.us"
+    },
+    {
+      "name": "Katie Phang",
+      "url": "https://www.youtube.com/@katiephangnews",
+      "description": "Trial attorney and legal analyst. Formerly MSNBC, now delivering daily legal breakdowns on YouTube.",
+      "display_url": "youtube.com/@katiephangnews"
+    },
+    {
+      "name": "Democracy Docket",
+      "url": "https://www.democracydocket.com/",
+      "description": "Marc Elias's voting rights platform. Tracking 1,000+ election law cases.",
+      "display_url": "democracydocket.com"
+    },
+    {
+      "name": "Crimson Goes Blue",
+      "url": "https://www.crimsongoesblue.org/",
+      "description": "Harvard alumni-led organization mobilizing graduates for pro-democracy organizing and 2026 midterm engagement.",
+      "display_url": "crimsongoesblue.org"
+    },
+    {
+      "name": "Heather Cox Richardson",
+      "url": "https://heathercoxrichardson.substack.com/",
+      "description": "Historian, Boston College professor, and author of Letters from an American. 2.9M subscribers.",
+      "display_url": "heathercoxrichardson.substack.com"
+    },
+    {
+      "name": "Harry Litman",
+      "url": "https://www.talkingfeds.com/",
+      "description": "Former U.S. Attorney and Deputy Assistant AG. Creator of Talking Feds \u2014 roundtable legal analysis.",
+      "display_url": "talkingfeds.com"
+    }
+  ]
+}

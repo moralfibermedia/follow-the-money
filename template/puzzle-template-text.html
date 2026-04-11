@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Follow the Money — Text Match Puzzle Template
+  Created by Moral Fiber Media — moralfibermedia.com
+
+  Licensed under Creative Commons Attribution 4.0 International
+  (CC BY 4.0) — https://creativecommons.org/licenses/by/4.0/
+
+  This template is for text-based puzzles where players match
+  claims, quotes, bills, or facts to their correct sources.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Follow the Money — Who Said It? | Moral Fiber Media</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --green: #27ae60;
+  --blue: #2c5f8a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* FULL-BLEED */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+
+/* MASTHEAD */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 40px 20px 36px;
+  border-bottom: 4px solid var(--red);
+}
+.kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.masthead h1 em {
+  color: var(--red);
+  font-style: normal;
+}
+.puzzle-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 4px 14px;
+  margin: 12px 0 8px;
+}
+.subtitle {
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #bbb;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.dateline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+/* INTRO BAR */
+.intro-bar {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.5;
+  border-bottom: 3px solid var(--gold);
+}
+.intro-bar strong { color: var(--gold); font-style: normal; }
+
+/* HINT */
+.hint {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin: 24px 0 8px;
+  letter-spacing: 0.5px;
+}
+
+/* ============ PUZZLE AREA ============ */
+
+.puzzle-section {
+  margin: 24px 0;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* FACT CARDS (left side — the claims/quotes/descriptions) */
+.fact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.fact-card {
+  border: 3px solid var(--ink);
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  background: var(--paper);
+}
+.fact-card:hover { border-color: var(--gold); }
+.fact-card.selected {
+  border-color: var(--gold);
+  background: #fdf8ef;
+  box-shadow: 0 4px 16px rgba(184, 134, 11, 0.15);
+}
+.fact-card.matched {
+  border-color: var(--green);
+  background: #f0faf0;
+  cursor: default;
+  opacity: 0.85;
+}
+.fact-card.wrong {
+  animation: shake 0.4s ease;
+}
+
+.fact-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.fact-card-text {
+  font-family: 'Source Serif 4', serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.fact-card-text em {
+  font-style: italic;
+}
+.fact-card-source {
+  display: none;
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+}
+.fact-card-source a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--green);
+}
+.fact-card.matched .fact-card-source { display: block; }
+
+/* DROP ZONE on fact cards */
+.fact-drop {
+  margin-top: 12px;
+  border: 2px dashed var(--muted);
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.fact-card.selected .fact-drop,
+.fact-card:hover .fact-drop {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.fact-card.matched .fact-drop {
+  border-style: solid;
+  border-color: var(--green);
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* ANSWER TILES (right side — the names/sources to match) */
+.answer-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.answer-tile {
+  border: 3px solid var(--ink);
+  padding: 14px 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
+  background: var(--paper);
+  min-width: 140px;
+}
+.answer-tile:hover { border-color: var(--gold); }
+.answer-tile.selected {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: white;
+}
+.answer-tile.matched {
+  border-color: var(--green);
+  background: var(--green);
+  color: white;
+  cursor: default;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* SHAKE ANIMATION */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-8px); }
+  30% { transform: translateX(8px); }
+  45% { transform: translateX(-6px); }
+  60% { transform: translateX(6px); }
+  75% { transform: translateX(-3px); }
+  90% { transform: translateX(3px); }
+}
+
+/* VICTORY */
+.victory-banner {
+  display: none;
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 32px;
+  border-top: 4px solid var(--green);
+}
+.victory-banner.show { display: block; }
+.victory-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+.victory-banner h2 em { color: var(--green); font-style: normal; }
+.victory-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px auto;
+  max-width: 400px;
+}
+.victory-sources a {
+  color: var(--gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--gold);
+}
+
+/* BUTTONS */
+.btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn-primary { background: var(--red); color: white; border-color: var(--red); }
+.btn-primary:hover { background: var(--ink); border-color: var(--ink); }
+
+/* SHARE & FOLLOW */
+.share-section {
+  text-align: center;
+  margin: 40px 0 24px;
+  border-top: 3px solid var(--ink);
+  padding-top: 28px;
+}
+.section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.social-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+.social-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  border: 2px solid var(--ink);
+  padding: 8px 14px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.2s;
+}
+.social-link:hover { background: var(--ink); color: var(--paper); }
+.tip-link { border-color: var(--gold); color: var(--gold); }
+.tip-link:hover { background: var(--gold); color: white; }
+
+/* LICENSE */
+.license-block {
+  margin-top: 40px;
+  border-top: 1px solid var(--muted);
+  padding-top: 20px;
+}
+.license-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.license-tag {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2px 8px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.license-row a { color: var(--muted); }
+
+/* CONFETTI */
+.confetti-piece {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .answer-tiles { flex-direction: column; align-items: center; }
+  .answer-tile { width: 100%; }
+  .social-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <div class="masthead full-bleed">
+    <div class="kicker">Moral Fiber Media · Civic Puzzle</div>
+    <h1>WHO <em>SAID IT?</em></h1>
+    <div class="puzzle-tag">Puzzle #6</div>
+    <div class="subtitle">Three quotes from the Georgia State Election Board hearing. Three officials. Can you match the quote to the speaker?</div>
+    <div class="dateline">DATA SOURCE: GEORGIA SECRETARY OF STATE · MARCH 2026 HEARING TRANSCRIPT</div>
+  </div>
+
+  <!-- INTRO BAR -->
+  <div class="intro-bar full-bleed">
+    We do the reading. <strong>You solve the puzzle.</strong>
+  </div>
+
+  <!-- HINT -->
+  <div class="hint">Hint: One of these quotes is about trucks. Yes, trucks.</div>
+
+  <!-- ANSWER TILES -->
+  <div class="puzzle-section">
+    <div class="section-label">Match the Speaker</div>
+    <div class="answer-tiles">
+      <div class="answer-tile" data-answer="janelle" onclick="selectAnswer(this)">Janelle King</div>
+      <div class="answer-tile" data-answer="nguyen" onclick="selectAnswer(this)">Dr. Nguyen</div>
+      <div class="answer-tile" data-answer="johnston" onclick="selectAnswer(this)">Rick Johnston</div>
+    </div>
+  </div>
+
+  <!-- FACT CARDS -->
+  <div class="puzzle-section">
+    <div class="section-label">Who Said Each Quote?</div>
+    <div class="fact-cards">
+
+      <!-- Fact A -->
+      <div class="fact-card" data-correct="johnston" id="fact-a" onclick="selectFact(this)">
+        <div class="fact-card-label">Quote A</div>
+        <div class="fact-card-text">"We need to be able to verify that the trucks carrying ballots are actually the trucks that are supposed to be carrying ballots."</div>
+        <div class="fact-drop" id="drop-a">Tap a name above, then tap here</div>
+        <div class="fact-card-source" id="src-a">
+          ✓ <a href="#" target="_blank">Source: Hearing Transcript, p. 14</a>
+        </div>
+      </div>
+
+      <!-- Fact B -->
+      <div class="fact-card" data-correct="janelle" id="fact-b" onclick="selectFact(this)">
+        <div class="fact-card-label">Quote B</div>
+        <div class="fact-card-text">"The board has a responsibility to ensure that every legal vote is counted, but we cannot do that without the tools to investigate."</div>
+        <div class="fact-drop" id="drop-b">Tap a name above, then tap here</div>
+        <div class="fact-card-source" id="src-b">
+          ✓ <a href="#" target="_blank">Source: Hearing Transcript, p. 7</a>
+        </div>
+      </div>
+
+      <!-- Fact C -->
+      <div class="fact-card" data-correct="nguyen" id="fact-c" onclick="selectFact(this)">
+        <div class="fact-card-label">Quote C</div>
+        <div class="fact-card-text">"There is no evidence of widespread double voting. What we have is a handful of cases that the existing system already caught."</div>
+        <div class="fact-drop" id="drop-c">Tap a name above, then tap here</div>
+        <div class="fact-card-source" id="src-c">
+          ✓ <a href="#" target="_blank">Source: Hearing Transcript, p. 22</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VICTORY BANNER -->
+  <div class="victory-banner full-bleed" id="victory">
+    <h2>You <em>solved it.</em></h2>
+    <p style="font-size: 14px; color: #bbb; margin-bottom: 20px;">Every quote sourced. Every speaker verified.</p>
+    <div class="victory-sources">
+      <a href="#" target="_blank">Full Hearing Transcript — Georgia SEB</a>
+      <a href="#" target="_blank">Georgia RICO Part Duex — S2 E1 Coverage</a>
+    </div>
+    <button class="btn btn-primary" onclick="shareGame()">📤 Share This Puzzle</button>
+    <a class="btn" href="https://follow-the-money-index.moralfibermedia.com" style="display:inline-block; margin-top: 10px;">More Puzzles →</a>
+  </div>
+
+  <!-- BUTTON ROW -->
+  <div class="btn-row">
+    <button class="btn" onclick="resetPuzzle()">↺ Reset Puzzle</button>
+    <button class="btn" onclick="shareGame()">📤 Share Puzzle</button>
+    <a class="btn" href="https://follow-the-money-index.moralfibermedia.com">More Puzzles →</a>
+  </div>
+
+  <!-- SHARE & FOLLOW -->
+  <div class="share-section">
+    <div class="section-head">Share & Follow</div>
+    <div class="social-row">
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank"><span class="social-icon">▶</span> YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank"><span class="social-icon">♪</span> TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank"><span class="social-icon">🦋</span> Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank"><span class="social-icon">💬</span> Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank"><span class="social-icon">✉</span> Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank"><span class="social-icon">☕</span> Leave a Tip</a>
+    </div>
+  </div>
+
+  <!-- LICENSE -->
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This puzzle is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> · Original content by Moral Fiber Media</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank">Moral Fiber Media</a> · Source data from public hearing transcripts</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="https://legal.moralfibermedia.com" target="_blank">Privacy & Terms</a></span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// PUZZLE ENGINE — TEXT MATCH VERSION
+// Same mechanic as bar-chart puzzles: select answer, tap fact
+// ============================================================
+
+const names = {
+  janelle: 'Janelle King',
+  nguyen: 'Dr. Nguyen',
+  johnston: 'Rick Johnston'
+};
+
+let selectedAnswer = null;
+let matches = 0;
+const totalMatches = 3;
+
+function selectAnswer(tile) {
+  if (tile.classList.contains('matched')) return;
+
+  document.querySelectorAll('.answer-tile').forEach(t => t.classList.remove('selected'));
+  tile.classList.add('selected');
+  selectedAnswer = tile.dataset.answer;
+}
+
+function selectFact(card) {
+  if (card.classList.contains('matched')) return;
+  if (!selectedAnswer) return;
+
+  const correct = card.dataset.correct;
+
+  if (selectedAnswer === correct) {
+    // CORRECT
+    card.classList.add('matched');
+    card.querySelector('.fact-drop').textContent = '✓ ' + names[selectedAnswer];
+
+    const tile = document.querySelector(`.answer-tile[data-answer="${selectedAnswer}"]`);
+    tile.classList.remove('selected');
+    tile.classList.add('matched');
+
+    selectedAnswer = null;
+    matches++;
+
+    if (matches === totalMatches) {
+      setTimeout(() => {
+        fireConfetti();
+        const victory = document.getElementById('victory');
+        victory.classList.add('show');
+        victory.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 400);
+    }
+  } else {
+    // WRONG
+    card.classList.add('wrong');
+    setTimeout(() => card.classList.remove('wrong'), 400);
+  }
+}
+
+function resetPuzzle() {
+  document.querySelectorAll('.fact-card').forEach(card => {
+    card.classList.remove('matched', 'wrong', 'selected');
+    const drop = card.querySelector('.fact-drop');
+    drop.textContent = 'Tap a name above, then tap here';
+  });
+  document.querySelectorAll('.answer-tile').forEach(tile => {
+    tile.classList.remove('matched', 'selected');
+  });
+  document.getElementById('victory').classList.remove('show');
+  selectedAnswer = null;
+  matches = 0;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function shareGame() {
+  const text = 'Three quotes from a Georgia election hearing. Three officials. Can you match the quote to the speaker? 🔍';
+  const url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: 'Follow the Money — Who Said It?', text, url });
+  } else {
+    navigator.clipboard.writeText(text + '\n' + url).then(() => {
+      const btn = event.target;
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => btn.textContent = orig, 2000);
+    });
+  }
+}
+
+function fireConfetti() {
+  const colors = ['#d63031', '#b8860b', '#27ae60', '#2c5f8a', '#f2ede4'];
+  for (let i = 0; i < 80; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width = (6 + Math.random() * 8) + 'px';
+    piece.style.height = (6 + Math.random() * 8) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(piece);
+
+    const duration = 1500 + Math.random() * 2000;
+    const delay = Math.random() * 600;
+    piece.animate([
+      { top: '-20px', opacity: 1 },
+      { top: '110vh', opacity: 0 }
+    ], { duration, delay, easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)', fill: 'forwards' });
+
+    setTimeout(() => piece.remove(), duration + delay + 100);
+  }
+}
+</script>
+</body>
+</html>

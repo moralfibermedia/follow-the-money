@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- SEO & Social -->
+<meta name="description" content="Ace Hardware, Home Depot, or Lowe's — can you match the company to its political donation profile? Puzzle #1 in the Follow the Money series.">
+<link rel="canonical" href="https://follow-the-hardware-giants-money.moralfibermedia.com">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:title" content="Follow the Money — Hardware Giants | Moral Fiber Media">
+<meta property="og:description" content="Ace Hardware, Home Depot, or Lowe's — can you match the company to its political donation profile? Puzzle #1 in the Follow the Money series.">
+<meta property="og:url" content="https://follow-the-hardware-giants-money.moralfibermedia.com">
+<meta property="og:image" content="https://follow-the-hardware-giants-money.moralfibermedia.com/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Follow the Money — Hardware Giants | Moral Fiber Media">
+<meta name="twitter:description" content="Ace Hardware, Home Depot, or Lowe's — can you match the company to its political donation profile? Puzzle #1 in the Follow the Money series.">
+<meta name="twitter:image" content="https://follow-the-hardware-giants-money.moralfibermedia.com/preview.png">
+
+<title>Follow the Money — Hardware Giants | Moral Fiber Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --blue: #2c3e6b;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+  --green: #27ae60;
+  --rep-red: #8b1a1a;
+  --dem-blue: #1a3a5c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.game-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* FULL-BLEED BREAKOUT */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.full-bleed-edge {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* MASTHEAD */
+.masthead {
+  text-align: center;
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 14px 0 10px;
+  margin-bottom: 6px;
+  animation: fadeIn 0.5s ease both;
+}
+.masthead .kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 8px 0 4px;
+}
+.masthead h1 em { font-style: italic; color: var(--red); }
+.masthead .episode-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  display: inline-block;
+  padding: 5px 16px;
+  margin-top: 14px;
+}
+.masthead .episode-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--red);
+  margin: 8px 0 4px;
+  letter-spacing: 0.5px;
+}
+.masthead .sub {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.dateline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* INSTRUCTIONS BAR */
+.intro-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 22px max(32px, calc(50vw - 460px));
+  margin-bottom: 28px;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  animation: fadeIn 0.6s 0.1s ease both;
+}
+.intro-bar strong { font-weight: 600; font-style: normal; color: #f0c040; }
+
+/* SCORE BAR */
+.score-bar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.5s 0.15s ease both;
+}
+.score-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.score-item span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.score-item span.correct { color: var(--green); }
+.score-item span.wrong { color: var(--red); }
+
+/* CHART CARDS */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 700px) {
+  .charts-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.chart-card {
+  border: 3px solid var(--ink);
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+  min-height: 280px;
+  perspective: 1000px;
+}
+
+.chart-card.drop-hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.3);
+  transform: scale(1.02);
+}
+
+.chart-card.matched {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.chart-card.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--red);
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+.card-number {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  z-index: 2;
+}
+
+.chart-card.matched .card-number { background: var(--green); }
+
+.card-inner {
+  padding: 40px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.card-total {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+/* BAR CHART */
+.bar-chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-party {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.bar-party.dem { color: var(--dem-blue); }
+.bar-party.rep { color: var(--rep-red); }
+
+.bar-track {
+  flex: 1;
+  height: 28px;
+  background: #e8e3da;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+.bar-fill.dem { background: var(--dem-blue); }
+.bar-fill.rep { background: var(--rep-red); }
+
+.bar-amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  width: 72px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bar-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  width: 44px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.bar-pct.dem { color: var(--dem-blue); }
+.bar-pct.rep { color: var(--rep-red); }
+
+/* DROP ZONE */
+.drop-zone {
+  margin-top: 14px;
+  border: 2px dashed var(--rule);
+  padding: 12px;
+  text-align: center;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+}
+
+.drop-zone.has-match {
+  border-style: solid;
+  border-color: var(--green);
+  background: rgba(39, 174, 96, 0.06);
+}
+
+.drop-zone-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rule);
+}
+
+/* MATCHED LOGO IN DROP ZONE */
+.matched-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.matched-logo img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+.matched-logo .matched-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* SOURCE REVEAL */
+.source-reveal {
+  margin-top: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.source-reveal.visible {
+  opacity: 1;
+  max-height: 60px;
+}
+.source-reveal a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--blue);
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+.source-reveal .src-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+/* DRAGGABLE LOGOS TRAY */
+.logos-tray {
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 20px;
+  margin-bottom: 28px;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+
+.tray-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.logos-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logo-tile {
+  width: 160px;
+  height: 110px;
+  border: 3px solid var(--ink);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  transition: all 0.2s ease;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.logo-tile:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo-tile:active, .logo-tile.dragging {
+  cursor: grabbing;
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.logo-tile.placed {
+  opacity: 0.3;
+  pointer-events: none;
+  border-style: dashed;
+}
+
+.logo-tile img {
+  max-width: 110px;
+  max-height: 55px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.logo-tile .logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.2;
+  pointer-events: none;
+}
+
+/* MOBILE: TAP MODE */
+.logo-tile.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.4);
+  transform: scale(1.05);
+}
+
+.drop-zone.tap-target {
+  cursor: pointer;
+}
+.drop-zone.tap-target:hover {
+  border-color: var(--gold);
+  background: rgba(184, 134, 11, 0.05);
+}
+
+/* VICTORY */
+.victory-banner {
+  display: none;
+  background: var(--ink);
+  color: white;
+  padding: 32px max(32px, calc(50vw - 460px));
+  text-align: center;
+  margin-bottom: 20px;
+  animation: victoryIn 0.6s ease both;
+}
+
+.victory-banner.visible { display: block; }
+
+@keyframes victoryIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.victory-banner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.victory-banner h2 em { color: #f0c040; font-style: italic; }
+
+.victory-sub {
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.victory-sources {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+.victory-sources a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.victory-sources a:hover { color: white; }
+
+/* RESET */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.reset-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reset-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.share-btn {
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.share-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.share-btn.copied {
+  background: var(--green);
+  border-color: var(--green);
+}
+.more-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+}
+.more-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+.victory-more {
+  display: inline-block;
+  margin-top: 12px;
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  padding: 10px 24px;
+}
+.victory-more:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+.victory-share {
+  margin-top: 20px;
+  font-size: 13px;
+  padding: 14px 36px;
+  letter-spacing: 2px;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 28px;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-left {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.footer-right {
+  font-family: 'Source Serif 4', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--muted);
+}
+.footer a { color: var(--muted); text-decoration: underline; }
+
+/* CONFETTI */
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  animation: confettiFall linear forwards;
+}
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+
+/* FIGHTERS SECTION */
+.fighter-link.full-list-link {
+  border-style: dashed;
+  border-color: var(--gold);
+}
+.fighter-link.full-list-link:hover {
+  border-style: solid;
+  border-color: var(--gold);
+  background: var(--gold);
+  color: white;
+}
+.fighter-link.full-list-link:hover .fighter-icon {
+  background: rgba(255,255,255,0.2);
+}
+.fighter-link.full-list-link .fighter-icon {
+  background: var(--gold);
+}
+.fighters-section {
+  margin-top: 24px;
+  animation: fadeIn 0.5s 0.55s ease both;
+}
+.fighters-toggle {
+  width: 100%;
+  background: white;
+  border: 3px solid var(--ink);
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+.fighters-toggle:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.fighters-toggle:hover .fighters-arrow { color: var(--paper); }
+.fighters-toggle:hover .fighters-teaser { color: rgba(255,255,255,0.6); }
+.fighters-toggle-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.fighters-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+}
+.fighters-teaser {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.fighters-arrow {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--red);
+  transition: transform 0.3s, color 0.2s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.fighters-toggle.open .fighters-arrow {
+  transform: rotate(180deg);
+}
+.fighters-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border: 3px solid var(--ink);
+  border-top: none;
+}
+.fighters-list.open {
+  max-height: 2000px;
+}
+.fighters-list-inner {
+  padding: 20px 24px;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.fighter-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--rule);
+  transition: all 0.15s;
+}
+.fighter-link:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+.fighter-link:hover .fighter-icon { background: var(--red); }
+.fighter-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.fighter-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.fighter-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HINT TEXT */
+.hint-text {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--rule);
+  margin-top: 8px;
+  transition: opacity 0.3s;
+}
+
+/* SHARE & FOLLOW */
+.share-section {
+  margin-top: 32px;
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 24px;
+  animation: fadeIn 0.5s 0.35s ease both;
+}
+.share-section .section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.share-section .section-sub {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.social-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+.social-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.social-icon { font-size: 16px; }
+.social-link.tip-link {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.social-link.tip-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* INSPIRED BY */
+.inspired-section {
+  margin-top: 28px;
+  animation: fadeIn 0.5s 0.4s ease both;
+}
+.inspired-section .section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+}
+.inspired-link {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.inspired-link:hover { color: var(--red); }
+.inspired-link:hover .inspired-num { background: var(--red); }
+.inspired-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.15s;
+}
+.inspired-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.inspired-desc {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+.inspired-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* LICENSE BLOCK */
+.license-block {
+  margin-top: 24px;
+  border-top: 3px solid var(--ink);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.license-row {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.license-row a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.license-row a:hover { color: var(--ink); }
+.license-tag {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.license-tag.data-tag { background: var(--muted); }
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .logo-tile { width: 120px; height: 85px; }
+  .logo-tile .logo-name { font-size: 14px; }
+  .bar-amount { width: 60px; font-size: 9px; }
+  .bar-pct { width: 38px; font-size: 9px; }
+  .social-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="game-container">
+  <!-- MASTHEAD -->
+  <div class="masthead full-bleed">
+    <div class="kicker">Interactive · Political Donations · OpenSecrets Data</div>
+    <h1>FOLLOW<br><em>THE MONEY</em></h1>
+    <div class="episode-tag">Puzzle #1</div>
+    <div class="episode-name">"Hardware Giants"</div>
+    <div class="sub">Three hardware stores. Three donation profiles. Can you match the company to the cash?</div>
+    <div class="dateline">Source: OpenSecrets.org · All Federal Candidates · 2024 Cycle</div>
+  </div>
+
+  <!-- INSTRUCTIONS -->
+  <div class="intro-bar full-bleed-edge">
+    <strong>How to play:</strong> Tap a company below, then tap the chart you think it belongs to. Match all three correctly to reveal the sources.
+  </div>
+
+  <!-- SCORE -->
+  <div class="score-bar">
+    <div class="score-item">Matched: <span id="matchCount">0</span>/3</div>
+    <div class="score-item">Attempts: <span id="attemptCount">0</span></div>
+  </div>
+
+  <!-- CHART CARDS -->
+  <div class="charts-grid" id="chartsGrid">
+    <!-- Card A: Lowe's — Dem-leaning -->
+    <div class="chart-card" data-company="lowes" id="card-lowes">
+      <div class="card-number">A</div>
+      <div class="card-inner">
+        <div class="card-label">All Federal Candidates</div>
+        <div class="card-total">$638,900</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-party dem">DEM</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="58.9"></div></div>
+            <div class="bar-amount">$376,328</div>
+            <div class="bar-pct dem">58.9%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-party rep">REP</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="41.1"></div></div>
+            <div class="bar-amount">$262,572</div>
+            <div class="bar-pct rep">41.1%</div>
+          </div>
+        </div>
+        <div class="drop-zone tap-target" data-company="lowes" id="drop-lowes">
+          <div class="drop-zone-text">Drop company here</div>
+        </div>
+        <div class="source-reveal" id="src-lowes">
+          <div class="src-label">Source</div>
+          <a href="https://www.opensecrets.org/orgs/lowe-s-companies/recipients?id=D000027296" target="_blank">opensecrets.org/orgs/lowe-s-companies/recipients</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card B: Home Depot — Rep-leaning, big spender -->
+    <div class="chart-card" data-company="homedepot" id="card-homedepot">
+      <div class="card-number">B</div>
+      <div class="card-inner">
+        <div class="card-label">All Federal Candidates</div>
+        <div class="card-total">$2,741,314</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-party rep">REP</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="53.83"></div></div>
+            <div class="bar-amount">$1,475,768</div>
+            <div class="bar-pct rep">53.8%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-party dem">DEM</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="46.17"></div></div>
+            <div class="bar-amount">$1,265,546</div>
+            <div class="bar-pct dem">46.2%</div>
+          </div>
+        </div>
+        <div class="drop-zone tap-target" data-company="homedepot" id="drop-homedepot">
+          <div class="drop-zone-text">Drop company here</div>
+        </div>
+        <div class="source-reveal" id="src-homedepot">
+          <div class="src-label">Source</div>
+          <a href="https://www.opensecrets.org/orgs/home-depot/recipients?id=D000000419" target="_blank">opensecrets.org/orgs/home-depot/recipients</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card C: Ace Hardware — Rep-leaning most, smallest -->
+    <div class="chart-card" data-company="ace" id="card-ace">
+      <div class="card-number">C</div>
+      <div class="card-inner">
+        <div class="card-label">All Federal Candidates</div>
+        <div class="card-total">$108,459</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-party rep">REP</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="64.73"></div></div>
+            <div class="bar-amount">$70,209</div>
+            <div class="bar-pct rep">64.7%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-party dem">DEM</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="35.27"></div></div>
+            <div class="bar-amount">$38,250</div>
+            <div class="bar-pct dem">35.3%</div>
+          </div>
+        </div>
+        <div class="drop-zone tap-target" data-company="ace" id="drop-ace">
+          <div class="drop-zone-text">Drop company here</div>
+        </div>
+        <div class="source-reveal" id="src-ace">
+          <div class="src-label">Source</div>
+          <a href="https://www.opensecrets.org/orgs/ace-hardware/recipients?id=D000042548" target="_blank">opensecrets.org/orgs/ace-hardware/recipients</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGO TRAY -->
+  <div class="logos-tray" id="logosTray">
+    <div class="tray-label">Tap a company, then tap a chart to match</div>
+    <div class="logos-row" id="logosRow">
+      <div class="logo-tile" data-company="homedepot" id="tile-homedepot" onclick="selectTile(this)">
+        <div class="logo-name">Home<br>Depot</div>
+      </div>
+      <div class="logo-tile" data-company="lowes" id="tile-lowes" onclick="selectTile(this)">
+        <div class="logo-name">Lowe's</div>
+      </div>
+      <div class="logo-tile" data-company="ace" id="tile-ace" onclick="selectTile(this)">
+        <div class="logo-name">Ace<br>Hardware</div>
+      </div>
+    </div>
+    <div class="hint-text" id="hintText">Hint: Look at the total spend and party lean</div>
+  </div>
+
+  <!-- VICTORY -->
+  <div class="victory-banner full-bleed-edge" id="victoryBanner">
+    <h2>You <em>followed the money.</em></h2>
+    <div class="victory-sub">All three matched. Every dollar is public record — here are the receipts.</div>
+    <div class="victory-sources">
+      <a href="https://www.opensecrets.org/orgs/ace-hardware/recipients?id=D000042548" target="_blank">Ace Hardware — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/orgs/home-depot/recipients?id=D000000419" target="_blank">Home Depot — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/orgs/lowe-s-companies/recipients?id=D000027296" target="_blank">Lowe's — OpenSecrets</a>
+    </div>
+    <button class="share-btn victory-share" onclick="shareGame()">📤 Share This Puzzle</button>
+    <a class="more-btn victory-more" href="https://follow-the-money-index.moralfibermedia.com">More Puzzles →</a>
+  </div>
+
+  <div class="button-row">
+    <button class="reset-btn" onclick="resetGame()">Reset Puzzle</button>
+    <button class="share-btn" onclick="shareGame()">📤 Share Puzzle</button>
+    <a class="more-btn" href="https://follow-the-money-index.moralfibermedia.com">More Puzzles →</a>
+  </div>
+
+  <!-- SHARE & FOLLOW -->
+  <div class="share-section">
+    <div class="section-head">Share & Follow</div>
+    <div class="section-sub">Got an idea for the next "Follow the Money" puzzle? A company, an industry, a voting record? Send us your suggestions — we're building a series and your curiosity drives it.</div>
+    <div class="social-row">
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank"><span class="social-icon">▶</span> YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank"><span class="social-icon">♪</span> TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank"><span class="social-icon">🦋</span> Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank"><span class="social-icon">💬</span> Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank"><span class="social-icon">✉</span> Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank"><span class="social-icon">☕</span> Leave a Tip</a>
+    </div>
+  </div>
+
+  <!-- INSPIRED BY -->
+  <div class="inspired-section">
+    <div class="section-label">Inspired By…</div>
+    <a class="inspired-link" href="https://www.resistandunsubscribe.com/" target="_blank">
+      <div class="inspired-num">1</div>
+      <div>
+        <div class="inspired-title">Resist and Unsubscribe</div>
+        <div class="inspired-desc">Consumer-powered accountability — tracking corporate boycotts and their market impact</div>
+        <div class="inspired-url">resistandunsubscribe.com</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.nokings.org/" target="_blank">
+      <div class="inspired-num">2</div>
+      <div>
+        <div class="inspired-title">No Kings</div>
+        <div class="inspired-desc">Grassroots civic action — events, trainings, and know-your-rights resources</div>
+        <div class="inspired-url">nokings.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://ash.harvard.edu/ai-and-democracy-movements-project/" target="_blank">
+      <div class="inspired-num">3</div>
+      <div>
+        <div class="inspired-title">AI and Democracy Movements Project — Harvard Ash Center</div>
+        <div class="inspired-desc">Research at the intersection of artificial intelligence, civic engagement, and democratic participation</div>
+        <div class="inspired-url">ash.harvard.edu</div>
+      </div>
+    </a>
+  </div>
+
+
+  <!-- PRO-DEMOCRACY FIGHTERS -->
+  <div class="fighters-section">
+    <button class="fighters-toggle" onclick="toggleFighters(this)">
+      <div class="fighters-toggle-left">
+        <div class="fighters-label">Pro-Democracy Fighters</div>
+        <div class="fighters-teaser">People and organizations on the front lines</div>
+      </div>
+      <div class="fighters-arrow">▼</div>
+    </button>
+    <div class="fighters-list" id="fightersList">
+      <div class="fighters-list-inner">
+        <a class="fighter-link" href="https://www.youtube.com/briantylercohen" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Brian Tyler Cohen</div>
+            <div class="fighter-desc">Political commentary · YouTube</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.inequalitymedia.org/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Inequality Media</div>
+            <div class="fighter-desc">Robert Reich · Economic explainers</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://kimberlywehle.com/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Kimberly Wehle</div>
+            <div class="fighter-desc">Constitutional law · Author · Legal analyst</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.youtube.com/@GlennKirschner2" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Glenn Kirschner</div>
+            <div class="fighter-desc">Justice Matters · Former federal prosecutor</div>
+          </div>
+        </a>
+        <a class="fighter-link full-list-link" href="https://fighters-index.moralfibermedia.com" target="_blank">
+          <div class="fighter-icon">→</div>
+          <div>
+            <div class="fighter-name">See the Full List</div>
+            <div class="fighter-desc">All pro-democracy fighters</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LICENSE BLOCK -->
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank">CC BY-NC-SA 3.0</a> · Non-commercial use · Attribution required · Share alike</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank">Moral Fiber Media</a> · Data from <a href="https://www.opensecrets.org/open-data/credit-opensecrets" target="_blank">OpenSecrets.org</a></span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="https://legal.moralfibermedia.com" target="_blank">Privacy & Terms</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script>
+// GAME STATE
+let selectedTile = null;
+let matches = 0;
+let attempts = 0;
+let matched = {};
+
+// ANIMATE BARS ON LOAD
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.target + '%';
+    });
+  }, 400);
+});
+
+// TAP-BASED INTERACTION (works on mobile and desktop)
+function selectTile(tile) {
+  if (tile.classList.contains('placed')) return;
+
+  // Deselect previous
+  document.querySelectorAll('.logo-tile').forEach(t => t.classList.remove('selected'));
+
+  selectedTile = tile;
+  tile.classList.add('selected');
+}
+
+// Click on drop zones
+document.querySelectorAll('.drop-zone.tap-target').forEach(zone => {
+  zone.addEventListener('click', function() {
+    if (!selectedTile) return;
+    if (this.classList.contains('has-match')) return;
+
+    const guessCompany = selectedTile.dataset.company;
+    const targetCompany = this.dataset.company;
+
+    attempts++;
+    document.getElementById('attemptCount').textContent = attempts;
+
+    if (guessCompany === targetCompany) {
+      // CORRECT
+      handleCorrectMatch(guessCompany, this, selectedTile);
+      selectedTile.classList.remove('selected');
+      selectedTile = null;
+    } else {
+      // WRONG — keep tile selected so player can try again immediately
+      handleWrongMatch(this);
+    }
+  });
+});
+
+function handleCorrectMatch(company, dropZone, tile) {
+  matches++;
+  matched[company] = true;
+  document.getElementById('matchCount').textContent = matches;
+
+  // Update drop zone
+  dropZone.classList.add('has-match');
+  dropZone.innerHTML = '';
+
+  const matchedDiv = document.createElement('div');
+  matchedDiv.className = 'matched-logo';
+
+  const nameSpan = document.createElement('span');
+  nameSpan.className = 'matched-name';
+  const names = { ace: 'Ace Hardware', homedepot: 'Home Depot', lowes: "Lowe's" };
+  nameSpan.textContent = '✓ ' + names[company];
+  matchedDiv.appendChild(nameSpan);
+  dropZone.appendChild(matchedDiv);
+
+  // Update card
+  const card = document.getElementById('card-' + company);
+  card.classList.add('matched');
+
+  // Reveal source
+  const src = document.getElementById('src-' + company);
+  src.classList.add('visible');
+
+  // Ghost the tile
+  tile.classList.add('placed');
+
+  // Check victory
+  if (matches === 3) {
+    setTimeout(showVictory, 600);
+  }
+}
+
+function handleWrongMatch(dropZone) {
+  const card = dropZone.closest('.chart-card');
+  card.classList.add('wrong-flash');
+  setTimeout(() => card.classList.remove('wrong-flash'), 500);
+}
+
+function showVictory() {
+  const banner = document.getElementById('victoryBanner');
+  banner.classList.add('visible');
+  launchConfetti();
+  setTimeout(() => {
+    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+function resetGame() {
+  matches = 0;
+  attempts = 0;
+  matched = {};
+  selectedTile = null;
+
+  document.getElementById('matchCount').textContent = '0';
+  document.getElementById('attemptCount').textContent = '0';
+  document.getElementById('victoryBanner').classList.remove('visible');
+
+  // Reset cards
+  document.querySelectorAll('.chart-card').forEach(card => {
+    card.classList.remove('matched', 'wrong-flash');
+  });
+
+  // Reset drop zones
+  document.querySelectorAll('.drop-zone').forEach(zone => {
+    zone.classList.remove('has-match');
+    zone.innerHTML = '<div class="drop-zone-text">Drop company here</div>';
+  });
+
+  // Reset sources
+  document.querySelectorAll('.source-reveal').forEach(src => {
+    src.classList.remove('visible');
+  });
+
+  // Reset tiles
+  document.querySelectorAll('.logo-tile').forEach(tile => {
+    tile.classList.remove('placed', 'selected');
+  });
+
+  // Re-animate bars
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.style.width = '0%';
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.target + '%';
+    });
+  }, 100);
+}
+
+// CONFETTI
+function launchConfetti() {
+  const container = document.getElementById('confettiContainer');
+  const colors = ['#c0392b', '#2c3e6b', '#f0c040', '#27ae60', '#b8860b', '#0d0d0d'];
+
+  for (let i = 0; i < 80; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width = (Math.random() * 8 + 5) + 'px';
+    piece.style.height = (Math.random() * 8 + 5) + 'px';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    piece.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+    piece.style.animationDelay = (Math.random() * 0.8) + 's';
+    container.appendChild(piece);
+  }
+
+  setTimeout(() => {
+    container.innerHTML = '';
+  }, 4000);
+}
+
+// DRAG AND DROP (desktop enhancement)
+let draggedTile = null;
+
+document.querySelectorAll('.logo-tile').forEach(tile => {
+  tile.setAttribute('draggable', 'true');
+
+  tile.addEventListener('dragstart', (e) => {
+    if (tile.classList.contains('placed')) { e.preventDefault(); return; }
+    draggedTile = tile;
+    tile.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', tile.dataset.company);
+  });
+
+  tile.addEventListener('dragend', () => {
+    tile.classList.remove('dragging');
+    draggedTile = null;
+    document.querySelectorAll('.chart-card').forEach(c => c.classList.remove('drop-hover'));
+  });
+});
+
+document.querySelectorAll('.chart-card').forEach(card => {
+  card.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    card.classList.add('drop-hover');
+  });
+
+  card.addEventListener('dragleave', () => {
+    card.classList.remove('drop-hover');
+  });
+
+  card.addEventListener('drop', (e) => {
+    e.preventDefault();
+    card.classList.remove('drop-hover');
+    if (!draggedTile) return;
+
+    const dropZone = card.querySelector('.drop-zone');
+    if (dropZone.classList.contains('has-match')) return;
+
+    const guessCompany = draggedTile.dataset.company;
+    const targetCompany = card.dataset.company;
+
+    attempts++;
+    document.getElementById('attemptCount').textContent = attempts;
+
+    if (guessCompany === targetCompany) {
+      handleCorrectMatch(guessCompany, dropZone, draggedTile);
+    } else {
+      handleWrongMatch(dropZone);
+    }
+  });
+});
+
+// SHARE GAME
+function shareGame() {
+  const url = window.location.href;
+  const text = 'Three hardware stores. Three donation profiles. Can you match the company to the cash? 🔍💰';
+  const title = 'Follow the Money — Moral Fiber Media';
+
+  // Try Web Share API first (mobile browsers, some desktop)
+  if (navigator.share) {
+    navigator.share({ title: title, text: text, url: url }).catch(() => {});
+    return;
+  }
+
+  // Fallback: copy link to clipboard
+  const shareText = text + '\n' + url;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(shareText).then(() => {
+      showShareConfirm();
+    }).catch(() => {
+      fallbackCopy(shareText);
+    });
+  } else {
+    fallbackCopy(shareText);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); showShareConfirm(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function showShareConfirm() {
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    const original = btn.textContent;
+    btn.textContent = '✓ Link Copied';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+
+function toggleFighters(btn) {
+  const list = document.getElementById('fightersList');
+  btn.classList.toggle('open');
+  list.classList.toggle('open');
+}
+</script>
+</body>
+</html>

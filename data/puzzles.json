@@ -1,0 +1,297 @@
+{
+  "puzzles": [
+    {
+      "id": "hardware-giants",
+      "number": 1,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Hardware Giants",
+      "subtitle": "Three hardware stores. Three donation profiles. Can you match the company to the cash?",
+      "hook": "Weekend DIY \u2014 which parking lot do you pull into?",
+      "hint": "Hint: Look at the total spend and party lean",
+      "subdomain": "follow-the-hardware-giants-money",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "lowes",
+          "name": "Lowe's",
+          "display_name": "Lowe's",
+          "dem_amount": 376328,
+          "dem_pct": 58.9,
+          "rep_amount": 262572,
+          "rep_pct": 41.1,
+          "total": 638900,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/lowe-s-companies/recipients?id=D000027296"
+        },
+        {
+          "id": "homedepot",
+          "name": "Home Depot",
+          "display_name": "Home<br>Depot",
+          "dem_amount": 1265546,
+          "dem_pct": 46.17,
+          "rep_amount": 1475768,
+          "rep_pct": 53.83,
+          "total": 2741314,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/home-depot/recipients?id=D000000419"
+        },
+        {
+          "id": "ace",
+          "name": "Ace Hardware",
+          "display_name": "Ace<br>Hardware",
+          "dem_amount": 38250,
+          "dem_pct": 35.27,
+          "rep_amount": 70209,
+          "rep_pct": 64.73,
+          "total": 108459,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/ace-hardware/recipients?id=D000042548"
+        }
+      ]
+    },
+    {
+      "id": "grocery-run",
+      "number": 2,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Grocery Run",
+      "subtitle": "Three grocery chains. Three donation profiles. Can you match the company to the cash?",
+      "hook": "The biggest spender is nearly purple \u2014 can you spot it?",
+      "hint": "Hint: The biggest spender is almost perfectly split",
+      "subdomain": "follow-the-money-grocery",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "costco",
+          "name": "Costco",
+          "display_name": "Costco",
+          "dem_amount": 659629,
+          "dem_pct": 80.0,
+          "rep_amount": 164817,
+          "rep_pct": 20.0,
+          "total": 824446,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/costco-wholesale/recipients?id=D000027773"
+        },
+        {
+          "id": "walmart",
+          "name": "Walmart",
+          "display_name": "Walmart",
+          "dem_amount": 1159116,
+          "dem_pct": 48.3,
+          "rep_amount": 1240338,
+          "rep_pct": 51.7,
+          "total": 2399454,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/walmart/recipients?id=D000000367"
+        },
+        {
+          "id": "kroger",
+          "name": "Kroger",
+          "display_name": "Kroger",
+          "dem_amount": 373603,
+          "dem_pct": 54.4,
+          "rep_amount": 313073,
+          "rep_pct": 45.6,
+          "total": 686676,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/kroger-co/recipients?id=D000000703"
+        }
+      ]
+    },
+    {
+      "id": "your-whole-paycheck",
+      "number": 3,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Your Whole Paycheck",
+      "subtitle": "Three premium grocers. Three donation profiles. Can you match the company to the cash?",
+      "hook": "Two lean the same way \u2014 but one spends 31x more.",
+      "hint": "Hint: Two lean the same way \u2014 but one spends 31x more",
+      "subdomain": "follow-the-money-whole-paycheck",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "amazon",
+          "name": "Amazon (Whole Foods)",
+          "display_name": "Amazon<br>(Whole Foods)",
+          "dem_amount": 4192200,
+          "dem_pct": 82.2,
+          "rep_amount": 907800,
+          "rep_pct": 17.8,
+          "total": 5100000,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/amazon-com/recipients?id=D000023883"
+        },
+        {
+          "id": "publix",
+          "name": "Publix",
+          "display_name": "Publix",
+          "dem_amount": 101136,
+          "dem_pct": 30.1,
+          "rep_amount": 234864,
+          "rep_pct": 69.9,
+          "total": 336000,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/publix-super-markets/recipients?id=D000028012"
+        },
+        {
+          "id": "traderjoes",
+          "name": "Trader Joe's",
+          "display_name": "Trader<br>Joe's",
+          "dem_amount": 144320,
+          "dem_pct": 88.0,
+          "rep_amount": 19680,
+          "rep_pct": 12.0,
+          "total": 164000,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/trader-joe-s/recipients?id=D000046677"
+        }
+      ]
+    },
+    {
+      "id": "can-you-hear-me-now",
+      "number": 4,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Can You Hear Me Now?",
+      "subtitle": "Three telecom giants. Three donation profiles. Can you match the company to the cash?",
+      "hook": "One spent nothing. The other two look almost identical \u2014 almost.",
+      "hint": "Hint: One spent nothing. The other two look almost identical \u2014 almost",
+      "subdomain": "follow-the-money-telecom",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "att",
+          "name": "AT&T",
+          "display_name": "AT&T",
+          "dem_amount": 2182833,
+          "dem_pct": 58.54,
+          "rep_amount": 1545684,
+          "rep_pct": 41.46,
+          "total": 3728517,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/at-t-inc/recipients?id=D000000076"
+        },
+        {
+          "id": "verizon",
+          "name": "Verizon",
+          "display_name": "Verizon",
+          "dem_amount": 1410919,
+          "dem_pct": 59.3,
+          "rep_amount": 968426,
+          "rep_pct": 40.7,
+          "total": 2379345,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/verizon-communications/recipients?id=D000000079"
+        },
+        {
+          "id": "tmobile",
+          "name": "T-Mobile",
+          "display_name": "T-Mobile",
+          "dem_amount": 0,
+          "dem_pct": 0,
+          "rep_amount": 0,
+          "rep_pct": 0,
+          "total": 0,
+          "leading_party": "none",
+          "zero_spend": true,
+          "zero_spend_message": "Did not make direct contributions to any federal candidate in the 2024 election cycle.",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/t-mobile-usa/recipients?candscycle=2024&id=D000022272"
+        }
+      ]
+    },
+    {
+      "id": "georgia-on-my-mind",
+      "number": null,
+      "type": "special",
+      "template": "barchart",
+      "title": "Georgia on My Mind",
+      "subtitle": "Three Georgia giants. Three donation profiles. Can you match the company to the cash?",
+      "hook": "All three HQ'd in Georgia. All three in the spotlight since 2021.",
+      "hint": "Hint: Two lean the same way \u2014 but one spends 8x more than the other",
+      "subdomain": "follow-the-money-georgia",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "cocacola",
+          "name": "Coca-Cola",
+          "display_name": "Coca-Cola",
+          "dem_amount": 177875,
+          "dem_pct": 57.49,
+          "rep_amount": 131540,
+          "rep_pct": 42.51,
+          "total": 309415,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/coca-cola-co/recipients?id=D000000212"
+        },
+        {
+          "id": "delta",
+          "name": "Delta Air Lines",
+          "display_name": "Delta<br>Air Lines",
+          "dem_amount": 1079793,
+          "dem_pct": 43.27,
+          "rep_amount": 1415524,
+          "rep_pct": 56.73,
+          "total": 2495317,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/delta-air-lines/recipients?id=D000000350"
+        },
+        {
+          "id": "homedepot",
+          "name": "Home Depot",
+          "display_name": "Home<br>Depot",
+          "dem_amount": 1265546,
+          "dem_pct": 46.17,
+          "rep_amount": 1475768,
+          "rep_pct": 53.83,
+          "total": 2741314,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/home-depot/recipients?id=D000000419"
+        }
+      ]
+    }
+  ],
+  "coming_soon": [
+    {
+      "number": 5,
+      "title": "Stream Wars",
+      "companies_label": "Netflix \u00b7 Disney \u00b7 Amazon",
+      "status": "planned"
+    },
+    {
+      "number": 6,
+      "title": "Fill 'Er Up",
+      "companies_label": "ExxonMobil \u00b7 Chevron \u00b7 Shell",
+      "status": "planned"
+    },
+    {
+      "number": 7,
+      "title": "Who Owns Your Feed?",
+      "companies_label": "Meta \u00b7 Alphabet \u00b7 Apple",
+      "status": "planned"
+    },
+    {
+      "number": 8,
+      "title": "Morning Fix",
+      "companies_label": "Starbucks \u00b7 Dunkin' \u00b7 McDonald's",
+      "status": "planned"
+    }
+  ]
+}
