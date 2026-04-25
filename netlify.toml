@@ -3,36 +3,36 @@
 
 [[redirects]]
   from = "/data/*"
-  to = /
+  to = "/"
   status = 404
   force = true
 
 [[redirects]]
   from = "/template/*"
-  to = /
+  to = "/"
   status = 404
   force = true
 
 [[redirects]]
   from = "/scripts/*"
-  to = /
+  to = "/"
   status = 404
   force = true
 
 [[redirects]]
   from = "/index/*"
-  to = /
+  to = "/"
   status = 404
   force = true
 
 [[redirects]]
   from = "/.claude/*"
-  to = /
+  to = "/"
   status = 404
   force = true
 
 [[redirects]]
   from = "/vision/*"
-  to = /
+  to = "/"
   status = 404
   force = true
