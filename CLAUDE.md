@@ -11,7 +11,7 @@ Monorepo for FactPuzzles by Moral Fiber Media — interactive civic puzzles buil
 - **CC BY 4.0** for original content. **CC BY-NC-SA 3.0** for OpenSecrets-derived puzzles.
 
 ## Architecture
-Each folder under `puzzles/`, `index/`, `fighters/`, `legal/`, `doj/`, and `tools/` is a standalone Netlify site. Data lives in `data/puzzles.json` and `data/fighters.json`. Templates in `template/`.
+Single Netlify site at `followthemoney.moralfibermedia.com`. All pages deploy from one GitHub repo (`moralfibermedia/follow-the-money`). Puzzle index is `index.html` at repo root. Each page lives in its own folder (`puzzles/`, `fighters/`, `legal/`, `doj/`) with an `index.html` and `preview.png`. Shared `robots.txt`, `_headers`, and `netlify.toml` at repo root. Data in `data/`, templates in `template/` (workspace-only, blocked from serving by `netlify.toml`).
 
 ## Git Config
 - **GitHub org:** moralfibermedia
@@ -31,7 +31,7 @@ Human provides: company names, OpenSecrets amounts/percentages/URLs, title, hint
 1. Add entry to `data/puzzles.json`
 2. Stamp into `template/puzzle-template-barchart.html`
 3. Generate preview image (1200x630), copy shared files
-4. Output to `puzzles/{id}/`, update `index/index.html`
+4. Output to `puzzles/{id}/`, update root `index.html`
 
 ### Build a new text-match puzzle
 Human provides: quotes/facts, speakers/answers, source links, title, hint.
