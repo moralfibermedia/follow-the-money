@@ -7,15 +7,15 @@ description: Step-by-step deployment of static HTML/CSS/JS files to Netlify with
 
 ## Overview
 
-MFM uses a single-site monorepo architecture: one GitHub repo (`moralfibermedia/follow-the-money`) deployed as one Netlify site at `follow-the-money.moralfibermedia.com`. All pages are served as paths under that domain.
+MFM uses a single-site monorepo architecture: one GitHub repo (`moralfibermedia/follow-the-money`) deployed as one Netlify site at `followthemoney.moralfibermedia.com`. All pages are served as paths under that domain.
 
-**Stack:** Static HTML monorepo → GitHub → Netlify auto-deploy → Squarespace CNAME → follow-the-money.moralfibermedia.com
+**Stack:** Static HTML monorepo → GitHub → Netlify auto-deploy → Squarespace CNAME → followthemoney.moralfibermedia.com
 
 ---
 
 ## Site Map
 
-All pages are served from one Netlify site at `follow-the-money.moralfibermedia.com`:
+All pages are served from one Netlify site at `followthemoney.moralfibermedia.com`:
 
 | Page | Path | Repo folder |
 |------|------|-------------|
@@ -93,16 +93,16 @@ mkdir -p puzzles/new-puzzle-slug
 All cross-links use absolute URLs on the single domain:
 
 ```html
-<link rel="canonical" href="https://follow-the-money.moralfibermedia.com/puzzles/new-puzzle-slug">
-<meta property="og:url" content="https://follow-the-money.moralfibermedia.com/puzzles/new-puzzle-slug">
-<meta property="og:image" content="https://follow-the-money.moralfibermedia.com/puzzles/new-puzzle-slug/preview.png">
-<meta name="twitter:image" content="https://follow-the-money.moralfibermedia.com/puzzles/new-puzzle-slug/preview.png">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/new-puzzle-slug">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/new-puzzle-slug">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/new-puzzle-slug/preview.png">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/new-puzzle-slug/preview.png">
 ```
 
 Navigation links:
-- More Puzzles → `https://follow-the-money.moralfibermedia.com`
-- Fighters list → `https://follow-the-money.moralfibermedia.com/fighters`
-- Privacy & Terms → `https://follow-the-money.moralfibermedia.com/legal`
+- More Puzzles → `https://followthemoney.moralfibermedia.com`
+- Fighters list → `https://followthemoney.moralfibermedia.com/fighters`
+- Privacy & Terms → `https://followthemoney.moralfibermedia.com/legal`
 - Substack → `https://moralfibermedia.com` (external, different site)
 
 ### 4. Update the puzzle index
@@ -157,11 +157,11 @@ git push -u origin main
 
 In Netlify → Site settings → Domain management:
 - Click "Add domain alias"
-- Enter: `follow-the-money.moralfibermedia.com`
+- Enter: `followthemoney.moralfibermedia.com`
 
 In Squarespace → Domains → moralfibermedia.com → DNS Settings:
 - Add CNAME record:
-  - Host: `follow-the-money`
+  - Host: `followthemoney`
   - Value: `[site-name].netlify.app`
   - TTL: default
 
@@ -276,10 +276,10 @@ Blocks access to workspace-only folders (`data/`, `template/`, `scripts/`, `inde
 Each page should have in its `<head>`:
 - `<title>` — "Follow the Money — [Episode Name] | Moral Fiber Media"
 - `<meta name="description">` — unique, 50-160 characters
-- `<link rel="canonical">` — `https://follow-the-money.moralfibermedia.com/path/`
+- `<link rel="canonical">` — `https://followthemoney.moralfibermedia.com/path/`
 - Open Graph tags: og:title, og:description, og:url, og:image, og:site_name, og:type
 - Twitter Card: summary_large_image with title, description, image
-- OG image: absolute URL `https://follow-the-money.moralfibermedia.com/path/preview.png`
+- OG image: absolute URL `https://followthemoney.moralfibermedia.com/path/preview.png`
 
 See mfm-editorial-design skill for full SEO tag specification.
 

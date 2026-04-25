@@ -201,7 +201,7 @@ An embed code that news sites, educators, and civic orgs can drop into their pag
 
 ```html
 <iframe 
-  src="https://follow-the-money.moralfibermedia.com/embed/hardware-giants" 
+  src="https://followthemoney.moralfibermedia.com/embed/hardware-giants" 
   width="100%" 
   height="600" 
   frameborder="0">
@@ -211,7 +211,7 @@ An embed code that news sites, educators, and civic orgs can drop into their pag
 Or a web component:
 
 ```html
-<script src="https://follow-the-money.moralfibermedia.com/widget.js"></script>
+<script src="https://followthemoney.moralfibermedia.com/widget.js"></script>
 <follow-the-money puzzle="hardware-giants"></follow-the-money>
 ```
 
