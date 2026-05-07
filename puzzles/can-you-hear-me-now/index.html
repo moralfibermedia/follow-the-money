@@ -414,12 +414,42 @@ body {
 
 .tray-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 4px;
+  font-size: 13px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 14px;
+  color: var(--ink);
+  margin-bottom: 16px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.tray-label.armed .step-num { background: var(--gold); }
+.tray-label.complete .step-num { background: var(--green); }
+.tray-label.armed { color: var(--gold); }
+
+@keyframes attention-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.22); }
+}
+.logos-row.attention .logo-tile:not(.placed) {
+  animation: attention-pulse 1.8s ease-in-out infinite;
 }
 
 .logos-row {
@@ -1038,7 +1068,7 @@ body {
           </div>
         </div>
         <div class="drop-zone tap-target" data-company="att" id="drop-att">
-          <div class="drop-zone-text">Drop company here</div>
+          <div class="drop-zone-text">Match a company here</div>
         </div>
         <div class="source-reveal" id="src-att">
           <div class="src-label">Source</div>
@@ -1068,7 +1098,7 @@ body {
           </div>
         </div>
         <div class="drop-zone tap-target" data-company="verizon" id="drop-verizon">
-          <div class="drop-zone-text">Drop company here</div>
+          <div class="drop-zone-text">Match a company here</div>
         </div>
         <div class="source-reveal" id="src-verizon">
           <div class="src-label">Source</div>
@@ -1089,7 +1119,7 @@ body {
           </div>
         </div>
         <div class="drop-zone tap-target" data-company="tmobile" id="drop-tmobile">
-          <div class="drop-zone-text">Drop company here</div>
+          <div class="drop-zone-text">Match a company here</div>
         </div>
         <div class="source-reveal" id="src-tmobile">
           <div class="src-label">Source</div>
@@ -1101,8 +1131,8 @@ body {
 
   <!-- LOGO TRAY -->
   <div class="logos-tray" id="logosTray">
-    <div class="tray-label">Tap a company, then tap a chart to match</div>
-    <div class="logos-row" id="logosRow">
+    <div class="tray-label" id="trayLabel"><span class="step-num">1</span> <span id="trayLabelText">Tap a company below</span></div>
+    <div class="logos-row attention" id="logosRow">
       <div class="logo-tile" data-company="att" id="tile-att" onclick="selectTile(this)">
         <div class="logo-name">AT&T</div>
       </div>
@@ -1264,6 +1294,35 @@ window.addEventListener('load', () => {
   }, 400);
 });
 
+// STATE-AWARE INSTRUCTION UPDATER
+function updateInstructions() {
+  const trayLabel = document.getElementById('trayLabel');
+  const trayLabelText = document.getElementById('trayLabelText');
+  const stepNum = trayLabel.querySelector('.step-num');
+  const dropZones = document.querySelectorAll('.drop-zone.tap-target:not(.has-match) .drop-zone-text');
+
+  if (matches === 3) {
+    trayLabel.classList.remove('armed');
+    trayLabel.classList.add('complete');
+    stepNum.textContent = '✓';
+    trayLabelText.textContent = 'You did it — sources revealed';
+    return;
+  }
+
+  if (selectedTile) {
+    const name = selectedTile.querySelector('.logo-name').textContent.trim();
+    trayLabel.classList.add('armed');
+    stepNum.textContent = '2';
+    trayLabelText.textContent = 'Now tap the chart you think matches';
+    dropZones.forEach(dz => dz.textContent = 'Tap to place ' + name);
+  } else {
+    trayLabel.classList.remove('armed');
+    stepNum.textContent = '1';
+    trayLabelText.textContent = 'Tap a company below';
+    dropZones.forEach(dz => dz.textContent = 'Match a company here');
+  }
+}
+
 // TAP-BASED INTERACTION (works on mobile and desktop)
 function selectTile(tile) {
   if (tile.classList.contains('placed')) return;
@@ -1273,6 +1332,11 @@ function selectTile(tile) {
 
   selectedTile = tile;
   tile.classList.add('selected');
+
+  // First interaction kills the attention pulse on the tray
+  document.getElementById('logosRow').classList.remove('attention');
+
+  updateInstructions();
 }
 
 // Click on drop zones
@@ -1292,6 +1356,7 @@ document.querySelectorAll('.drop-zone.tap-target').forEach(zone => {
       handleCorrectMatch(guessCompany, this, selectedTile);
       selectedTile.classList.remove('selected');
       selectedTile = null;
+      updateInstructions();
     } else {
       // WRONG — keep tile selected so player can try again immediately
       handleWrongMatch(this);
@@ -1368,7 +1433,7 @@ function resetGame() {
   // Reset drop zones
   document.querySelectorAll('.drop-zone').forEach(zone => {
     zone.classList.remove('has-match');
-    zone.innerHTML = '<div class="drop-zone-text">Drop company here</div>';
+    zone.innerHTML = '<div class="drop-zone-text">Match a company here</div>';
   });
 
   // Reset sources
@@ -1390,6 +1455,10 @@ function resetGame() {
       bar.style.width = bar.dataset.target + '%';
     });
   }, 100);
+
+  // Reset instructions + restart attention pulse
+  document.getElementById('logosRow').classList.add('attention');
+  updateInstructions();
 }
 
 // CONFETTI
