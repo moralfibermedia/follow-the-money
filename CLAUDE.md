@@ -7,7 +7,7 @@ Monorepo for FactPuzzles by Moral Fiber Media — interactive civic puzzles buil
 - **Puzzles, not games.** Always use "puzzles" in user-facing copy.
 - **Editorial control is 100% human.** Claude builds/deploys. The human picks content. Never generate puzzle content autonomously.
 - **Every claim is sourced.** Every correct match reveals the source link.
-- **Tagline:** "We do the reading. You solve the puzzle."
+- **Tagline:** "We do the research. You solve the puzzle."
 - **CC BY 4.0** for original content. **CC BY-NC-SA 3.0** for OpenSecrets-derived puzzles.
 
 ## Architecture
