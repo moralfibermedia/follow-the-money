@@ -162,6 +162,47 @@ body {
   text-align: center;
 }
 
+/* TRAY LABEL (state-aware step indicator) */
+.tray-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.tray-label.armed .step-num { background: var(--gold); }
+.tray-label.complete .step-num { background: var(--green); }
+.tray-label.armed { color: var(--gold); }
+
+@keyframes attention-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.22); }
+}
+.answer-tiles.attention .answer-tile:not(.matched) {
+  animation: attention-pulse 1.8s ease-in-out infinite;
+}
+
 /* FACT CARDS */
 .fact-cards {
   display: flex;
@@ -459,8 +500,8 @@ body {
 
   <!-- ANSWER TILES -->
   <div class="puzzle-section">
-    <div class="section-label">Tap a Candidate</div>
-    <div class="answer-tiles">
+    <div class="tray-label" id="trayLabel"><span class="step-num">1</span> <span id="trayLabelText">Tap a candidate below</span></div>
+    <div class="answer-tiles attention" id="answerTiles">
       <div class="answer-tile" data-answer="jordan" onclick="selectAnswer(this)">
         Jen Jordan
         <span class="answer-tile-meta">Challenger</span>
@@ -481,7 +522,7 @@ body {
       <div class="fact-card" data-correct="jordan" id="fact-a" onclick="selectFact(this)">
         <div class="fact-card-label">Fact A · Background</div>
         <div class="fact-card-text">Former Georgia State Senator, representing District 6 as a Democrat.</div>
-        <div class="fact-drop" id="drop-a">Tap a candidate above, then tap here</div>
+        <div class="fact-drop" id="drop-a">Match a candidate here</div>
         <div class="fact-card-source" id="src-a">
           ✓ <a href="https://ballotpedia.org/Jen_Jordan" target="_blank" rel="noopener">Source: Ballotpedia — Jen Jordan</a>
         </div>
@@ -491,7 +532,7 @@ body {
       <div class="fact-card" data-correct="warren" id="fact-b" onclick="selectFact(this)">
         <div class="fact-card-label">Fact B · Partisanship Rating</div>
         <div class="fact-card-text">Rated <em>"Strong Republican"</em> in Ballotpedia's 2020 study of judicial partisanship before joining the court.</div>
-        <div class="fact-drop" id="drop-b">Tap a candidate above, then tap here</div>
+        <div class="fact-drop" id="drop-b">Match a candidate here</div>
         <div class="fact-card-source" id="src-b">
           ✓ <a href="https://ballotpedia.org/Ballotpedia%27s_Partisanship_in_State_Supreme_Courts_Project" target="_blank" rel="noopener">Source: Ballotpedia Partisanship Project, 2020</a>
         </div>
@@ -501,7 +542,7 @@ body {
       <div class="fact-card" data-correct="jordan" id="fact-c" onclick="selectFact(this)">
         <div class="fact-card-label">Fact C · Endorsements</div>
         <div class="fact-card-text">Endorsements include EMILY's List, Fair Fight Action, Reproductive Freedom for All, and the Democratic Party of Georgia.</div>
-        <div class="fact-drop" id="drop-c">Tap a candidate above, then tap here</div>
+        <div class="fact-drop" id="drop-c">Match a candidate here</div>
         <div class="fact-card-source" id="src-c">
           ✓ <a href="https://ballotpedia.org/Jen_Jordan" target="_blank" rel="noopener">Source: Ballotpedia — Endorsements</a>
         </div>
@@ -511,7 +552,7 @@ body {
       <div class="fact-card" data-correct="warren" id="fact-d" onclick="selectFact(this)">
         <div class="fact-card-label">Fact D · Endorsement</div>
         <div class="fact-card-text">Endorsed by Frontline Policy, a Christian advocacy group whose stated mission is <em>"a God-honoring Georgia."</em></div>
-        <div class="fact-drop" id="drop-d">Tap a candidate above, then tap here</div>
+        <div class="fact-drop" id="drop-d">Match a candidate here</div>
         <div class="fact-card-source" id="src-d">
           ✓ <a href="https://frontlinepolicy.com" target="_blank" rel="noopener">Source: Frontline Policy mission statement</a>
         </div>
@@ -586,10 +627,42 @@ let selectedAnswer = null;
 let matches = 0;
 const totalMatches = 4;
 
+function updateInstructions() {
+  const trayLabel = document.getElementById('trayLabel');
+  const trayLabelText = document.getElementById('trayLabelText');
+  const stepNum = trayLabel.querySelector('.step-num');
+  const drops = document.querySelectorAll('.fact-card:not(.matched) .fact-drop');
+
+  if (matches === totalMatches) {
+    trayLabel.classList.remove('armed');
+    trayLabel.classList.add('complete');
+    stepNum.textContent = '\u2713';
+    trayLabelText.textContent = 'You did it \u2014 sources revealed';
+    return;
+  }
+
+  if (selectedAnswer) {
+    trayLabel.classList.add('armed');
+    stepNum.textContent = '2';
+    trayLabelText.textContent = 'Now tap the fact that matches';
+    drops.forEach(dz => dz.textContent = 'Tap to place ' + names[selectedAnswer]);
+  } else {
+    trayLabel.classList.remove('armed');
+    stepNum.textContent = '1';
+    trayLabelText.textContent = 'Tap a candidate below';
+    drops.forEach(dz => dz.textContent = 'Match a candidate here');
+  }
+}
+
 function selectAnswer(tile) {
   document.querySelectorAll('.answer-tile').forEach(t => t.classList.remove('selected'));
   tile.classList.add('selected');
   selectedAnswer = tile.dataset.answer;
+
+  // First interaction kills the attention pulse
+  document.getElementById('answerTiles').classList.remove('attention');
+
+  updateInstructions();
 }
 
 function selectFact(card) {
@@ -606,6 +679,7 @@ function selectFact(card) {
     document.querySelectorAll('.answer-tile').forEach(t => t.classList.remove('selected'));
     selectedAnswer = null;
     matches++;
+    updateInstructions();
 
     if (matches === totalMatches) {
       setTimeout(() => {
@@ -625,7 +699,7 @@ function resetPuzzle() {
   document.querySelectorAll('.fact-card').forEach((card, i) => {
     card.classList.remove('matched', 'wrong', 'selected');
     const drop = card.querySelector('.fact-drop');
-    drop.textContent = 'Tap a candidate above, then tap here';
+    drop.textContent = 'Match a candidate here';
   });
   document.querySelectorAll('.answer-tile').forEach(tile => {
     tile.classList.remove('matched', 'selected');
@@ -633,6 +707,13 @@ function resetPuzzle() {
   document.getElementById('victory').classList.remove('show');
   selectedAnswer = null;
   matches = 0;
+
+  // Reset instructions + restart attention pulse
+  const trayLabel = document.getElementById('trayLabel');
+  trayLabel.classList.remove('armed', 'complete');
+  document.getElementById('answerTiles').classList.add('attention');
+  updateInstructions();
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
