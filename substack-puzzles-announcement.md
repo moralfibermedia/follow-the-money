@@ -55,6 +55,6 @@ Know someone who belongs on this list? Send us their name at contact@moralfiberm
 
 Everything we publish is free and openly licensed. The puzzles use data from OpenSecrets.org under CC BY-NC-SA 3.0. Our original content is CC BY 4.0 — share it, remix it, build on it. That's the point.
 
-We do the reading so you don't have to.
+We do the research so you don't have to.
 
 *— Moral Fiber Media*

@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <!--
   ============================================================
-  Follow the Money — Text Match Puzzle Template
+  Follow the Money — Behind the Bench
+  Georgia Supreme Court · Sarah Warren's seat · 2026
   Created by Moral Fiber Media — moralfibermedia.com
 
   Licensed under Creative Commons Attribution 4.0 International
   (CC BY 4.0) — https://creativecommons.org/licenses/by/4.0/
-
-  This template is for text-based puzzles where players match
-  claims, quotes, bills, or facts to their correct sources.
   ============================================================
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Follow the Money — Who Said It? | Moral Fiber Media</title>
+<title>Behind the Bench — Georgia Supreme Court | Moral Fiber Media</title>
+
+<meta name="description" content="The race is officially nonpartisan. The endorsements aren't. A FactPuzzle on Georgia's 2026 Supreme Court race for Sarah Warren's seat.">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/behind-the-bench">
+
+<meta property="og:title" content="Behind the Bench — A FactPuzzle">
+<meta property="og:description" content="Georgia Supreme Court, Sarah Warren's seat. Two candidates. Match the fact to the judge.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/behind-the-bench">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/behind-the-bench/preview.png">
+<meta property="og:site_name" content="Moral Fiber Media">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Behind the Bench — A FactPuzzle">
+<meta name="twitter:description" content="Georgia Supreme Court, Sarah Warren's seat. Two candidates. Match the fact to the judge.">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/behind-the-bench/preview.png">
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -50,7 +63,6 @@ body {
   padding: 0 20px 60px;
 }
 
-/* FULL-BLEED */
 .full-bleed {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -135,8 +147,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* ============ PUZZLE AREA ============ */
-
+/* PUZZLE AREA */
 .puzzle-section {
   margin: 24px 0;
 }
@@ -151,7 +162,7 @@ body {
   text-align: center;
 }
 
-/* FACT CARDS (left side — the claims/quotes/descriptions) */
+/* FACT CARDS */
 .fact-cards {
   display: flex;
   flex-direction: column;
@@ -200,9 +211,7 @@ body {
   line-height: 1.5;
   color: var(--ink);
 }
-.fact-card-text em {
-  font-style: italic;
-}
+.fact-card-text em { font-style: italic; }
 .fact-card-source {
   display: none;
   margin-top: 12px;
@@ -216,7 +225,6 @@ body {
 }
 .fact-card.matched .fact-card-source { display: block; }
 
-/* DROP ZONE on fact cards */
 .fact-drop {
   margin-top: 12px;
   border: 2px dashed var(--muted);
@@ -241,7 +249,7 @@ body {
   font-weight: 700;
 }
 
-/* ANSWER TILES (right side — the names/sources to match) */
+/* ANSWER TILES */
 .answer-tiles {
   display: flex;
   flex-wrap: wrap;
@@ -263,7 +271,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   transition: all 0.2s ease;
   background: var(--paper);
-  min-width: 140px;
+  min-width: 200px;
 }
 .answer-tile:hover { border-color: var(--gold); }
 .answer-tile.selected {
@@ -271,16 +279,19 @@ body {
   background: var(--gold);
   color: white;
 }
-.answer-tile.matched {
-  border-color: var(--green);
-  background: var(--green);
-  color: white;
-  cursor: default;
-  opacity: 0.7;
-  pointer-events: none;
+.answer-tile-meta {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 4px;
+  text-transform: uppercase;
 }
+.answer-tile.selected .answer-tile-meta { color: rgba(255,255,255,0.8); }
 
-/* SHAKE ANIMATION */
+/* SHAKE */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   15% { transform: translateX(-8px); }
@@ -431,11 +442,11 @@ body {
 
   <!-- MASTHEAD -->
   <div class="masthead full-bleed">
-    <div class="kicker">Moral Fiber Media · Civic Puzzle</div>
-    <h1>WHO <em>SAID IT?</em></h1>
-    <div class="puzzle-tag">Puzzle #6</div>
-    <div class="subtitle">Three quotes from the Georgia State Election Board hearing. Three officials. Can you match the quote to the speaker?</div>
-    <div class="dateline">DATA SOURCE: GEORGIA SECRETARY OF STATE · MARCH 2026 HEARING TRANSCRIPT</div>
+    <div class="kicker">Moral Fiber Media · FactPuzzle</div>
+    <h1>BEHIND THE <em>BENCH</em></h1>
+    <div class="puzzle-tag">Georgia Supreme Court · 2026</div>
+    <div class="subtitle">Sarah Warren's seat. Two candidates. Match each fact to the right judge.</div>
+    <div class="dateline">SOURCES: BALLOTPEDIA · PUBLIC ENDORSEMENT RECORDS</div>
   </div>
 
   <!-- INTRO BAR -->
@@ -444,50 +455,65 @@ body {
   </div>
 
   <!-- HINT -->
-  <div class="hint">Hint: One of these quotes is about trucks. Yes, trucks.</div>
+  <div class="hint">Hint: The race is officially nonpartisan. The endorsements aren't.</div>
 
   <!-- ANSWER TILES -->
   <div class="puzzle-section">
-    <div class="section-label">Match the Speaker</div>
+    <div class="section-label">Tap a Candidate</div>
     <div class="answer-tiles">
-      <div class="answer-tile" data-answer="janelle" onclick="selectAnswer(this)">Janelle King</div>
-      <div class="answer-tile" data-answer="nguyen" onclick="selectAnswer(this)">Dr. Nguyen</div>
-      <div class="answer-tile" data-answer="johnston" onclick="selectAnswer(this)">Rick Johnston</div>
+      <div class="answer-tile" data-answer="jordan" onclick="selectAnswer(this)">
+        Jen Jordan
+        <span class="answer-tile-meta">Challenger</span>
+      </div>
+      <div class="answer-tile" data-answer="warren" onclick="selectAnswer(this)">
+        Sarah Hawkins Warren
+        <span class="answer-tile-meta">Incumbent</span>
+      </div>
     </div>
   </div>
 
   <!-- FACT CARDS -->
   <div class="puzzle-section">
-    <div class="section-label">Who Said Each Quote?</div>
+    <div class="section-label">Match Each Fact</div>
     <div class="fact-cards">
 
       <!-- Fact A -->
-      <div class="fact-card" data-correct="johnston" id="fact-a" onclick="selectFact(this)">
-        <div class="fact-card-label">Quote A</div>
-        <div class="fact-card-text">"We need to be able to verify that the trucks carrying ballots are actually the trucks that are supposed to be carrying ballots."</div>
-        <div class="fact-drop" id="drop-a">Tap a name above, then tap here</div>
+      <div class="fact-card" data-correct="jordan" id="fact-a" onclick="selectFact(this)">
+        <div class="fact-card-label">Fact A · Background</div>
+        <div class="fact-card-text">Former Georgia State Senator, representing District 6 as a Democrat.</div>
+        <div class="fact-drop" id="drop-a">Tap a candidate above, then tap here</div>
         <div class="fact-card-source" id="src-a">
-          ✓ <a href="#" target="_blank">Source: Hearing Transcript, p. 14</a>
+          ✓ <a href="https://ballotpedia.org/Jen_Jordan" target="_blank" rel="noopener">Source: Ballotpedia — Jen Jordan</a>
         </div>
       </div>
 
       <!-- Fact B -->
-      <div class="fact-card" data-correct="janelle" id="fact-b" onclick="selectFact(this)">
-        <div class="fact-card-label">Quote B</div>
-        <div class="fact-card-text">"The board has a responsibility to ensure that every legal vote is counted, but we cannot do that without the tools to investigate."</div>
-        <div class="fact-drop" id="drop-b">Tap a name above, then tap here</div>
+      <div class="fact-card" data-correct="warren" id="fact-b" onclick="selectFact(this)">
+        <div class="fact-card-label">Fact B · Partisanship Rating</div>
+        <div class="fact-card-text">Rated <em>"Strong Republican"</em> in Ballotpedia's 2020 study of judicial partisanship before joining the court.</div>
+        <div class="fact-drop" id="drop-b">Tap a candidate above, then tap here</div>
         <div class="fact-card-source" id="src-b">
-          ✓ <a href="#" target="_blank">Source: Hearing Transcript, p. 7</a>
+          ✓ <a href="https://ballotpedia.org/Ballotpedia%27s_Partisanship_in_State_Supreme_Courts_Project" target="_blank" rel="noopener">Source: Ballotpedia Partisanship Project, 2020</a>
         </div>
       </div>
 
       <!-- Fact C -->
-      <div class="fact-card" data-correct="nguyen" id="fact-c" onclick="selectFact(this)">
-        <div class="fact-card-label">Quote C</div>
-        <div class="fact-card-text">"There is no evidence of widespread double voting. What we have is a handful of cases that the existing system already caught."</div>
-        <div class="fact-drop" id="drop-c">Tap a name above, then tap here</div>
+      <div class="fact-card" data-correct="jordan" id="fact-c" onclick="selectFact(this)">
+        <div class="fact-card-label">Fact C · Endorsements</div>
+        <div class="fact-card-text">Endorsements include EMILY's List, Fair Fight Action, Reproductive Freedom for All, and the Democratic Party of Georgia.</div>
+        <div class="fact-drop" id="drop-c">Tap a candidate above, then tap here</div>
         <div class="fact-card-source" id="src-c">
-          ✓ <a href="#" target="_blank">Source: Hearing Transcript, p. 22</a>
+          ✓ <a href="https://ballotpedia.org/Jen_Jordan" target="_blank" rel="noopener">Source: Ballotpedia — Endorsements</a>
+        </div>
+      </div>
+
+      <!-- Fact D -->
+      <div class="fact-card" data-correct="warren" id="fact-d" onclick="selectFact(this)">
+        <div class="fact-card-label">Fact D · Endorsement</div>
+        <div class="fact-card-text">Endorsed by Frontline Policy, a Christian advocacy group whose stated mission is <em>"a God-honoring Georgia."</em></div>
+        <div class="fact-drop" id="drop-d">Tap a candidate above, then tap here</div>
+        <div class="fact-card-source" id="src-d">
+          ✓ <a href="https://frontlinepolicy.com" target="_blank" rel="noopener">Source: Frontline Policy mission statement</a>
         </div>
       </div>
 
@@ -497,10 +523,11 @@ body {
   <!-- VICTORY BANNER -->
   <div class="victory-banner full-bleed" id="victory">
     <h2>You <em>solved it.</em></h2>
-    <p style="font-size: 14px; color: #bbb; margin-bottom: 20px;">Every quote sourced. Every speaker verified.</p>
+    <p style="font-size: 14px; color: #bbb; margin-bottom: 20px;">Two candidates. One bench. The endorsements told the story.</p>
     <div class="victory-sources">
-      <a href="#" target="_blank">Full Hearing Transcript — Georgia SEB</a>
-      <a href="#" target="_blank">Georgia RICO Part Duex — S2 E1 Coverage</a>
+      <a href="https://ballotpedia.org/Supreme_Court_of_Georgia_elections,_2026" target="_blank" rel="noopener">Ballotpedia — Georgia Supreme Court Elections, 2026</a>
+      <a href="https://ballotpedia.org/Sarah_Warren" target="_blank" rel="noopener">Ballotpedia — Sarah Hawkins Warren</a>
+      <a href="https://ballotpedia.org/Jen_Jordan" target="_blank" rel="noopener">Ballotpedia — Jen Jordan</a>
     </div>
     <button class="btn btn-primary" onclick="shareGame()">📤 Share This Puzzle</button>
     <a class="btn" href="https://followthemoney.moralfibermedia.com" style="display:inline-block; margin-top: 10px;">More Puzzles →</a>
@@ -517,12 +544,12 @@ body {
   <div class="share-section">
     <div class="section-head">Share & Follow</div>
     <div class="social-row">
-      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank"><span class="social-icon">▶</span> YouTube</a>
-      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank"><span class="social-icon">♪</span> TikTok</a>
-      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank"><span class="social-icon">🦋</span> Bluesky</a>
-      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank"><span class="social-icon">💬</span> Sez.us</a>
-      <a class="social-link" href="https://moralfibermedia.com" target="_blank"><span class="social-icon">✉</span> Substack</a>
-      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank"><span class="social-icon">☕</span> Leave a Tip</a>
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank" rel="noopener">▶ YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank" rel="noopener">♪ TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank" rel="noopener">🦋 Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank" rel="noopener">💬 Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank" rel="noopener">✉ Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank" rel="noopener">☕ Leave a Tip</a>
     </div>
   </div>
 
@@ -530,15 +557,15 @@ body {
   <div class="license-block">
     <div class="license-row">
       <span class="license-tag">License</span>
-      <span>This puzzle is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> · Original content by Moral Fiber Media</span>
+      <span>This puzzle is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · Original content by Moral Fiber Media</span>
     </div>
     <div class="license-row">
-      <span class="license-tag data-tag">Credit</span>
-      <span>Created by <a href="https://moralfibermedia.com" target="_blank">Moral Fiber Media</a> · Source data from public hearing transcripts</span>
+      <span class="license-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Source data from Ballotpedia &amp; public endorsement records</span>
     </div>
     <div class="license-row">
-      <span class="license-tag data-tag">Legal</span>
-      <span><a href="https://followthemoney.moralfibermedia.com/legal" target="_blank">Privacy & Terms</a></span>
+      <span class="license-tag">Legal</span>
+      <span><a href="https://followthemoney.moralfibermedia.com/legal" target="_blank" rel="noopener">Privacy &amp; Terms</a></span>
     </div>
   </div>
 
@@ -546,23 +573,20 @@ body {
 
 <script>
 // ============================================================
-// PUZZLE ENGINE — TEXT MATCH VERSION
-// Same mechanic as bar-chart puzzles: select answer, tap fact
+// PUZZLE ENGINE — TEXT MATCH (multi-match per answer)
+// Two candidates, four facts. Each candidate matches twice.
 // ============================================================
 
 const names = {
-  janelle: 'Janelle King',
-  nguyen: 'Dr. Nguyen',
-  johnston: 'Rick Johnston'
+  jordan: 'Jen Jordan',
+  warren: 'Sarah Hawkins Warren'
 };
 
 let selectedAnswer = null;
 let matches = 0;
-const totalMatches = 3;
+const totalMatches = 4;
 
 function selectAnswer(tile) {
-  if (tile.classList.contains('matched')) return;
-
   document.querySelectorAll('.answer-tile').forEach(t => t.classList.remove('selected'));
   tile.classList.add('selected');
   selectedAnswer = tile.dataset.answer;
@@ -575,14 +599,11 @@ function selectFact(card) {
   const correct = card.dataset.correct;
 
   if (selectedAnswer === correct) {
-    // CORRECT
     card.classList.add('matched');
     card.querySelector('.fact-drop').textContent = '✓ ' + names[selectedAnswer];
 
-    const tile = document.querySelector(`.answer-tile[data-answer="${selectedAnswer}"]`);
-    tile.classList.remove('selected');
-    tile.classList.add('matched');
-
+    // Clear selection but keep candidate tile available — each candidate matches multiple facts
+    document.querySelectorAll('.answer-tile').forEach(t => t.classList.remove('selected'));
     selectedAnswer = null;
     matches++;
 
@@ -595,17 +616,16 @@ function selectFact(card) {
       }, 400);
     }
   } else {
-    // WRONG
     card.classList.add('wrong');
     setTimeout(() => card.classList.remove('wrong'), 400);
   }
 }
 
 function resetPuzzle() {
-  document.querySelectorAll('.fact-card').forEach(card => {
+  document.querySelectorAll('.fact-card').forEach((card, i) => {
     card.classList.remove('matched', 'wrong', 'selected');
     const drop = card.querySelector('.fact-drop');
-    drop.textContent = 'Tap a name above, then tap here';
+    drop.textContent = 'Tap a candidate above, then tap here';
   });
   document.querySelectorAll('.answer-tile').forEach(tile => {
     tile.classList.remove('matched', 'selected');
@@ -617,10 +637,10 @@ function resetPuzzle() {
 }
 
 function shareGame() {
-  const text = 'Three quotes from a Georgia election hearing. Three officials. Can you match the quote to the speaker? 🔍';
+  const text = "Georgia Supreme Court, Sarah Warren's seat. Two candidates. The race is officially nonpartisan — the endorsements aren't. Can you match the fact to the judge? 🔍⚖️";
   const url = window.location.href;
   if (navigator.share) {
-    navigator.share({ title: 'Follow the Money — Who Said It?', text, url });
+    navigator.share({ title: 'Behind the Bench — A FactPuzzle', text, url });
   } else {
     navigator.clipboard.writeText(text + '\n' + url).then(() => {
       const btn = event.target;

@@ -2,7 +2,7 @@
 
 Interactive civic puzzles built on public data. Free, sourced, openly licensed.
 
-**We do the reading. You solve the puzzle.**
+**We do the research. You solve the puzzle.**
 
 ## Live Sites
 
