@@ -273,6 +273,28 @@ body {
   box-shadow: 0 8px 24px rgba(184, 134, 11, 0.2);
 }
 
+/* REPORT (editorial / non-puzzle) */
+.puzzle-card.report {
+  border-color: var(--red);
+}
+.puzzle-card.report .card-header {
+  background: linear-gradient(135deg, var(--ink) 0%, #3a0e0e 100%);
+}
+.puzzle-card.report .card-puzzle-num { color: var(--red); }
+.puzzle-card.report .card-title { color: var(--red); font-style: normal; }
+.puzzle-card.report .play-btn {
+  background: var(--red);
+  border-color: var(--red);
+}
+.puzzle-card.report .play-btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.puzzle-card.report:hover {
+  border-color: var(--red);
+  box-shadow: 0 8px 24px rgba(214, 48, 49, 0.2);
+}
+
 .card-hook {
   font-size: 13px;
   font-style: italic;
@@ -833,6 +855,30 @@ body {
         </div>
         <div class="card-hook">Georgia Supreme Court, 2026. The race is officially nonpartisan — the endorsements aren't.</div>
         <a class="play-btn" href="/puzzles/behind-the-bench">▶ Play Now</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REPORTS -->
+  <div class="section-label">Reports · Read the Receipts</div>
+  <div class="puzzle-grid">
+
+    <!-- 2026 Georgia Election Bills Scorecard -->
+    <div class="puzzle-card report">
+      <div class="card-header">
+        <div class="card-puzzle-num">★ Report</div>
+        <div class="card-status live">New</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">"2026 GA Election Bills"</div>
+        <div class="card-companies">
+          <div class="company-chip"><div class="chip-dot"></div> 0 election bills became law</div>
+          <div class="company-chip"><div class="chip-dot"></div> 10 voter-suppression bills failed</div>
+          <div class="company-chip"><div class="chip-dot"></div> 13 pro-voter bills, no hearing</div>
+        </div>
+        <div class="card-hook">Georgia's 2026 legislative session, in numbers — with a plain-language guide and a list of the bills they wouldn't even hear.</div>
+        <a class="play-btn" href="/2026-ga-elections-legislation/">📊 Read the Scorecard →</a>
       </div>
     </div>
 
