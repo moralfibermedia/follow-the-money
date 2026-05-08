@@ -57,19 +57,20 @@ body {
 .full-bleed-edge { width: 100vw; margin-left: calc(-50vw + 50%); padding: 22px max(32px, calc(50vw - 540px)); }
 
 .masthead {
-  background: var(--ink); color: var(--paper); text-align: center;
+  background: var(--paper); color: var(--ink); text-align: center;
+  border-top: 5px solid var(--ink); border-bottom: 4px solid var(--red);
   padding: 40px max(32px, calc(50vw - 540px)) 32px;
   border-bottom: 5px solid var(--red);
 }
-.masthead .kicker { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-highlight); margin-bottom: 12px; font-weight: 700; }
+.masthead .kicker { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 700; }
 .masthead h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 6vw, 52px); line-height: 1.1; margin-bottom: 8px; }
 .masthead h1 .red { color: var(--red); }
-.masthead .subtitle { font-family: 'Source Serif 4', serif; font-size: 19px; font-style: italic; font-weight: 400; color: #d4cdc0; margin-bottom: 14px; }
+.masthead .subtitle { font-family: 'Source Serif 4', serif; font-size: 19px; font-style: italic; font-weight: 400; color: var(--muted); margin-bottom: 14px; }
 .masthead .dateline { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
 
-.intro-bar { background: var(--ink); color: var(--paper); text-align: center; padding: 28px max(32px, calc(50vw - 540px)); border-bottom: 3px solid var(--rule); }
+.intro-bar { background: var(--paper); color: var(--ink); text-align: center; padding: 28px max(32px, calc(50vw - 540px)); border-bottom: 2px solid var(--ink); }
 .intro-bar p { font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 400; font-style: italic; max-width: 760px; margin: 0 auto; }
-.intro-bar strong { color: var(--gold-highlight); font-weight: 600; }
+.intro-bar strong { color: var(--red); font-weight: 700; }
 
 .scoreboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border: 3px solid var(--ink); animation: fadeIn 0.6s ease; }
 .score-cell { text-align: center; padding: 24px 16px; border-right: 2px solid var(--ink); }
