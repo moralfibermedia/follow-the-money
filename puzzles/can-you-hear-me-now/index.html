@@ -1045,6 +1045,23 @@ body {
     <div class="score-item">Attempts: <span id="attemptCount">0</span></div>
   </div>
 
+  <!-- LOGO TRAY -->
+  <div class="logos-tray" id="logosTray">
+    <div class="tray-label" id="trayLabel"><span class="step-num">1</span> <span id="trayLabelText">Tap a company below</span></div>
+    <div class="logos-row attention" id="logosRow">
+      <div class="logo-tile" data-company="att" id="tile-att" onclick="selectTile(this)">
+        <div class="logo-name">AT&T</div>
+      </div>
+      <div class="logo-tile" data-company="verizon" id="tile-verizon" onclick="selectTile(this)">
+        <div class="logo-name">Verizon</div>
+      </div>
+      <div class="logo-tile" data-company="tmobile" id="tile-tmobile" onclick="selectTile(this)">
+        <div class="logo-name">T-Mobile</div>
+      </div>
+    </div>
+    <div class="hint-text" id="hintText">Hint: One spent nothing. The other two look almost identical — almost</div>
+  </div>
+
   <!-- CHART CARDS -->
   <div class="charts-grid" id="chartsGrid">
     <!-- Card A: AT&T — Dem-leaning, biggest -->
@@ -1127,23 +1144,6 @@ body {
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- LOGO TRAY -->
-  <div class="logos-tray" id="logosTray">
-    <div class="tray-label" id="trayLabel"><span class="step-num">1</span> <span id="trayLabelText">Tap a company below</span></div>
-    <div class="logos-row attention" id="logosRow">
-      <div class="logo-tile" data-company="att" id="tile-att" onclick="selectTile(this)">
-        <div class="logo-name">AT&T</div>
-      </div>
-      <div class="logo-tile" data-company="verizon" id="tile-verizon" onclick="selectTile(this)">
-        <div class="logo-name">Verizon</div>
-      </div>
-      <div class="logo-tile" data-company="tmobile" id="tile-tmobile" onclick="selectTile(this)">
-        <div class="logo-name">T-Mobile</div>
-      </div>
-    </div>
-    <div class="hint-text" id="hintText">Hint: One spent nothing. The other two look almost identical — almost</div>
   </div>
 
   <!-- VICTORY -->
