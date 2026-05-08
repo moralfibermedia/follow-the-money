@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading a Bill's Status — Moral Fiber Media</title>
+<meta name="description" content="Plain-language guide to the Georgia legislative status terms you see on every bill: Hopper, Read and Referred, Engrossed, Crossover Day, Sine Die, and more.">
+<meta property="og:title" content="Bill Status: A Plain Language Guide | Moral Fiber Media">
+<meta property="og:description" content="Plain-language guide to Georgia legislative status: Hopper, Read and Referred, Engrossed, Crossover Day, Sine Die, and the rest of the lifecycle.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation/bill-status">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation/bill-status">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation/bill-status/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bill Status: A Plain Language Guide | Moral Fiber Media">
+<meta name="twitter:description" content="Plain-language guide to Georgia legislative status: Hopper, Read and Referred, Engrossed, Crossover Day, Sine Die, and the rest of the lifecycle.">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation/bill-status/preview.png">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+  --green: #27ae60;
+  --provoter: #1a3a5c;
+  --gold-highlight: #f0c040;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+.full-bleed { width: 100vw; margin-left: calc(-50vw + 50%); position: relative; }
+.full-bleed-edge { width: 100vw; margin-left: calc(-50vw + 50%); padding: 22px max(32px, calc(50vw - 460px)); }
+
+.masthead {
+  background: var(--ink); color: var(--paper); text-align: center;
+  padding: 40px max(32px, calc(50vw - 460px)) 32px;
+  border-bottom: 5px solid var(--gold-highlight);
+}
+.masthead .kicker { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-highlight); margin-bottom: 12px; }
+.masthead .kicker a { color: var(--gold-highlight); text-decoration: none; border-bottom: 1px dotted var(--gold-highlight); }
+.masthead h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 5.5vw, 48px); line-height: 1.1; margin-bottom: 8px; }
+.masthead h1 .accent { color: var(--gold-highlight); }
+.masthead .subtitle { font-family: 'Source Serif 4', serif; font-size: 17px; font-style: italic; font-weight: 300; color: #bbb5a8; margin-bottom: 14px; max-width: 640px; margin-left: auto; margin-right: auto; }
+.masthead .dateline { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+
+.intro-bar { background: var(--ink); color: var(--paper); text-align: center; padding: 28px max(32px, calc(50vw - 460px)); border-bottom: 3px solid var(--rule); }
+.intro-bar p { font-family: 'Source Serif 4', serif; font-size: 17px; font-weight: 300; font-style: italic; max-width: 720px; margin: 0 auto; }
+.intro-bar strong { color: var(--gold-highlight); font-weight: 600; }
+
+/* TABLE OF CONTENTS */
+.toc {
+  border: 3px solid var(--ink);
+  margin: 32px 0;
+  background: var(--paper);
+  padding: 22px 26px;
+}
+.toc-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 4px 12px; margin-bottom: 14px; }
+.toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 24px; }
+.toc a { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1px; color: var(--ink); text-decoration: none; padding: 6px 0; border-bottom: 1px dashed var(--rule); display: block; transition: color 0.15s; }
+.toc a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.toc a .emoji { margin-right: 8px; }
+
+/* LIFE OF A BILL FLOW */
+.flow-section { margin: 44px 0; }
+.flow-head {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 28px);
+  margin-bottom: 8px;
+}
+.flow-subhead {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.flow-list {
+  border: 3px solid var(--ink);
+  background: var(--paper);
+  padding: 0;
+  list-style: none;
+  counter-reset: stage;
+}
+.flow-stage {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--rule);
+  counter-increment: stage;
+}
+.flow-stage:last-child { border-bottom: none; }
+.flow-stage::before {
+  content: counter(stage);
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--gold-highlight);
+  background: var(--ink);
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.flow-stage-content { flex: 1; }
+.flow-stage h3 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+.flow-stage p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+.flow-stage code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  background: var(--ink);
+  color: var(--gold-highlight);
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+/* GLOSSARY SECTIONS */
+.glossary-section { margin: 48px 0; scroll-margin-top: 20px; }
+.section-head {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(22px, 3.5vw, 28px);
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+.section-head .emoji { margin-right: 10px; }
+.section-intro {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.term-card {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  transition: background 0.15s;
+}
+.term-card:hover { background: #ebe5db; }
+.term-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--gold-highlight);
+  padding: 4px 10px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.term-row { margin-bottom: 10px; }
+.term-row:last-child { margin-bottom: 0; }
+.term-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+.term-text {
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.term-signal { color: var(--provoter); }
+.term-signal-text {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* SOURCES BLOCK (reused style from other pages) */
+.sources-block { border: 3px solid var(--ink); padding: 24px 28px; margin: 36px 0 0; background: var(--paper); }
+.sources-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 4px 12px; margin-bottom: 16px; }
+.sources-intro { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; font-style: italic; }
+.sources-list { list-style: none; padding: 0; margin: 0; }
+.sources-list li { font-size: 14px; line-height: 1.6; padding: 10px 0; border-bottom: 1px dashed var(--rule); color: var(--ink); }
+.sources-list li:last-child { border-bottom: none; }
+.sources-list li strong { font-family: 'Source Serif 4', serif; font-weight: 600; }
+.sources-list li .src-detail { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+.sources-list a { color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-decoration: none; border-bottom: 1px dotted var(--gold); padding-bottom: 1px; }
+.sources-list a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* BOTTOM CTA */
+.bottom-cta { background: var(--ink); color: var(--paper); text-align: center; padding: 36px max(32px, calc(50vw - 460px)); border-top: 5px solid var(--gold-highlight); }
+.bottom-cta h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(20px, 4vw, 28px); margin-bottom: 14px; color: var(--gold-highlight); }
+.bottom-cta p { font-size: 15px; font-style: italic; font-weight: 300; color: #bbb5a8; max-width: 640px; margin: 0 auto 20px; }
+.bottom-cta .cta-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.bottom-cta .cta-btn { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 12px 22px; border: 2px solid var(--gold-highlight); color: var(--gold-highlight); text-decoration: none; transition: all 0.2s; }
+.bottom-cta .cta-btn:hover { background: var(--gold-highlight); color: var(--ink); }
+
+/* SHARE & FOLLOW */
+.share-follow { text-align: center; padding: 32px 0; }
+.share-follow h3 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; margin-bottom: 18px; }
+.social-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.social-btn { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 10px 18px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); text-decoration: none; transition: all 0.2s ease; cursor: pointer; }
+.social-btn:hover { background: var(--ink); color: var(--paper); }
+
+/* LICENSE */
+.license-block { border-top: 3px solid var(--ink); padding: 20px 0 40px; margin-top: 20px; }
+.license-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; margin-bottom: 6px; }
+.license-tag.lic { background: var(--ink); color: var(--paper); }
+.license-tag.credit { background: #d6d0c6; color: var(--muted); }
+.license-text { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); line-height: 1.6; }
+.license-text a { color: var(--gold); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeIn 0.6s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+@media (max-width: 700px) {
+  .toc-grid { grid-template-columns: 1fr; }
+  .flow-stage { flex-direction: row; gap: 14px; padding: 16px 18px; }
+  .flow-stage::before { width: 36px; height: 36px; font-size: 22px; }
+  .social-buttons { flex-direction: column; align-items: center; }
+  .social-btn { width: 100%; max-width: 260px; text-align: center; }
+  .bottom-cta .cta-buttons { flex-direction: column; align-items: center; }
+  .bottom-cta .cta-btn { width: 100%; max-width: 260px; }
+}
+
+@media (max-width: 500px) {
+  .container { padding: 0 16px; }
+  .masthead { padding: 28px 16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="full-bleed masthead animate-in">
+  <div class="kicker"><a href="/2026-ga-elections-legislation/">← Back to Scorecard</a> · Plain Language Reference</div>
+  <h1>Reading a Bill's <span class="accent">Status</span></h1>
+  <div class="subtitle">What does "Senate Read and Referred" actually mean? A plain-language guide to the legislative jargon on every Georgia bill.</div>
+  <div class="dateline">Georgia General Assembly · Editorial Reference</div>
+</div>
+
+<div class="full-bleed-edge intro-bar animate-in delay-1">
+  <p>Every Georgia bill carries a status — <strong>"Hopper,"</strong> <strong>"Read and Referred,"</strong> <strong>"Withdrawn, Recommitted,"</strong> <strong>"Engrossed."</strong> These aren't decorative. Each one tells you exactly where a bill is in the process, and what its chances are. Here's how to read them.</p>
+</div>
+
+<div class="container">
+
+  <div class="toc animate-in delay-2">
+    <span class="toc-tag">Jump to</span>
+    <div class="toc-grid">
+      <a href="#flow"><span class="emoji">🗺️</span>Life of a Bill</a>
+      <a href="#start"><span class="emoji">🌱</span>Where Bills Begin</a>
+      <a href="#committee"><span class="emoji">📋</span>Committee Stages</a>
+      <a href="#floor"><span class="emoji">🏛️</span>Floor Action</a>
+      <a href="#chambers"><span class="emoji">🔄</span>Cross-Chamber Movement</a>
+      <a href="#stuck"><span class="emoji">⚠️</span>How Bills Stall or Die</a>
+      <a href="#end"><span class="emoji">📜</span>The End of the Road</a>
+    </div>
+  </div>
+
+  <div class="flow-section animate-in delay-3" id="flow">
+    <h2 class="flow-head">🗺️ Life of a Bill</h2>
+    <p class="flow-subhead">A simplified flow. Most bills die before reaching step 5.</p>
+    <ol class="flow-list">
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Filed</h3>
+          <p>A legislator drafts a bill (often with the Office of Legislative Counsel) and files it with the Clerk of the House or Secretary of the Senate. Status: <code>HOPPER</code> or <code>PREFILE</code>.</p>
+        </div>
+      </li>
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Introduced</h3>
+          <p>The bill's title is read aloud on the chamber floor and assigned to a standing committee. Status: <code>READ AND REFERRED</code>.</p>
+        </div>
+      </li>
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Committee considers it</h3>
+          <p>The committee may hold hearings, accept amendments, write a substitute, or do nothing at all. Most bills die right here.</p>
+        </div>
+      </li>
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Reported to the floor</h3>
+          <p>If the committee approves, the bill heads to the full chamber for debate and a vote. Status: <code>COMMITTEE FAVORABLY REPORTED</code>.</p>
+        </div>
+      </li>
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Floor vote</h3>
+          <p>The chamber debates, possibly amends, and votes. Status: <code>PASSAGE</code> or <code>LOST</code>.</p>
+        </div>
+      </li>
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Crossover Day</h3>
+          <p>Day 30 of the 40-day session. A bill must pass at least one chamber by this date or it generally cannot pass that year.</p>
+        </div>
+      </li>
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Other chamber repeats steps 2–5</h3>
+          <p>If the second chamber changes the bill, the originating chamber must agree — or the bill goes to a conference committee.</p>
+        </div>
+      </li>
+      <li class="flow-stage">
+        <div class="flow-stage-content">
+          <h3>Sent to Governor</h3>
+          <p>The governor has 40 days to sign, veto, or do nothing. In Georgia, doing nothing means the bill becomes law automatically.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <!-- WHERE BILLS BEGIN -->
+  <div class="glossary-section" id="start">
+    <h2 class="section-head"><span class="emoji">🌱</span>Where Bills Begin</h2>
+    <p class="section-intro">Before a bill can be debated, it has to be filed and formally introduced. These are the earliest status terms you'll see.</p>
+
+    <div class="term-card" id="term-hopper">
+      <span class="term-name">Hopper</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The symbolic location where a filed bill waits to be officially read on the chamber floor.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">The bill exists on paper but hasn't yet entered the formal legislative process. It's on the runway, not in the air.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-prefile">
+      <span class="term-name">Prefile</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">A bill filed before the legislative session officially begins (between November and the second Monday of January).</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Sponsors are organized and ready. Prefiled bills are typically heard earlier in the session than late filings.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-first-readers-first-reading">
+      <span class="term-name">First Readers / First Reading</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The bill's title is read aloud in the originating chamber. Required by the Georgia Constitution — every bill must be read on three different days.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Procedural mile marker. The bill is officially in motion, but no decisions have been made yet.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-read-and-referred">
+      <span class="term-name">Read and Referred</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The bill has been read on the floor and assigned to a standing committee for review.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">The journey has officially started — but the bill is now parked in committee waiting for the chair to decide its fate. Most bills never leave this stage.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMITTEE STAGES -->
+  <div class="glossary-section" id="committee">
+    <h2 class="section-head"><span class="emoji">📋</span>Committee Stages</h2>
+    <p class="section-intro">Standing committees are where most bills live and die. The chair controls whether a bill gets a hearing — and that single decision often determines whether it ever sees a floor vote.</p>
+
+    <div class="term-card" id="term-house-second-readers">
+      <span class="term-name">House Second Readers</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">In the House, the Clerk reads the bill's title a second time on the legislative day after committee assignment. Procedural.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Another procedural checkpoint. The bill is moving through formalities but hasn't been substantively considered yet.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-senate-read-second-time">
+      <span class="term-name">Senate Read Second Time</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The Senate equivalent of "Second Readers" — the bill is read a second time on the legislative day following the committee report.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">A bill at this stage has likely cleared committee. Real progress toward a floor vote.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-hold-bill">
+      <span class="term-name">Hold Bill</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The committee took no formal action on the bill — neither approving nor rejecting it.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Death by inaction. If the committee never returns to it, the bill dies at the end of the session or biennium. The most common way bills are killed.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-committee-favorably-reported">
+      <span class="term-name">Committee Favorably Reported</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The committee voted to recommend the bill for floor consideration in the full chamber.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">A major hurdle cleared. Most bills die in committee — getting reported out alive is meaningful progress toward passage.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-committee-favorably-reported-by-substitute">
+      <span class="term-name">Committee Favorably Reported By Substitute</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The committee approved an alternate version of the bill ("substitute," often shortened to "Comm Sub") rather than the original.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">The bill survived but in altered form. Substitutes can strengthen, weaken, or fundamentally redirect what the original sponsor proposed.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-recommitted">
+      <span class="term-name">Recommitted</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">A bill is sent back to a committee — either the same one or a different one — for further study.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Either a strategic rework or a soft kill. Bills sent back to committee often don't return to the floor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOOR ACTION -->
+  <div class="glossary-section" id="floor">
+    <h2 class="section-head"><span class="emoji">🏛️</span>Floor Action</h2>
+    <p class="section-intro">Once a bill leaves committee, the full chamber can debate, amend, and vote. This is where bills become law — or fail publicly.</p>
+
+    <div class="term-card" id="term-engrossed">
+      <span class="term-name">Engrossed (Senate)</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">A motion in the Senate to lock the bill's text. If two-thirds vote to engross, no amendments are allowed during floor debate.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Sponsors want to push the bill through fast and unaltered. Often used for politically sensitive legislation.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-third-readers-third-reading">
+      <span class="term-name">Third Readers / Third Reading</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The bill's third and final reading before a floor vote. The Georgia Constitution requires three readings in each chamber.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">A floor vote is imminent. This is when the chamber decides yes or no.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-passage-adopted">
+      <span class="term-name">Passage / Adopted</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">A majority of the chamber voted yes. The bill passes that chamber.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Real progress — but the bill still has to clear the other chamber, possibly survive a conference committee, and get the governor's signature.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-passage-by-substitute">
+      <span class="term-name">Passage By Substitute</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The chamber passed an altered version of the bill — the substitute — rather than the original.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">The bill moves on, but the originating chamber will need to agree to the changes or send it to a conference committee.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-lost">
+      <span class="term-name">Lost</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">A floor vote failed — the bill did not get a majority.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Defeat. Reconsideration is procedurally possible but rare. Usually the end of the road for that session.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CROSS-CHAMBER -->
+  <div class="glossary-section" id="chambers">
+    <h2 class="section-head"><span class="emoji">🔄</span>Cross-Chamber Movement</h2>
+    <p class="section-intro">A bill must pass both the House and the Senate in identical form to become law. This is where many bills die in the second half of the session.</p>
+
+    <div class="term-card" id="term-crossover-day">
+      <span class="term-name">Crossover Day</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">Day 30 of Georgia's 40-day legislative session. The procedural deadline by which a bill must pass at least one chamber to remain viable that session.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Hard deadline. If a bill hasn't crossed by Day 30, it generally cannot pass that year. Georgia's most consequential procedural date — except Sine Die.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-im-transmit">
+      <span class="term-name">Im Transmit</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">"Immediately Transmit" — the chamber that just passed the bill sends it to the other chamber right away rather than waiting.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Urgency. Sponsors want to keep momentum and avoid procedural delays.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-insisted">
+      <span class="term-name">House (or Senate) Insisted</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The originating chamber refuses to accept changes the other chamber made to the bill.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Stalemate brewing. If neither chamber gives in, the bill goes to a conference committee — or dies waiting for one to be appointed.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-disagreed">
+      <span class="term-name">Disagreed</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The originating chamber refused to accept changes from the other chamber.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">A conference committee is the next step — three legislators from each chamber try to negotiate a compromise version.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-agree-to-substitute">
+      <span class="term-name">Agree to House (or Senate) Substitute</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The originating chamber accepts the changes the other chamber made.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">The two chambers are aligned. The bill is on its way to the governor.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUCK / DYING -->
+  <div class="glossary-section" id="stuck">
+    <h2 class="section-head"><span class="emoji">⚠️</span>How Bills Stall or Die</h2>
+    <p class="section-intro">Most bills don't pass. They die quietly through procedural maneuvers, expired deadlines, or simple inaction. These are the terms that mean trouble.</p>
+
+    <div class="term-card" id="term-tabled">
+      <span class="term-name">Tabled</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The bill was removed from active floor consideration along with any pending motions. It can be brought back later via a "motion to take from the table."</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Procedural pause. Sometimes a strategic delay; sometimes quiet euthanasia. Tabled bills often stay tabled.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-taken-from-table">
+      <span class="term-name">Taken From Table</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">A previously tabled bill has been restored to active consideration on the floor.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Resurrection. Someone wants this bill back in play — usually because circumstances or vote counts changed.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-withdrawn-recommitted">
+      <span class="term-name">Withdrawn, Recommitted</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The bill was pulled from the floor and sent back to committee.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Either a tactical rework or a soft kill. Most bills sent back this way don't return to the floor.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-stalled">
+      <span class="term-name">Stalled</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">Informal term for a bill that has stopped moving — no committee hearing, no floor schedule, no action.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Likely dead unless something changes. A stalled bill at end-of-session is effectively killed by the calendar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE END -->
+  <div class="glossary-section" id="end">
+    <h2 class="section-head"><span class="emoji">📜</span>The End of the Road</h2>
+    <p class="section-intro">A bill's final stages — whether becoming law or dying for good.</p>
+
+    <div class="term-card" id="term-sent-to-governor">
+      <span class="term-name">Sent to Governor</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">Both chambers passed identical versions. The bill is now on the governor's desk for signature, veto, or inaction.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">One step from becoming law. The governor has 40 days to act.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-effective-date">
+      <span class="term-name">Effective Date</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The date the law actually takes effect — often July 1 in Georgia, unless the bill specifies otherwise.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">The bill is law. The fight is over — at least until repeal or amendment.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-veto">
+      <span class="term-name">Veto</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The governor formally rejected the bill.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">The legislature must override with a two-thirds vote in each chamber to make it law. Override votes are rare and usually fail.</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-sine-die">
+      <span class="term-name">Sine Die</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">Latin for "without a day." The official end of a legislative session, with no date set to reconvene.</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Session over. Bills not passed are paused (after year one) or killed for good (after year two — see below).</p>
+      </div>
+    </div>
+
+    <div class="term-card" id="term-end-of-biennium">
+      <span class="term-name">End of Biennium</span>
+      <div class="term-row">
+        <span class="term-label">What it is</span>
+        <p class="term-text">The end of Georgia's two-year legislative cycle. Happens at Sine Die of year two (e.g., April 2026 ended the 2025–2026 biennium).</p>
+      </div>
+      <div class="term-row">
+        <span class="term-label term-signal">▶ What it usually signals</span>
+        <p class="term-signal-text">Hard reset. Every unfinished bill dies for good. To revive any of them, a legislator must re-introduce them from scratch in the next biennium with a new bill number.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sources-block">
+    <span class="sources-tag">Sources</span>
+    <p class="sources-intro">This guide draws on official, nonpartisan, and academic sources documenting Georgia's legislative process.</p>
+    <ul class="sources-list">
+      <li>
+        <strong>Georgia.gov: The Life of a Law</strong> — official state guide to the legislative process at <a href="https://georgia.gov/life-law" target="_blank" rel="noopener">georgia.gov/life-law</a>
+      </li>
+      <li>
+        <strong>Office of Legislative Counsel: Legislative Terms</strong> — official Georgia General Assembly glossary at <a href="https://www.legis.ga.gov/api/document/docs/default-source/legislative-counsel-document-library/legislative_terms_associated_with_ga_general_assembly.pdf" target="_blank" rel="noopener">legis.ga.gov</a>
+      </li>
+      <li>
+        <strong>Science for Georgia: Quick Guide to the Government</strong> — plain-language reference at <a href="https://scienceforgeorgia.org/knowledge-base1/quick-guide-to-the-government/" target="_blank" rel="noopener">scienceforgeorgia.org</a>
+      </li>
+      <li>
+        <strong>ACLU of Georgia: Legislative Process</strong> — civic-engagement guide at <a href="https://www.acluga.org/legislative-process/" target="_blank" rel="noopener">acluga.org</a>
+      </li>
+      <li>
+        <strong>Georgians for a Healthy Future: Complete Overview of the Legislative Process</strong> at <a href="https://healthyfuturega.org/get-involved/learn/how-the-legislature-works/complete-overview-of-the-legislative-process/" target="_blank" rel="noopener">healthyfuturega.org</a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="full-bleed-edge bottom-cta">
+  <h2>Now you can read the receipts</h2>
+  <p>Every bill on our scorecard and pro-voter pages links to its full LegiScan record. Now you know what the status terms mean — go check the work.</p>
+  <div class="cta-buttons">
+    <a class="cta-btn" href="/2026-ga-elections-legislation/">← Main Scorecard</a>
+    <a class="cta-btn" href="/2026-ga-elections-legislation/provoter-bills/">Pro-Voter Bills →</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="share-follow">
+    <h3>Share & Follow</h3>
+    <div class="social-buttons">
+      <a class="social-btn" href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a>
+      <a class="social-btn" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+      <a class="social-btn" href="https://www.youtube.com/@MoralFiberMedia" target="_blank" rel="noopener">YouTube</a>
+      <a class="social-btn" href="https://www.tiktok.com/@moralfibermedia" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+
+  <div class="license-block">
+    <span class="license-tag lic">LICENSE</span>
+    <div class="license-text"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></div>
+    <span class="license-tag credit" style="margin-top:8px;">CREDIT</span>
+    <div class="license-text">Compiled by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Plain-language editorial reference</div>
+  </div>
+</div>
+
+</body>
+</html>

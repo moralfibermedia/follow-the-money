@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 Georgia Election Bills Scorecard — Moral Fiber Media</title>
+<meta name="description" content="Ten voter suppression bills failed. Thirteen pro-voter bills were blocked from a hearing. The full 2026 Georgia legislative session scorecard.">
+<meta property="og:title" content="2026 Georgia Election Bills Scorecard | Moral Fiber Media">
+<meta property="og:description" content="Zero non-local election bills became law in Georgia's 2026 session. Ten voter-suppression bills failed; thirteen pro-voter bills got no hearing.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 Georgia Election Bills Scorecard | Moral Fiber Media">
+<meta name="twitter:description" content="Zero non-local election bills became law in Georgia's 2026 session. Ten voter-suppression bills failed; thirteen pro-voter bills got no hearing.">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/2026-ga-elections-legislation/preview.png">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+  --green: #27ae60;
+  --suppression: #8b1a1a;
+  --provoter: #1a3a5c;
+  --gold-highlight: #f0c040;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+.full-bleed { width: 100vw; margin-left: calc(-50vw + 50%); position: relative; }
+.full-bleed-edge { width: 100vw; margin-left: calc(-50vw + 50%); padding: 22px max(32px, calc(50vw - 460px)); }
+
+.masthead {
+  background: var(--ink); color: var(--paper); text-align: center;
+  padding: 40px max(32px, calc(50vw - 460px)) 32px;
+  border-bottom: 5px solid var(--red);
+}
+.masthead .kicker { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-highlight); margin-bottom: 12px; }
+.masthead h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 6vw, 52px); line-height: 1.1; margin-bottom: 8px; }
+.masthead h1 .red { color: var(--red); }
+.masthead .subtitle { font-family: 'Source Serif 4', serif; font-size: 17px; font-style: italic; font-weight: 300; color: #bbb5a8; margin-bottom: 14px; }
+.masthead .dateline { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+
+.intro-bar { background: var(--ink); color: var(--paper); text-align: center; padding: 28px max(32px, calc(50vw - 460px)); border-bottom: 3px solid var(--rule); }
+.intro-bar p { font-family: 'Source Serif 4', serif; font-size: 18px; font-weight: 300; font-style: italic; max-width: 700px; margin: 0 auto; }
+.intro-bar strong { color: var(--gold-highlight); font-weight: 600; }
+
+.scoreboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 32px 0; border: 3px solid var(--ink); animation: fadeIn 0.6s ease; }
+.score-cell { text-align: center; padding: 24px 16px; border-right: 2px solid var(--ink); }
+.score-cell:last-child { border-right: none; }
+.score-cell .number { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px, 8vw, 64px); line-height: 1; display: block; }
+.score-cell .number.red { color: var(--red); }
+.score-cell .number.supp { color: var(--suppression); }
+.score-cell .number.prov { color: var(--provoter); }
+.score-cell .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-top: 8px; display: block; }
+.score-cell .sub-detail { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1px; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+.filter-tabs { display: flex; gap: 0; margin: 32px 0 0; border: 3px solid var(--ink); border-bottom: none; }
+.filter-tab { flex: 1; padding: 14px 12px; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; background: var(--paper); color: var(--muted); border: none; border-right: 2px solid var(--ink); cursor: pointer; transition: all 0.2s ease; font-weight: 400; }
+.filter-tab:last-child { border-right: none; }
+.filter-tab:hover { background: #e8e2d8; }
+.filter-tab.active { background: var(--ink); color: var(--paper); font-weight: 700; }
+
+.bill-list { border: 3px solid var(--ink); margin-bottom: 24px; }
+
+.glossary-pointer {
+  display: block;
+  background: rgba(184,134,11,0.08);
+  border: 2px dashed var(--gold);
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink);
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.15s;
+}
+.glossary-pointer:hover { background: rgba(184,134,11,0.15); }
+.bill-card { padding: 18px 20px; border-bottom: 1px solid var(--rule); cursor: pointer; transition: background 0.15s ease; animation: fadeIn 0.5s ease both; }
+.bill-card:last-child { border-bottom: none; }
+.bill-card:hover { background: #ebe5db; }
+.bill-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.bill-id { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; background: var(--ink); color: var(--paper); padding: 3px 8px; white-space: nowrap; flex-shrink: 0; }
+.bill-id.suppression { background: var(--suppression); }
+.bill-id.provoter { background: var(--provoter); }
+.bill-id.bipartisan { background: var(--gold); }
+.bill-id-link { text-decoration: none; display: inline-block; }
+.bill-id-link:hover .bill-id { outline: 2px solid var(--gold-highlight); outline-offset: 1px; }
+.bill-summary { font-size: 15px; font-weight: 600; line-height: 1.4; flex: 1; }
+.bill-status { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; white-space: nowrap; flex-shrink: 0; border: 2px solid; }
+.bill-status.failed { color: var(--red); border-color: var(--red); }
+.bill-status.blocked { color: var(--muted); border-color: var(--muted); }
+.bill-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+.bill-card.open .bill-detail { max-height: 800px; padding-top: 14px; }
+.bill-detail-inner { font-size: 14px; color: var(--muted); line-height: 1.6; padding-top: 12px; border-top: 1px dashed var(--rule); }
+.bill-detail-inner strong { color: var(--ink); }
+.bill-detail-inner .meta-row { display: flex; flex-wrap: wrap; gap: 16px 24px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+.bill-detail-inner .meta-row > div { display: flex; flex-direction: column; gap: 2px; }
+.bill-detail-inner .meta-row strong { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.bill-detail-inner .meta-row span { font-family: 'Source Serif 4', serif; color: var(--ink); font-size: 13px; font-weight: 600; }
+.bill-detail-inner .meta-row .status-link { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); padding-bottom: 1px; transition: color 0.15s; display: inline-flex; align-items: center; gap: 4px; }
+.bill-detail-inner .meta-row .status-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.bill-detail-inner .meta-row .status-icon { font-size: 11px; }
+.bill-detail-inner .legiscan-link { display: inline-block; margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); padding-bottom: 1px; }
+.bill-detail-inner .legiscan-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.bill-expand-hint { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--rule); text-transform: uppercase; margin-top: 6px; }
+.bill-card.open .bill-expand-hint { display: none; }
+
+.sine-die-note { border: 2px dashed var(--muted); padding: 14px 18px; margin: 24px 0; font-size: 14px; color: var(--muted); font-style: italic; background: rgba(184,134,11,0.05); }
+.sine-die-note strong { color: var(--ink); font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 6px; }
+
+.biennium-block-wrap {
+  border: 3px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 24px 26px;
+  margin: 28px 0;
+}
+.biennium-block-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-highlight);
+  border-bottom: 1px solid var(--gold-highlight);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+.biennium-block-tag em { font-style: italic; color: var(--paper); text-transform: none; }
+.biennium-intro {
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--paper);
+  margin-bottom: 18px;
+  font-style: italic;
+}
+.biennium-block-wrap .biennium-timeline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: stretch;
+  margin: 4px 0 18px;
+}
+.biennium-block-wrap .biennium-block {
+  padding: 14px 16px;
+  border: 2px solid;
+  font-family: 'Source Serif 4', serif;
+}
+.biennium-block-wrap .biennium-block.ended { border-color: var(--red); background: rgba(214,48,49,0.12); opacity: 0.9; }
+.biennium-block-wrap .biennium-block.next { border-color: var(--gold-highlight); background: rgba(240,192,64,0.15); }
+.biennium-block-wrap .biennium-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--paper);
+  margin-bottom: 4px;
+}
+.biennium-block-wrap .biennium-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.biennium-block-wrap .biennium-block.ended .biennium-status { color: var(--red); }
+.biennium-block-wrap .biennium-block.next .biennium-status { color: var(--gold-highlight); }
+.biennium-block-wrap .biennium-detail {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--paper);
+  line-height: 1.4;
+  opacity: 0.85;
+}
+.biennium-block-wrap .biennium-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--gold-highlight);
+  font-weight: 900;
+}
+.biennium-footnote {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: rgba(242,237,228,0.7);
+  text-align: center;
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(240,192,64,0.3);
+}
+.biennium-footnote a { color: var(--gold-highlight); text-decoration: none; border-bottom: 1px dotted var(--gold-highlight); padding-bottom: 1px; }
+.biennium-footnote a:hover { color: var(--paper); border-bottom-color: var(--paper); }
+
+@media (max-width: 600px) {
+  .biennium-block-wrap .biennium-timeline { grid-template-columns: 1fr; }
+  .biennium-block-wrap .biennium-arrow { transform: rotate(90deg); padding: 4px 0; }
+}
+
+.spotlight { background: var(--ink); color: var(--paper); padding: 32px max(32px, calc(50vw - 460px)); margin: 32px 0; border: 3px solid var(--ink); }
+.spotlight h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(22px, 4vw, 32px); margin-bottom: 16px; color: var(--gold-highlight); }
+.spotlight p { font-size: 15px; line-height: 1.7; margin-bottom: 12px; }
+.spotlight .warning { background: var(--suppression); color: var(--paper); padding: 14px 18px; margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.5; letter-spacing: 0.5px; }
+.spotlight .clarifier { background: rgba(240,192,64,0.15); border-left: 3px solid var(--gold-highlight); padding: 12px 16px; margin: 16px 0; font-size: 14px; font-style: italic; }
+.spotlight .timeline-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.timeline-marker { width: 12px; height: 12px; border-radius: 50%; background: var(--gold-highlight); margin-top: 6px; flex-shrink: 0; }
+.timeline-marker.red-marker { background: var(--red); }
+
+.bottom-line { background: var(--ink); color: var(--paper); text-align: center; padding: 36px max(32px, calc(50vw - 460px)); border-top: 5px solid var(--red); }
+.bottom-line h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(20px, 4vw, 30px); margin-bottom: 12px; }
+.bottom-line .pullquote { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; font-size: clamp(18px, 3.2vw, 24px); color: var(--gold-highlight); margin: 0 auto 16px; max-width: 600px; line-height: 1.4; }
+.bottom-line p { font-size: 15px; font-style: italic; font-weight: 300; color: #bbb5a8; max-width: 600px; margin: 0 auto 20px; }
+
+.share-follow { text-align: center; padding: 32px 0; }
+.share-follow h3 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 22px; margin-bottom: 18px; }
+.social-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.social-btn { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 10px 18px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); text-decoration: none; transition: all 0.2s ease; cursor: pointer; }
+.social-btn:hover { background: var(--ink); color: var(--paper); }
+
+.license-block { border-top: 3px solid var(--ink); padding: 20px 0 40px; margin-top: 20px; }
+.license-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; margin-bottom: 6px; }
+.license-tag.lic { background: var(--ink); color: var(--paper); }
+.license-tag.credit { background: #d6d0c6; color: var(--muted); }
+.license-text { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); line-height: 1.6; }
+.license-text a { color: var(--gold); }
+
+.progress-track { height: 8px; background: #d6d0c6; overflow: hidden; margin: 8px 0; }
+.progress-fill { height: 100%; transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.progress-fill.supp { background: var(--suppression); }
+.progress-fill.prov { background: var(--provoter); }
+.progress-label { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted); }
+
+/* SOURCES BLOCK */
+.sources-block { border: 3px solid var(--ink); padding: 24px 28px; margin: 36px 0 0; background: var(--paper); }
+.sources-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 4px 12px; margin-bottom: 16px; }
+.sources-intro { font-size: 14px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; font-style: italic; }
+.sources-list { list-style: none; padding: 0; margin: 0; }
+.sources-list li { font-size: 14px; line-height: 1.6; padding: 10px 0; border-bottom: 1px dashed var(--rule); color: var(--ink); }
+.sources-list li:last-child { border-bottom: none; }
+.sources-list li strong { font-family: 'Source Serif 4', serif; font-weight: 600; }
+.sources-list li .src-detail { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+.sources-list a { color: var(--gold); font-family: 'JetBrains Mono', monospace; font-size: 11px; text-decoration: none; border-bottom: 1px dotted var(--gold); padding-bottom: 1px; }
+.sources-list a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.sources-note { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); line-height: 1.6; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeIn 0.6s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+@media (max-width: 700px) {
+  .scoreboard { grid-template-columns: 1fr; }
+  .score-cell { border-right: none; border-bottom: 2px solid var(--ink); padding: 18px 16px; }
+  .score-cell:last-child { border-bottom: none; }
+  .bill-card-header { flex-wrap: wrap; gap: 8px; }
+  .bill-status { width: 100%; text-align: center; }
+  .filter-tabs { flex-direction: column; }
+  .filter-tab { border-right: none; border-bottom: 2px solid var(--ink); }
+  .filter-tab:last-child { border-bottom: none; }
+  .social-buttons { flex-direction: column; align-items: center; }
+  .social-btn { width: 100%; max-width: 260px; text-align: center; }
+}
+
+@media (max-width: 500px) {
+  .container { padding: 0 16px; }
+  .masthead { padding: 28px 16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="full-bleed masthead animate-in">
+  <div class="kicker">Moral Fiber Media · Scorecard</div>
+  <h1>2026 Georgia Election Bills<br><span class="red">Scorecard</span></h1>
+  <div class="subtitle">Every bill. Every result. One page.</div>
+  <div class="dateline">Georgia General Assembly · 2025–2026 Biennium · Editorial Compilation</div>
+</div>
+
+<div class="full-bleed-edge intro-bar animate-in delay-1">
+  <p><strong>Ten voter suppression bills</strong> failed to pass. <strong>Thirteen pro-voter bills</strong> were blocked from a hearing. Here's the full accounting.</p>
+</div>
+
+<div class="container">
+
+  <div class="scoreboard animate-in delay-2">
+    <div class="score-cell">
+      <span class="number red" id="counter-passed">0</span>
+      <span class="label">Bills Passed</span>
+      <span class="sub-detail">non-local election bills</span>
+    </div>
+    <div class="score-cell">
+      <span class="number supp" id="counter-supp">10</span>
+      <span class="label">Suppression Bills Failed</span>
+      <span class="sub-detail">17 distinct provisions inside</span>
+    </div>
+    <div class="score-cell">
+      <span class="number prov" id="counter-prov">13</span>
+      <span class="label">Pro-Voter Bills Blocked</span>
+      <span class="sub-detail">zero hearings granted</span>
+    </div>
+  </div>
+
+  <div class="animate-in delay-3" style="margin-bottom:32px;">
+    <div class="progress-label"><span>SUPPRESSION BILLS PASS RATE</span><span>0 / 10</span></div>
+    <div class="progress-track"><div class="progress-fill supp" id="supp-bar" style="width:0%"></div></div>
+    <div class="progress-label" style="margin-top:12px;"><span>PRO-VOTER BILLS HEARING RATE</span><span>0 / 13</span></div>
+    <div class="progress-track"><div class="progress-fill prov" id="prov-bar" style="width:0%"></div></div>
+  </div>
+
+  <div class="filter-tabs animate-in delay-4">
+    <button class="filter-tab active" onclick="filterBills('all', event)">All Bills</button>
+    <button class="filter-tab" onclick="filterBills('paper', event)">📄 Paper Ballot</button>
+    <button class="filter-tab" onclick="filterBills('suppression', event)">🔴 Suppression</button>
+    <button class="filter-tab" onclick="filterBills('provoter', event)">🔵 Pro-Voter</button>
+  </div>
+
+  <a href="/2026-ga-elections-legislation/bill-status/" class="glossary-pointer" target="_blank" rel="noopener">
+    📖 Curious what statuses like "Senate Read and Referred" actually mean? See our plain-language guide →
+  </a>
+
+  <div class="bill-list" id="bill-list"></div>
+
+  <div class="sine-die-note animate-in">
+    <strong>📝 Sine Die Footnote</strong>
+    On the final day of the session, a draft bill including much of HB 397 was released — but the House never acted on it.
+  </div>
+
+  <div class="biennium-block-wrap animate-in">
+    <div class="biennium-block-tag">⚰ End of Biennium · Why these bills are <em>dead</em>, not stalled</div>
+    <p class="biennium-intro">Sine Die in April 2026 didn't just end the year's session — it ended Georgia's two-year legislative cycle. Every bill on this page is now permanently dead. To revive any of them, a legislator must re-introduce it from scratch in the next biennium with a new bill number.</p>
+    <div class="biennium-timeline">
+      <div class="biennium-block ended">
+        <div class="biennium-label">2025–2026</div>
+        <div class="biennium-status">⚰ ENDED · APR 2026</div>
+        <div class="biennium-detail">All bills on this page introduced and acted on here. All now dead.</div>
+      </div>
+      <div class="biennium-arrow">→</div>
+      <div class="biennium-block next">
+        <div class="biennium-label">2027–2028</div>
+        <div class="biennium-status">○ NEXT · JAN 2027</div>
+        <div class="biennium-detail">Any returning bill must start over: new number, new readings, same committees.</div>
+      </div>
+    </div>
+    <p class="biennium-footnote">For more on Sine Die, End of Biennium, and the full lifecycle, see <a href="/2026-ga-elections-legislation/bill-status/#term-end-of-biennium" target="_blank" rel="noopener">our plain-language guide</a>.</p>
+  </div>
+
+  <div id="spotlight-section" class="spotlight animate-in delay-5">
+    <h2>📰 The Paper Ballot Standoff</h2>
+    <p>The biggest story of the session: the legislature failed to pass a paper ballot bill — and the fallout could reshape the November election.</p>
+
+    <div class="timeline-row">
+      <div class="timeline-marker"></div>
+      <div>
+        <strong style="color:var(--gold-highlight);">Senate version (HB 960):</strong> Mandatory hand-marked paper ballots by the November 2026 general election. Partisan bill. Passed the Senate — the House never took it up.
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-marker"></div>
+      <div>
+        <strong style="color:var(--gold-highlight);">House version (SB 214):</strong> Paper ballots as a "permissive" means of conducting elections. Bipartisan. Passed the House late on Sine Die — the Senate never took it up.
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-marker"></div>
+      <div>
+        <strong style="color:var(--gold-highlight);">Both bills:</strong> Would have removed QR codes from ballots.
+      </div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-marker red-marker"></div>
+      <div>
+        <strong style="color:var(--red);">The consequence:</strong> A 2024 law (SB 189) springs into effect — requiring that, by July 1 of this year, the text portion of paper ballots marked and printed by electronic ballot markers be the official vote, with QR codes no longer used. There is strong consensus that the SoS and county boards of election cannot be in a position to comply with this law by July 1.
+      </div>
+    </div>
+
+    <div class="clarifier">
+      <strong>Important clarifier:</strong> SB 189 does <em>not</em> mandate paper ballots. It only changes which part of the ballot is the official vote.
+    </div>
+
+    <div class="warning">
+      ⚠ EXPECT: Litigation, confusion, and perhaps a special session. By the time this is resolved, it is very likely that the November election will be conducted using the current system.
+    </div>
+  </div>
+
+</div>
+
+<div class="full-bleed-edge bottom-line">
+  <h2>The Bottom Line</h2>
+  <div class="pullquote">"This is a great victory for Georgia's voters."</div>
+  <p>Zero non-local election bills became law — but the paper ballot fallout means the fight is far from over.</p>
+</div>
+
+<div class="container">
+  <div class="sources-block">
+    <span class="sources-tag">Sources & Methodology</span>
+    <p class="sources-intro">This scorecard was compiled from publicly available sources tracking the 2026 Georgia legislative session.</p>
+    <ul class="sources-list">
+      <li>
+        <strong>Georgia State Senate</strong> — committee meetings publicly streamed on YouTube and announced at <a href="https://www.senate.ga.gov" target="_blank" rel="noopener">senate.ga.gov</a>
+        <span class="src-detail">Includes Senate Ethics Committee hearings and election-related committee proceedings.</span>
+      </li>
+      <li>
+        <strong>Georgia General Assembly</strong> — official bill records, sponsors, and votes at <a href="https://www.legis.ga.gov" target="_blank" rel="noopener">legis.ga.gov</a>
+      </li>
+      <li>
+        <strong>LegiScan</strong> — independent bill tracking and status history at <a href="https://legiscan.com/GA" target="_blank" rel="noopener">legiscan.com/GA</a>
+      </li>
+    </ul>
+    <p class="sources-note">The 13 pro-voter bills count reflects independent legislative tracking of non-local Democratic-sponsored election and voting bills introduced during the 2026 session. A bill-by-bill breakdown is forthcoming on a separate page.</p>
+  </div>
+
+  <div class="share-follow">
+    <h3>Share & Follow</h3>
+    <div class="social-buttons">
+      <a class="social-btn" href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a>
+      <a class="social-btn" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+      <a class="social-btn" href="https://www.youtube.com/@MoralFiberMedia" target="_blank" rel="noopener">YouTube</a>
+      <a class="social-btn" href="https://www.tiktok.com/@moralfibermedia" target="_blank" rel="noopener">TikTok</a>
+      <a class="social-btn" href="https://sez.us/user/MoralFiberMedia" target="_blank" rel="noopener">Sez.us</a>
+    </div>
+  </div>
+
+  <div class="license-block">
+    <span class="license-tag lic">LICENSE</span>
+    <div class="license-text"><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></div>
+    <span class="license-tag credit" style="margin-top:8px;">CREDIT</span>
+    <div class="license-text">Compiled by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> from various public sources covering the 2026 Georgia Legislative Session · Bill numbers link to <a href="https://legiscan.com" target="_blank" rel="noopener">LegiScan</a></div>
+  </div>
+</div>
+
+<script>
+// LegiScan URL helper for Georgia 2025-2026 biennium.
+// NOTE: Verify these resolve correctly on first deploy — LegiScan session paths may vary.
+function legiscanUrl(billNum) {
+  return `https://legiscan.com/GA/bill/${billNum.replace(/\s/g, '')}/2025`;
+}
+
+// Map LegiScan-style status terms to plain-language glossary anchors
+const statusAnchors = {
+  "Senate Read and Referred": "/2026-ga-elections-legislation/bill-status/#term-read-and-referred",
+  "House Read and Referred": "/2026-ga-elections-legislation/bill-status/#term-read-and-referred",
+  "House Second Readers": "/2026-ga-elections-legislation/bill-status/#term-house-second-readers",
+  "Senate Read Second Time": "/2026-ga-elections-legislation/bill-status/#term-senate-read-second-time",
+  "House Withdrawn, Recommitted": "/2026-ga-elections-legislation/bill-status/#term-withdrawn-recommitted",
+  "Senate Withdrawn, Recommitted": "/2026-ga-elections-legislation/bill-status/#term-withdrawn-recommitted",
+  "Committee Favorably Reported": "/2026-ga-elections-legislation/bill-status/#term-committee-favorably-reported",
+  "Committee Favorably Reported By Substitute": "/2026-ga-elections-legislation/bill-status/#term-committee-favorably-reported-by-substitute",
+  "Senate Passage": "/2026-ga-elections-legislation/bill-status/#term-passage-adopted",
+  "House Passage": "/2026-ga-elections-legislation/bill-status/#term-passage-adopted",
+  "Senate Passage By Substitute": "/2026-ga-elections-legislation/bill-status/#term-passage-by-substitute",
+  "House Passage By Substitute": "/2026-ga-elections-legislation/bill-status/#term-passage-by-substitute",
+  "Senate Lost": "/2026-ga-elections-legislation/bill-status/#term-lost",
+  "House Third Reading Lost": "/2026-ga-elections-legislation/bill-status/#term-lost",
+  "Sent to Governor": "/2026-ga-elections-legislation/bill-status/#term-sent-to-governor",
+};
+
+const bills = [
+  { id: "HB 960", legiscan: true, cat: "paper", party: "suppression", introduced: "2026", lastAction: "Senate Passage By Substitute", summary: "Mandatory hand-marked paper ballots by Nov 2026 — plus penalties on counties and recount changes", detail: "Partisan bill bundling three distinct provisions: <strong>(1)</strong> mandatory hand-marked paper ballots, with QR codes removed; <strong>(2)</strong> a $100 fine per registration not properly removed by county boards of election as a result of voter challenges; <strong>(3)</strong> increased the recount delta from 0.5% to 1% of the vote and required manual hand-counting of recounts. Passed the Senate — not taken up by the House.", status: "FAILED" },
+  { id: "SB 214", legiscan: true, cat: "paper", party: "bipartisan", introduced: "2025", lastAction: "House Passage", summary: "Permissive paper ballots for counties (bipartisan)", detail: "Bipartisan approach that would have allowed — but not mandated — hand-marked paper ballots as a means of conducting elections. Like HB 960, would have removed QR codes from ballots. Passed the House late on Sine Die — not taken up by the Senate.", status: "FAILED" },
+
+  { id: "HB 397", legiscan: true, cat: "suppression", party: "suppression", introduced: "2025", lastAction: "Senate Passage By Substitute", summary: "2025 omnibus: ERIC exit, expanded poll watchers, free voter lists for challengers, and more", detail: "Holdover from 2025; passed the Senate, no action in 2026. Would have: <strong>(1)</strong> required the SoS to leave the ERIC list maintenance partnership; <strong>(2)</strong> allowed cities to opt out of Saturday advance voting in municipal elections; <strong>(3)</strong> prohibited the hand-delivery of absentee ballots to registrar's offices during the weekend before a general election; <strong>(4)</strong> attached the State Election Board to the State Accounting Office (instead of the SoS) for administrative purposes; <strong>(5)</strong> permitted expanded, intrusive poll watcher access; <strong>(6)</strong> required onerous same-day posting of partial election results; <strong>(7)</strong> allowed citizens (voter challengers) to receive county voter lists without charge.", status: "FAILED" },
+  { id: "SB 175", legiscan: true, cat: "suppression", party: "suppression", introduced: "2025", lastAction: "House Third Reading Lost", summary: "2025 omnibus companion to HB 397", detail: "Companion bill to HB 397 with similar provisions. Passed House Committee in 2025 — no action in 2026.", status: "FAILED" },
+
+  { id: "SB 514", legiscan: true, cat: "suppression", party: "suppression", introduced: "2026", lastAction: "Senate Read and Referred", summary: "Completely eliminate ballot drop boxes", detail: "Would have completely eliminated the use of drop-boxes in Georgia. Never received committee consideration.", status: "FAILED" },
+  { id: "SR 838", legiscan: true, cat: "suppression", party: "suppression", introduced: "2026", lastAction: "Senate Read and Referred", summary: "Constitutional amendment requiring photo ID to vote", detail: "Called for an amendment to the Georgia Constitution to require \"photographic identification\" to vote. Not taken up by the Senate.", status: "FAILED" },
+  { id: "HB 1467", legiscan: true, cat: "suppression", party: "suppression", introduced: "2026", lastAction: "House Read and Referred", summary: "Switch DDS voter registration from opt-out to opt-in", detail: "Would have converted automatic voter registration at the Department of Driver Services from opt-out to opt-in — likely reducing the number of new registrations. Never received committee consideration.", status: "FAILED" },
+  { id: "SB 423", legiscan: true, cat: "suppression", party: "suppression", introduced: "2026", lastAction: "Senate Passage", summary: "Cap out-of-state campaign contributions at 50%", detail: "Would have required candidates to return contributions from non-Georgians to the extent they exceeded 50% of total contributions. Likely unconstitutional. Passed the Senate — not taken up by the House.", status: "FAILED" },
+  { id: "HB 1227", legiscan: true, cat: "suppression", party: "suppression", introduced: "2026", lastAction: "House Read and Referred", summary: "Add new (likely illegal) requirements to voter registration", detail: "Would have added requirements to voter registration applications that are likely illegal under federal law. Not taken up by the House.", status: "FAILED" },
+  { id: "SB 568", legiscan: true, cat: "suppression", party: "suppression", introduced: "2026", lastAction: "Senate Lost", summary: "Limit each voter to one advance voting location", detail: "Would have restricted each voter to only one location for advance voting. Not added to the HB 960 replacement bill.", status: "FAILED" },
+  { id: "SB 607", legiscan: true, cat: "suppression", party: "suppression", introduced: "2026", lastAction: "Committee Favorably Reported", summary: "State-wide grand juries for election cases", detail: "Called for the establishment of state-wide grand juries specifically for election-related cases. Passed a Special Committee — not taken up by the full Senate.", status: "FAILED" },
+
+  { id: "13 BILLS", legiscan: false, cat: "provoter", party: "provoter", summary: "Thirteen pro-voter bills introduced — zero hearings granted", detail: "Thirteen non-local, pro-voter election and voting bills were introduced during the 2025–2026 biennium. The two committees responsible for elections refused to give any of these bills a hearing.", status: "BLOCKED" },
+  { id: "DRAPER", legiscan: false, cat: "provoter", party: "provoter", summary: "Parents with kids under 2 move to front of voting line", detail: "Rep. Draper's proposal to allow parents accompanied by one or more children under the age of two to move to the front of voting lines. Received bipartisan support but did not pass — died with the rest of the stalled legislation.", status: "BLOCKED" },
+  { id: "SEB RULES", legiscan: false, cat: "provoter", party: "provoter", summary: "Bar SEB from enacting rules close to elections", detail: "Proposal to prohibit the State Election Board from enacting rules within a designated number of days prior to an election. Received bipartisan support but did not pass — died with the rest of the stalled legislation.", status: "BLOCKED" },
+];
+
+function renderBills(filter) {
+  const list = document.getElementById('bill-list');
+  const filtered = filter === 'all' ? bills : bills.filter(b => b.cat === filter);
+  list.innerHTML = '';
+  filtered.forEach((b, i) => {
+    const card = document.createElement('div');
+    card.className = 'bill-card';
+    card.style.animationDelay = (i * 0.06) + 's';
+    card.onclick = (e) => {
+      if (e.target.closest('a')) return;
+      card.classList.toggle('open');
+    };
+    const idHtml = b.legiscan
+      ? `<a class="bill-id-link" href="${legiscanUrl(b.id)}" target="_blank" rel="noopener"><span class="bill-id ${b.party}">${b.id}</span></a>`
+      : `<span class="bill-id ${b.party}">${b.id}</span>`;
+    const linkRow = b.legiscan
+      ? `<a class="legiscan-link" href="${legiscanUrl(b.id)}" target="_blank" rel="noopener">→ View on LegiScan</a>`
+      : '';
+    const statusLink = b.lastAction && statusAnchors[b.lastAction]
+      ? `<a class="status-link" href="${statusAnchors[b.lastAction]}" target="_blank" rel="noopener">${b.lastAction} <span class="status-icon">📖</span></a>`
+      : (b.lastAction || '');
+    const metaRow = b.lastAction
+      ? `<div class="meta-row">
+            <div><strong>Introduced</strong><span>${b.introduced}</span></div>
+            <div><strong>Last Action</strong><span>${statusLink}</span></div>
+          </div>`
+      : '';
+    card.innerHTML = `
+      <div class="bill-card-header">
+        ${idHtml}
+        <span class="bill-summary">${b.summary}</span>
+        <span class="bill-status ${b.status === 'FAILED' ? 'failed' : 'blocked'}">${b.status}</span>
+      </div>
+      <div class="bill-expand-hint">tap to expand ▾</div>
+      <div class="bill-detail">
+        <div class="bill-detail-inner">
+          ${metaRow}
+          ${b.detail}
+          ${linkRow}
+        </div>
+      </div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function filterBills(cat, ev) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  if (ev && ev.target) ev.target.classList.add('active');
+  renderBills(cat);
+  document.getElementById('spotlight-section').style.display = (cat === 'all' || cat === 'paper') ? 'block' : 'none';
+  document.querySelector('.sine-die-note').style.display = (cat === 'all' || cat === 'suppression') ? 'block' : 'none';
+}
+
+function animateCounter(id, target, duration) {
+  const el = document.getElementById(id);
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    el.textContent = Math.round(progress * target);
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+renderBills('all');
+setTimeout(() => {
+  animateCounter('counter-supp', 10, 1200);
+  animateCounter('counter-prov', 13, 1200);
+}, 400);
+</script>
+
+</body>
+</html>
