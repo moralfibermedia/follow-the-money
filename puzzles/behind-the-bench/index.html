@@ -72,19 +72,20 @@ body {
 
 /* MASTHEAD */
 .masthead {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
   text-align: center;
   padding: 40px 20px 36px;
+  border-top: 5px solid var(--ink);
   border-bottom: 4px solid var(--red);
 }
 .kicker {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 16px;
+  margin-bottom: 16px; font-weight: 700;
 }
 .masthead h1 {
   font-family: 'Playfair Display', serif;
@@ -100,25 +101,25 @@ body {
 .puzzle-tag {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 2px;
   text-transform: uppercase;
   border: 1px solid var(--gold);
   color: var(--gold);
   padding: 4px 14px;
-  margin: 12px 0 8px;
+  margin: 12px 0 8px; font-weight: 700;
 }
 .subtitle {
   font-family: 'Source Serif 4', serif;
-  font-size: 16px;
+  font-size: 18px;
   font-style: italic;
-  color: #bbb;
-  max-width: 500px;
+  color: var(--muted);
+  max-width: 540px;
   margin: 0 auto;
 }
 .dateline {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 2px;
   color: var(--muted);
   margin-top: 14px;
@@ -126,22 +127,22 @@ body {
 
 /* INTRO BAR */
 .intro-bar {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
   text-align: center;
-  padding: 16px 20px;
-  font-size: 15px;
+  padding: 18px 20px;
+  font-size: 18px;
   font-style: italic;
   line-height: 1.5;
-  border-bottom: 3px solid var(--gold);
+  border-bottom: 2px solid var(--ink);
 }
-.intro-bar strong { color: var(--gold); font-style: normal; }
+.intro-bar strong { color: var(--red); font-style: normal; font-weight: 700; }
 
 /* HINT */
 .hint {
   text-align: center;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin: 24px 0 8px;
   letter-spacing: 0.5px;
@@ -154,12 +155,12 @@ body {
 
 .section-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 12px;
-  text-align: center;
+  text-align: center; font-weight: 700;
 }
 
 /* TRAY LABEL (state-aware step indicator) */
@@ -175,7 +176,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; font-weight: 700;
 }
 .step-num {
   display: inline-flex;
@@ -240,11 +241,11 @@ body {
 
 .fact-card-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 8px; font-weight: 700;
 }
 .fact-card-text {
   font-family: 'Source Serif 4', serif;
@@ -257,7 +258,7 @@ body {
   display: none;
   margin-top: 12px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
 }
 .fact-card-source a {
   color: var(--green);
@@ -273,7 +274,7 @@ body {
   padding: 10px;
   text-align: center;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 1px;
   color: var(--muted);
   transition: all 0.2s;
@@ -323,8 +324,8 @@ body {
 .answer-tile-meta {
   display: block;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 2px;
   color: var(--muted);
   margin-top: 4px;
@@ -370,7 +371,7 @@ body {
 .victory-sources a {
   color: var(--gold);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   text-decoration: none;
   border-bottom: 1px dashed var(--gold);
 }
@@ -385,7 +386,7 @@ body {
 }
 .btn {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 10px 20px;
@@ -394,7 +395,7 @@ body {
   color: var(--ink);
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.2s; font-weight: 700;
 }
 .btn:hover { background: var(--ink); color: var(--paper); }
 .btn-primary { background: var(--red); color: white; border-color: var(--red); }
@@ -422,7 +423,7 @@ body {
 }
 .social-link {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 1px;
   border: 2px solid var(--ink);
   padding: 8px 14px;
@@ -446,7 +447,7 @@ body {
   align-items: baseline;
   margin-bottom: 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   line-height: 1.6;
 }
@@ -454,7 +455,7 @@ body {
   background: var(--ink);
   color: var(--paper);
   padding: 2px 8px;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 1px;
   text-transform: uppercase;
   white-space: nowrap;
