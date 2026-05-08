@@ -87,6 +87,17 @@ body {
   color: var(--gold);
   margin-bottom: 16px; font-weight: 700;
 }
+.kicker a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.kicker a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
 .masthead h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(28px, 6vw, 48px);
@@ -484,7 +495,7 @@ body {
 
   <!-- MASTHEAD -->
   <div class="masthead full-bleed">
-    <div class="kicker">Moral Fiber Media · FactPuzzle</div>
+    <div class="kicker"><a href="/">← Back to Puzzles</a> · FactPuzzle</div>
     <h1>BEHIND THE <em>BENCH</em></h1>
     <div class="puzzle-tag">Georgia Supreme Court · 2026</div>
     <div class="subtitle">Sarah Warren's seat. Two candidates. Match each fact to the right judge.</div>
