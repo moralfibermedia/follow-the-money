@@ -525,59 +525,153 @@ body {
   background: rgba(184, 134, 11, 0.05);
 }
 
-/* VICTORY */
-.victory-banner {
+/* ARCADE COMPLETE SCREEN */
+.arcade-complete {
   display: none;
-  background: var(--ink);
-  color: white;
-  padding: 32px max(32px, calc(50vw - 460px));
   text-align: center;
-  margin-bottom: 20px;
-  animation: victoryIn 0.6s ease both;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 28px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+}
+.arcade-complete.show {
+  display: block;
+  animation: complete-flash 0.45s ease-out both;
+}
+@keyframes complete-flash {
+  0%   { opacity: 0; transform: scale(0.96); }
+  60%  { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-.victory-banner.visible { display: block; }
-
-@keyframes victoryIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+.complete-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 6px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
 }
 
-.victory-banner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(22px, 4vw, 34px);
-  font-weight: 900;
-  margin-bottom: 8px;
+.complete-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(26px, 4.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
 }
-.victory-banner h2 em { color: #f0c040; font-style: italic; }
-
-.victory-sub {
-  font-size: 14px;
+.complete-sub {
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
   font-style: italic;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
 }
 
-.victory-sources {
-  margin-top: 18px;
-  display: flex;
+.complete-rank {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  display: inline-block;
+  border: 3px solid var(--muted);
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.complete-rank.perfect {
+  border-color: var(--gold);
+  color: var(--gold);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+.complete-rank.cleared {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.complete-stats {
+  display: inline-flex;
   flex-direction: column;
-  gap: 6px;
-  align-items: center;
+  gap: 4px;
+  margin-bottom: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 220px;
+}
+.stat-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  border-bottom: 1px dotted var(--rule);
+  padding: 6px 0;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
-.victory-sources a {
+.complete-sources {
+  margin: 0 auto 28px;
+  max-width: 480px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 0.5px;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: color 0.2s;
+  text-align: left;
+  border: 2px dashed var(--muted);
+  padding: 18px 22px;
 }
-.victory-sources a:hover { color: white; }
+.complete-sources .src-label {
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+.complete-sources a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  margin-bottom: 6px;
+  padding-bottom: 2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.complete-sources a:last-child { margin-bottom: 0; }
+.complete-sources a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.complete-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
 /* RESET */
 .button-row {
@@ -640,26 +734,6 @@ body {
   border-color: var(--gold);
   color: white;
 }
-.victory-more {
-  display: inline-block;
-  margin-top: 12px;
-  border-color: rgba(255,255,255,0.3);
-  color: rgba(255,255,255,0.6);
-  font-size: 11px;
-  padding: 10px 24px;
-}
-.victory-more:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: white;
-}
-.victory-share {
-  margin-top: 20px;
-  font-size: 13px;
-  padding: 14px 36px;
-  letter-spacing: 2px;
-}
-
 /* FOOTER */
 .footer {
   margin-top: 28px;
@@ -684,30 +758,6 @@ body {
   color: var(--muted);
 }
 .footer a { color: var(--muted); text-decoration: underline; }
-
-/* CONFETTI */
-.confetti-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 999;
-  overflow: hidden;
-}
-.confetti-piece {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: -20px;
-  animation: confettiFall linear forwards;
-}
-@keyframes confettiFall {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-}
-
 
 /* FIGHTERS SECTION */
 .fighter-link.full-list-link {
@@ -1259,17 +1309,33 @@ body {
 
   </div><!-- /play-area -->
 
-  <!-- VICTORY -->
-  <div class="victory-banner full-bleed-edge" id="victoryBanner">
-    <h2>You <em>followed the money.</em></h2>
-    <div class="victory-sub">All three matched. Every dollar is public record — here are the receipts.</div>
-    <div class="victory-sources">
+  <!-- ARCADE COMPLETE SCREEN -->
+  <div class="arcade-complete full-bleed-edge" id="arcadeComplete">
+    <div class="complete-cursor">▮</div>
+    <h2 class="complete-title">Puzzle Complete</h2>
+    <div class="complete-sub">You followed the money. Every dollar is public record.</div>
+    <div class="complete-rank" id="completeRank">★ Perfect</div>
+    <div class="complete-stats">
+      <div class="stat-line">
+        <span class="stat-label">Matched</span>
+        <span class="stat-value"><span id="finalMatches">3</span>/3</span>
+      </div>
+      <div class="stat-line">
+        <span class="stat-label">Attempts</span>
+        <span class="stat-value" id="finalAttempts">3</span>
+      </div>
+    </div>
+    <div class="complete-sources">
+      <div class="src-label">Sources</div>
       <a href="https://www.opensecrets.org/orgs/ace-hardware/recipients?id=D000042548" target="_blank">Ace Hardware — OpenSecrets</a>
       <a href="https://www.opensecrets.org/orgs/home-depot/recipients?id=D000000419" target="_blank">Home Depot — OpenSecrets</a>
       <a href="https://www.opensecrets.org/orgs/lowe-s-companies/recipients?id=D000027296" target="_blank">Lowe's — OpenSecrets</a>
     </div>
-    <button class="share-btn victory-share" onclick="shareGame()">📤 Share This Puzzle</button>
-    <a class="more-btn victory-more" href="/">More Puzzles →</a>
+    <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
+    <div class="complete-actions">
+      <button class="share-btn" onclick="shareGame()">📤 Share</button>
+      <a class="more-btn" href="/">More Puzzles →</a>
+    </div>
   </div>
 
   <div class="button-row">
@@ -1389,7 +1455,6 @@ body {
   </div>
 </div>
 
-<div class="confetti-container" id="confettiContainer"></div>
 
 <script>
 // GAME STATE
@@ -1536,12 +1601,25 @@ function handleWrongMatch(dropZone) {
   setTimeout(() => card.classList.remove('wrong-flash'), 500);
 }
 
+function getRank(matches, attempts) {
+  if (attempts <= matches) return { cls: 'perfect', label: '★ Perfect' };
+  if (attempts <= matches + 2) return { cls: 'cleared', label: 'Cleared' };
+  return { cls: 'complete', label: 'Complete' };
+}
+
 function showVictory() {
-  const banner = document.getElementById('victoryBanner');
-  banner.classList.add('visible');
-  launchConfetti();
+  const complete = document.getElementById('arcadeComplete');
+  const rankEl = document.getElementById('completeRank');
+  const rank = getRank(matches, attempts);
+
+  rankEl.className = 'complete-rank ' + rank.cls;
+  rankEl.textContent = rank.label;
+  document.getElementById('finalMatches').textContent = matches;
+  document.getElementById('finalAttempts').textContent = attempts;
+
+  complete.classList.add('show');
   setTimeout(() => {
-    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    complete.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 200);
 }
 
@@ -1553,7 +1631,7 @@ function resetGame() {
 
   document.getElementById('matchCount').textContent = '0';
   document.getElementById('attemptCount').textContent = '0';
-  document.getElementById('victoryBanner').classList.remove('visible');
+  document.getElementById('arcadeComplete').classList.remove('show');
 
   // Reset cards
   document.querySelectorAll('.chart-card').forEach(card => {
@@ -1589,29 +1667,6 @@ function resetGame() {
   // Reset instructions + restart attention pulse
   document.getElementById('logosRow').classList.add('attention');
   updateInstructions();
-}
-
-// CONFETTI
-function launchConfetti() {
-  const container = document.getElementById('confettiContainer');
-  const colors = ['#c0392b', '#2c3e6b', '#f0c040', '#27ae60', '#b8860b', '#0d0d0d'];
-
-  for (let i = 0; i < 80; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
-    piece.style.left = Math.random() * 100 + '%';
-    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.width = (Math.random() * 8 + 5) + 'px';
-    piece.style.height = (Math.random() * 8 + 5) + 'px';
-    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-    piece.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
-    piece.style.animationDelay = (Math.random() * 0.8) + 's';
-    container.appendChild(piece);
-  }
-
-  setTimeout(() => {
-    container.innerHTML = '';
-  }, 4000);
 }
 
 // DRAG AND DROP (desktop enhancement)
