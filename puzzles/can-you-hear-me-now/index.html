@@ -582,18 +582,39 @@ body {
   line-height: 1.5;
 }
 
+.rank-and-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .complete-rank {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 3px solid var(--muted);
+  color: var(--muted);
+  text-align: center;
+}
+.complete-rank .rank-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 5px;
   text-transform: uppercase;
-  padding: 10px 22px;
-  display: inline-block;
-  border: 3px solid var(--muted);
-  color: var(--muted);
-  margin-bottom: 28px;
 }
+.complete-rank .rank-stars {
+  font-size: 22px;
+  letter-spacing: 6px;
+  line-height: 1;
+}
+.complete-rank .rank-stars .star { display: inline-block; }
+.complete-rank .rank-stars .star.filled { color: var(--gold); }
+.complete-rank .rank-stars .star.empty { color: var(--rule); }
 .complete-rank.perfect {
   border-color: var(--gold);
   color: var(--gold);
@@ -612,7 +633,6 @@ body {
   display: inline-flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 28px;
   font-family: 'JetBrains Mono', monospace;
   min-width: 220px;
 }
@@ -1313,15 +1333,20 @@ body {
     <div class="complete-cursor">▮</div>
     <h2 class="complete-title">Puzzle Complete</h2>
     <div class="complete-sub">You followed the money. Every dollar is public record.</div>
-    <div class="complete-rank" id="completeRank">★ Perfect</div>
-    <div class="complete-stats">
-      <div class="stat-line">
-        <span class="stat-label">Matched</span>
-        <span class="stat-value"><span id="finalMatches">3</span>/3</span>
+    <div class="rank-and-stats">
+      <div class="complete-rank" id="completeRank">
+        <span class="rank-label" id="rankLabel">Perfect</span>
+        <span class="rank-stars" id="rankStars"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></span>
       </div>
-      <div class="stat-line">
-        <span class="stat-label">Attempts</span>
-        <span class="stat-value" id="finalAttempts">3</span>
+      <div class="complete-stats">
+        <div class="stat-line">
+          <span class="stat-label">Matched</span>
+          <span class="stat-value"><span id="finalMatches">3</span>/3</span>
+        </div>
+        <div class="stat-line">
+          <span class="stat-label">Attempts</span>
+          <span class="stat-value" id="finalAttempts">3</span>
+        </div>
       </div>
     </div>
     <div class="complete-sources">
@@ -1601,9 +1626,19 @@ function handleWrongMatch(dropZone) {
 }
 
 function getRank(matches, attempts) {
-  if (attempts <= matches) return { cls: 'perfect', label: '★ Perfect' };
-  if (attempts <= matches + 2) return { cls: 'cleared', label: 'Cleared' };
-  return { cls: 'finished', label: 'Finished' };
+  if (attempts <= matches) return { cls: 'perfect', label: 'Perfect', stars: 3 };
+  if (attempts <= matches + 2) return { cls: 'cleared', label: 'Cleared', stars: 2 };
+  return { cls: 'finished', label: 'Finished', stars: 1 };
+}
+
+function renderStars(filled) {
+  let html = '';
+  for (let i = 0; i < 3; i++) {
+    html += i < filled
+      ? '<span class="star filled">★</span>'
+      : '<span class="star empty">☆</span>';
+  }
+  return html;
 }
 
 function showVictory() {
@@ -1612,7 +1647,8 @@ function showVictory() {
   const rank = getRank(matches, attempts);
 
   rankEl.className = 'complete-rank ' + rank.cls;
-  rankEl.textContent = rank.label;
+  document.getElementById('rankLabel').textContent = rank.label;
+  document.getElementById('rankStars').innerHTML = renderStars(rank.stars);
   document.getElementById('finalMatches').textContent = matches;
   document.getElementById('finalAttempts').textContent = attempts;
 
