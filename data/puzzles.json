@@ -215,6 +215,64 @@
       ]
     },
     {
+      "id": "stream-wars",
+      "number": 5,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Stream Wars",
+      "subtitle": "Three streaming giants. Three donation profiles. Can you match the company to the cash?",
+      "hook": "All three lean blue. The ownership doesn't always.",
+      "hint": "Hint: Look for the lopsided split, then sort by total spend",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "context_note": {
+        "label": "A note before you play",
+        "body": "This data is corporate PAC giving \u2014 money the company itself distributes through its political action committee. It does not include personal donations from founders, CEOs, or board members. David Ellison's Skydance closed its takeover of Paramount Global in 2025, putting one of the major streaming networks under ownership closely aligned with the current administration. As media consolidation accelerates, the gap between corporate PAC profiles and ownership politics becomes harder to ignore.",
+        "source_url": "https://en.wikipedia.org/wiki/Paramount_Skydance",
+        "source_label": "Paramount Skydance"
+      },
+      "companies": [
+        {
+          "id": "disney",
+          "name": "Disney",
+          "display_name": "Disney",
+          "dem_amount": 2053996,
+          "dem_pct": 89.74,
+          "rep_amount": 234951,
+          "rep_pct": 10.26,
+          "total": 2288947,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/walt-disney-co/recipients?id=D000000128"
+        },
+        {
+          "id": "netflix",
+          "name": "Netflix",
+          "display_name": "Netflix",
+          "dem_amount": 850195,
+          "dem_pct": 99.05,
+          "rep_amount": 8155,
+          "rep_pct": 0.95,
+          "total": 858350,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/netflix-inc/recipients?id=D000036161"
+        },
+        {
+          "id": "wbd",
+          "name": "Warner Bros. Discovery",
+          "display_name": "Warner<br>Bros. Discovery",
+          "dem_amount": 1337579,
+          "dem_pct": 97.5,
+          "rep_amount": 34315,
+          "rep_pct": 2.5,
+          "total": 1371894,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/warner-brothers-discovery/recipients?id=D000094854"
+        }
+      ]
+    },
+    {
       "id": "georgia-on-my-mind",
       "number": null,
       "type": "special",
