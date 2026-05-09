@@ -355,36 +355,155 @@ body {
   90% { transform: translateX(3px); }
 }
 
-/* VICTORY */
-.victory-banner {
+/* ARCADE COMPLETE SCREEN */
+.arcade-complete {
   display: none;
-  background: var(--ink);
-  color: var(--paper);
   text-align: center;
-  padding: 40px 20px;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
   margin-top: 32px;
-  border-top: 4px solid var(--green);
+  margin-bottom: 28px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
 }
-.victory-banner.show { display: block; }
-.victory-banner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin-bottom: 8px;
+.arcade-complete.show {
+  display: block;
+  animation: complete-flash 0.45s ease-out both;
 }
-.victory-banner h2 em { color: var(--green); font-style: normal; }
-.victory-sources {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 20px auto;
-  max-width: 400px;
+@keyframes complete-flash {
+  0%   { opacity: 0; transform: scale(0.96); }
+  60%  { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
 }
-.victory-sources a {
-  color: var(--gold);
+.complete-cursor {
   font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 6px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+.complete-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(26px, 4.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.complete-sub {
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+.complete-rank {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  display: inline-block;
+  border: 3px solid var(--muted);
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.complete-rank.perfect {
+  border-color: var(--gold);
+  color: var(--gold);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+.complete-rank.cleared {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.complete-rank.finished {
+  border-color: var(--muted);
+  color: var(--muted);
+}
+.complete-stats {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 220px;
+}
+.stat-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  border-bottom: 1px dotted var(--rule);
+  padding: 6px 0;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.complete-sources {
+  margin: 0 auto 32px;
+  max-width: 560px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  text-align: left;
+  border: 3px solid var(--ink);
+  padding: 22px 26px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.complete-sources .src-label {
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 14px;
   font-size: 13px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+.complete-sources a {
+  display: block;
+  color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px dashed var(--gold);
+  border-bottom: 1px dotted var(--gold);
+  margin-bottom: 10px;
+  padding: 4px 0;
+  transition: color 0.15s, border-color 0.15s;
+  font-weight: 600;
+}
+.complete-sources a:last-child { margin-bottom: 0; }
+.complete-sources a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+.complete-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 /* BUTTONS */
@@ -472,16 +591,6 @@ body {
   white-space: nowrap;
 }
 .license-row a { color: var(--muted); }
-
-/* CONFETTI */
-.confetti-piece {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  top: -20px;
-  z-index: 9999;
-  pointer-events: none;
-}
 
 @media (max-width: 600px) {
   .answer-tiles { flex-direction: column; align-items: center; }
@@ -678,17 +787,33 @@ body {
 
   </div><!-- /play-area -->
 
-  <!-- VICTORY BANNER -->
-  <div class="victory-banner full-bleed" id="victory">
-    <h2>You <em>solved it.</em></h2>
-    <p style="font-size: 14px; color: #bbb; margin-bottom: 20px;">Two candidates. One bench. The endorsements told the story.</p>
-    <div class="victory-sources">
+  <!-- ARCADE COMPLETE SCREEN -->
+  <div class="arcade-complete full-bleed" id="arcadeComplete">
+    <div class="complete-cursor">▮</div>
+    <h2 class="complete-title">Puzzle Complete</h2>
+    <div class="complete-sub">Two candidates. One bench. The endorsements told the story.</div>
+    <div class="complete-rank" id="completeRank">★ Perfect</div>
+    <div class="complete-stats">
+      <div class="stat-line">
+        <span class="stat-label">Matched</span>
+        <span class="stat-value"><span id="finalMatches">4</span>/4</span>
+      </div>
+      <div class="stat-line">
+        <span class="stat-label">Attempts</span>
+        <span class="stat-value" id="finalAttempts">4</span>
+      </div>
+    </div>
+    <div class="complete-sources">
+      <div class="src-label">Sources</div>
       <a href="https://ballotpedia.org/Supreme_Court_of_Georgia_elections,_2026" target="_blank" rel="noopener">Ballotpedia — Georgia Supreme Court Elections, 2026</a>
       <a href="https://ballotpedia.org/Sarah_Warren" target="_blank" rel="noopener">Ballotpedia — Sarah Hawkins Warren</a>
       <a href="https://ballotpedia.org/Jen_Jordan" target="_blank" rel="noopener">Ballotpedia — Jen Jordan</a>
     </div>
-    <button class="btn btn-primary" onclick="shareGame()">📤 Share This Puzzle</button>
-    <a class="btn" href="/" style="display:inline-block; margin-top: 10px;">More Puzzles →</a>
+    <button class="start-btn" type="button" onclick="resetPuzzle()">▶ Play Again</button>
+    <div class="complete-actions">
+      <button class="share-btn" onclick="shareGame()">📤 Share</button>
+      <a class="more-btn" href="/">More Puzzles →</a>
+    </div>
   </div>
 
   <!-- BUTTON ROW -->
@@ -742,6 +867,7 @@ const names = {
 
 let selectedAnswer = null;
 let matches = 0;
+let attempts = 0;
 const totalMatches = 4;
 
 // START GATE — arcade-style attract screen
@@ -801,6 +927,7 @@ function selectFact(card) {
   if (card.classList.contains('matched')) return;
   if (!selectedAnswer) return;
 
+  attempts++;
   const correct = card.dataset.correct;
 
   if (selectedAnswer === correct) {
@@ -814,17 +941,34 @@ function selectFact(card) {
     updateInstructions();
 
     if (matches === totalMatches) {
-      setTimeout(() => {
-        fireConfetti();
-        const victory = document.getElementById('victory');
-        victory.classList.add('show');
-        victory.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 400);
+      setTimeout(showVictory, 400);
     }
   } else {
     card.classList.add('wrong');
     setTimeout(() => card.classList.remove('wrong'), 400);
   }
+}
+
+function getRank(matches, attempts) {
+  if (attempts <= matches) return { cls: 'perfect', label: '★ Perfect' };
+  if (attempts <= matches + 2) return { cls: 'cleared', label: 'Cleared' };
+  return { cls: 'finished', label: 'Finished' };
+}
+
+function showVictory() {
+  const complete = document.getElementById('arcadeComplete');
+  const rankEl = document.getElementById('completeRank');
+  const rank = getRank(matches, attempts);
+
+  rankEl.className = 'complete-rank ' + rank.cls;
+  rankEl.textContent = rank.label;
+  document.getElementById('finalMatches').textContent = matches;
+  document.getElementById('finalAttempts').textContent = attempts;
+
+  complete.classList.add('show');
+  setTimeout(() => {
+    complete.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
 }
 
 function resetPuzzle() {
@@ -836,9 +980,10 @@ function resetPuzzle() {
   document.querySelectorAll('.answer-tile').forEach(tile => {
     tile.classList.remove('matched', 'selected');
   });
-  document.getElementById('victory').classList.remove('show');
+  document.getElementById('arcadeComplete').classList.remove('show');
   selectedAnswer = null;
   matches = 0;
+  attempts = 0;
 
   // Reset instructions + restart attention pulse
   const trayLabel = document.getElementById('trayLabel');
@@ -846,7 +991,10 @@ function resetPuzzle() {
   document.getElementById('answerTiles').classList.add('attention');
   updateInstructions();
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Scroll back up to the top of the play area
+  setTimeout(() => {
+    document.getElementById('playArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
 }
 
 function shareGame() {
@@ -864,29 +1012,6 @@ function shareGame() {
   }
 }
 
-function fireConfetti() {
-  const colors = ['#d63031', '#b8860b', '#27ae60', '#2c5f8a', '#f2ede4'];
-  for (let i = 0; i < 80; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
-    piece.style.left = Math.random() * 100 + 'vw';
-    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.width = (6 + Math.random() * 8) + 'px';
-    piece.style.height = (6 + Math.random() * 8) + 'px';
-    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
-    document.body.appendChild(piece);
-
-    const duration = 1500 + Math.random() * 2000;
-    const delay = Math.random() * 600;
-    piece.animate([
-      { top: '-20px', opacity: 1 },
-      { top: '110vh', opacity: 0 }
-    ], { duration, delay, easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)', fill: 'forwards' });
-
-    setTimeout(() => piece.remove(), duration + delay + 100);
-  }
-}
 </script>
 </body>
 </html>
