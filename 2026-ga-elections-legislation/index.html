@@ -63,6 +63,8 @@ body {
   border-bottom: 5px solid var(--red);
 }
 .masthead .kicker { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 700; }
+.masthead .kicker a { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); padding-bottom: 1px; transition: color 0.15s; }
+.masthead .kicker a:hover { color: var(--red); border-bottom-color: var(--red); }
 .masthead h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 6vw, 52px); line-height: 1.1; margin-bottom: 8px; }
 .masthead h1 .red { color: var(--red); }
 .masthead .subtitle { font-family: 'Source Serif 4', serif; font-size: 19px; font-style: italic; font-weight: 400; color: var(--muted); margin-bottom: 14px; }
@@ -307,7 +309,7 @@ body {
 <body>
 
 <div class="full-bleed masthead animate-in">
-  <div class="kicker">Moral Fiber Media · Scorecard</div>
+  <div class="kicker"><a href="/">← Back to Puzzles</a> · Scorecard</div>
   <h1>2026 Georgia Election Bills<br><span class="red">Scorecard</span></h1>
   <div class="subtitle">Every bill. Every result. One page.</div>
   <div class="dateline">Georgia General Assembly · 2025–2026 Biennium · Editorial Compilation</div>
