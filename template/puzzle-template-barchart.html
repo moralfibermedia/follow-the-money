@@ -1019,6 +1019,99 @@ body {
   .bar-pct { width: 38px; font-size: 11px; }
   .social-row { flex-direction: column; }
 }
+
+
+/* ============================================================
+   START GATE (arcade-style attract screen)
+   ============================================================ */
+.start-gate {
+  text-align: center;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+  transition: opacity 0.35s ease, max-height 0.45s ease, padding 0.45s ease, margin 0.45s ease, border-width 0.45s ease;
+  overflow: hidden;
+  max-height: 600px;
+}
+.start-gate.dismissed {
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  pointer-events: none;
+}
+.start-gate-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 14px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+@keyframes arcade-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+.start-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 4px solid var(--ink);
+  padding: 22px 56px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--ink);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+@keyframes arcade-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.start-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--red);
+}
+.start-btn:active {
+  transform: scale(0.97);
+}
+.start-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 22px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   PLAY AREA (revealed after pressing start)
+   ============================================================ */
+.play-area[hidden] { display: none !important; }
+.play-area.revealed { animation: play-reveal 0.55s ease both; }
+@keyframes play-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 <body>
@@ -1039,6 +1132,15 @@ body {
     <strong>How to play:</strong> Tap a company below, then tap the chart you think it belongs to. Match all three correctly to reveal the sources.
   </div>
 
+  <!-- START GATE -->
+  <div class="start-gate" id="startGate">
+    <div class="start-gate-cursor">▮</div>
+    <button class="start-btn" type="button" onclick="startGame()">▶ Press Start</button>
+    <div class="start-meta">3 Companies · 3 Charts · 3 Matches</div>
+  </div>
+
+  <!-- PLAY AREA -->
+  <div class="play-area" id="playArea" hidden>
   <!-- SCORE -->
   <div class="score-bar">
     <div class="score-item">Matched: <span id="matchCount">0</span>/3</div>
@@ -1154,6 +1256,8 @@ body {
       </div>
     </div>
   </div>
+
+  </div><!-- /play-area -->
 
   <!-- VICTORY -->
   <div class="victory-banner full-bleed-edge" id="victoryBanner">
@@ -1294,14 +1398,31 @@ let matches = 0;
 let attempts = 0;
 let matched = {};
 
-// ANIMATE BARS ON LOAD
-window.addEventListener('load', () => {
+// ANIMATE BARS — deferred until startGame() so the bars animate
+// after the play area is revealed (not while it's hidden behind the gate)
+function animateBars() {
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.style.width = bar.dataset.target + '%';
+  });
+}
+
+// START GATE — arcade-style attract screen
+function startGame() {
+  const gate = document.getElementById('startGate');
+  const playArea = document.getElementById('playArea');
+
+  gate.classList.add('dismissed');
+  playArea.hidden = false;
+  playArea.classList.add('revealed');
+
+  // Animate bars after the play area starts revealing
+  setTimeout(animateBars, 200);
+
+  // Smooth-scroll to the play area
   setTimeout(() => {
-    document.querySelectorAll('.bar-fill').forEach(bar => {
-      bar.style.width = bar.dataset.target + '%';
-    });
-  }, 400);
-});
+    playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 350);
+}
 
 // STATE-AWARE INSTRUCTION UPDATER
 function updateInstructions() {
