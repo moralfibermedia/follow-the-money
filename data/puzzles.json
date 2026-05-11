@@ -273,6 +273,58 @@
       ]
     },
     {
+      "id": "fill-er-up",
+      "number": 6,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Fill 'Er Up",
+      "subtitle": "Three oil giants. Three donation profiles. Can you match the company to the cash?",
+      "hook": "Two tilt red. The European one tilts blue \u2014 and spends pennies on the dollar.",
+      "hint": "Hint: One company spends 8x less than the others \u2014 and leans the opposite way",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "chevron",
+          "name": "Chevron",
+          "display_name": "Chevron",
+          "dem_amount": 382948,
+          "dem_pct": 23.56,
+          "rep_amount": 1242666,
+          "rep_pct": 76.44,
+          "total": 1625614,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/chevron/recipients?id=D000000015"
+        },
+        {
+          "id": "exxon",
+          "name": "ExxonMobil",
+          "display_name": "ExxonMobil",
+          "dem_amount": 530529,
+          "dem_pct": 44.61,
+          "rep_amount": 658761,
+          "rep_pct": 55.39,
+          "total": 1189290,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/exxon-mobil/recipients?id=D000000129"
+        },
+        {
+          "id": "shell",
+          "name": "Shell",
+          "display_name": "Shell",
+          "dem_amount": 165230,
+          "dem_pct": 79.19,
+          "rep_amount": 43413,
+          "rep_pct": 20.81,
+          "total": 208643,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/shell-plc/recipients?id=D000042525"
+        }
+      ]
+    },
+    {
       "id": "georgia-on-my-mind",
       "number": null,
       "type": "special",
@@ -327,18 +379,6 @@
     }
   ],
   "coming_soon": [
-    {
-      "number": 5,
-      "title": "Stream Wars",
-      "companies_label": "Netflix \u00b7 Disney \u00b7 Amazon",
-      "status": "planned"
-    },
-    {
-      "number": 6,
-      "title": "Fill 'Er Up",
-      "companies_label": "ExxonMobil \u00b7 Chevron \u00b7 Shell",
-      "status": "planned"
-    },
     {
       "number": 7,
       "title": "Who Owns Your Feed?",
