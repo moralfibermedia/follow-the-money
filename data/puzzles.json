@@ -325,6 +325,62 @@
       ]
     },
     {
+      "id": "who-owns-your-feed",
+      "number": 7,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Who Owns Your Feed?",
+      "subtitle": "Three platforms in your pocket. Three donation profiles. Can you match the app to the cash?",
+      "hook": "All three lean blue. The biggest spender outspends the smallest 100-to-1.",
+      "hint": "Hint: One spends ~100x more than another \u2014 and the smallest spender is foreign-owned",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "context_note": {
+        "label": "A note before you play",
+        "body": "This is corporate PAC giving \u2014 money the three companies' US-incorporated PACs distributed in 2024, with decisions made by US-person treasurers. It does not capture the much larger flows that actually shape platform policy: personal donations from founders and executives, lobbying spend, dark-money trade-association giving, and post-election positioning by ownership. ByteDance is headquartered in China; its US subsidiary's PAC is legal under FECA, but the corporate parent's interests are not American."
+      },
+      "companies": [
+        {
+          "id": "youtube",
+          "name": "YouTube (Alphabet)",
+          "display_name": "YouTube<br>(Alphabet)",
+          "dem_amount": 8759974,
+          "dem_pct": 88.84,
+          "rep_amount": 1100310,
+          "rep_pct": 11.16,
+          "total": 9860284,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/alphabet-inc/recipients?id=D000067823"
+        },
+        {
+          "id": "facebook",
+          "name": "Facebook (Meta)",
+          "display_name": "Facebook<br>(Meta)",
+          "dem_amount": 2936702,
+          "dem_pct": 90.45,
+          "rep_amount": 309983,
+          "rep_pct": 9.55,
+          "total": 3246685,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/meta/recipients?id=D000033563"
+        },
+        {
+          "id": "tiktok",
+          "name": "TikTok (ByteDance)",
+          "display_name": "TikTok<br>(ByteDance)",
+          "dem_amount": 79648,
+          "dem_pct": 83.16,
+          "rep_amount": 16126,
+          "rep_pct": 16.84,
+          "total": 95774,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/bytedance-inc/recipients?id=D000073174"
+        }
+      ]
+    },
+    {
       "id": "georgia-on-my-mind",
       "number": null,
       "type": "special",
@@ -379,12 +435,6 @@
     }
   ],
   "coming_soon": [
-    {
-      "number": 7,
-      "title": "Who Owns Your Feed?",
-      "companies_label": "Meta \u00b7 Alphabet \u00b7 Apple",
-      "status": "planned"
-    },
     {
       "number": 8,
       "title": "Morning Fix",
