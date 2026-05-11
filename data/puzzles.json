@@ -381,6 +381,65 @@
       ]
     },
     {
+      "id": "morning-fix",
+      "number": 8,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Morning Fix",
+      "subtitle": "Three morning rituals. Three donation profiles. Can you match the brand to the cash?",
+      "hook": "The progressive-coded brand tilts hard left. The burger giant tilts right. The donut chain's PAC isn't really the donut chain.",
+      "hint": "Hint: The smallest gap between the parties belongs to a PE conglomerate, not a coffee shop",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "context_note": {
+        "label": "A note before you play",
+        "body": "Two of these are simple \u2014 McDonald's and Starbucks each run their own corporate PACs. The third is not. Dunkin' has been owned by Roark Capital Group since 2020, a private-equity firm whose portfolio also includes Carl's Jr, Hardee's, Jimmy John's, Buffalo Wild Wings, Arby's, Auntie Anne's, Cinnabon, and Sonic. The PAC split you'll see for Dunkin' is Roark's \u2014 reflecting the political interests of a 20-brand fast-food empire, not a donut chain. Former Carl's Jr CEO Andrew Puzder was Trump's first nominee for Labor Secretary.",
+        "source_url": "https://en.wikipedia.org/wiki/Roark_Capital_Group",
+        "source_label": "Roark Capital Group"
+      },
+      "companies": [
+        {
+          "id": "mcdonalds",
+          "name": "McDonald's",
+          "display_name": "McDonald's",
+          "dem_amount": 305001,
+          "dem_pct": 41.10,
+          "rep_amount": 437125,
+          "rep_pct": 58.90,
+          "total": 742126,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/mcdonald-s-corp/recipients?id=D000000373"
+        },
+        {
+          "id": "dunkin",
+          "name": "Dunkin' (Roark Capital)",
+          "display_name": "Dunkin'<br>(Roark Capital)",
+          "dem_amount": 203386,
+          "dem_pct": 56.60,
+          "rep_amount": 155923,
+          "rep_pct": 43.40,
+          "total": 359309,
+          "leading_party": "dem",
+          "parent_note": "Donations are Roark Capital Group's corporate PAC \u2014 the private-equity owner of Dunkin' since 2020, plus Carl's Jr/Hardee's, Jimmy John's, Buffalo Wild Wings, Arby's, Auntie Anne's, Cinnabon, and Sonic.",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/roark-capital-group/recipients?id=D000028753"
+        },
+        {
+          "id": "starbucks",
+          "name": "Starbucks",
+          "display_name": "Starbucks",
+          "dem_amount": 300894,
+          "dem_pct": 92.06,
+          "rep_amount": 25962,
+          "rep_pct": 7.94,
+          "total": 326856,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/starbucks-corp/recipients?id=D000037780"
+        }
+      ]
+    },
+    {
       "id": "georgia-on-my-mind",
       "number": null,
       "type": "special",
@@ -434,12 +493,5 @@
       ]
     }
   ],
-  "coming_soon": [
-    {
-      "number": 8,
-      "title": "Morning Fix",
-      "companies_label": "Starbucks \u00b7 Dunkin' \u00b7 McDonald's",
-      "status": "planned"
-    }
-  ]
+  "coming_soon": []
 }

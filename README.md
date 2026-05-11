@@ -4,7 +4,7 @@ Interactive civic puzzles built on public data. Free, sourced, openly licensed.
 
 **We do the research. You solve the puzzle.**
 
-**Status:** v1.0 — 7 puzzles live, arcade mode with 3-star scoring shipped.
+**Status:** v1.0 — 9 puzzles live (6 bar-chart + 2 specials + 1 text-match), arcade mode with 3-star scoring shipped.
 
 ## Live Site
 
@@ -18,6 +18,9 @@ All pages live at **[followthemoney.moralfibermedia.com](https://followthemoney.
 | Puzzle #3 — Your Whole Paycheck | `/puzzles/your-whole-paycheck/` |
 | Puzzle #4 — Can You Hear Me Now? | `/puzzles/can-you-hear-me-now/` |
 | Puzzle #5 — Stream Wars | `/puzzles/stream-wars/` |
+| Puzzle #6 — Fill 'Er Up | `/puzzles/fill-er-up/` |
+| Puzzle #7 — Who Owns Your Feed? | `/puzzles/who-owns-your-feed/` |
+| Puzzle #8 — Morning Fix | `/puzzles/morning-fix/` |
 | Special — Georgia on My Mind | `/puzzles/georgia-on-my-mind/` |
 | Special — Behind the Bench (GA Supreme Court) | `/puzzles/behind-the-bench/` |
 | Pro-Democracy Fighters index | `/fighters/` |
