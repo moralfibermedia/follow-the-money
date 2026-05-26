@@ -1,0 +1,21 @@
+{
+  "name": "fact-puzzle-preview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Render 1200×630 Open Graph previews for Moral Fiber Media Follow the Money puzzles.",
+  "bin": {
+    "fact-puzzle-preview": "./render.mjs"
+  },
+  "scripts": {
+    "postinstall": "playwright install --with-deps chromium || playwright install chromium",
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0",
+    "sharp": "^0.33.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

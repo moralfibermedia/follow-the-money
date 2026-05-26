@@ -1,0 +1,14 @@
+{
+  "number": 4,
+  "episode": "Can You Hear Me Now?",
+  "subjects": ["AT&T", "Verizon", "T-Mobile"],
+  "subjectsNoun": "telecom giants",
+  "matchVerb": "Can you match the carrier to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 58.54, "rep": 41.46 },
+    { "letter": "B", "dem": 59.30, "rep": 40.70 },
+    { "letter": "C", "zeroSpend": true }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

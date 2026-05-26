@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FactPuzzle Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f2ede4;
+    --red: #d63031;
+    --muted: #6b6256;
+    --rep-red: #8b1a1a;
+    --dem-blue: #1a3a5c;
+    --gold-highlight: #f0c040;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1200px; height: 630px; background: var(--paper);
+    font-family: 'Source Serif 4', serif; color: var(--ink); overflow: hidden;
+  }
+  .canvas {
+    width: 1200px; height: 630px; position: relative; background: var(--paper);
+    background-image:
+      radial-gradient(rgba(13,13,13,0.03) 1px, transparent 1px),
+      radial-gradient(rgba(13,13,13,0.025) 1px, transparent 1px);
+    background-size: 5px 5px, 13px 13px;
+    background-position: 0 0, 2px 6px;
+  }
+  .top-rule { position: absolute; top: 0; left: 0; right: 0; height: 8px; background: var(--ink); }
+  .top-rule-thin { position: absolute; top: 14px; left: 0; right: 0; height: 2px; background: var(--ink); }
+  .bottom-rule { position: absolute; bottom: 0; left: 0; right: 0; height: 8px; background: var(--ink); }
+  .kicker {
+    position: absolute; top: 38px; left: 56px; right: 56px;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase; color: var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .data-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: var(--paper); padding: 6px 12px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 700; letter-spacing: 3px;
+  }
+  .data-chip .label { color: var(--paper); opacity: 0.6; }
+  .data-chip .source { color: var(--gold-highlight); }
+  .grid {
+    position: absolute; top: 80px; left: 56px; right: 56px; bottom: 80px;
+    display: grid; grid-template-columns: 1fr 460px; gap: 50px;
+  }
+  .left { display: flex; flex-direction: column; justify-content: center; }
+  .puzzle-tag {
+    display: inline-block; background: var(--ink); color: var(--paper);
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700;
+    letter-spacing: 3px; padding: 6px 12px; text-transform: uppercase;
+    margin-bottom: 18px; align-self: flex-start;
+  }
+  h1.headline {
+    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 78px;
+    line-height: 0.92; letter-spacing: -1.5px; margin-bottom: 14px; color: var(--ink);
+  }
+  h1.headline em { font-style: italic; font-weight: 900; }
+  .episode {
+    font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900;
+    line-height: 1; color: var(--red); margin-bottom: 22px;
+    letter-spacing: -1px;
+    font-size: {{EPISODE_FONT_SIZE}}px;
+  }
+  .hook {
+    font-family: 'Source Serif 4', serif; font-weight: 300; font-style: italic;
+    font-size: 21px; line-height: 1.32; color: var(--ink); max-width: 540px;
+  }
+  .hook strong { font-weight: 600; font-style: normal; color: var(--red); }
+  .right { display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+  .charts-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px;
+  }
+  .chart-row {
+    border: 3px solid var(--ink); background: var(--paper); padding: 14px 16px;
+    display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: center;
+  }
+  .chart-letter {
+    font-family: 'Playfair Display', serif; font-weight: 900; font-size: 32px;
+    color: var(--ink); line-height: 1; text-align: center;
+  }
+  .chart-bars { display: flex; flex-direction: column; gap: 6px; }
+  .bar-line { display: grid; grid-template-columns: 30px 1fr 50px; gap: 10px; align-items: center; }
+  .bar-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink);
+  }
+  .bar-track { height: 14px; background: rgba(13,13,13,0.06); border: 1px solid var(--ink); position: relative; }
+  .bar-fill { height: 100%; position: absolute; top: 0; left: 0; }
+  .bar-fill.dem { background: var(--dem-blue); }
+  .bar-fill.rep { background: var(--rep-red); }
+  .bar-pct {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    color: var(--ink); text-align: right;
+  }
+  .chart-row.zero {
+    background:
+      repeating-linear-gradient(
+        45deg,
+        var(--paper),
+        var(--paper) 6px,
+        rgba(13,13,13,0.06) 6px,
+        rgba(13,13,13,0.06) 12px
+      );
+  }
+  .chart-zero {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink); text-align: center;
+    text-transform: uppercase; padding: 10px 0;
+  }
+  .footer {
+    position: absolute; left: 56px; right: 56px; bottom: 22px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+  }
+  .footer .tagline { color: var(--ink); }
+  .footer .tagline em { color: var(--red); font-style: italic; }
+  .footer .url { color: var(--muted); }
+  .stamp {
+    position: absolute; top: 92px; right: 56px; width: 88px; height: 88px;
+    border: 3px solid var(--red); color: var(--red); display: flex;
+    flex-direction: column; align-items: center; justify-content: center;
+    transform: rotate(8deg); font-family: 'JetBrains Mono', monospace;
+    line-height: 1; z-index: 5; background: var(--paper);
+  }
+  .stamp .top { font-size: 9px; font-weight: 700; letter-spacing: 2px; margin-bottom: 4px; }
+  .stamp .num { font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; font-size: 36px; line-height: 1; }
+  .stamp .bot { font-size: 8px; font-weight: 700; letter-spacing: 2px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="top-rule"></div>
+  <div class="top-rule-thin"></div>
+  <div class="kicker">
+    <span>Interactive · Political Donations · Follow the Money</span>
+    {{DATA_CHIP}}
+  </div>
+  <div class="stamp">
+    <div class="top">PUZZLE</div>
+    <div class="num">{{STAMP_LABEL}}</div>
+    <div class="bot">FTM</div>
+  </div>
+  <div class="grid">
+    <div class="left">
+      <span class="puzzle-tag">Follow the Money · {{TAG_LABEL}}</span>
+      <h1 class="headline">FOLLOW <em>THE&nbsp;MONEY</em></h1>
+      <div class="episode">{{EPISODE}}</div>
+      <p class="hook">{{SUBJECTS_LIST}}. Three {{SUBJECTS_NOUN}}. Three donation profiles. <strong>{{MATCH_VERB}}</strong></p>
+    </div>
+    <div class="right">
+      <div class="charts-label">{{DATA_LABEL}}</div>
+      {{CHART_ROWS}}
+    </div>
+  </div>
+  <div class="footer">
+    <span class="tagline">We do the research. <em>You solve the puzzle.</em></span>
+    <span class="url">followthemoney.moralfibermedia.com</span>
+  </div>
+  <div class="bottom-rule"></div>
+</div>
+</body>
+</html>

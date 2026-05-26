@@ -1,0 +1,14 @@
+{
+  "number": 8,
+  "episode": "Morning Fix",
+  "subjects": ["Starbucks", "McDonald's", "Dunkin'"],
+  "subjectsNoun": "morning rituals",
+  "matchVerb": "Can you match the brand to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 41.10, "rep": 58.90 },
+    { "letter": "B", "dem": 56.60, "rep": 43.40 },
+    { "letter": "C", "dem": 92.06, "rep": 7.94 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

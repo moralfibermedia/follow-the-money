@@ -1,0 +1,14 @@
+{
+  "special": true,
+  "episode": "Georgia on My Mind",
+  "subjects": ["Coca-Cola", "Delta", "Home Depot"],
+  "subjectsNoun": "Georgia giants",
+  "matchVerb": "Can you match the company to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 57.49, "rep": 42.51 },
+    { "letter": "B", "dem": 43.27, "rep": 56.73 },
+    { "letter": "C", "dem": 46.17, "rep": 53.83 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

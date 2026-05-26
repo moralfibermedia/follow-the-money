@@ -1,0 +1,14 @@
+{
+  "number": 1,
+  "episode": "Hardware Giants",
+  "subjects": ["Lowe's", "Home Depot", "Ace Hardware"],
+  "subjectsNoun": "hardware giants",
+  "matchVerb": "Can you match the store to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 58.9, "rep": 41.1 },
+    { "letter": "B", "dem": 46.17, "rep": 53.83 },
+    { "letter": "C", "dem": 35.27, "rep": 64.73 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

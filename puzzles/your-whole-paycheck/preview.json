@@ -1,0 +1,14 @@
+{
+  "number": 3,
+  "episode": "Your Whole Paycheck",
+  "subjects": ["Amazon", "Publix", "Trader Joe's"],
+  "subjectsNoun": "premium grocers",
+  "matchVerb": "Can you match the grocer to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 82.15, "rep": 17.85 },
+    { "letter": "B", "dem": 30.08, "rep": 69.92 },
+    { "letter": "C", "dem": 87.96, "rep": 12.04 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

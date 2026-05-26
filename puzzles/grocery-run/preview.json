@@ -1,0 +1,14 @@
+{
+  "number": 2,
+  "episode": "Grocery Run",
+  "subjects": ["Walmart", "Kroger", "Costco"],
+  "subjectsNoun": "grocery chains",
+  "matchVerb": "Can you match the chain to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 80.01, "rep": 19.99 },
+    { "letter": "B", "dem": 48.29, "rep": 51.71 },
+    { "letter": "C", "dem": 54.35, "rep": 45.65 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}
