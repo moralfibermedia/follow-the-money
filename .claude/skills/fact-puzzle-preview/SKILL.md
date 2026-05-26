@@ -42,12 +42,14 @@ One `preview.json` per puzzle, sitting next to `index.html`:
 ```
 
 Field rules:
-- `number`: integer 1–99. Renders as zero-padded "07" in the corner stamp.
+- `number`: integer 1–99. Renders as zero-padded "07" in the corner stamp. Optional when `special: true`.
+- `special`: optional boolean. When `true`, the corner stamp renders as "★" and the puzzle tag reads "Special Edition" instead of "#NN". Use for non-numbered specials like Georgia on My Mind.
 - `episode`: the puzzle's display name. Shows in red Playfair italic at 52px (auto-shrinks to 44px above ~22 characters).
 - `subjects`: array of 2–4 short brand names. Joined with commas in the hook line.
 - `subjectsNoun`: short phrase that follows the brand list. E.g. `"platforms in your pocket"`, `"streaming giants"`, `"morning rituals"`, `"gas stations"`. Plural noun phrase, no leading "Three".
 - `matchVerb`: the call to action, full sentence with question mark. Rendered in red.
 - `charts`: exactly 3 entries, letters A/B/C, each with `dem` and `rep` percentages. The pair should sum to 100 ±0.2. Order is the order they'll render on the right side.
+- `charts[].zeroSpend`: optional boolean. When `true`, the row renders as a hatched "$0 — No Federal Contributions" panel instead of two bars; `dem`/`rep` can be omitted (default 0) and the sum check is skipped. Use this for any company that made zero direct federal contributions in the cycle (e.g. T-Mobile in Puzzle #4). Custom message via `charts[].zeroMessage`.
 - `dataLabel`: small caption above the charts. Defaults to `"2024 Cycle · Federal · Corporate PAC"` if omitted.
 - `dataSource`: shows in the gold-highlighted attribution chip top-right. Defaults to `"OpenSecrets.org"`. Omit / set to `null` to drop the chip entirely (rare — only for puzzles built on non-OpenSecrets data).
 

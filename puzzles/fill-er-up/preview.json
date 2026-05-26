@@ -1,0 +1,14 @@
+{
+  "number": 6,
+  "episode": "Fill 'Er Up",
+  "subjects": ["Chevron", "ExxonMobil", "Shell"],
+  "subjectsNoun": "oil giants",
+  "matchVerb": "Can you match the oil giant to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 23.56, "rep": 76.44 },
+    { "letter": "B", "dem": 44.61, "rep": 55.39 },
+    { "letter": "C", "dem": 79.19, "rep": 20.81 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

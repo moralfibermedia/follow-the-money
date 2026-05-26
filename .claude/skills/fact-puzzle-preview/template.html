@@ -100,6 +100,21 @@
     font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
     color: var(--ink); text-align: right;
   }
+  .chart-row.zero {
+    background:
+      repeating-linear-gradient(
+        45deg,
+        var(--paper),
+        var(--paper) 6px,
+        rgba(13,13,13,0.06) 6px,
+        rgba(13,13,13,0.06) 12px
+      );
+  }
+  .chart-zero {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700;
+    letter-spacing: 2px; color: var(--ink); text-align: center;
+    text-transform: uppercase; padding: 10px 0;
+  }
   .footer {
     position: absolute; left: 56px; right: 56px; bottom: 22px;
     display: flex; justify-content: space-between; align-items: baseline;
@@ -131,12 +146,12 @@
   </div>
   <div class="stamp">
     <div class="top">PUZZLE</div>
-    <div class="num">{{NUMBER_PADDED}}</div>
+    <div class="num">{{STAMP_LABEL}}</div>
     <div class="bot">FTM</div>
   </div>
   <div class="grid">
     <div class="left">
-      <span class="puzzle-tag">Follow the Money · #{{NUMBER_PADDED}}</span>
+      <span class="puzzle-tag">Follow the Money · {{TAG_LABEL}}</span>
       <h1 class="headline">FOLLOW <em>THE&nbsp;MONEY</em></h1>
       <div class="episode">{{EPISODE}}</div>
       <p class="hook">{{SUBJECTS_LIST}}. Three {{SUBJECTS_NOUN}}. Three donation profiles. <strong>{{MATCH_VERB}}</strong></p>

@@ -1,0 +1,14 @@
+{
+  "number": 7,
+  "episode": "Who Owns Your Feed?",
+  "subjects": ["Facebook", "YouTube", "TikTok"],
+  "subjectsNoun": "platforms in your pocket",
+  "matchVerb": "Can you match the app to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 88.84, "rep": 11.16 },
+    { "letter": "B", "dem": 90.45, "rep": 9.55 },
+    { "letter": "C", "dem": 83.16, "rep": 16.84 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

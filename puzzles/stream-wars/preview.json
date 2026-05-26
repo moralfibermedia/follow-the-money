@@ -1,0 +1,14 @@
+{
+  "number": 5,
+  "episode": "Stream Wars",
+  "subjects": ["Disney", "Netflix", "Warner Bros. Discovery"],
+  "subjectsNoun": "streaming giants",
+  "matchVerb": "Can you match the studio to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 89.74, "rep": 10.26 },
+    { "letter": "B", "dem": 99.05, "rep": 0.95 },
+    { "letter": "C", "dem": 97.50, "rep": 2.50 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

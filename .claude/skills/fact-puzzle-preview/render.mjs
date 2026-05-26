@@ -53,7 +53,8 @@ function need(field, type) {
   }
 }
 
-need("number", "number");
+const isSpecial = cfg.special === true;
+if (!isSpecial) need("number", "number");
 need("episode", "string");
 need("subjects");
 need("subjectsNoun", "string");
@@ -67,8 +68,17 @@ if (!Array.isArray(cfg.charts) || cfg.charts.length !== 3) {
   die(`"charts" must be an array of exactly 3 entries`);
 }
 for (const [i, c] of cfg.charts.entries()) {
-  if (!c.letter || typeof c.dem !== "number" || typeof c.rep !== "number") {
-    die(`charts[${i}] needs { letter, dem, rep } with numeric dem/rep`);
+  if (!c.letter) {
+    die(`charts[${i}] needs a letter`);
+  }
+  if (c.zeroSpend === true) {
+    // Zero-spend variant: dem/rep default to 0 if omitted, sum check skipped.
+    c.dem = c.dem ?? 0;
+    c.rep = c.rep ?? 0;
+    continue;
+  }
+  if (typeof c.dem !== "number" || typeof c.rep !== "number") {
+    die(`charts[${i}] needs { letter, dem, rep } with numeric dem/rep (or set zeroSpend: true)`);
   }
   const sum = c.dem + c.rep;
   if (Math.abs(sum - 100) > 0.2) {
@@ -82,7 +92,9 @@ for (const [i, c] of cfg.charts.entries()) {
 const tplPath = join(__dirname, "template.html");
 let html = readFileSync(tplPath, "utf8");
 
-const numPadded = String(cfg.number).padStart(2, "0");
+const numPadded = isSpecial ? "" : String(cfg.number).padStart(2, "0");
+const stampLabel = isSpecial ? "★" : numPadded;
+const tagLabel = isSpecial ? "Special Edition" : `#${numPadded}`;
 const dataLabel = cfg.dataLabel ?? "2024 Cycle · Federal · Corporate PAC";
 const dataSource = cfg.dataSource === null ? null : (cfg.dataSource ?? "OpenSecrets.org");
 
@@ -100,8 +112,16 @@ const episode = escapeHtml(cfg.episode);
 const episodeFontSize = cfg.episode.length > 22 ? 44 : 52;
 
 const chartRows = cfg.charts
-  .map(
-    (c) => `
+  .map((c) => {
+    if (c.zeroSpend === true) {
+      const msg = c.zeroMessage ?? "$0 — No Federal Contributions";
+      return `
+      <div class="chart-row zero">
+        <div class="chart-letter">${escapeHtml(c.letter)}</div>
+        <div class="chart-zero">${escapeHtml(msg)}</div>
+      </div>`;
+    }
+    return `
       <div class="chart-row">
         <div class="chart-letter">${escapeHtml(c.letter)}</div>
         <div class="chart-bars">
@@ -116,12 +136,13 @@ const chartRows = cfg.charts
             <span class="bar-pct">${c.rep.toFixed(1)}%</span>
           </div>
         </div>
-      </div>`
-  )
+      </div>`;
+  })
   .join("\n");
 
 html = html
-  .replaceAll("{{NUMBER_PADDED}}", numPadded)
+  .replaceAll("{{STAMP_LABEL}}", escapeHtml(stampLabel))
+  .replaceAll("{{TAG_LABEL}}", escapeHtml(tagLabel))
   .replaceAll("{{EPISODE}}", episode)
   .replaceAll("{{EPISODE_FONT_SIZE}}", String(episodeFontSize))
   .replaceAll("{{SUBJECTS_LIST}}", subjectsList)
