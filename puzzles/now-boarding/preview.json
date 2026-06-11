@@ -1,0 +1,14 @@
+{
+  "number": 9,
+  "episode": "Now Boarding",
+  "subjects": ["Delta", "American", "United"],
+  "subjectsNoun": "airlines",
+  "matchVerb": "Can you match the airline to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 43.27, "rep": 56.73 },
+    { "letter": "B", "dem": 50.76, "rep": 49.24 },
+    { "letter": "C", "dem": 64.43, "rep": 35.57 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- SEO & Social -->
+<meta name="description" content="Delta, American, or United — can you match the airline to its political donation profile? Puzzle #9 in the Follow the Money series.">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/now-boarding">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:title" content="Follow the Money — Now Boarding | Moral Fiber Media">
+<meta property="og:description" content="Delta, American, or United — can you match the airline to its political donation profile? Puzzle #9 in the Follow the Money series.">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/now-boarding">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/now-boarding/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Follow the Money — Now Boarding | Moral Fiber Media">
+<meta name="twitter:description" content="Delta, American, or United — can you match the airline to its political donation profile? Puzzle #9 in the Follow the Money series.">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/now-boarding/preview.png">
+
+<title>Follow the Money — Now Boarding | Moral Fiber Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --blue: #2c3e6b;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+  --green: #27ae60;
+  --rep-red: #8b1a1a;
+  --dem-blue: #1a3a5c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.game-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* FULL-BLEED BREAKOUT */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.full-bleed-edge {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* MASTHEAD */
+.masthead {
+  text-align: center;
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 14px 0 10px;
+  margin-bottom: 6px;
+  animation: fadeIn 0.5s ease both;
+}
+.masthead .kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 8px 0 4px;
+}
+.masthead h1 em { font-style: italic; color: var(--red); }
+.masthead .episode-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  display: inline-block;
+  padding: 5px 16px;
+  margin-top: 14px;
+}
+.masthead .episode-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--red);
+  margin: 8px 0 4px;
+  letter-spacing: 0.5px;
+}
+.masthead .sub {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.dateline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* INSTRUCTIONS BAR */
+.intro-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 22px max(32px, calc(50vw - 460px));
+  margin-bottom: 28px;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  animation: fadeIn 0.6s 0.1s ease both;
+}
+.intro-bar strong { font-weight: 600; font-style: normal; color: #f0c040; }
+
+/* SCORE BAR */
+.score-bar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.5s 0.15s ease both;
+}
+.score-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.score-item span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.score-item span.correct { color: var(--green); }
+.score-item span.wrong { color: var(--red); }
+
+/* CHART CARDS */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 700px) {
+  .charts-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.chart-card {
+  border: 3px solid var(--ink);
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+  min-height: 280px;
+  perspective: 1000px;
+}
+
+.chart-card.drop-hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.3);
+  transform: scale(1.02);
+}
+
+.chart-card.matched {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.chart-card.wrong-flash {
+  animation: wrongShake 0.5s ease;
+  border-color: var(--red);
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+.card-number {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  z-index: 2;
+}
+
+.chart-card.matched .card-number { background: var(--green); }
+
+.card-inner {
+  padding: 40px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.card-total {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+/* BAR CHART */
+.bar-chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-party {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.bar-party.dem { color: var(--dem-blue); }
+.bar-party.rep { color: var(--rep-red); }
+
+.bar-track {
+  flex: 1;
+  height: 28px;
+  background: #e8e3da;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+.bar-fill.dem { background: var(--dem-blue); }
+.bar-fill.rep { background: var(--rep-red); }
+
+.bar-amount {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  width: 88px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.bar-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  width: 52px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.bar-pct.dem { color: var(--dem-blue); }
+.bar-pct.rep { color: var(--rep-red); }
+
+/* DROP ZONE */
+.drop-zone {
+  margin-top: 14px;
+  border: 2px dashed var(--rule);
+  padding: 12px;
+  text-align: center;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+}
+
+.drop-zone.has-match {
+  border-style: solid;
+  border-color: var(--green);
+  background: rgba(39, 174, 96, 0.06);
+}
+
+.drop-zone-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--rule);
+}
+
+/* MATCHED LOGO IN DROP ZONE */
+.matched-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.matched-logo img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+.matched-logo .matched-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* SOURCE REVEAL */
+.source-reveal {
+  margin-top: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.source-reveal.visible {
+  opacity: 1;
+  max-height: 60px;
+}
+.source-reveal a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+.source-reveal .src-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+/* DRAGGABLE LOGOS TRAY */
+.logos-tray {
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 20px;
+  margin-bottom: 28px;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+
+.tray-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.tray-label.armed .step-num { background: var(--gold); }
+.tray-label.complete .step-num { background: var(--green); }
+.tray-label.armed { color: var(--gold); }
+
+@keyframes attention-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.22); }
+}
+.logos-row.attention .logo-tile:not(.placed) {
+  animation: attention-pulse 1.8s ease-in-out infinite;
+}
+
+.logos-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.logo-tile {
+  width: 160px;
+  height: 110px;
+  border: 3px solid var(--ink);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  transition: all 0.2s ease;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.logo-tile:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo-tile:active, .logo-tile.dragging {
+  cursor: grabbing;
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.logo-tile.placed {
+  opacity: 0.3;
+  pointer-events: none;
+  border-style: dashed;
+}
+
+.logo-tile img {
+  max-width: 110px;
+  max-height: 55px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.logo-tile .logo-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.2;
+  pointer-events: none;
+}
+
+/* MOBILE: TAP MODE */
+.logo-tile.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.4);
+  transform: scale(1.05);
+}
+
+.drop-zone.tap-target {
+  cursor: pointer;
+}
+.drop-zone.tap-target:hover {
+  border-color: var(--gold);
+  background: rgba(184, 134, 11, 0.05);
+}
+
+/* ARCADE COMPLETE SCREEN */
+.arcade-complete {
+  display: none;
+  text-align: center;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 28px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+}
+.arcade-complete.show {
+  display: block;
+  animation: complete-flash 0.45s ease-out both;
+}
+@keyframes complete-flash {
+  0%   { opacity: 0; transform: scale(0.96); }
+  60%  { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.complete-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 6px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+
+.complete-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(26px, 4.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.complete-sub {
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+
+.rank-and-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.complete-rank {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 3px solid var(--muted);
+  color: var(--muted);
+  text-align: center;
+}
+.complete-rank .rank-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.complete-rank .rank-stars {
+  font-size: 22px;
+  letter-spacing: 6px;
+  line-height: 1;
+}
+.complete-rank .rank-stars .star { display: inline-block; }
+.complete-rank .rank-stars .star.filled { color: var(--gold); }
+.complete-rank .rank-stars .star.empty { color: var(--rule); }
+.complete-rank.perfect {
+  border-color: var(--gold);
+  color: var(--gold);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+.complete-rank.cleared {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.complete-rank.finished {
+  border-color: var(--muted);
+  color: var(--muted);
+}
+
+.complete-stats {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 220px;
+}
+.stat-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  border-bottom: 1px dotted var(--rule);
+  padding: 6px 0;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.complete-sources {
+  margin: 0 auto 32px;
+  max-width: 560px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  text-align: left;
+  border: 3px solid var(--ink);
+  padding: 22px 26px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.complete-sources .src-label {
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 14px;
+  font-size: 13px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+.complete-sources a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  margin-bottom: 10px;
+  padding: 4px 0;
+  transition: color 0.15s, border-color 0.15s;
+  font-weight: 600;
+}
+.complete-sources a:last-child { margin-bottom: 0; }
+.complete-sources a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.complete-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* RESET */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.reset-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reset-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.share-btn {
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.share-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.share-btn.copied {
+  background: var(--green);
+  border-color: var(--green);
+}
+.more-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+}
+.more-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+/* FOOTER */
+.footer {
+  margin-top: 28px;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-left {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.footer-right {
+  font-family: 'Source Serif 4', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--muted);
+}
+.footer a { color: var(--muted); text-decoration: underline; }
+
+/* FIGHTERS SECTION */
+.fighter-link.full-list-link {
+  border-style: dashed;
+  border-color: var(--gold);
+}
+.fighter-link.full-list-link:hover {
+  border-style: solid;
+  border-color: var(--gold);
+  background: var(--gold);
+  color: white;
+}
+.fighter-link.full-list-link:hover .fighter-icon {
+  background: rgba(255,255,255,0.2);
+}
+.fighter-link.full-list-link .fighter-icon {
+  background: var(--gold);
+}
+.fighters-section {
+  margin-top: 24px;
+  animation: fadeIn 0.5s 0.55s ease both;
+}
+.fighters-toggle {
+  width: 100%;
+  background: white;
+  border: 3px solid var(--ink);
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+}
+.fighters-toggle:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.fighters-toggle:hover .fighters-arrow { color: var(--paper); }
+.fighters-toggle:hover .fighters-teaser { color: rgba(255,255,255,0.6); }
+.fighters-toggle-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.fighters-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+}
+.fighters-teaser {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.fighters-arrow {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--red);
+  transition: transform 0.3s, color 0.2s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.fighters-toggle.open .fighters-arrow {
+  transform: rotate(180deg);
+}
+.fighters-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border: 3px solid var(--ink);
+  border-top: none;
+}
+.fighters-list.open {
+  max-height: 2000px;
+}
+.fighters-list-inner {
+  padding: 20px 24px;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.fighter-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--rule);
+  transition: all 0.15s;
+}
+.fighter-link:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+.fighter-link:hover .fighter-icon { background: var(--red); }
+.fighter-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.fighter-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.fighter-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HINT TEXT */
+.hint-text {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 8px;
+  transition: opacity 0.3s;
+}
+
+/* SHARE & FOLLOW */
+.share-section {
+  margin-top: 32px;
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 24px;
+  animation: fadeIn 0.5s 0.35s ease both;
+}
+.share-section .section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.share-section .section-sub {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.social-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+.social-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.social-icon { font-size: 16px; }
+.social-link.tip-link {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.social-link.tip-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* INSPIRED BY */
+.inspired-section {
+  margin-top: 28px;
+  animation: fadeIn 0.5s 0.4s ease both;
+}
+.inspired-section .section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+}
+.inspired-link {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.inspired-link:hover { color: var(--red); }
+.inspired-link:hover .inspired-num { background: var(--red); }
+.inspired-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.15s;
+}
+.inspired-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.inspired-desc {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+.inspired-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* LICENSE BLOCK */
+.license-block {
+  margin-top: 24px;
+  border-top: 3px solid var(--ink);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.license-row {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.license-row a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.license-row a:hover { color: var(--ink); }
+.license-tag {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.license-tag.data-tag { background: var(--muted); }
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .logo-tile { width: 120px; height: 85px; }
+  .logo-tile .logo-name { font-size: 14px; }
+  .bar-amount { width: 60px; font-size: 11px; }
+  .bar-pct { width: 38px; font-size: 11px; }
+  .social-row { flex-direction: column; }
+}
+
+
+/* ============================================================
+   START GATE (arcade-style attract screen)
+   ============================================================ */
+.start-gate {
+  text-align: center;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+  transition: opacity 0.35s ease, max-height 0.45s ease, padding 0.45s ease, margin 0.45s ease, border-width 0.45s ease;
+  overflow: hidden;
+  max-height: 600px;
+}
+.start-gate.dismissed {
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  pointer-events: none;
+}
+.start-gate-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 14px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+@keyframes arcade-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+.start-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 4px solid var(--ink);
+  padding: 22px 56px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--ink);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+@keyframes arcade-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.start-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--red);
+}
+.start-btn:active {
+  transform: scale(0.97);
+}
+.start-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 22px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   PLAY AREA (revealed after pressing start)
+   ============================================================ */
+.play-area[hidden] { display: none !important; }
+.play-area.revealed { animation: play-reveal 0.55s ease both; }
+@keyframes play-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+</head>
+<body>
+
+<div class="game-container">
+  <!-- MASTHEAD -->
+  <div class="masthead full-bleed">
+    <div class="kicker">Interactive · Political Donations · OpenSecrets Data</div>
+    <h1>FOLLOW<br><em>THE MONEY</em></h1>
+    <div class="episode-tag">Puzzle #9</div>
+    <div class="episode-name">"Now Boarding"</div>
+    <div class="sub">Three airlines. Three donation profiles. Can you match the airline to the cash?</div>
+    <div class="dateline">Source: OpenSecrets.org · All Federal Candidates · 2024 Cycle</div>
+  </div>
+
+  <!-- INSTRUCTIONS -->
+  <div class="intro-bar full-bleed-edge">
+    <strong>How to play:</strong> Tap an airline below, then tap the chart you think it belongs to. Match all three correctly to reveal the sources.
+  </div>
+
+  <!-- START GATE -->
+  <div class="start-gate" id="startGate">
+    <div class="start-gate-cursor">▮</div>
+    <button class="start-btn" type="button" onclick="startGame()">▶ Press Start</button>
+    <div class="start-meta">3 Companies · 3 Charts · 3 Matches</div>
+  </div>
+
+  <!-- PLAY AREA -->
+  <div class="play-area" id="playArea" hidden>
+  <!-- SCORE -->
+  <div class="score-bar">
+    <div class="score-item">Matched: <span id="matchCount">0</span>/3</div>
+    <div class="score-item">Attempts: <span id="attemptCount">0</span></div>
+  </div>
+
+  <!-- LOGO TRAY -->
+  <div class="logos-tray" id="logosTray">
+    <div class="tray-label" id="trayLabel"><span class="step-num">1</span> <span id="trayLabelText">Tap an airline below</span></div>
+    <div class="logos-row attention" id="logosRow">
+      <div class="logo-tile" data-company="delta" id="tile-delta" onclick="selectTile(this)">
+        <div class="logo-name">Delta<br>Air Lines</div>
+      </div>
+      <div class="logo-tile" data-company="american" id="tile-american" onclick="selectTile(this)">
+        <div class="logo-name">American<br>Airlines</div>
+      </div>
+      <div class="logo-tile" data-company="united" id="tile-united" onclick="selectTile(this)">
+        <div class="logo-name">United<br>Airlines</div>
+      </div>
+    </div>
+    <div class="hint-text" id="hintText">Hint: HQs are a clue</div>
+  </div>
+
+  <!-- CHART CARDS -->
+  <div class="charts-grid" id="chartsGrid">
+        <!-- Card A: Delta (Atlanta HQ) — Rep-leaning, biggest spender -->
+    <div class="chart-card" data-company="delta" id="card-delta">
+      <div class="card-number">A</div>
+      <div class="card-inner">
+        <div class="card-label">All Federal Candidates</div>
+        <div class="card-total">$2,495,317</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-party rep">REP</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="56.73"></div></div>
+            <div class="bar-amount">$1,415,524</div>
+            <div class="bar-pct rep">56.7%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-party dem">DEM</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="43.27"></div></div>
+            <div class="bar-amount">$1,079,793</div>
+            <div class="bar-pct dem">43.3%</div>
+          </div>
+        </div>
+        <div class="drop-zone tap-target" data-company="delta" id="drop-delta">
+          <div class="drop-zone-text">Match a company here</div>
+        </div>
+        <div class="source-reveal" id="src-delta">
+          <div class="src-label">Source</div>
+          <a href="https://www.opensecrets.org/orgs/delta-air-lines/recipients?id=D000000350" target="_blank">opensecrets.org/orgs/delta-air-lines/recipients</a>
+        </div>
+      </div>
+    </div>
+
+        <!-- Card B: American (Fort Worth HQ) — nearly purple, mid spend -->
+    <div class="chart-card" data-company="american" id="card-american">
+      <div class="card-number">B</div>
+      <div class="card-inner">
+        <div class="card-label">All Federal Candidates</div>
+        <div class="card-total">$1,970,158</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-party dem">DEM</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="50.76"></div></div>
+            <div class="bar-amount">$1,000,101</div>
+            <div class="bar-pct dem">50.8%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-party rep">REP</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="49.24"></div></div>
+            <div class="bar-amount">$970,057</div>
+            <div class="bar-pct rep">49.2%</div>
+          </div>
+        </div>
+        <div class="drop-zone tap-target" data-company="american" id="drop-american">
+          <div class="drop-zone-text">Match a company here</div>
+        </div>
+        <div class="source-reveal" id="src-american">
+          <div class="src-label">Source</div>
+          <a href="https://www.opensecrets.org/orgs/american-airlines-group/recipients?id=D000067697" target="_blank">opensecrets.org/orgs/american-airlines-group/recipients</a>
+        </div>
+      </div>
+    </div>
+
+        <!-- Card C: United (Chicago HQ) — deepest Dem, smallest spend -->
+    <div class="chart-card" data-company="united" id="card-united">
+      <div class="card-number">C</div>
+      <div class="card-inner">
+        <div class="card-label">All Federal Candidates</div>
+        <div class="card-total">$1,899,711</div>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <div class="bar-party dem">DEM</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="64.43"></div></div>
+            <div class="bar-amount">$1,224,037</div>
+            <div class="bar-pct dem">64.4%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-party rep">REP</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="35.57"></div></div>
+            <div class="bar-amount">$675,674</div>
+            <div class="bar-pct rep">35.6%</div>
+          </div>
+        </div>
+        <div class="drop-zone tap-target" data-company="united" id="drop-united">
+          <div class="drop-zone-text">Match a company here</div>
+        </div>
+        <div class="source-reveal" id="src-united">
+          <div class="src-label">Source</div>
+          <a href="https://www.opensecrets.org/orgs/united-airlines-holdings/recipients?id=D000021464" target="_blank">opensecrets.org/orgs/united-airlines-holdings/recipients</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /play-area -->
+
+  <!-- ARCADE COMPLETE SCREEN -->
+  <div class="arcade-complete full-bleed-edge" id="arcadeComplete">
+    <div class="complete-cursor">▮</div>
+    <h2 class="complete-title">Puzzle Complete</h2>
+    <div class="complete-sub">You followed the money. Every dollar is public record.</div>
+    <div class="rank-and-stats">
+      <div class="complete-rank" id="completeRank">
+        <span class="rank-label" id="rankLabel">Perfect</span>
+        <span class="rank-stars" id="rankStars"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></span>
+      </div>
+      <div class="complete-stats">
+        <div class="stat-line">
+          <span class="stat-label">Matched</span>
+          <span class="stat-value"><span id="finalMatches">3</span>/3</span>
+        </div>
+        <div class="stat-line">
+          <span class="stat-label">Attempts</span>
+          <span class="stat-value" id="finalAttempts">3</span>
+        </div>
+      </div>
+    </div>
+    <div class="complete-sources">
+      <div class="src-label">Sources</div>
+      <a href="https://www.opensecrets.org/orgs/american-airlines-group/recipients?id=D000067697" target="_blank">American Airlines — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/orgs/delta-air-lines/recipients?id=D000000350" target="_blank">Delta Air Lines — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/orgs/united-airlines-holdings/recipients?id=D000021464" target="_blank">United Airlines — OpenSecrets</a>
+    </div>
+    <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
+    <div class="complete-actions">
+      <button class="share-btn" onclick="shareGame()">📤 Share</button>
+      <a class="more-btn" href="/">More Puzzles →</a>
+    </div>
+  </div>
+
+  <div class="button-row">
+    <button class="reset-btn" onclick="resetGame()">Reset Puzzle</button>
+    <button class="share-btn" onclick="shareGame()">📤 Share Puzzle</button>
+    <a class="more-btn" href="/">More Puzzles →</a>
+  </div>
+
+  <!-- SHARE & FOLLOW -->
+  <div class="share-section">
+    <div class="section-head">Share & Follow</div>
+    <div class="section-sub">Got an idea for the next "Follow the Money" puzzle? A company, an industry, a voting record? Send us your suggestions — we're building a series and your curiosity drives it.</div>
+    <div class="social-row">
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank"><span class="social-icon">▶</span> YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank"><span class="social-icon">♪</span> TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank"><span class="social-icon">🦋</span> Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank"><span class="social-icon">💬</span> Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank"><span class="social-icon">✉</span> Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank"><span class="social-icon">☕</span> Leave a Tip</a>
+    </div>
+  </div>
+
+  <!-- INSPIRED BY -->
+  <div class="inspired-section">
+    <div class="section-label">Inspired By…</div>
+    <a class="inspired-link" href="https://www.resistandunsubscribe.com/" target="_blank">
+      <div class="inspired-num">1</div>
+      <div>
+        <div class="inspired-title">Resist and Unsubscribe</div>
+        <div class="inspired-desc">Consumer-powered accountability — tracking corporate boycotts and their market impact</div>
+        <div class="inspired-url">resistandunsubscribe.com</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.nokings.org/" target="_blank">
+      <div class="inspired-num">2</div>
+      <div>
+        <div class="inspired-title">No Kings</div>
+        <div class="inspired-desc">Grassroots civic action — events, trainings, and know-your-rights resources</div>
+        <div class="inspired-url">nokings.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://ash.harvard.edu/ai-and-democracy-movements-project/" target="_blank">
+      <div class="inspired-num">3</div>
+      <div>
+        <div class="inspired-title">AI and Democracy Movements Project — Harvard Ash Center</div>
+        <div class="inspired-desc">Research at the intersection of artificial intelligence, civic engagement, and democratic participation</div>
+        <div class="inspired-url">ash.harvard.edu</div>
+      </div>
+    </a>
+  </div>
+
+
+  <!-- PRO-DEMOCRACY FIGHTERS -->
+  <div class="fighters-section">
+    <button class="fighters-toggle" onclick="toggleFighters(this)">
+      <div class="fighters-toggle-left">
+        <div class="fighters-label">Pro-Democracy Fighters</div>
+        <div class="fighters-teaser">People and organizations on the front lines</div>
+      </div>
+      <div class="fighters-arrow">▼</div>
+    </button>
+    <div class="fighters-list" id="fightersList">
+      <div class="fighters-list-inner">
+        <a class="fighter-link" href="https://www.youtube.com/briantylercohen" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Brian Tyler Cohen</div>
+            <div class="fighter-desc">Political commentary · YouTube</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.inequalitymedia.org/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Inequality Media</div>
+            <div class="fighter-desc">Robert Reich · Economic explainers</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://kimberlywehle.com/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Kimberly Wehle</div>
+            <div class="fighter-desc">Constitutional law · Author · Legal analyst</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.youtube.com/@GlennKirschner2" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Glenn Kirschner</div>
+            <div class="fighter-desc">Justice Matters · Former federal prosecutor</div>
+          </div>
+        </a>
+        <a class="fighter-link full-list-link" href="/fighters" target="_blank">
+          <div class="fighter-icon">→</div>
+          <div>
+            <div class="fighter-name">See the Full List</div>
+            <div class="fighter-desc">All pro-democracy fighters</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LICENSE BLOCK -->
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank">CC BY-NC-SA 3.0</a> · Non-commercial use · Attribution required · Share alike</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank">Moral Fiber Media</a> · Data from <a href="https://www.opensecrets.org/open-data/credit-opensecrets" target="_blank">OpenSecrets.org</a></span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="/legal" target="_blank">Privacy & Terms</a></span>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// GAME STATE
+let selectedTile = null;
+let matches = 0;
+let attempts = 0;
+let matched = {};
+
+// ANIMATE BARS — deferred until startGame() so the bars animate
+// after the play area is revealed (not while it's hidden behind the gate)
+function animateBars() {
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.style.width = bar.dataset.target + '%';
+  });
+}
+
+// START GATE — arcade-style attract screen
+function startGame() {
+  const gate = document.getElementById('startGate');
+  const playArea = document.getElementById('playArea');
+
+  gate.classList.add('dismissed');
+  playArea.hidden = false;
+  playArea.classList.add('revealed');
+
+  // Animate bars after the play area starts revealing
+  setTimeout(animateBars, 200);
+
+  // Smooth-scroll to the play area
+  setTimeout(() => {
+    playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 350);
+}
+
+// STATE-AWARE INSTRUCTION UPDATER
+function updateInstructions() {
+  const trayLabel = document.getElementById('trayLabel');
+  const trayLabelText = document.getElementById('trayLabelText');
+  const stepNum = trayLabel.querySelector('.step-num');
+  const dropZones = document.querySelectorAll('.drop-zone.tap-target:not(.has-match) .drop-zone-text');
+
+  if (matches === 3) {
+    trayLabel.classList.remove('armed');
+    trayLabel.classList.add('complete');
+    stepNum.textContent = '✓';
+    trayLabelText.textContent = 'You did it — sources revealed';
+    return;
+  }
+
+  if (selectedTile) {
+    const name = selectedTile.querySelector('.logo-name').textContent.trim();
+    trayLabel.classList.add('armed');
+    stepNum.textContent = '2';
+    trayLabelText.textContent = 'Now tap the chart you think matches';
+    dropZones.forEach(dz => dz.textContent = 'Tap to place ' + name);
+  } else {
+    trayLabel.classList.remove('armed');
+    stepNum.textContent = '1';
+    trayLabelText.textContent = 'Tap a company below';
+    dropZones.forEach(dz => dz.textContent = 'Match a company here');
+  }
+}
+
+// TAP-BASED INTERACTION (works on mobile and desktop)
+function selectTile(tile) {
+  if (tile.classList.contains('placed')) return;
+
+  // Deselect previous
+  document.querySelectorAll('.logo-tile').forEach(t => t.classList.remove('selected'));
+
+  selectedTile = tile;
+  tile.classList.add('selected');
+
+  // First interaction kills the attention pulse on the tray
+  document.getElementById('logosRow').classList.remove('attention');
+
+  updateInstructions();
+}
+
+// Click on drop zones
+document.querySelectorAll('.drop-zone.tap-target').forEach(zone => {
+  zone.addEventListener('click', function() {
+    if (!selectedTile) return;
+    if (this.classList.contains('has-match')) return;
+
+    const guessCompany = selectedTile.dataset.company;
+    const targetCompany = this.dataset.company;
+
+    attempts++;
+    document.getElementById('attemptCount').textContent = attempts;
+
+    if (guessCompany === targetCompany) {
+      // CORRECT
+      handleCorrectMatch(guessCompany, this, selectedTile);
+      selectedTile.classList.remove('selected');
+      selectedTile = null;
+      updateInstructions();
+    } else {
+      // WRONG — keep tile selected so player can try again immediately
+      handleWrongMatch(this);
+    }
+  });
+});
+
+function handleCorrectMatch(company, dropZone, tile) {
+  matches++;
+  matched[company] = true;
+  document.getElementById('matchCount').textContent = matches;
+
+  // Update drop zone
+  dropZone.classList.add('has-match');
+  dropZone.innerHTML = '';
+
+  const matchedDiv = document.createElement('div');
+  matchedDiv.className = 'matched-logo';
+
+  const nameSpan = document.createElement('span');
+  nameSpan.className = 'matched-name';
+  const names = { delta: 'Delta Air Lines', american: 'American Airlines', united: 'United Airlines' };
+  nameSpan.textContent = '✓ ' + names[company];
+  matchedDiv.appendChild(nameSpan);
+  dropZone.appendChild(matchedDiv);
+
+  // Update card
+  const card = document.getElementById('card-' + company);
+  card.classList.add('matched');
+
+  // Reveal source
+  const src = document.getElementById('src-' + company);
+  src.classList.add('visible');
+
+  // Ghost the tile
+  tile.classList.add('placed');
+
+  // Check victory
+  if (matches === 3) {
+    setTimeout(showVictory, 600);
+  }
+}
+
+function handleWrongMatch(dropZone) {
+  const card = dropZone.closest('.chart-card');
+  card.classList.add('wrong-flash');
+  setTimeout(() => card.classList.remove('wrong-flash'), 500);
+}
+
+function getRank(matches, attempts) {
+  if (attempts <= matches) return { cls: 'perfect', label: 'Perfect', stars: 3 };
+  if (attempts <= matches + 2) return { cls: 'cleared', label: 'Cleared', stars: 2 };
+  return { cls: 'finished', label: 'Finished', stars: 1 };
+}
+
+function renderStars(filled) {
+  let html = '';
+  for (let i = 0; i < 3; i++) {
+    html += i < filled
+      ? '<span class="star filled">★</span>'
+      : '<span class="star empty">☆</span>';
+  }
+  return html;
+}
+
+function showVictory() {
+  const complete = document.getElementById('arcadeComplete');
+  const rankEl = document.getElementById('completeRank');
+  const rank = getRank(matches, attempts);
+
+  rankEl.className = 'complete-rank ' + rank.cls;
+  document.getElementById('rankLabel').textContent = rank.label;
+  document.getElementById('rankStars').innerHTML = renderStars(rank.stars);
+  document.getElementById('finalMatches').textContent = matches;
+  document.getElementById('finalAttempts').textContent = attempts;
+
+  complete.classList.add('show');
+  setTimeout(() => {
+    complete.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+function resetGame() {
+  matches = 0;
+  attempts = 0;
+  matched = {};
+  selectedTile = null;
+
+  document.getElementById('matchCount').textContent = '0';
+  document.getElementById('attemptCount').textContent = '0';
+  document.getElementById('arcadeComplete').classList.remove('show');
+
+  // Reset cards
+  document.querySelectorAll('.chart-card').forEach(card => {
+    card.classList.remove('matched', 'wrong-flash');
+  });
+
+  // Reset drop zones
+  document.querySelectorAll('.drop-zone').forEach(zone => {
+    zone.classList.remove('has-match');
+    zone.innerHTML = '<div class="drop-zone-text">Match a company here</div>';
+  });
+
+  // Reset sources
+  document.querySelectorAll('.source-reveal').forEach(src => {
+    src.classList.remove('visible');
+  });
+
+  // Reset tiles
+  document.querySelectorAll('.logo-tile').forEach(tile => {
+    tile.classList.remove('placed', 'selected');
+  });
+
+  // Re-animate bars
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.style.width = '0%';
+  });
+  setTimeout(() => {
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.target + '%';
+    });
+  }, 100);
+
+  // Reset instructions + restart attention pulse
+  document.getElementById('logosRow').classList.add('attention');
+  updateInstructions();
+
+  // Scroll back up to the top of the play area
+  setTimeout(() => {
+    document.getElementById('playArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// DRAG AND DROP (desktop enhancement)
+let draggedTile = null;
+
+document.querySelectorAll('.logo-tile').forEach(tile => {
+  tile.setAttribute('draggable', 'true');
+
+  tile.addEventListener('dragstart', (e) => {
+    if (tile.classList.contains('placed')) { e.preventDefault(); return; }
+    draggedTile = tile;
+    tile.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', tile.dataset.company);
+  });
+
+  tile.addEventListener('dragend', () => {
+    tile.classList.remove('dragging');
+    draggedTile = null;
+    document.querySelectorAll('.chart-card').forEach(c => c.classList.remove('drop-hover'));
+  });
+});
+
+document.querySelectorAll('.chart-card').forEach(card => {
+  card.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    card.classList.add('drop-hover');
+  });
+
+  card.addEventListener('dragleave', () => {
+    card.classList.remove('drop-hover');
+  });
+
+  card.addEventListener('drop', (e) => {
+    e.preventDefault();
+    card.classList.remove('drop-hover');
+    if (!draggedTile) return;
+
+    const dropZone = card.querySelector('.drop-zone');
+    if (dropZone.classList.contains('has-match')) return;
+
+    const guessCompany = draggedTile.dataset.company;
+    const targetCompany = card.dataset.company;
+
+    attempts++;
+    document.getElementById('attemptCount').textContent = attempts;
+
+    if (guessCompany === targetCompany) {
+      handleCorrectMatch(guessCompany, dropZone, draggedTile);
+    } else {
+      handleWrongMatch(dropZone);
+    }
+  });
+});
+
+// SHARE GAME
+function shareGame() {
+  const url = window.location.href;
+  const text = 'Delta, American, United. Three airlines, three donation profiles. Do these land where you think they might? 🔍💰';
+  const title = 'Follow the Money — Moral Fiber Media';
+
+  // Try Web Share API first (mobile browsers, some desktop)
+  if (navigator.share) {
+    navigator.share({ title: title, text: text, url: url }).catch(() => {});
+    return;
+  }
+
+  // Fallback: copy link to clipboard
+  const shareText = text + '\n' + url;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(shareText).then(() => {
+      showShareConfirm();
+    }).catch(() => {
+      fallbackCopy(shareText);
+    });
+  } else {
+    fallbackCopy(shareText);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); showShareConfirm(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function showShareConfirm() {
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    const original = btn.textContent;
+    btn.textContent = '✓ Link Copied';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+
+function toggleFighters(btn) {
+  const list = document.getElementById('fightersList');
+  btn.classList.toggle('open');
+  list.classList.toggle('open');
+}
+</script>
+</body>
+</html>

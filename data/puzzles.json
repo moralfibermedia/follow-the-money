@@ -440,6 +440,58 @@
       ]
     },
     {
+      "id": "now-boarding",
+      "number": 9,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Now Boarding",
+      "subtitle": "Three airlines. Three donation profiles. Can you match the airline to the cash?",
+      "hook": "Do these land where you think they might?",
+      "hint": "Hint: HQs are a clue",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "delta",
+          "name": "Delta Air Lines",
+          "display_name": "Delta<br>Air Lines",
+          "dem_amount": 1079793,
+          "dem_pct": 43.27,
+          "rep_amount": 1415524,
+          "rep_pct": 56.73,
+          "total": 2495317,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/delta-air-lines/recipients?id=D000000350"
+        },
+        {
+          "id": "american",
+          "name": "American Airlines",
+          "display_name": "American<br>Airlines",
+          "dem_amount": 1000101,
+          "dem_pct": 50.76,
+          "rep_amount": 970057,
+          "rep_pct": 49.24,
+          "total": 1970158,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/american-airlines-group/recipients?id=D000067697"
+        },
+        {
+          "id": "united",
+          "name": "United Airlines",
+          "display_name": "United<br>Airlines",
+          "dem_amount": 1224037,
+          "dem_pct": 64.43,
+          "rep_amount": 675674,
+          "rep_pct": 35.57,
+          "total": 1899711,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/united-airlines-holdings/recipients?id=D000021464"
+        }
+      ]
+    },
+    {
       "id": "georgia-on-my-mind",
       "number": null,
       "type": "special",
