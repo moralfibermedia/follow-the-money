@@ -546,6 +546,58 @@
       ]
     },
     {
+      "id": "americas-250th",
+      "number": 12,
+      "type": "standard",
+      "template": "barchart",
+      "title": "America's 250th",
+      "subtitle": "Three American icons. Three donation profiles. Can you match the brand to the cash?",
+      "hook": "Born in the USA. Banked elsewhere.",
+      "hint": "Hint: Marketing isn't a political identity.",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "anheuserbusch",
+          "name": "Anheuser-Busch",
+          "display_name": "Anheuser-<br>Busch",
+          "dem_amount": 134996,
+          "dem_pct": 42.35,
+          "rep_amount": 183782,
+          "rep_pct": 57.65,
+          "total": 318778,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/anheuser-busch/recipients?id=D000042510"
+        },
+        {
+          "id": "harley",
+          "name": "Harley-Davidson",
+          "display_name": "Harley-<br>Davidson",
+          "dem_amount": 24978,
+          "dem_pct": 58.84,
+          "rep_amount": 17474,
+          "rep_pct": 41.16,
+          "total": 42452,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/harley-davidson-inc/recipients?id=D000026387"
+        },
+        {
+          "id": "levis",
+          "name": "Levi Strauss",
+          "display_name": "Levi<br>Strauss",
+          "dem_amount": 39981,
+          "dem_pct": 98.49,
+          "rep_amount": 612,
+          "rep_pct": 1.51,
+          "total": 40593,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/levi-strauss-co/recipients?id=D000035349"
+        }
+      ]
+    },
+    {
       "id": "georgia-on-my-mind",
       "number": null,
       "type": "special",

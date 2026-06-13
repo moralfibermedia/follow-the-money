@@ -1,0 +1,14 @@
+{
+  "number": 12,
+  "episode": "America's 250th",
+  "subjects": ["Budweiser", "Harley-Davidson", "Levi's"],
+  "subjectsNoun": "American icons",
+  "matchVerb": "Can you match the brand to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 42.35, "rep": 57.65 },
+    { "letter": "B", "dem": 58.84, "rep": 41.16 },
+    { "letter": "C", "dem": 98.49, "rep": 1.51 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}
