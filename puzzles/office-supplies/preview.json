@@ -1,0 +1,14 @@
+{
+  "number": 11,
+  "episode": "Office Supplies",
+  "subjects": ["Best Buy", "Staples", "OfficeMax"],
+  "subjectsNoun": "retailers",
+  "matchVerb": "Can you match the company to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 56.87, "rep": 43.13 },
+    { "letter": "B", "dem": 55.96, "rep": 44.04 },
+    { "letter": "C", "zeroSpend": true }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}
