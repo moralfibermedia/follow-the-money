@@ -209,7 +209,7 @@
           "total": 0,
           "leading_party": "none",
           "zero_spend": true,
-          "zero_spend_message": "Did not make direct contributions to any federal candidate in the 2024 election cycle.",
+          "zero_spend_message": "No direct contributions to any federal candidate in the 2024 election cycle.",
           "opensecrets_url": "https://www.opensecrets.org/orgs/t-mobile-usa/recipients?candscycle=2024&id=D000022272"
         }
       ]
@@ -488,6 +488,60 @@
           "total": 1899711,
           "leading_party": "dem",
           "opensecrets_url": "https://www.opensecrets.org/orgs/united-airlines-holdings/recipients?id=D000021464"
+        }
+      ]
+    },
+    {
+      "id": "office-supplies",
+      "number": 11,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Office Supplies",
+      "subtitle": "Three retailers. Three donation profiles. Can you match the company to the cash?",
+      "hook": "Not every brand shows up to write a check.",
+      "hint": "Hint: One sat out the cycle. Compare the totals on the others.",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "bestbuy",
+          "name": "Best Buy",
+          "display_name": "Best<br>Buy",
+          "dem_amount": 161026,
+          "dem_pct": 56.87,
+          "rep_amount": 122143,
+          "rep_pct": 43.13,
+          "total": 283169,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/best-buy/recipients?id=D000024328"
+        },
+        {
+          "id": "staples",
+          "name": "Staples",
+          "display_name": "Staples",
+          "dem_amount": 40856,
+          "dem_pct": 55.96,
+          "rep_amount": 32149,
+          "rep_pct": 44.04,
+          "total": 73005,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/staples-inc/recipients?id=D000029185"
+        },
+        {
+          "id": "officemax",
+          "name": "OfficeMax",
+          "display_name": "OfficeMax",
+          "dem_amount": 0,
+          "dem_pct": 0,
+          "rep_amount": 0,
+          "rep_pct": 0,
+          "total": 0,
+          "leading_party": "none",
+          "zero_spend": true,
+          "zero_spend_message": "No direct contributions to any federal candidate in the 2024 election cycle.",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/officemax-inc/recipients?candscycle=2024&id=D000042216"
         }
       ]
     },

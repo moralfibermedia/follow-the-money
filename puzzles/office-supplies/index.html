@@ -10,26 +10,26 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- SEO & Social -->
-<meta name="description" content="AT&T, Verizon, or T-Mobile — can you match the company to its political donation profile? One of them spent $0. Puzzle #4.">
-<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/can-you-hear-me-now">
+<meta name="description" content="Best Buy, Staples, or OfficeMax — can you match the retailer to its political donation profile? Puzzle #11 in the Follow the Money series.">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/office-supplies">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Moral Fiber Media">
-<meta property="og:title" content="Follow the Money — Can You Hear Me Now? | Moral Fiber Media">
-<meta property="og:description" content="AT&T, Verizon, or T-Mobile — can you match the company to its political donation profile? One of them spent $0. Puzzle #4.">
-<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/can-you-hear-me-now">
-<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/can-you-hear-me-now/preview.png">
+<meta property="og:title" content="Follow the Money — Office Supplies | Moral Fiber Media">
+<meta property="og:description" content="Best Buy, Staples, or OfficeMax — can you match the retailer to its political donation profile? Puzzle #11 in the Follow the Money series.">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/office-supplies">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/office-supplies/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Follow the Money — Can You Hear Me Now? | Moral Fiber Media">
-<meta name="twitter:description" content="AT&T, Verizon, or T-Mobile — can you match the company to its political donation profile? One of them spent $0. Puzzle #4.">
-<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/can-you-hear-me-now/preview.png">
+<meta name="twitter:title" content="Follow the Money — Office Supplies | Moral Fiber Media">
+<meta name="twitter:description" content="Best Buy, Staples, or OfficeMax — can you match the retailer to its political donation profile? Puzzle #11 in the Follow the Money series.">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/office-supplies/preview.png">
 
-<title>Follow the Money — Can You Hear Me Now? | Moral Fiber Media</title>
+<title>Follow the Money — Office Supplies | Moral Fiber Media</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -1221,6 +1221,7 @@ body {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
 </style>
 </head>
 <body>
@@ -1230,15 +1231,15 @@ body {
   <div class="masthead full-bleed">
     <div class="kicker">Interactive · Political Donations · OpenSecrets Data</div>
     <h1>FOLLOW<br><em>THE MONEY</em></h1>
-    <div class="episode-tag">Puzzle #4</div>
-    <div class="episode-name">"Can You Hear Me Now?"</div>
-    <div class="sub">Three telecom giants. Three donation profiles. Can you match the company to the cash?</div>
+    <div class="episode-tag">Puzzle #11</div>
+    <div class="episode-name">"Office Supplies"</div>
+    <div class="sub">Three retailers. Three donation profiles. Can you match the company to the cash?</div>
     <div class="dateline">Source: OpenSecrets.org · All Federal Candidates · 2024 Cycle</div>
   </div>
 
   <!-- INSTRUCTIONS -->
   <div class="intro-bar full-bleed-edge">
-    <strong>How to play:</strong> Tap a company below, then tap the chart you think it belongs to. Match all three correctly to reveal the sources.
+    <strong>How to play:</strong> Tap a retailer below, then tap the chart you think it belongs to. Match all three correctly to reveal the sources.
   </div>
 
   <!-- START GATE -->
@@ -1258,85 +1259,85 @@ body {
 
   <!-- LOGO TRAY -->
   <div class="logos-tray" id="logosTray">
-    <div class="tray-label" id="trayLabel"><span class="step-num">1</span> <span id="trayLabelText">Tap a company below</span></div>
+    <div class="tray-label" id="trayLabel"><span class="step-num">1</span> <span id="trayLabelText">Tap a retailer below</span></div>
     <div class="logos-row attention" id="logosRow">
-      <div class="logo-tile" data-company="att" id="tile-att" onclick="selectTile(this)">
-        <div class="logo-name">AT&T</div>
+      <div class="logo-tile" data-company="bestbuy" id="tile-bestbuy" onclick="selectTile(this)">
+        <div class="logo-name">Best<br>Buy</div>
       </div>
-      <div class="logo-tile" data-company="verizon" id="tile-verizon" onclick="selectTile(this)">
-        <div class="logo-name">Verizon</div>
+      <div class="logo-tile" data-company="staples" id="tile-staples" onclick="selectTile(this)">
+        <div class="logo-name">Staples</div>
       </div>
-      <div class="logo-tile" data-company="tmobile" id="tile-tmobile" onclick="selectTile(this)">
-        <div class="logo-name">T-Mobile</div>
+      <div class="logo-tile" data-company="officemax" id="tile-officemax" onclick="selectTile(this)">
+        <div class="logo-name">OfficeMax</div>
       </div>
     </div>
-    <div class="hint-text" id="hintText">Hint: One spent nothing. The other two look almost identical — almost</div>
+    <div class="hint-text" id="hintText">Hint: One sat out the cycle. Compare the totals on the others.</div>
   </div>
 
   <!-- CHART CARDS -->
   <div class="charts-grid" id="chartsGrid">
-    <!-- Card A: AT&T — Dem-leaning, biggest -->
-    <div class="chart-card" data-company="att" id="card-att">
+        <!-- Card A: Best Buy — biggest spender, Dem-leaning -->
+    <div class="chart-card" data-company="bestbuy" id="card-bestbuy">
       <div class="card-number">A</div>
       <div class="card-inner">
         <div class="card-label">All Federal Candidates</div>
-        <div class="card-total">$3,728,517</div>
+        <div class="card-total">$283,169</div>
         <div class="bar-chart">
           <div class="bar-row">
             <div class="bar-party dem">DEM</div>
-            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="58.54"></div></div>
-            <div class="bar-amount">$2,182,833</div>
-            <div class="bar-pct dem">58.5%</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="56.87"></div></div>
+            <div class="bar-amount">$161,026</div>
+            <div class="bar-pct dem">56.9%</div>
           </div>
           <div class="bar-row">
             <div class="bar-party rep">REP</div>
-            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="41.46"></div></div>
-            <div class="bar-amount">$1,545,684</div>
-            <div class="bar-pct rep">41.5%</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="43.13"></div></div>
+            <div class="bar-amount">$122,143</div>
+            <div class="bar-pct rep">43.1%</div>
           </div>
         </div>
-        <div class="drop-zone tap-target" data-company="att" id="drop-att">
+        <div class="drop-zone tap-target" data-company="bestbuy" id="drop-bestbuy">
           <div class="drop-zone-text">Match a company here</div>
         </div>
-        <div class="source-reveal" id="src-att">
+        <div class="source-reveal" id="src-bestbuy">
           <div class="src-label">Source</div>
-          <a href="https://www.opensecrets.org/orgs/at-t-inc/recipients?id=D000000076" target="_blank">opensecrets.org/orgs/at-t-inc/recipients</a>
+          <a href="https://www.opensecrets.org/orgs/best-buy/recipients?id=D000024328" target="_blank">opensecrets.org/orgs/best-buy/recipients</a>
         </div>
       </div>
     </div>
 
-    <!-- Card B: Verizon — Dem-leaning -->
-    <div class="chart-card" data-company="verizon" id="card-verizon">
+        <!-- Card B: Staples — smaller spend, nearly identical split to Best Buy -->
+    <div class="chart-card" data-company="staples" id="card-staples">
       <div class="card-number">B</div>
       <div class="card-inner">
         <div class="card-label">All Federal Candidates</div>
-        <div class="card-total">$2,379,345</div>
+        <div class="card-total">$73,005</div>
         <div class="bar-chart">
           <div class="bar-row">
             <div class="bar-party dem">DEM</div>
-            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="59.30"></div></div>
-            <div class="bar-amount">$1,410,919</div>
-            <div class="bar-pct dem">59.3%</div>
+            <div class="bar-track"><div class="bar-fill dem" style="width: 0%" data-target="55.96"></div></div>
+            <div class="bar-amount">$40,856</div>
+            <div class="bar-pct dem">56.0%</div>
           </div>
           <div class="bar-row">
             <div class="bar-party rep">REP</div>
-            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="40.70"></div></div>
-            <div class="bar-amount">$968,426</div>
-            <div class="bar-pct rep">40.7%</div>
+            <div class="bar-track"><div class="bar-fill rep" style="width: 0%" data-target="44.04"></div></div>
+            <div class="bar-amount">$32,149</div>
+            <div class="bar-pct rep">44.0%</div>
           </div>
         </div>
-        <div class="drop-zone tap-target" data-company="verizon" id="drop-verizon">
+        <div class="drop-zone tap-target" data-company="staples" id="drop-staples">
           <div class="drop-zone-text">Match a company here</div>
         </div>
-        <div class="source-reveal" id="src-verizon">
+        <div class="source-reveal" id="src-staples">
           <div class="src-label">Source</div>
-          <a href="https://www.opensecrets.org/orgs/verizon-communications/recipients?id=D000000079" target="_blank">opensecrets.org/orgs/verizon-communications/recipients</a>
+          <a href="https://www.opensecrets.org/orgs/staples-inc/recipients?id=D000029185" target="_blank">opensecrets.org/orgs/staples-inc/recipients</a>
         </div>
       </div>
     </div>
 
-    <!-- Card C: T-Mobile — $0, no contributions -->
-    <div class="chart-card" data-company="tmobile" id="card-tmobile">
+        <!-- Card C: OfficeMax — zero spend in 2024 cycle (editorial: silence is the statement) -->
+    <div class="chart-card" data-company="officemax" id="card-officemax">
       <div class="card-number">C</div>
       <div class="card-inner">
         <div class="card-label">All Federal Candidates</div>
@@ -1346,12 +1347,12 @@ body {
           <div class="zero-spend-message">No direct contributions to any federal candidate in the 2024 election cycle.</div>
           <div class="zero-spend-rule"></div>
         </div>
-        <div class="drop-zone tap-target" data-company="tmobile" id="drop-tmobile">
+        <div class="drop-zone tap-target" data-company="officemax" id="drop-officemax">
           <div class="drop-zone-text">Match a company here</div>
         </div>
-        <div class="source-reveal" id="src-tmobile">
+        <div class="source-reveal" id="src-officemax">
           <div class="src-label">Source</div>
-          <a href="https://www.opensecrets.org/orgs/t-mobile-usa/recipients?candscycle=2024&id=D000022272" target="_blank">opensecrets.org/orgs/t-mobile-usa/recipients</a>
+          <a href="https://www.opensecrets.org/orgs/officemax-inc/recipients?candscycle=2024&id=D000042216" target="_blank">opensecrets.org/orgs/officemax-inc/recipients</a>
         </div>
       </div>
     </div>
@@ -1382,9 +1383,9 @@ body {
     </div>
     <div class="complete-sources">
       <div class="src-label">Sources</div>
-      <a href="https://www.opensecrets.org/orgs/at-t-inc/recipients?id=D000000076" target="_blank">AT&T — OpenSecrets</a>
-      <a href="https://www.opensecrets.org/orgs/verizon-communications/recipients?id=D000000079" target="_blank">Verizon — OpenSecrets</a>
-      <a href="https://www.opensecrets.org/orgs/t-mobile-usa/recipients?candscycle=2024&id=D000022272" target="_blank">T-Mobile — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/orgs/best-buy/recipients?id=D000024328" target="_blank">Best Buy — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/orgs/officemax-inc/recipients?candscycle=2024&id=D000042216" target="_blank">OfficeMax — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/orgs/staples-inc/recipients?id=D000029185" target="_blank">Staples — OpenSecrets</a>
     </div>
     <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
     <div class="complete-actions">
@@ -1628,7 +1629,7 @@ function handleCorrectMatch(company, dropZone, tile) {
 
   const nameSpan = document.createElement('span');
   nameSpan.className = 'matched-name';
-  const names = { att: 'AT&T', verizon: 'Verizon', tmobile: 'T-Mobile' };
+  const names = { bestbuy: 'Best Buy', staples: 'Staples', officemax: 'OfficeMax' };
   nameSpan.textContent = '✓ ' + names[company];
   matchedDiv.appendChild(nameSpan);
   dropZone.appendChild(matchedDiv);
@@ -1797,7 +1798,7 @@ document.querySelectorAll('.chart-card').forEach(card => {
 // SHARE GAME
 function shareGame() {
   const url = window.location.href;
-  const text = 'Three telecom giants. Three donation profiles. Can you match the company to the cash? 🔍💰';
+  const text = 'Best Buy, Staples, OfficeMax. Three retailers — but not every brand shows up to write a check. 🔍💰';
   const title = 'Follow the Money — Moral Fiber Media';
 
   // Try Web Share API first (mobile browsers, some desktop)
