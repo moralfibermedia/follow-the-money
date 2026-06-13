@@ -33,6 +33,8 @@ Human provides: company names, OpenSecrets amounts/percentages/URLs, title, hint
 3. Generate preview image (1200x630), copy shared files
 4. Output to `puzzles/{id}/`, update root `index.html`
 
+**Zero-spend companies** (no direct federal contributions in the cycle) use the first-class `.bar-chart.zero-spend` tile, not an inline-styled bar row — silence is editorial, not missing data. Flag with `zero_spend: true` in `data/puzzles.json` and `zeroSpend: true` in `preview.json`. Reference: HTML example commented in `template/puzzle-template-barchart.html` above `<div class="charts-grid">`.
+
 ### Build a new text-match puzzle
 Human provides: quotes/facts, speakers/answers, source links, title, hint.
 Use `template/puzzle-template-text.html` or `tools/index.html` (puzzle builder).
