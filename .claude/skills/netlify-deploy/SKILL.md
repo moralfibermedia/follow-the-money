@@ -15,20 +15,30 @@ MFM uses a single-site monorepo architecture: one GitHub repo (`moralfibermedia/
 
 ## Site Map
 
-All pages are served from one Netlify site at `followthemoney.moralfibermedia.com`:
+All pages are served from one Netlify site at `followthemoney.moralfibermedia.com`. `data/puzzles.json` is the source of truth — when in doubt, read it.
 
 | Page | Path | Repo folder |
 |------|------|-------------|
 | Puzzle index (home) | `/` | `index.html` (repo root) |
 | Puzzle #1: Hardware Giants | `/puzzles/hardware-giants/` | `puzzles/hardware-giants/` |
 | Puzzle #2: Grocery Run | `/puzzles/grocery-run/` | `puzzles/grocery-run/` |
-| Puzzle #3: Whole Paycheck | `/puzzles/your-whole-paycheck/` | `puzzles/your-whole-paycheck/` |
-| Puzzle #4: Telecom | `/puzzles/can-you-hear-me-now/` | `puzzles/can-you-hear-me-now/` |
-| Special Edition: Georgia | `/puzzles/georgia-on-my-mind/` | `puzzles/georgia-on-my-mind/` |
+| Puzzle #3: Your Whole Paycheck | `/puzzles/your-whole-paycheck/` | `puzzles/your-whole-paycheck/` |
+| Puzzle #4: Can You Hear Me Now? | `/puzzles/can-you-hear-me-now/` | `puzzles/can-you-hear-me-now/` |
+| Puzzle #5: Stream Wars | `/puzzles/stream-wars/` | `puzzles/stream-wars/` |
+| Puzzle #6: Fill 'Er Up | `/puzzles/fill-er-up/` | `puzzles/fill-er-up/` |
+| Puzzle #7: Who Owns Your Feed? | `/puzzles/who-owns-your-feed/` | `puzzles/who-owns-your-feed/` |
+| Puzzle #8: Morning Fix | `/puzzles/morning-fix/` | `puzzles/morning-fix/` |
+| Puzzle #9: Now Boarding | `/puzzles/now-boarding/` | `puzzles/now-boarding/` |
+| Puzzle #11: Office Supplies | `/puzzles/office-supplies/` | `puzzles/office-supplies/` |
+| Special Edition: Georgia on My Mind | `/puzzles/georgia-on-my-mind/` | `puzzles/georgia-on-my-mind/` |
+| Special Edition: Behind the Bench | `/puzzles/behind-the-bench/` | `puzzles/behind-the-bench/` |
+| Report: 2026 GA Election Bills | `/2026-ga-elections-legislation/` | `2026-ga-elections-legislation/` |
 | Fighters index | `/fighters/` | `fighters/` |
 | Legal / Privacy | `/legal/` | `legal/` |
 | DOJ Bar Rule Infographic | `/doj/bar-rule-infographic/` | `doj/bar-rule-infographic/` |
 | DOJ Bar Rule Action | `/doj/bar-rule-action/` | `doj/bar-rule-action/` |
+
+Numbers reflect editorial order, not release order — gaps (e.g. #10) are normal when later-numbered puzzles ship first. Keep numbers stable once assigned; never renumber a live puzzle (URLs and PR history depend on them).
 
 **GitHub repo:** moralfibermedia/follow-the-money
 **Git email:** mf@moralfibermedia.com
@@ -85,8 +95,9 @@ mkdir -p puzzles/new-puzzle-slug
 
 ### 2. Build the page
 
-- Create `puzzles/new-puzzle-slug/index.html` from template
-- Generate `puzzles/new-puzzle-slug/preview.png` (1200x630)
+- Create `puzzles/new-puzzle-slug/index.html` from template (`template/puzzle-template-barchart.html` for bar-chart puzzles, `template/puzzle-template-text.html` for text-match)
+- For bar-chart puzzles: if any company made **no direct federal contributions** in the cycle, use the `.bar-chart.zero-spend` variant defined in the template (HTML example is in a comment just above `<div class="charts-grid">`). Mirror the data side: `"zero_spend": true` + `"zero_spend_message"` in `data/puzzles.json`, `"zeroSpend": true` in `preview.json`. Silence is a political statement — render it as editorial weight, not muted/missing.
+- Generate `puzzles/new-puzzle-slug/preview.png` (1200x630) via the `fact-puzzle-preview` skill
 
 ### 3. Set URLs in the HTML
 

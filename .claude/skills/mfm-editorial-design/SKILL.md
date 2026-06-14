@@ -114,6 +114,9 @@ Toggle button (3px ink border) expands a grid of fighter cards. Features 3-4 nam
 - LICENSE tag (ink bg): license name + deed link
 - CREDIT tag (muted bg): "Created by Moral Fiber Media + Data from [source]"
 
+### Zero-Spend Tile (bar-chart puzzles)
+When a company made **no direct federal contributions** in the puzzle's cycle, the chart card replaces its bar rows with an editorial empty state — silence is the political statement, not missing data. Use `.bar-chart.zero-spend` with two `.zero-spend-rule` ink hairlines bracketing a `.zero-spend-message` in Source Serif italic at full ink color (not muted gray). The `card-total` stays at "$0". Reference: `template/puzzle-template-barchart.html` (CSS block + commented HTML example just above `<div class="charts-grid">`). Data schema in `data/puzzles.json` flags this with `"zero_spend": true` and `"zero_spend_message": "..."`. The OG preview equivalent (`preview.json`) uses `"zeroSpend": true` on the chart entry.
+
 ---
 
 ## Social Channels
@@ -224,3 +227,4 @@ Single-file HTML pages deployed as individual Netlify sites with Squarespace DNS
 - All buttons say "puzzle" not "game"
 - Mobile tested at 375px
 - No generic AI fonts (Inter, Roboto, Arial, system-ui)
+- Any zero-spend company uses the `.bar-chart.zero-spend` tile (not an inline-styled bar row) so the empty state reads as editorial, not missing data
