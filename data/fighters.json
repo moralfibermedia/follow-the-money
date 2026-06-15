@@ -125,6 +125,36 @@
       "url": "https://www.talkingfeds.com/",
       "description": "Former U.S. Attorney and Deputy Assistant AG. Creator of Talking Feds \u2014 roundtable legal analysis.",
       "display_url": "talkingfeds.com"
+    },
+    {
+      "name": "Resist and Unsubscribe",
+      "url": "https://www.resistandunsubscribe.com/",
+      "description": "Consumer-powered accountability \u2014 tracking corporate boycotts and their market impact.",
+      "display_url": "resistandunsubscribe.com"
+    },
+    {
+      "name": "No Kings",
+      "url": "https://www.nokings.org/",
+      "description": "Grassroots civic action \u2014 events, trainings, and know-your-rights resources.",
+      "display_url": "nokings.org"
+    },
+    {
+      "name": "AI and Democracy Movements Project",
+      "url": "https://ash.harvard.edu/ai-and-democracy-movements-project/",
+      "description": "Harvard Ash Center research at the intersection of AI, civic engagement, and democratic participation.",
+      "display_url": "ash.harvard.edu"
+    },
+    {
+      "name": "Public Citizen",
+      "url": "https://www.citizen.org/",
+      "description": "Nonprofit consumer advocacy organization \u2014 government accountability, corporate power, and democracy reform.",
+      "display_url": "citizen.org"
+    },
+    {
+      "name": "Brennan Center for Justice",
+      "url": "https://www.brennancenter.org/",
+      "description": "NYU Law nonpartisan policy institute defending democracy through research, advocacy, and litigation on voting rights, fair elections, and judicial reform.",
+      "display_url": "brennancenter.org"
     }
   ]
 }
