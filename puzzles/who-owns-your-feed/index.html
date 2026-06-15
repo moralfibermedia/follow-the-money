@@ -919,6 +919,56 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* FIGHTERS HEADER (static, open-by-default) */
+.fighters-header {
+  background: var(--ink);
+  color: var(--paper);
+  border: 3px solid var(--ink);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fighters-header .fighters-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--paper);
+}
+.fighters-header .fighters-teaser {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(242, 237, 228, 0.7);
+}
+/* FULL-LIST BUTTON */
+.fighters-full-list-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--gold);
+  color: var(--paper);
+  border: 3px solid var(--gold);
+  margin-top: -3px;
+  padding: 18px 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.fighters-full-list-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.fighters-full-list-btn .arrow {
+  font-size: 22px;
+  line-height: 1;
+}
+
 /* HINT TEXT */
 .hint-text {
   text-align: center;
@@ -1483,19 +1533,32 @@ body {
         <div class="inspired-url">ash.harvard.edu</div>
       </div>
     </a>
+    <a class="inspired-link" href="https://www.citizen.org/" target="_blank">
+      <div class="inspired-num">4</div>
+      <div>
+        <div class="inspired-title">Public Citizen</div>
+        <div class="inspired-desc">Consumer advocacy and government accountability — corporate power, democracy reform, and the public interest</div>
+        <div class="inspired-url">citizen.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.brennancenter.org/" target="_blank">
+      <div class="inspired-num">5</div>
+      <div>
+        <div class="inspired-title">Brennan Center for Justice</div>
+        <div class="inspired-desc">NYU Law nonpartisan policy institute defending voting rights, fair elections, and judicial independence</div>
+        <div class="inspired-url">brennancenter.org</div>
+      </div>
+    </a>
   </div>
 
 
   <!-- PRO-DEMOCRACY FIGHTERS -->
   <div class="fighters-section">
-    <button class="fighters-toggle" onclick="toggleFighters(this)">
-      <div class="fighters-toggle-left">
-        <div class="fighters-label">Pro-Democracy Fighters</div>
-        <div class="fighters-teaser">People and organizations on the front lines</div>
-      </div>
-      <div class="fighters-arrow">▼</div>
-    </button>
-    <div class="fighters-list" id="fightersList">
+    <div class="fighters-header">
+      <div class="fighters-label">Pro-Democracy Fighters</div>
+      <div class="fighters-teaser">People and organizations on the front lines</div>
+    </div>
+    <div class="fighters-list open" id="fightersList">
       <div class="fighters-list-inner">
         <a class="fighter-link" href="https://www.youtube.com/briantylercohen" target="_blank">
           <div class="fighter-icon">✊</div>
@@ -1525,15 +1588,46 @@ body {
             <div class="fighter-desc">Justice Matters · Former federal prosecutor</div>
           </div>
         </a>
-        <a class="fighter-link full-list-link" href="/fighters" target="_blank">
-          <div class="fighter-icon">→</div>
+        <a class="fighter-link" href="https://joycevance.substack.com/" target="_blank">
+          <div class="fighter-icon">✊</div>
           <div>
-            <div class="fighter-name">See the Full List</div>
-            <div class="fighter-desc">All pro-democracy fighters</div>
+            <div class="fighter-name">Joyce Vance</div>
+            <div class="fighter-desc">Former U.S. Attorney · Civil rights voice</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.contrariannews.org" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">The Contrarian</div>
+            <div class="fighter-desc">Jennifer Rubin · Truthful, not neutral</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://lincolnproject.us/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">The Lincoln Project</div>
+            <div class="fighter-desc">Anti-authoritarian PAC · Democratic norms</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://heathercoxrichardson.substack.com/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Heather Cox Richardson</div>
+            <div class="fighter-desc">Letters from an American · Historian</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.hopiumchronicles.com/" target="_blank">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Simon Rosenberg</div>
+            <div class="fighter-desc">Hopium Chronicles · Data over doom</div>
           </div>
         </a>
       </div>
     </div>
+    <a class="fighters-full-list-btn" href="/fighters" target="_blank">
+      See the Full List <span class="arrow">→</span>
+    </a>
   </div>
 
   <!-- LICENSE BLOCK -->

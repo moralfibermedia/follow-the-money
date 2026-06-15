@@ -93,8 +93,8 @@ Every MFM page follows this skeleton:
 - VICTORY BANNER (full-bleed-edge): message, source links, Share, More Puzzles
 - BUTTON ROW: Reset Puzzle + Share Puzzle + More Puzzles
 - SHARE & FOLLOW: section head + puzzle suggestion CTA + social buttons
-- INSPIRED BY: numbered link list
-- PRO-DEMOCRACY FIGHTERS: expandable toggle, 3-4 featured + "See Full List"
+- INSPIRED BY: 5 numbered link cards (identical across all puzzles)
+- PRO-DEMOCRACY FIGHTERS: ink-bg header + 9 fighter cards (open by default) + gold "See the Full List" button
 - LICENSE BLOCK: LICENSE tag + CREDIT tag
 
 ---
@@ -107,8 +107,11 @@ Format: "Puzzle #N" in a JetBrains tag (ink bg, paper text), "Episode Name" in P
 ### Button Row
 Three actions: Reset (outline), Share (filled ink, red hover), More Puzzles (outline, gold hover). Links to puzzles.moralfibermedia.com.
 
-### Fighters Expandable Section
-Toggle button (3px ink border) expands a grid of fighter cards. Features 3-4 named fighters + gold dashed "See the Full List" link to fighters.moralfibermedia.com. Content can vary per puzzle. Arrow rotates 180 degrees on open.
+### Fighters Section
+Ink-background header (3px ink border, paper-color label + italic muted teaser) sits above a grid of 9 fighter cards (auto-fill, min 260px columns, 1.5px rule border per card, ink icon block on the left). The section is **open by default** — no toggle. Below the grid: a prominent gold-filled "See the Full List →" button (3px gold border, Playfair 16/900) that links to `/fighters`. Hover state on the button shifts to red. The same 9 fighters appear across every puzzle for series consistency — to refresh the lineup, edit them once and propagate.
+
+### Inspired By
+Five numbered link cards (rotating ink/red number badge, Playfair bold title, italic muted description, JetBrains mono URL). Editorial intent: these are organizations the FactPuzzles series itself is inspired by — civic-action, accountability, and democracy-research orgs — not arbitrary mentions. Identical across every puzzle.
 
 ### License Block
 - LICENSE tag (ink bg): license name + deed link
