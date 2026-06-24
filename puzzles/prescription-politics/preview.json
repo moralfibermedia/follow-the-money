@@ -1,0 +1,14 @@
+{
+  "number": 10,
+  "episode": "Prescription Politics",
+  "subjects": ["Pfizer", "Johnson & Johnson", "Eli Lilly"],
+  "subjectsNoun": "pharma giants",
+  "matchVerb": "Can you match the company to the cash?",
+  "charts": [
+    { "letter": "A", "dem": 60.60, "rep": 39.40 },
+    { "letter": "B", "dem": 61.76, "rep": 38.24 },
+    { "letter": "C", "dem": 48.62, "rep": 51.38 }
+  ],
+  "dataLabel": "2024 Cycle · Federal · Corporate PAC",
+  "dataSource": "OpenSecrets.org"
+}

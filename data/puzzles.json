@@ -492,6 +492,58 @@
       ]
     },
     {
+      "id": "prescription-politics",
+      "number": 10,
+      "type": "standard",
+      "template": "barchart",
+      "title": "Prescription Politics",
+      "subtitle": "Three pharma giants. Three donation profiles. Can you match the company to the cash?",
+      "hook": "Big Pharma hedges both sides. Not equally.",
+      "hint": "Hint: Only one PAC tilts toward the party that votes against Medicare drug price negotiation.",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2024",
+      "status": "live",
+      "companies": [
+        {
+          "id": "pfizer",
+          "name": "Pfizer",
+          "display_name": "Pfizer",
+          "dem_amount": 956376,
+          "dem_pct": 60.60,
+          "rep_amount": 621795,
+          "rep_pct": 39.40,
+          "total": 1578171,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/pfizer-inc/recipients?id=D000000138"
+        },
+        {
+          "id": "jnj",
+          "name": "Johnson & Johnson",
+          "display_name": "Johnson &<br>Johnson",
+          "dem_amount": 646116,
+          "dem_pct": 61.76,
+          "rep_amount": 400065,
+          "rep_pct": 38.24,
+          "total": 1046181,
+          "leading_party": "dem",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/johnson-johnson/recipients?id=D000000386"
+        },
+        {
+          "id": "lilly",
+          "name": "Eli Lilly",
+          "display_name": "Eli Lilly",
+          "dem_amount": 415311,
+          "dem_pct": 48.62,
+          "rep_amount": 438829,
+          "rep_pct": 51.38,
+          "total": 854140,
+          "leading_party": "rep",
+          "opensecrets_url": "https://www.opensecrets.org/orgs/eli-lilly-co/recipients?id=D000000166"
+        }
+      ]
+    },
+    {
       "id": "office-supplies",
       "number": 11,
       "type": "standard",
