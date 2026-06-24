@@ -724,6 +724,38 @@
         "count_document_id": "OMB-2026-0034-0001",
         "count_label": "comments posted"
       }
+    },
+    {
+      "id": "power-to-pardon",
+      "type": "standard",
+      "template": "text-match",
+      "series": "americas-250th",
+      "title": "The Power to Pardon",
+      "slug": "power-to-pardon",
+      "path": "americas-250th/power-to-pardon",
+      "subtitle": "The Constitution hands one person the power to erase a federal crime. Match each rule to what it does.",
+      "hook": "The Constitution lets a president erase a federal crime with a signature — no judge, no appeal. There is exactly one hard limit.",
+      "hint": "Read the clause. Then read the fine print.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live",
+      "source_episode": "https://youtu.be/qu6qszxBYRQ"
+    },
+    {
+      "id": "pardon-my-receipts",
+      "type": "standard",
+      "template": "text-match",
+      "series": "americas-250th",
+      "title": "Pardon My Receipts",
+      "slug": "pardon-my-receipts",
+      "path": "americas-250th/pardon-my-receipts",
+      "subtitle": "Five federal convictions. Five pardons or commutations. Match the name to the crime they walked away from.",
+      "hook": "The Constitution lets a president erase almost any federal crime. In 2025 the pardons came fast, and the restitution vanished with them.",
+      "hint": "Follow the restitution that vanished.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live",
+      "source_episode": "https://youtu.be/qu6qszxBYRQ"
     }
   ],
   "coming_soon": []
