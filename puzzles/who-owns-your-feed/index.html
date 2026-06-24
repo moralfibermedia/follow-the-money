@@ -91,7 +91,7 @@ body {
   text-transform: uppercase;
   color: var(--muted);
 }
-.masthead h1 {
+.masthead .wordmark {
   font-family: 'Playfair Display', serif;
   font-size: clamp(32px, 6vw, 56px);
   font-weight: 900;
@@ -99,7 +99,7 @@ body {
   letter-spacing: -1px;
   margin: 8px 0 4px;
 }
-.masthead h1 em { font-style: italic; color: var(--red); }
+.masthead .wordmark em { font-style: italic; color: var(--red); }
 .masthead .episode-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -1303,9 +1303,9 @@ body {
   <!-- MASTHEAD -->
   <div class="masthead full-bleed">
     <div class="kicker">Interactive · Political Donations · OpenSecrets Data</div>
-    <h1>FOLLOW<br><em>THE MONEY</em></h1>
+    <div class="wordmark">FOLLOW<br><em>THE MONEY</em></div>
     <div class="episode-tag">Puzzle #7</div>
-    <div class="episode-name">"Who Owns Your Feed?"</div>
+    <h1 class="episode-name">"Who Owns Your Feed?"</h1>
     <div class="sub">Three platforms in your pocket. Three donation profiles. Can you match the app to the cash?</div>
     <div class="dateline">Source: OpenSecrets.org · All Federal Candidates · 2024 Cycle</div>
   </div>
