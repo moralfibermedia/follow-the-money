@@ -116,6 +116,7 @@ body {
   color: var(--ink);
   font-family: 'Source Serif 4', Georgia, serif;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .page {
@@ -215,7 +216,7 @@ body {
   background: var(--ink);
   color: var(--paper);
   text-align: center;
-  padding: 24px max(20px, calc(50vw - 340px));
+  padding: 24px 24px;
   font-family: 'Source Serif 4', serif;
   font-size: 18px;
   font-style: italic;
@@ -223,6 +224,7 @@ body {
   border-bottom: 3px solid var(--gold);
 }
 .hook-bar strong { color: var(--gold); font-style: normal; font-weight: 700; }
+.hook-bar .hook-inner { display: block; max-width: 680px; margin: 0 auto; }
 
 /* HINT */
 .hint {
@@ -616,10 +618,13 @@ body {
   background: var(--ink);
   color: var(--paper);
   text-align: center;
-  padding: 34px max(20px, calc(50vw - 340px));
+  padding: 34px 24px;
   border-top: 4px solid var(--gold);
   border-bottom: 4px solid var(--gold);
-  margin: 28px 0;
+  /* vertical margins only — must NOT set margin-left, or it clobbers
+     .full-bleed's margin-left: calc(-50vw + 50%) and the bar overflows right */
+  margin-top: 28px;
+  margin-bottom: 28px;
 }
 .cta-eyebrow {
   font-family: 'JetBrains Mono', monospace;
@@ -1065,7 +1070,7 @@ body {
 
   <!-- HOOK BAR (editorial lead) -->
   <div class="hook-bar full-bleed">
-    Forty-two federal agencies signed one grant rule — including the Marine Mammal Commission, with a budget you could lose in a rounding error. The Federal Reserve didn't sign. Neither did the SEC. <strong>Size had nothing to do with it.</strong>
+    <span class="hook-inner">Forty-two federal agencies signed one grant rule — including the Marine Mammal Commission, with a budget you could lose in a rounding error. The Federal Reserve didn't sign. Neither did the SEC. <strong>Size had nothing to do with it.</strong></span>
   </div>
 
   <!-- START GATE -->
