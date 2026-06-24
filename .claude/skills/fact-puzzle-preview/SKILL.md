@@ -17,8 +17,14 @@ The MFM design system is defined in the `mfm-editorial-design` skill — this sk
 
 ## When NOT to use
 
-- The deliverable is not a Follow the Money / OpenSecrets bar-chart puzzle. Other puzzle types (Just the Facts text-match, Say/Do contradiction) will need their own preview layout when those series launch — at that point, copy this skill, swap the template, keep the toolchain.
 - The user only wants meta tag updates without a new image. Edit `index.html` directly instead.
+
+## Two renderers — pick by puzzle type
+
+- **Bar-chart / Follow the Money (OpenSecrets):** `render.mjs` + `template.html` — FOLLOW THE MONEY headline, A/B/C bars, OpenSecrets attribution chip. Inputs: the bar-chart `preview.json` documented below.
+- **Text-match / Just the Facts (non-OpenSecrets):** `render-text.mjs` — editorial card with the puzzle name, hook, and answer tiles (which don't spoil the matching), no attribution chip. Uses a **different** `preview.json` shape (`episode`, `subjects`, `subtitle`, `matchVerb`, `dataLabel`, `dataSource: null`) — see the header comment in `render-text.mjs`. Run: `node .claude/skills/fact-puzzle-preview/render-text.mjs just-the-facts/<slug>/preview.json`. Reference output: `just-the-facts/who-spends-your-money/`.
+
+Other future series (Say/Do contradiction, etc.) get their own sibling renderer the same way — copy a renderer, swap the card markup, keep the playwright→sharp toolchain.
 
 ## Inputs
 

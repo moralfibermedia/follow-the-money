@@ -104,8 +104,16 @@ Every MFM page follows this skeleton:
 ### Puzzle Branding (in masthead)
 Format: "Puzzle #N" in a JetBrains tag (ink bg, paper text), "Episode Name" in Playfair italic red below it.
 
+**Heading semantics (SEO — non-negotiable).** Exactly **one `<h1>` per page**, and it must be **unique** = the puzzle/page name (the episode name), never the series wordmark. The big "FOLLOW THE MONEY" / "JUST THE FACTS" wordmark is a brand mark, not a heading — mark it up as `<div class="wordmark">` (CSS targets `.masthead .wordmark`), and make the episode-name element the `<h1 class="episode-name">`. Do NOT make the shared series wordmark the `<h1>` — 13 puzzles once shared an identical `<h1>FOLLOW THE MONEY</h1>` and it diluted every page's heading signal (fixed 2026-06-24).
+
+### Public Comment CTA (open-rulemaking puzzles)
+Reusable, **data-driven, optional** block for puzzles tied to an open public-comment period (e.g. a proposed federal rule). Ink bg / gold accent, intro-bar family; full-bleed bar placed below the victory/complete reveal, above the button row. Renders only when the puzzle data carries `commentUrl` + `commentDeadline`.
+- Pure-JS live countdown reads `data-deadline`; auto-flips to a **closed** state past it (no manual edit ever).
+- Closed state fetches `/data/comment-counts.json` same-origin and shows a POSTED comment count — labelled **"comments posted," never "received."** The count is a **bonus layer**: if the JSON is missing/null/errors, the closed state still renders with a working link. The number is never load-bearing.
+- Server side: a scheduled GitHub Action (`comment-counts.yml`) writes the JSON; needs the `REGULATIONS_GOV_API_KEY` secret. The `/data/*` netlify 404 needs a per-file allow-rule so the JSON serves. Reference implementation: `just-the-facts/who-spends-your-money/`. See `netlify-deploy` skill.
+
 ### Button Row
-Three actions: Reset (outline), Share (filled ink, red hover), More Puzzles (outline, gold hover). Links to puzzles.moralfibermedia.com.
+Three actions: Reset (outline), Share (filled ink, red hover), More Puzzles (outline, gold hover). "More Puzzles" links to the root index (`/`) on `followthemoney.moralfibermedia.com`.
 
 ### Fighters Section
 Ink-background header (3px ink border, paper-color label + italic muted teaser) sits above a grid of 9 fighter cards (auto-fill, min 260px columns, 1.5px rule border per card, ink icon block on the left). The section is **open by default** — no toggle. Below the grid: a prominent gold-filled "See the Full List →" button (3px gold border, Playfair 16/900) that links to `/fighters`. Hover state on the button shifts to red. The same 9 fighters appear across every puzzle for series consistency — to refresh the lineup, edit them once and propagate.
@@ -154,19 +162,21 @@ OpenSecrets data is CC BY-NC-SA 3.0.
 
 ## Site Architecture
 
-Single-file HTML pages deployed as individual Netlify sites with Squarespace DNS subdomains:
+**Single-site monorepo.** All pages deploy from one GitHub repo (`moralfibermedia/follow-the-money`) as **one Netlify site at `followthemoney.moralfibermedia.com`**, served as paths under that domain. (An older multi-subdomain layout — `hardware-giants.moralfibermedia.com`, etc. — is **deprecated**; do not use per-puzzle subdomains. `puzzles.moralfibermedia.com` is a legacy CNAME that resolves to the same site, but the canonical host is `followthemoney.moralfibermedia.com` — use it for every canonical/OG/cross-link URL.)
 
-- puzzles.moralfibermedia.com — Puzzle index
-- hardware-giants.moralfibermedia.com — Puzzle #1
-- grocery-run.moralfibermedia.com — Puzzle #2
-- your-whole-paycheck.moralfibermedia.com — Puzzle #3
-- fighters.moralfibermedia.com — Pro-Democracy Fighters directory
+- `/` — Puzzle index (repo `index.html`)
+- `/puzzles/{slug}/` — Follow the Money bar-chart + special-edition puzzles
+- `/just-the-facts/{slug}/` — **Just the Facts** text-match series (non-OpenSecrets, CC BY 4.0)
+- `/fighters/` — Pro-Democracy Fighters directory
+- `/legal/` — Privacy & Terms
 
-### Navigation links
-- Each puzzle: "More Puzzles" in button row + victory banner -> puzzle index
-- Each puzzle: "See the Full List" in fighters section -> fighters directory
-- Fighters directory: "Back to Puzzles" -> puzzle index
-- Puzzle index: "Play Now" buttons -> each puzzle subdomain
+Deployment, the full site map, and the new-puzzle checklist live in the `netlify-deploy` skill.
+
+### Navigation links (all absolute, single domain)
+- Each puzzle: "More Puzzles" in button row + victory banner -> `/` (root index)
+- Each puzzle: "See the Full List" in fighters section -> `/fighters`
+- Fighters directory: "Back to Puzzles" -> `/`
+- Puzzle index: "Play Now" buttons -> `/puzzles/{slug}` (or `/just-the-facts/{slug}`)
 
 ### Architecture principles
 - Each page is a complete, standalone HTML file — no external CSS/JS, no build step
@@ -223,8 +233,11 @@ Single-file HTML pages deployed as individual Netlify sites with Squarespace DNS
 - Social links point to current handles (5 platforms)
 - Correct license (CC BY 4.0 for original, CC BY-NC-SA 3.0 for OpenSecrets derivatives)
 - Moral Fiber Media links to moralfibermedia.com
-- "More Puzzles" points to puzzles.moralfibermedia.com
-- "See the Full List" points to fighters.moralfibermedia.com
+- "More Puzzles" points to the root index (`/`) on followthemoney.moralfibermedia.com
+- "See the Full List" points to `/fighters`
+- Exactly one `<h1>` per page = the unique puzzle/episode name (series wordmark is a `.wordmark` div, NOT the h1)
+- JSON-LD present (`BreadcrumbList` + `Quiz`), with the correct per-page license (CC BY-NC-SA 3.0 for OpenSecrets puzzles, CC BY 4.0 for original)
+- New page URL added to `/sitemap.xml`
 - Fighters section present with current featured fighters
 - Victory banner smooth-scrolls into view
 - All buttons say "puzzle" not "game"
