@@ -1,0 +1,10 @@
+{
+  "series": "just-the-facts",
+  "special": true,
+  "episode": "Who Spends Your Money?",
+  "subjects": ["Federal Reserve", "SEC", "U.S. Postal Service"],
+  "subjectsNoun": "agencies that sat it out",
+  "matchVerb": "Match the agency to the reason it sat out.",
+  "dataLabel": "Federal Register · 91 FR 32198",
+  "dataSource": null
+}

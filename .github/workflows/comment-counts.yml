@@ -1,0 +1,109 @@
+name: Comment Counts
+
+# Refreshes data/comment-counts.json with the number of POSTED (moderation-cleared)
+# comments on tracked regulations.gov dockets. Powers the closed-state count in the
+# Public Comment CTA. Runs daily; keep it running ~30-60 days past a deadline because
+# the posted count lags received for weeks on large dockets.
+#
+# Requires repo secret REGULATIONS_GOV_API_KEY (free: https://api.data.gov/signup/).
+
+on:
+  schedule:
+    - cron: "17 9 * * *"   # daily, 09:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: comment-counts
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch posted comment counts
+        env:
+          REGULATIONS_GOV_API_KEY: ${{ secrets.REGULATIONS_GOV_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, time, urllib.request, urllib.parse, urllib.error
+          from datetime import datetime, timezone
+
+          API = "https://api.regulations.gov/v4"
+          KEY = os.environ.get("REGULATIONS_GOV_API_KEY", "").strip()
+          PATH = "data/comment-counts.json"
+
+          # Tracked documentIds. Add more here as new open-comment puzzles ship.
+          TRACKED = ["OMB-2026-0034-0001"]
+
+          if not KEY:
+              print("::error::REGULATIONS_GOV_API_KEY is not set — leaving JSON untouched.")
+              sys.exit(1)
+
+          def get_json(url):
+              req = urllib.request.Request(url, headers={"X-Api-Key": KEY})
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return json.load(r)
+
+          # Load existing data; on any read error start from empty but never lose entries silently.
+          try:
+              with open(PATH) as f:
+                  data = json.load(f)
+              if not isinstance(data, dict):
+                  data = {}
+          except FileNotFoundError:
+              data = {}
+          except Exception as e:
+              print(f"::warning::Could not parse {PATH} ({e}); starting from empty.")
+              data = {}
+
+          changed = False
+          for doc_id in TRACKED:
+              try:
+                  # 1) documentId -> objectId
+                  doc = get_json(f"{API}/documents/{urllib.parse.quote(doc_id)}")
+                  object_id = doc["data"]["attributes"]["objectId"]
+
+                  # 2) objectId -> posted comment count (meta.totalElements)
+                  q = urllib.parse.urlencode({"filter[commentOnId]": object_id})
+                  comments = get_json(f"{API}/comments?{q}")
+                  posted = int(comments["meta"]["totalElements"])
+
+                  prev = (data.get(doc_id) or {}).get("posted")
+                  data[doc_id] = {
+                      "posted": posted,
+                      "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                  }
+                  if prev != posted:
+                      changed = True
+                  print(f"{doc_id}: posted={posted} (was {prev})")
+                  time.sleep(1)  # be polite to the API between docs
+              except (urllib.error.HTTPError, urllib.error.URLError, KeyError, ValueError, TimeoutError) as e:
+                  # FAIL SOFT: leave this doc's existing entry untouched. Never write null/0.
+                  print(f"::warning::{doc_id} fetch failed ({e}); keeping previous value.")
+                  continue
+
+          if changed:
+              with open(PATH, "w") as f:
+                  json.dump(data, f, indent=2, sort_keys=True)
+                  f.write("\n")
+              print("Updated", PATH)
+          else:
+              print("No changes.")
+          PY
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain data/comment-counts.json)" ]]; then
+            git config user.name "moralfibermedia"
+            git config user.email "mf@moralfibermedia.com"
+            git add data/comment-counts.json
+            git commit -m "chore: refresh comment counts [skip ci]"
+            git push
+          else
+            echo "Nothing to commit."
+          fi

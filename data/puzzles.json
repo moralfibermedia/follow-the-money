@@ -701,6 +701,29 @@
           "opensecrets_url": "https://www.opensecrets.org/orgs/home-depot/recipients?id=D000000419"
         }
       ]
+    },
+    {
+      "id": "who-spends-your-money",
+      "type": "standard",
+      "template": "text-match",
+      "series": "just-the-facts",
+      "title": "Who Spends Your Money?",
+      "slug": "who-spends-your-money",
+      "path": "just-the-facts/who-spends-your-money",
+      "subtitle": "The agencies that sat out a grant rule reveal who controls federal money.",
+      "hook": "Forty-two federal agencies signed one grant rule. The Fed and the SEC didn't. Size had nothing to do with it.",
+      "hint": "Follow the funding, not the logo.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live",
+      "comment_cta": {
+        "rule_url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+        "comment_url": "https://www.regulations.gov/commenton/OMB-2026-0034-0001",
+        "comment_closed_url": "https://www.regulations.gov/document/OMB-2026-0034-0001/comment",
+        "comment_deadline": "2026-07-13T23:59:00-04:00",
+        "count_document_id": "OMB-2026-0034-0001",
+        "count_label": "comments posted"
+      }
     }
   ],
   "coming_soon": []

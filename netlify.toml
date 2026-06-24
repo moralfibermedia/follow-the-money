@@ -1,6 +1,13 @@
 [build]
   publish = "."
 
+# Exception: the live comment-count feed for the Public Comment CTA must be
+# fetchable client-side. Listed BEFORE the /data/* block so it wins (first match).
+[[redirects]]
+  from = "/data/comment-counts.json"
+  to = "/data/comment-counts.json"
+  status = 200
+
 [[redirects]]
   from = "/data/*"
   to = "/"

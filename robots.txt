@@ -1,6 +1,8 @@
 # Moral Fiber Media — Bot Policy
 # Allow search engine indexing, block AI scrapers
 
+Sitemap: https://followthemoney.moralfibermedia.com/sitemap.xml
+
 # Search engines — welcome
 User-agent: Googlebot
 Allow: /
