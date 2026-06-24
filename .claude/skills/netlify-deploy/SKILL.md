@@ -32,6 +32,7 @@ All pages are served from one Netlify site at `followthemoney.moralfibermedia.co
 | Puzzle #11: Office Supplies | `/puzzles/office-supplies/` | `puzzles/office-supplies/` |
 | Special Edition: Georgia on My Mind | `/puzzles/georgia-on-my-mind/` | `puzzles/georgia-on-my-mind/` |
 | Special Edition: Behind the Bench | `/puzzles/behind-the-bench/` | `puzzles/behind-the-bench/` |
+| Just the Facts: Who Spends Your Money? | `/just-the-facts/who-spends-your-money/` | `just-the-facts/who-spends-your-money/` |
 | Report: 2026 GA Election Bills | `/2026-ga-elections-legislation/` | `2026-ga-elections-legislation/` |
 | Fighters index | `/fighters/` | `fighters/` |
 | Legal / Privacy | `/legal/` | `legal/` |
@@ -256,7 +257,21 @@ Allow: /
 
 ### netlify.toml (repo root)
 
-Blocks access to workspace-only folders (`data/`, `template/`, `scripts/`, `index/`, `.claude/`, `vision/`).
+Blocks access to workspace-only folders (`data/`, `template/`, `scripts/`, `index/`, `.claude/`, `vision/`) with `status = 404, force = true` redirects.
+
+**Serving one file out of a blocked folder:** if a page needs to `fetch()` a file under `data/` at runtime (e.g. the Public Comment CTA reads `/data/comment-counts.json`), add a per-file allow-rule **above** the `/data/*` block — Netlify uses first-match-wins:
+
+```toml
+[[redirects]]
+  from = "/data/comment-counts.json"
+  to = "/data/comment-counts.json"
+  status = 200
+# ...then the existing /data/* 404 force rule below it
+```
+
+### Scheduled data (GitHub Actions)
+
+`.github/workflows/comment-counts.yml` refreshes `data/comment-counts.json` daily from regulations.gov (POSTED comment counts for the Public Comment CTA). It **needs repo secret `REGULATIONS_GOV_API_KEY`** (free at api.data.gov/signup), set in GitHub → Settings → Secrets and variables → Actions. Without it the Action no-ops and the CTA degrades gracefully. The Action fails soft (never writes null/0) and commits only on change as `moralfibermedia`.
 
 ---
 
@@ -302,8 +317,10 @@ See mfm-editorial-design skill for full SEO tag specification.
 - [ ] Placed at `puzzles/{slug}/index.html`
 - [ ] Preview image (1200x630) at `puzzles/{slug}/preview.png`
 - [ ] SEO meta tags present with correct absolute URLs
+- [ ] Exactly one unique `<h1>` (the puzzle name); JSON-LD (`BreadcrumbList` + `Quiz`) present
 - [ ] All cross-links correct (More Puzzles → root, See Full List → /fighters/, Privacy → /legal/)
 - [ ] Puzzle index (`index.html` at root) updated with new card
+- [ ] New URL added to `/sitemap.xml` (root)
 - [ ] Committed and pushed to GitHub
 - [ ] OG preview tested at opengraph.xyz
 - [ ] Site map in this skill updated
