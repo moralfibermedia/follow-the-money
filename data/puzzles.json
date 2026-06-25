@@ -756,6 +756,29 @@
       "data_license": "CC BY 4.0",
       "status": "live",
       "source_episode": "https://youtu.be/qu6qszxBYRQ"
+    },
+    {
+      "id": "power-grab",
+      "type": "standard",
+      "template": "text-match",
+      "series": "speak-now",
+      "title": "Power Grab",
+      "slug": "power-grab",
+      "path": "speak-now/power-grab",
+      "subtitle": "OMB is rewriting the rules for $1.1 trillion in federal grants. Match each change to what it does — then comment before July 13.",
+      "hook": "The biggest rewrite of how federal grant money works in over a decade. Critics call it a power grab. You can comment until July 13.",
+      "hint": "Follow the power, not the press release.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live",
+      "comment_cta": {
+        "rule_url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+        "comment_url": "https://www.regulations.gov/commenton/OMB-2026-0034-0001",
+        "comment_closed_url": "https://www.regulations.gov/document/OMB-2026-0034-0001/comment",
+        "comment_deadline": "2026-07-13T23:59:00-04:00",
+        "count_document_id": "OMB-2026-0034-0001",
+        "count_label": "comments posted"
+      }
     }
   ],
   "coming_soon": []
