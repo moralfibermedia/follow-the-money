@@ -1,0 +1,42 @@
+name: Open Dockets Radar
+
+# Weekly sourcing for the "Speak Now Or…" comment-drive series: surfaces federal
+# PROPOSED RULES with open public-comment periods, ranked by public salience, so
+# the watch -> puzzle -> post cadence never starts from a blank page.
+#
+# Uses the public Federal Register API — NO API KEY required. The ranked digest
+# is written to the run's Step Summary; the full shortlist is committed to
+# data/open-dockets.json (editorial-only; netlify blocks /data from serving).
+
+on:
+  schedule:
+    - cron: "17 13 * * 1"   # Mondays 13:17 UTC (~9am ET), ahead of the weekly editorial pick
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: open-dockets
+  cancel-in-progress: false
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate radar (digest -> Step Summary, shortlist -> data/open-dockets.json)
+        run: python3 scripts/open_dockets_radar.py >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain data/open-dockets.json)" ]]; then
+            git config user.name "moralfibermedia"
+            git config user.email "mf@moralfibermedia.com"
+            git add data/open-dockets.json
+            git commit -m "chore: refresh open dockets radar [skip ci]"
+            git push
+          else
+            echo "No docket changes."
+          fi
