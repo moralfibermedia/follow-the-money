@@ -1,5 +1,5 @@
 {
-  "generated": "2026-06-29T14:37:22Z",
+  "generated": "2026-07-06T14:26:20Z",
   "window": {
     "min_days": 3,
     "max_days": 60
@@ -8,7 +8,7 @@
   "dockets": [
     {
       "score": 11,
-      "why": "medicaid \u00b7 social security \u00b7 significant \u00b7 closes in 22d",
+      "why": "medicaid \u00b7 social security \u00b7 significant \u00b7 closes in 15d",
       "title": "Medicaid Program; Medicaid Managed Care State Directed Payments and Medicaid Fee-for-Service Targeted Medicaid Practitioner Payments",
       "agencies": [
         "Health and Human Services Department",
@@ -17,7 +17,7 @@
       "document_number": "2026-10292",
       "publication_date": "2026-05-22",
       "comments_close_on": "2026-07-21",
-      "days_left": 22,
+      "days_left": 15,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-1916-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/22/2026-10292/medicaid-program-medicaid-managed-care-state-directed-payments-and-medicaid-fee-for-service-targeted",
@@ -29,7 +29,7 @@
     },
     {
       "score": 10,
-      "why": "drinking water \u00b7 pfas \u00b7 significant \u00b7 closes in 21d",
+      "why": "drinking water \u00b7 pfas \u00b7 significant \u00b7 closes in 14d",
       "title": "Rescission of Regulatory Determinations and Removal of Related Provisions for Four PFAS Substances (PFHxS, PFNA, HFPO-DA (GenX), and the Mixture of These Three PFAS Plus PFBS)",
       "agencies": [
         "Environmental Protection Agency"
@@ -37,7 +37,7 @@
       "document_number": "2026-10085",
       "publication_date": "2026-05-20",
       "comments_close_on": "2026-07-20",
-      "days_left": 21,
+      "days_left": 14,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2025-0654-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances",
@@ -50,7 +50,28 @@
     },
     {
       "score": 10,
-      "why": "food \u00b7 firearm \u00b7 gun \u00b7 closes in 36d",
+      "why": "drinking water \u00b7 pfas \u00b7 significant \u00b7 closes in 25d",
+      "title": "Revisions To Establish the Sixth Unregulated Contaminant Monitoring Rule (UCMR 6) for Public Water Systems",
+      "agencies": [
+        "Environmental Protection Agency"
+      ],
+      "document_number": "2026-13263",
+      "publication_date": "2026-07-01",
+      "comments_close_on": "2026-07-31",
+      "days_left": 25,
+      "significant": true,
+      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2023-0469-0097",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/01/2026-13263/revisions-to-establish-the-sixth-unregulated-contaminant-monitoring-rule-ucmr-6-for-public-water",
+      "docket_ids": [
+        "EPA-HQ-OW-2023-0469",
+        "FRL-10857-03-OW"
+      ],
+      "abstract": "The U.S. Environmental Protection Agency (EPA or agency) is proposing the sixth Unregulated Contaminant Monitoring Rule (UCMR 6). Under the Safe Drinking Water Act (SDWA), the UCMR program gathers data about unregulated contaminant occurrence in drinking water. The proposed UCMR\u2026",
+      "rank": 3
+    },
+    {
+      "score": 10,
+      "why": "food \u00b7 firearm \u00b7 gun \u00b7 closes in 29d",
       "title": "Clarifying Interstate Transportation of Firearms Under the Gun Control Act",
       "agencies": [
         "Justice Department",
@@ -59,7 +80,7 @@
       "document_number": "2026-08916",
       "publication_date": "2026-05-06",
       "comments_close_on": "2026-08-04",
-      "days_left": 36,
+      "days_left": 29,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/ATF-2026-0133-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/06/2026-08916/clarifying-interstate-transportation-of-firearms-under-the-gun-control-act",
@@ -68,11 +89,11 @@
         "ATF No. 2025R-18P"
       ],
       "abstract": "The Bureau of Alcohol, Tobacco, Firearms, and Explosives (\"ATF\") proposes amending Department of Justice (\"Department\") regulations to clarify that, for purposes of transporting firearms interstate, any activities that are reasonably necessary to transportation such as staying\u2026",
-      "rank": 3
+      "rank": 4
     },
     {
       "score": 10,
-      "why": "medicare \u00b7 prescription \u00b7 drug price \u00b7 closes in 49d",
+      "why": "medicare \u00b7 prescription \u00b7 drug price \u00b7 closes in 42d",
       "title": "Medicare Drug Price Negotiation Program and Medicare Prescription Drug Benefit Program",
       "agencies": [
         "Health and Human Services Department",
@@ -81,7 +102,7 @@
       "document_number": "2026-12059",
       "publication_date": "2026-06-16",
       "comments_close_on": "2026-08-17",
-      "days_left": 49,
+      "days_left": 42,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2080-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/06/16/2026-12059/medicare-drug-price-negotiation-program-and-medicare-prescription-drug-benefit-program",
@@ -89,31 +110,11 @@
         "CMS-4215-P"
       ],
       "abstract": "This proposed rule would codify the Medicare Drug Price Negotiation Program (\"Negotiation Program\") and would establish certain new policies for the Negotiation Program and the Medicare Prescription Drug Benefit Program as required by the Inflation Reduction Act of 2022. This\u2026",
-      "rank": 4
-    },
-    {
-      "score": 8,
-      "why": "immigration \u00b7 significant \u00b7 closes in 7d",
-      "title": "Fee Adjustment for U.S. Immigration and Customs Enforcement Form I-246, Application for a Stay of Deportation or Removal",
-      "agencies": [
-        "Homeland Security Department"
-      ],
-      "document_number": "2026-09007",
-      "publication_date": "2026-05-07",
-      "comments_close_on": "2026-07-06",
-      "days_left": 7,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/ICEB-2020-0005-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/05/07/2026-09007/fee-adjustment-for-us-immigration-and-customs-enforcement-form-i-246-application-for-a-stay-of",
-      "docket_ids": [
-        "DHS Docket No. ICEB-2020-0005"
-      ],
-      "abstract": "DHS proposes to increase the fee for adjudicating Form I-246, Application for a Stay of Deportation or Removal, from $155 to $755. The rule proposes to adjust the Form I-246 fee to recover costs, which has not been adjusted since 1989. DHS also proposes to make technical edits\u2026",
       "rank": 5
     },
     {
       "score": 8,
-      "why": "tax \u00b7 grant \u00b7 financial assistance \u00b7 closes in 14d",
+      "why": "tax \u00b7 grant \u00b7 financial assistance \u00b7 closes in 7d",
       "title": "Regulation for Federal Financial Assistance",
       "agencies": [
         "Management and Budget Office",
@@ -164,7 +165,7 @@
       "document_number": "2026-10817",
       "publication_date": "2026-05-29",
       "comments_close_on": "2026-07-13",
-      "days_left": 14,
+      "days_left": 7,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/OMB-2026-0034-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
@@ -174,7 +175,7 @@
     },
     {
       "score": 8,
-      "why": "drinking water \u00b7 significant \u00b7 closes in 21d",
+      "why": "drinking water \u00b7 significant \u00b7 closes in 14d",
       "title": "Extending the Compliance Deadline for the PFOA and PFOS Maximum Contaminant Levels",
       "agencies": [
         "Environmental Protection Agency"
@@ -182,7 +183,7 @@
       "document_number": "2026-10086",
       "publication_date": "2026-05-20",
       "comments_close_on": "2026-07-20",
-      "days_left": 21,
+      "days_left": 14,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2025-1742-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/20/2026-10086/extending-the-compliance-deadline-for-the-pfoa-and-pfos-maximum-contaminant-levels",
@@ -195,7 +196,7 @@
     },
     {
       "score": 8,
-      "why": "firearm \u00b7 gun \u00b7 closes in 36d",
+      "why": "firearm \u00b7 gun \u00b7 closes in 29d",
       "title": "Clarifying Delivery to a Common or Contract Carrier When Transporting Firearms",
       "agencies": [
         "Justice Department",
@@ -204,7 +205,7 @@
       "document_number": "2026-08917",
       "publication_date": "2026-05-06",
       "comments_close_on": "2026-08-04",
-      "days_left": 36,
+      "days_left": 29,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/ATF-2026-0004-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/06/2026-08917/clarifying-delivery-to-a-common-or-contract-carrier-when-transporting-firearms",
@@ -217,7 +218,7 @@
     },
     {
       "score": 8,
-      "why": "firearm \u00b7 gun \u00b7 closes in 38d",
+      "why": "firearm \u00b7 gun \u00b7 closes in 31d",
       "title": "Firearm Activities in Foreign Trade Zones, Customs-Bonded Warehouses",
       "agencies": [
         "Justice Department",
@@ -226,7 +227,7 @@
       "document_number": "2026-09162",
       "publication_date": "2026-05-08",
       "comments_close_on": "2026-08-06",
-      "days_left": 38,
+      "days_left": 31,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/ATF-2026-0069-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/08/2026-09162/firearm-activities-in-foreign-trade-zones-customs-bonded-warehouses",
@@ -239,7 +240,7 @@
     },
     {
       "score": 8,
-      "why": "social security \u00b7 significant \u00b7 closes in 42d",
+      "why": "social security \u00b7 significant \u00b7 closes in 35d",
       "title": "Employment and Training Services for Noncustodial Parents in the Child Support Program; Rescission",
       "agencies": [
         "Health and Human Services Department",
@@ -248,7 +249,7 @@
       "document_number": "2026-11530",
       "publication_date": "2026-06-09",
       "comments_close_on": "2026-08-10",
-      "days_left": 42,
+      "days_left": 35,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/ACF-2026-0100-0002",
       "html_url": "https://www.federalregister.gov/documents/2026/06/09/2026-11530/employment-and-training-services-for-noncustodial-parents-in-the-child-support-program-rescission",
@@ -258,7 +259,7 @@
     },
     {
       "score": 7,
-      "why": "prescription \u00b7 drug \u00b7 closes in 21d",
+      "why": "prescription \u00b7 drug \u00b7 closes in 14d",
       "title": "Expanding Access to State Prescription Drug Monitoring Programs",
       "agencies": [
         "Veterans Affairs Department"
@@ -266,7 +267,7 @@
       "document_number": "2026-10084",
       "publication_date": "2026-05-20",
       "comments_close_on": "2026-07-20",
-      "days_left": 21,
+      "days_left": 14,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/VA-2026-VHA-0166-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/20/2026-10084/expanding-access-to-state-prescription-drug-monitoring-programs",
@@ -276,7 +277,7 @@
     },
     {
       "score": 7,
-      "why": "immigration \u00b7 citizenship \u00b7 closes in 56d",
+      "why": "immigration \u00b7 citizenship \u00b7 closes in 49d",
       "title": "Naturalization Application Fee Adjustments",
       "agencies": [
         "Homeland Security Department"
@@ -284,7 +285,7 @@
       "document_number": "2026-12542",
       "publication_date": "2026-06-23",
       "comments_close_on": "2026-08-24",
-      "days_left": 56,
+      "days_left": 49,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0265-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/06/23/2026-12542/naturalization-application-fee-adjustments",
