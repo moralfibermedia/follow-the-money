@@ -163,6 +163,30 @@ Ranked for impact × low build risk × clean OpenSecrets data. All three are unb
 
 ---
 
+## Idea Backlog — New Mechanics (rank · over/under · timeline)
+
+Three new puzzle templates now exist beyond bar-chart matching (`template/puzzle-template-{rank,overunder,timeline}.html`). They unlock data sources beyond OpenSecrets — several of these run on **public-domain records (USAspending, SEC EDGAR, Federal Register, court dockets)**, so those puzzles can ship **CC BY 4.0** (commercially syndicatable), not the NC-SA that OpenSecrets-derived puzzles are locked to. All figures/dates below must be human-sourced at build time; nothing here is verified data.
+
+### Rank — order N items by a metric (surprise is the ordering)
+- 💡 **"Golden Parachutes"** — 4 CEOs (same sector) → total annual compensation. Pairs a household brand with a number that reorders your assumptions. Source: SEC EDGAR DEF 14A proxy filings (public domain → CC BY 4.0). *🔨 draft built — see `drafts/golden-parachutes/`.*
+- 💡 **"Bankrolled"** — 4 senators or committee chairs → total career PAC money from one industry (pharma, oil…). The gap between who talks toughest and who takes most. Source: OpenSecrets (CC BY-NC-SA 3.0).
+- 💡 **"Contract Kings"** — 4 federal contractors → total federal contract dollars in a fiscal year. Ranking is genuinely non-obvious. Source: USAspending.gov (public domain → CC BY 4.0).
+
+### Over/Under — higher-or-lower deck (single-figure gut punch)
+- 💡 **"Lobby or Not"** — 6 industries/companies → annual federal lobbying spend. Sequential reveal lands the "wait, *that* much?" beat card by card. Source: Senate LDA / OpenSecrets lobbying. *🔨 draft built — see `drafts/lobby-or-not/`.*
+- 💡 **"The Bill Comes Due"** — 6 companies → size of a DOJ/SEC/EPA penalty or settlement. Directly on MFM's accountability beat. Source: DOJ/SEC press releases, Violation Tracker (public record).
+- 💡 **"Bailout Math"** — 6 companies → federal pandemic aid / PPP / bailout dollars received. "Your tax money went where?" Source: USAspending / SBA (public domain → CC BY 4.0).
+- ⚠️ Over/Under rule: avoid equal values — a tie counts correct for either guess.
+
+### Timeline — order events chronologically, dates hidden (sequence is the story)
+- 💡 **"The Docket"** — 5 key filings/rulings in a single case; natural Georgia RICO tie-in. Reordering a real docket is the whole tension. Source: court docket / PACER (public record → CC BY 4.0). *🔨 draft built — see `drafts/the-docket/`.*
+- 💡 **"How a Rule Becomes Real"** — 5 milestones of a federal rulemaking (proposed rule → comment window → final rule → effective date → legal challenge). Ties into the Just the Facts comment-CTA work. Source: Federal Register (public domain → CC BY 4.0).
+- 💡 **"Paper Trail"** — 5 events of one investigation/scandal (EO → subpoena → indictment → plea → sentence). Sequence *is* the accountability narrative. Source: public record (→ CC BY 4.0).
+
+**Drafts folder**: `drafts/` holds built-but-unpublished puzzles. They stay unlinked from `index.html` / `sitemap.xml` and carry an `X-Robots-Tag: noindex` header (`netlify.toml`), so they never get indexed — but they remain servable so Netlify Deploy Previews can render them for review. To publish a draft: verify every figure/date against its source, move the folder to `puzzles/{slug}/`, generate a preview image, add a card to root `index.html` and a URL to `sitemap.xml`.
+
+---
+
 ## Production Notes
 
 ### Data sourcing

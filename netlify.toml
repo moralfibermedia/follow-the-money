@@ -43,3 +43,12 @@
   to = "/"
   status = 404
   force = true
+
+# Unpublished drafts — built from templates, pending human data verification.
+# Left servable (so Netlify Deploy Previews can render them for review) but
+# never indexed, and kept unlinked from index.html / sitemap.xml. Before
+# publishing: verify the data, then move the folder to /puzzles/{slug}/.
+[[headers]]
+  for = "/drafts/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
