@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  TEMPLATE — OVER/UNDER PUZZLE ("over-under" in puzzles.json)
+  Higher-or-lower deck. Card 1 is the revealed anchor; each
+  following card asks whether its figure comes in HIGHER or
+  LOWER. 6 cards → 5 guess rounds. Streak + score.
+
+  ALL CONTENT BELOW IS PLACEHOLDER / SAMPLE DATA.
+  Editorial control is 100% human — never ship this file with
+  sample content. Copy to puzzles/{id}/index.html and stamp.
+
+  TEMPLATE CONFIG — EVERYTHING A HUMAN STAMPS
+  ============================================================
+  HEAD
+  [ ] <title> — "Follow the Money — {Episode} | Moral Fiber Media"
+  [ ] <meta name="description">
+  [ ] <link rel="canonical"> + og:url + og:title + og:description
+  [ ] og:image / twitter:image — /puzzles/{id}/preview.png
+  [ ] twitter:title / twitter:description
+  [ ] JSON-LD — BreadcrumbList item names/URLs, Quiz name/url/
+      description/about/hasPart questions, and "license" URL
+      (must match the license block chosen below)
+
+  MASTHEAD
+  [ ] .kicker — category · data source line
+  [ ] .episode-tag — "Puzzle #N" (or series tag)
+  [ ] h1.episode-name — the unique puzzle name (the ONLY h1)
+  [ ] .sub — one-line setup
+  [ ] .dateline — source + cycle/date
+
+  INTRO / HOOK
+  [ ] .intro-bar — how-to-play line
+  [ ] .hook-bar — editorial lead (the "wait, what?" fact)
+  [ ] .metric-line — what the number MEANS (e.g.
+      "TOTAL FEDERAL CONTRIBUTIONS · 2024 CYCLE")
+  [ ] .start-meta — "6 Cards · 5 Rounds · Higher or Lower"
+  [ ] .hint-text
+
+  DECK (6 × .ou-card) — DOM order below IS the play order (no
+  shuffle). Card 1 = the revealed anchor. Avoid equal values
+  (a tie counts as correct for either guess). Per card:
+  [ ] data-id      — unique slug
+  [ ] data-value   — raw number (drives the count-up + compare)
+  [ ] data-prefix  — e.g. "$"  (supports $, %, vote counts…)
+  [ ] data-suffix  — e.g. "" or "%" or " votes"
+  [ ] data-display — final formatted string (swaps in after
+                     the count-up finishes)
+  [ ] .ou-name     — entity display name
+  [ ] .ou-context  — one-line metric definition
+  [ ] .source-reveal — source label + URL
+
+  COMPLETE SCREEN / SHARE
+  [ ] .complete-sub — one-line editorial kicker
+  [ ] .complete-sources — one link per card (Dive Deeper)
+  [ ] shareGame() — share text + title
+
+  LICENSE — CC BY 4.0 is active below (public-domain data:
+  FEC, USAspending, SEC EDGAR, GovTrack…). IF ANY DATA IS FROM
+  OPENSECRETS: swap in the commented CC BY-NC-SA 3.0 block,
+  AND the JSON-LD "license" URL, AND the header comment above.
+
+  OPTIONAL — Public Comment CTA: if the puzzle ties to an open
+  comment period, copy the data-driven .comment-cta block from
+  just-the-facts/who-spends-your-money/index.html (see the
+  mfm-editorial-design skill).
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- SEO & Social — PLACEHOLDER: stamp every URL and string -->
+<meta name="description" content="PLACEHOLDER: Higher or lower? Guess your way through six sample figures. A Follow the Money puzzle.">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/PLACEHOLDER-SLUG">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:title" content="Follow the Money — [SAMPLE] Higher or Lower? | Moral Fiber Media">
+<meta property="og:description" content="PLACEHOLDER: Higher or lower? Guess your way through six sample figures. A Follow the Money puzzle.">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/PLACEHOLDER-SLUG">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/PLACEHOLDER-SLUG/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Follow the Money — [SAMPLE] Higher or Lower? | Moral Fiber Media">
+<meta name="twitter:description" content="PLACEHOLDER: Higher or lower? Guess your way through six sample figures. A Follow the Money puzzle.">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/PLACEHOLDER-SLUG/preview.png">
+
+<title>Follow the Money — [SAMPLE] Higher or Lower? | Moral Fiber Media</title>
+
+<!-- Structured data — PLACEHOLDER: stamp names, URLs, questions, license -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Puzzles", "item": "https://followthemoney.moralfibermedia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "PLACEHOLDER Episode Name", "item": "https://followthemoney.moralfibermedia.com/puzzles/PLACEHOLDER-SLUG" }
+      ]
+    },
+    {
+      "@type": "Quiz",
+      "name": "PLACEHOLDER Episode Name",
+      "url": "https://followthemoney.moralfibermedia.com/puzzles/PLACEHOLDER-SLUG",
+      "description": "PLACEHOLDER: Guess higher or lower through six sample figures.",
+      "educationalUse": "Civic education",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Moral Fiber Media",
+        "url": "https://moralfibermedia.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "hasPart": [
+        {
+          "@type": "Question",
+          "eduQuestionType": "Checkwork",
+          "text": "PLACEHOLDER: Is Sample Entity B's figure higher or lower than Sample Entity A's?",
+          "acceptedAnswer": { "@type": "Answer", "text": "PLACEHOLDER: Higher" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --blue: #2c3e6b;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+  --green: #27ae60;
+  --rep-red: #8b1a1a;
+  --dem-blue: #1a3a5c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.game-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* FULL-BLEED BREAKOUT */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.full-bleed-edge {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* MASTHEAD */
+.masthead {
+  text-align: center;
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 14px 0 10px;
+  margin-bottom: 6px;
+  animation: fadeIn 0.5s ease both;
+}
+.masthead .kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* Brand wordmark — a div, NOT a heading. The single h1 on this
+   page is the unique episode name below (SEO rule, 2026-06-24). */
+.masthead .wordmark {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 8px 0 4px;
+}
+.masthead .wordmark em { font-style: italic; color: var(--red); }
+.masthead .episode-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  display: inline-block;
+  padding: 5px 16px;
+  margin-top: 14px;
+}
+.masthead .episode-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--red);
+  margin: 8px 0 4px;
+  letter-spacing: 0.5px;
+}
+.masthead .sub {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.dateline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* INSTRUCTIONS BAR */
+.intro-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 22px max(32px, calc(50vw - 460px));
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  animation: fadeIn 0.6s 0.1s ease both;
+}
+.intro-bar strong { font-weight: 600; font-style: normal; color: #f0c040; }
+
+/* HOOK BAR (editorial standfirst — the lead) */
+.hook-bar {
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+  padding: 20px max(32px, calc(50vw - 460px));
+  margin-bottom: 28px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.55;
+  border-bottom: 2px solid var(--ink);
+  animation: fadeIn 0.6s 0.15s ease both;
+}
+.hook-bar strong { color: var(--red); font-style: normal; font-weight: 700; }
+.hook-bar .hook-inner { display: block; max-width: 680px; margin: 0 auto; }
+
+/* SCORE BAR */
+.score-bar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s 0.15s ease both;
+}
+.score-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.score-item span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.score-item span.correct { color: var(--green); }
+.score-item span.wrong { color: var(--red); }
+
+/* METRIC LINE — what the number means */
+.metric-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* OVER/UNDER TABLE (anchor vs challenger) */
+.ou-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+@media (max-width: 560px) {
+  .ou-table { grid-template-columns: 1fr; }
+}
+
+.ou-slot {
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 22px 18px;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.ou-slot.challenger { border-color: var(--gold); }
+.ou-slot.reveal-correct { border-color: var(--green); box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); }
+.ou-slot.reveal-wrong { border-color: var(--red); }
+.ou-slot.wrong-flash { animation: wrongShake 0.5s ease; }
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+.ou-slot-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.ou-slot.challenger .ou-slot-label { color: var(--gold); }
+
+.ou-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.ou-context {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+.ou-figure {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ink);
+  min-height: 38px;
+}
+.ou-figure.mystery { color: var(--muted); }
+.ou-slot.reveal-correct .ou-figure { color: var(--green); }
+.ou-slot.reveal-wrong .ou-figure { color: var(--red); }
+
+/* SOURCE REVEAL */
+.source-reveal {
+  margin-top: 12px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.source-reveal.visible {
+  opacity: 1;
+  max-height: 60px;
+}
+.source-reveal a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+.source-reveal .src-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+/* GUESS PROMPT */
+.ou-prompt {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--gold);
+  color: var(--paper);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* HIGHER / LOWER BUTTONS */
+.ou-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+@media (max-width: 500px) {
+  .ou-buttons { flex-direction: column; }
+}
+.ou-btn {
+  flex: 1 1 auto;
+  max-width: 260px;
+  min-height: 60px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.ou-btn:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); }
+.ou-btn:active:not(:disabled) { transform: scale(0.97); }
+.ou-btn:disabled { opacity: 0.4; cursor: default; }
+.ou-btn .arrow { font-size: 20px; margin-right: 6px; }
+
+/* NEXT BUTTON */
+.ou-next-row {
+  text-align: center;
+  margin-bottom: 20px;
+  min-height: 56px;
+}
+.ou-next-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: none;
+}
+.ou-next-btn.show { display: inline-block; animation: fadeIn 0.3s ease both; }
+.ou-next-btn:hover { background: var(--red); border-color: var(--red); }
+
+/* PROGRESS DOTS */
+.ou-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.ou-dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ink);
+  background: transparent;
+}
+.ou-dot.correct { background: var(--green); border-color: var(--green); }
+.ou-dot.wrong { background: var(--red); border-color: var(--red); }
+.ou-dot.current { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(184,134,11,0.3); }
+
+/* HINT TEXT */
+.hint-text {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 4px;
+  transition: opacity 0.3s;
+}
+
+/* ARCADE COMPLETE SCREEN */
+.arcade-complete {
+  display: none;
+  text-align: center;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 28px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+}
+.arcade-complete.show {
+  display: block;
+  animation: complete-flash 0.45s ease-out both;
+}
+@keyframes complete-flash {
+  0%   { opacity: 0; transform: scale(0.96); }
+  60%  { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.complete-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 6px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+
+.complete-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(26px, 4.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.complete-sub {
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+
+.rank-and-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.complete-rank {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 3px solid var(--muted);
+  color: var(--muted);
+  text-align: center;
+}
+.complete-rank .rank-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.complete-rank .rank-stars {
+  font-size: 22px;
+  letter-spacing: 6px;
+  line-height: 1;
+}
+.complete-rank .rank-stars .star { display: inline-block; }
+.complete-rank .rank-stars .star.filled { color: var(--gold); }
+.complete-rank .rank-stars .star.empty { color: var(--rule); }
+.complete-rank.perfect {
+  border-color: var(--gold);
+  color: var(--gold);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+.complete-rank.cleared {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.complete-rank.finished {
+  border-color: var(--muted);
+  color: var(--muted);
+}
+
+.complete-stats {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 220px;
+}
+.stat-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  border-bottom: 1px dotted var(--rule);
+  padding: 6px 0;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.complete-sources {
+  margin: 0 auto 32px;
+  max-width: 560px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  text-align: left;
+  border: 3px solid var(--ink);
+  padding: 22px 26px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.complete-sources .src-label {
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 14px;
+  font-size: 13px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+.complete-sources a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  margin-bottom: 10px;
+  padding: 4px 0;
+  transition: color 0.15s, border-color 0.15s;
+  font-weight: 600;
+}
+.complete-sources a:last-child { margin-bottom: 0; }
+.complete-sources a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.complete-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* BUTTON ROW */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.reset-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reset-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.share-btn {
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.share-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.share-btn.copied {
+  background: var(--green);
+  border-color: var(--green);
+}
+.more-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+}
+.more-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* SHARE & FOLLOW */
+.share-section {
+  margin-top: 32px;
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 24px;
+  animation: fadeIn 0.5s 0.35s ease both;
+}
+.share-section .section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.share-section .section-sub {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.social-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+.social-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.social-icon { font-size: 16px; }
+.social-link.tip-link {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.social-link.tip-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* INSPIRED BY */
+.inspired-section {
+  margin-top: 28px;
+  animation: fadeIn 0.5s 0.4s ease both;
+}
+.inspired-section .section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+}
+.inspired-link {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.inspired-link:hover { color: var(--red); }
+.inspired-link:hover .inspired-num { background: var(--red); }
+.inspired-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.15s;
+}
+.inspired-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.inspired-desc {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+.inspired-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* PRO-DEMOCRACY FIGHTERS */
+.fighters-section {
+  margin-top: 24px;
+  animation: fadeIn 0.5s 0.55s ease both;
+}
+.fighters-header {
+  background: var(--ink);
+  color: var(--paper);
+  border: 3px solid var(--ink);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fighters-header .fighters-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--paper);
+}
+.fighters-header .fighters-teaser {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(242, 237, 228, 0.7);
+}
+.fighters-list {
+  border: 3px solid var(--ink);
+  border-top: none;
+}
+.fighters-list-inner {
+  padding: 20px 24px;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.fighter-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--rule);
+  transition: all 0.15s;
+}
+.fighter-link:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+.fighter-link:hover .fighter-icon { background: var(--red); }
+.fighter-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.fighter-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.fighter-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.fighters-full-list-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--gold);
+  color: var(--paper);
+  border: 3px solid var(--gold);
+  margin-top: -3px;
+  padding: 18px 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.fighters-full-list-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.fighters-full-list-btn .arrow {
+  font-size: 22px;
+  line-height: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* LICENSE BLOCK */
+.license-block {
+  margin-top: 24px;
+  border-top: 3px solid var(--ink);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.license-row {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.license-row a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.license-row a:hover { color: var(--ink); }
+.license-tag {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.license-tag.data-tag { background: var(--muted); }
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .social-row { flex-direction: column; }
+}
+
+/* ============================================================
+   START GATE (arcade-style attract screen)
+   ============================================================ */
+.start-gate {
+  text-align: center;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+  transition: opacity 0.35s ease, max-height 0.45s ease, padding 0.45s ease, margin 0.45s ease, border-width 0.45s ease;
+  overflow: hidden;
+  max-height: 600px;
+}
+.start-gate.dismissed {
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  pointer-events: none;
+}
+.start-gate-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 14px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+@keyframes arcade-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+.start-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 4px solid var(--ink);
+  padding: 22px 56px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--ink);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+@keyframes arcade-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.start-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--red);
+}
+.start-btn:active {
+  transform: scale(0.97);
+}
+.start-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 22px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   PLAY AREA (revealed after pressing start)
+   ============================================================ */
+.play-area[hidden] { display: none !important; }
+.play-area.revealed { animation: play-reveal 0.55s ease both; }
+@keyframes play-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="game-container">
+  <!-- MASTHEAD -->
+  <div class="masthead full-bleed">
+    <div class="kicker">PLACEHOLDER: Interactive · Category · Data Source</div>
+    <div class="wordmark">FOLLOW<br><em>THE MONEY</em></div>
+    <div class="episode-tag">Puzzle #0</div>
+    <h1 class="episode-name">"[SAMPLE] Higher or Lower?"</h1>
+    <div class="sub">PLACEHOLDER: Six figures, one at a time. Each higher or lower than the last?</div>
+    <div class="dateline">PLACEHOLDER: Source · Sample Data · 20XX</div>
+  </div>
+
+  <!-- INSTRUCTIONS -->
+  <div class="intro-bar full-bleed-edge">
+    <strong>How to play:</strong> The first figure is shown. For each card, guess whether its number is higher or lower — then watch it count up to the truth.
+  </div>
+
+  <!-- HOOK BAR (editorial lead) -->
+  <div class="hook-bar full-bleed-edge">
+    <span class="hook-inner">PLACEHOLDER: The one-sentence editorial hook goes here — why these figures are surprising. <strong>The kicker lands in red.</strong></span>
+  </div>
+
+  <!-- START GATE -->
+  <div class="start-gate" id="startGate">
+    <div class="start-gate-cursor">▮</div>
+    <button class="start-btn" type="button" onclick="startGame()">▶ Press Start</button>
+    <div class="start-meta">6 Cards · 5 Rounds · Higher or Lower</div>
+  </div>
+
+  <!-- PLAY AREA -->
+  <div class="play-area" id="playArea" hidden>
+
+  <!-- SCORE -->
+  <div class="score-bar" aria-live="polite">
+    <div class="score-item">Correct: <span id="correctCount">0</span>/5</div>
+    <div class="score-item">Streak: <span id="streakCount">0</span></div>
+  </div>
+
+  <div class="metric-line">PLACEHOLDER: TOTAL SAMPLE METRIC · 20XX</div>
+
+  <!-- PROGRESS DOTS (5 rounds) -->
+  <div class="ou-progress" id="ouProgress">
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+  </div>
+
+  <!-- OVER/UNDER TABLE -->
+  <div class="ou-table">
+    <div class="ou-slot anchor" id="anchorSlot">
+      <div class="ou-slot-label">Known</div>
+      <div class="ou-name" id="anchorName">—</div>
+      <div class="ou-context" id="anchorContext"></div>
+      <div class="ou-figure" id="anchorFigure">—</div>
+    </div>
+    <div class="ou-slot challenger" id="challengerSlot">
+      <div class="ou-slot-label">Next Up</div>
+      <div class="ou-name" id="challengerName">—</div>
+      <div class="ou-context" id="challengerContext"></div>
+      <div class="ou-figure mystery" id="challengerFigure">?</div>
+      <div class="source-reveal" id="challengerSource">
+        <div class="src-label">Source</div>
+        <a href="#" target="_blank" rel="noopener" id="challengerSourceLink">—</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- GUESS PROMPT -->
+  <div class="ou-prompt" id="ouPrompt" aria-live="polite"><span class="step-num">?</span> <span id="ouPromptText">Higher or lower than the figure on the left?</span></div>
+
+  <!-- HIGHER / LOWER BUTTONS -->
+  <div class="ou-buttons">
+    <button class="ou-btn" type="button" id="btnHigher" onclick="guess('higher')"><span class="arrow">▲</span> Higher</button>
+    <button class="ou-btn" type="button" id="btnLower" onclick="guess('lower')"><span class="arrow">▼</span> Lower</button>
+  </div>
+
+  <!-- NEXT -->
+  <div class="ou-next-row">
+    <button class="ou-next-btn" type="button" id="nextBtn" onclick="nextRound()">▶ Next</button>
+  </div>
+
+  <div class="hint-text" id="hintText">PLACEHOLDER: Hint — a nudge, not the answer</div>
+
+  <!--
+    DECK — DOM order below IS the play order (no shuffle).
+    Card 1 (#ou-anchor-start) is the revealed anchor; cards 2–6
+    are the challengers, one per round. data-value drives the
+    count-up and the higher/lower compare; keep values distinct
+    (a tie counts correct for either guess). data-prefix/-suffix
+    support $, %, vote counts, etc.
+  -->
+  <div id="ouDeck" hidden>
+    <div class="ou-card" data-id="sample-a" data-value="10000000" data-prefix="$" data-suffix="" data-display="$10,000,000"
+         data-name="Sample Entity A" data-context="PLACEHOLDER: what this number measures"
+         data-source-url="https://example.com/source-a" data-source-label="PLACEHOLDER SOURCE — Sample Entity A"></div>
+    <div class="ou-card" data-id="sample-b" data-value="25000000" data-prefix="$" data-suffix="" data-display="$25,000,000"
+         data-name="Sample Entity B" data-context="PLACEHOLDER: what this number measures"
+         data-source-url="https://example.com/source-b" data-source-label="PLACEHOLDER SOURCE — Sample Entity B"></div>
+    <div class="ou-card" data-id="sample-c" data-value="5000000" data-prefix="$" data-suffix="" data-display="$5,000,000"
+         data-name="Sample Entity C" data-context="PLACEHOLDER: what this number measures"
+         data-source-url="https://example.com/source-c" data-source-label="PLACEHOLDER SOURCE — Sample Entity C"></div>
+    <div class="ou-card" data-id="sample-d" data-value="50000000" data-prefix="$" data-suffix="" data-display="$50,000,000"
+         data-name="Sample Entity D" data-context="PLACEHOLDER: what this number measures"
+         data-source-url="https://example.com/source-d" data-source-label="PLACEHOLDER SOURCE — Sample Entity D"></div>
+    <div class="ou-card" data-id="sample-e" data-value="1000000" data-prefix="$" data-suffix="" data-display="$1,000,000"
+         data-name="Sample Entity E" data-context="PLACEHOLDER: what this number measures"
+         data-source-url="https://example.com/source-e" data-source-label="PLACEHOLDER SOURCE — Sample Entity E"></div>
+    <div class="ou-card" data-id="sample-f" data-value="75000000" data-prefix="$" data-suffix="" data-display="$75,000,000"
+         data-name="Sample Entity F" data-context="PLACEHOLDER: what this number measures"
+         data-source-url="https://example.com/source-f" data-source-label="PLACEHOLDER SOURCE — Sample Entity F"></div>
+  </div>
+
+  </div><!-- /play-area -->
+
+  <!-- ARCADE COMPLETE SCREEN -->
+  <div class="arcade-complete full-bleed-edge" id="arcadeComplete">
+    <div class="complete-cursor">▮</div>
+    <h2 class="complete-title">Puzzle Complete</h2>
+    <div class="complete-sub">PLACEHOLDER: One-line editorial kicker. Every number is public record.</div>
+    <div class="rank-and-stats">
+      <div class="complete-rank" id="completeRank">
+        <span class="rank-label" id="rankLabel">Perfect</span>
+        <span class="rank-stars" id="rankStars"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></span>
+      </div>
+      <div class="complete-stats">
+        <div class="stat-line">
+          <span class="stat-label">Correct</span>
+          <span class="stat-value"><span id="finalCorrect">5</span>/5</span>
+        </div>
+        <div class="stat-line">
+          <span class="stat-label">Best Streak</span>
+          <span class="stat-value" id="finalStreak">5</span>
+        </div>
+      </div>
+    </div>
+    <div class="complete-sources">
+      <div class="src-label">Dive Deeper</div>
+      <a href="https://example.com/source-a" target="_blank" rel="noopener">PLACEHOLDER — Sample Entity A source</a>
+      <a href="https://example.com/source-b" target="_blank" rel="noopener">PLACEHOLDER — Sample Entity B source</a>
+      <a href="https://example.com/source-c" target="_blank" rel="noopener">PLACEHOLDER — Sample Entity C source</a>
+      <a href="https://example.com/source-d" target="_blank" rel="noopener">PLACEHOLDER — Sample Entity D source</a>
+      <a href="https://example.com/source-e" target="_blank" rel="noopener">PLACEHOLDER — Sample Entity E source</a>
+      <a href="https://example.com/source-f" target="_blank" rel="noopener">PLACEHOLDER — Sample Entity F source</a>
+    </div>
+    <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
+    <div class="complete-actions">
+      <button class="share-btn" onclick="shareGame()">📤 Share</button>
+      <a class="more-btn" href="/">More Puzzles →</a>
+    </div>
+  </div>
+
+  <div class="button-row">
+    <button class="reset-btn" onclick="resetGame()">Reset Puzzle</button>
+    <button class="share-btn" onclick="shareGame()">📤 Share Puzzle</button>
+    <a class="more-btn" href="/">More Puzzles →</a>
+  </div>
+
+  <!-- SHARE & FOLLOW -->
+  <div class="share-section">
+    <div class="section-head">Share & Follow</div>
+    <div class="section-sub">Got an idea for the next "Follow the Money" puzzle? A company, an industry, a voting record? Send us your suggestions — we're building a series and your curiosity drives it.</div>
+    <div class="social-row">
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank" rel="noopener"><span class="social-icon">▶</span> YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank" rel="noopener"><span class="social-icon">♪</span> TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank" rel="noopener"><span class="social-icon">🦋</span> Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank" rel="noopener"><span class="social-icon">💬</span> Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank" rel="noopener"><span class="social-icon">✉</span> Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank" rel="noopener"><span class="social-icon">☕</span> Leave a Tip</a>
+    </div>
+  </div>
+
+  <!-- INSPIRED BY -->
+  <div class="inspired-section">
+    <div class="section-label">Inspired By…</div>
+    <a class="inspired-link" href="https://www.resistandunsubscribe.com/" target="_blank" rel="noopener">
+      <div class="inspired-num">1</div>
+      <div>
+        <div class="inspired-title">Resist and Unsubscribe</div>
+        <div class="inspired-desc">Consumer-powered accountability — tracking corporate boycotts and their market impact</div>
+        <div class="inspired-url">resistandunsubscribe.com</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.nokings.org/" target="_blank" rel="noopener">
+      <div class="inspired-num">2</div>
+      <div>
+        <div class="inspired-title">No Kings</div>
+        <div class="inspired-desc">Grassroots civic action — events, trainings, and know-your-rights resources</div>
+        <div class="inspired-url">nokings.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://ash.harvard.edu/ai-and-democracy-movements-project/" target="_blank" rel="noopener">
+      <div class="inspired-num">3</div>
+      <div>
+        <div class="inspired-title">AI and Democracy Movements Project — Harvard Ash Center</div>
+        <div class="inspired-desc">Research at the intersection of artificial intelligence, civic engagement, and democratic participation</div>
+        <div class="inspired-url">ash.harvard.edu</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.citizen.org/" target="_blank" rel="noopener">
+      <div class="inspired-num">4</div>
+      <div>
+        <div class="inspired-title">Public Citizen</div>
+        <div class="inspired-desc">Consumer advocacy and government accountability — corporate power, democracy reform, and the public interest</div>
+        <div class="inspired-url">citizen.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.brennancenter.org/" target="_blank" rel="noopener">
+      <div class="inspired-num">5</div>
+      <div>
+        <div class="inspired-title">Brennan Center for Justice</div>
+        <div class="inspired-desc">NYU Law nonpartisan policy institute defending voting rights, fair elections, and judicial independence</div>
+        <div class="inspired-url">brennancenter.org</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- PRO-DEMOCRACY FIGHTERS -->
+  <div class="fighters-section">
+    <div class="fighters-header">
+      <div class="fighters-label">Pro-Democracy Fighters</div>
+      <div class="fighters-teaser">People and organizations on the front lines</div>
+    </div>
+    <div class="fighters-list">
+      <div class="fighters-list-inner">
+        <a class="fighter-link" href="https://www.youtube.com/briantylercohen" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Brian Tyler Cohen</div>
+            <div class="fighter-desc">Political commentary · YouTube</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.inequalitymedia.org/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Inequality Media</div>
+            <div class="fighter-desc">Robert Reich · Economic explainers</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://kimberlywehle.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Kimberly Wehle</div>
+            <div class="fighter-desc">Constitutional law · Author · Legal analyst</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.youtube.com/@GlennKirschner2" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Glenn Kirschner</div>
+            <div class="fighter-desc">Justice Matters · Former federal prosecutor</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://joycevance.substack.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Joyce Vance</div>
+            <div class="fighter-desc">Former U.S. Attorney · Civil rights voice</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.contrariannews.org" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">The Contrarian</div>
+            <div class="fighter-desc">Jennifer Rubin · Truthful, not neutral</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://lincolnproject.us/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">The Lincoln Project</div>
+            <div class="fighter-desc">Anti-authoritarian PAC · Democratic norms</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://heathercoxrichardson.substack.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Heather Cox Richardson</div>
+            <div class="fighter-desc">Letters from an American · Historian</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.hopiumchronicles.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Simon Rosenberg</div>
+            <div class="fighter-desc">Hopium Chronicles · Data over doom</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a class="fighters-full-list-btn" href="/fighters" target="_blank" rel="noopener">
+      See the Full List <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- LICENSE BLOCK — CC BY 4.0 (public-domain data sources).
+       IF ANY DATA IS FROM OPENSECRETS: replace this block with the
+       commented CC BY-NC-SA 3.0 variant below, AND update the
+       JSON-LD "license" URL in <head>, AND the header comment. -->
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This puzzle is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · Original content by Moral Fiber Media</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · PLACEHOLDER: Source data from public federal records</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="/legal" target="_blank" rel="noopener">Privacy &amp; Terms</a></span>
+    </div>
+  </div>
+  <!-- OPENSECRETS VARIANT (CC BY-NC-SA 3.0 — ShareAlike is viral;
+       the whole derivative work inherits it):
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a> · Non-commercial use · Attribution required · Share alike</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Data from <a href="https://www.opensecrets.org/open-data/credit-opensecrets" target="_blank" rel="noopener">OpenSecrets.org</a></span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="/legal" target="_blank" rel="noopener">Privacy &amp; Terms</a></span>
+    </div>
+  </div>
+  -->
+</div>
+
+
+<script>
+// ============================================================
+// PUZZLE ENGINE — OVER/UNDER (higher-or-lower deck)
+// 6 cards → 5 guess rounds. Card 1 is the revealed anchor.
+// State machine: GATE → ROUND_GUESS → ROUND_REVEAL → … → COMPLETE
+// ============================================================
+
+const cards = Array.from(document.querySelectorAll('#ouDeck .ou-card')).map(el => ({
+  id: el.dataset.id,
+  value: +el.dataset.value,
+  prefix: el.dataset.prefix || '',
+  suffix: el.dataset.suffix || '',
+  display: el.dataset.display,
+  name: el.dataset.name,
+  context: el.dataset.context,
+  sourceUrl: el.dataset.sourceUrl,
+  sourceLabel: el.dataset.sourceLabel
+}));
+const TOTAL_ROUNDS = cards.length - 1; // 5
+
+let round = 0;          // 0-based index of the CHALLENGER card (1..5)
+let anchorIndex = 0;    // index of the current known anchor
+let correct = 0;
+let streak = 0;
+let bestStreak = 0;
+let awaitingNext = false;
+let countUpTimer = null;
+
+// START GATE — arcade-style attract screen
+function startGame() {
+  const gate = document.getElementById('startGate');
+  const playArea = document.getElementById('playArea');
+
+  gate.classList.add('dismissed');
+  playArea.hidden = false;
+  playArea.classList.add('revealed');
+
+  setTimeout(() => {
+    playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    beginPuzzle();
+  }, 350);
+}
+
+function fmt(card, value) {
+  // Format a numeric value with the card's prefix/suffix and grouping
+  return card.prefix + Math.round(value).toLocaleString('en-US') + card.suffix;
+}
+
+function beginPuzzle() {
+  round = 0;
+  anchorIndex = 0;
+  correct = 0;
+  streak = 0;
+  bestStreak = 0;
+  awaitingNext = false;
+
+  document.getElementById('correctCount').textContent = '0';
+  document.getElementById('correctCount').className = '';
+  document.getElementById('streakCount').textContent = '0';
+
+  // Reset progress dots
+  document.querySelectorAll('#ouProgress .ou-dot').forEach(d => d.className = 'ou-dot');
+
+  // Anchor = card 0, shown with its real figure
+  const a = cards[anchorIndex];
+  document.getElementById('anchorName').textContent = a.name;
+  document.getElementById('anchorContext').textContent = a.context;
+  document.getElementById('anchorFigure').textContent = a.display;
+
+  loadRound();
+}
+
+// Set up the challenger for the current round (round is 1..5 as a
+// challenger index into cards; anchorIndex is round-1's card)
+function loadRound() {
+  awaitingNext = false;
+  const challengerIdx = round + 1; // challenger card index
+  const c = cards[challengerIdx];
+
+  const slot = document.getElementById('challengerSlot');
+  slot.className = 'ou-slot challenger';
+
+  document.getElementById('challengerName').textContent = c.name;
+  document.getElementById('challengerContext').textContent = c.context;
+  const fig = document.getElementById('challengerFigure');
+  fig.textContent = '?';
+  fig.className = 'ou-figure mystery';
+
+  const src = document.getElementById('challengerSource');
+  src.classList.remove('visible');
+  const link = document.getElementById('challengerSourceLink');
+  link.href = c.sourceUrl;
+  link.textContent = c.sourceLabel;
+
+  document.getElementById('btnHigher').disabled = false;
+  document.getElementById('btnLower').disabled = false;
+  document.getElementById('nextBtn').classList.remove('show');
+
+  const prompt = document.getElementById('ouPrompt');
+  prompt.querySelector('.step-num').textContent = '?';
+  document.getElementById('ouPromptText').textContent =
+    'Is ' + c.name + '’s figure higher or lower than ' + cards[anchorIndex].name + '’s?';
+
+  // Mark the current progress dot
+  document.querySelectorAll('#ouProgress .ou-dot').forEach((d, i) => {
+    d.classList.toggle('current', i === round);
+  });
+}
+
+function guess(direction) {
+  if (awaitingNext) return;
+  awaitingNext = true;
+
+  const anchor = cards[anchorIndex];
+  const challengerIdx = round + 1;
+  const c = cards[challengerIdx];
+
+  document.getElementById('btnHigher').disabled = true;
+  document.getElementById('btnLower').disabled = true;
+
+  // Tie counts as correct for either guess (config note: avoid ties)
+  const actual = c.value === anchor.value ? direction
+               : (c.value > anchor.value ? 'higher' : 'lower');
+  const isCorrect = direction === actual;
+
+  const slot = document.getElementById('challengerSlot');
+
+  // Count up the challenger figure to its true value
+  countUp(document.getElementById('challengerFigure'), c, () => {
+    slot.classList.add(isCorrect ? 'reveal-correct' : 'reveal-wrong');
+    if (!isCorrect) {
+      slot.classList.add('wrong-flash');
+      setTimeout(() => slot.classList.remove('wrong-flash'), 500);
+    }
+    document.getElementById('challengerSource').classList.add('visible');
+
+    // Score + streak
+    const dot = document.querySelectorAll('#ouProgress .ou-dot')[round];
+    dot.classList.remove('current');
+    if (isCorrect) {
+      correct++;
+      streak++;
+      bestStreak = Math.max(bestStreak, streak);
+      dot.classList.add('correct');
+    } else {
+      streak = 0;
+      dot.classList.add('wrong');
+    }
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('streakCount').textContent = streak;
+
+    const prompt = document.getElementById('ouPrompt');
+    prompt.querySelector('.step-num').textContent = isCorrect ? '✓' : '✗';
+    document.getElementById('ouPromptText').textContent = isCorrect
+      ? 'Correct — it was ' + actual + '.'
+      : 'Not quite — it was ' + actual + '.';
+
+    // Advance or finish
+    if (round + 1 >= TOTAL_ROUNDS) {
+      document.getElementById('nextBtn').textContent = '▶ See Results';
+    }
+    document.getElementById('nextBtn').classList.add('show');
+  });
+}
+
+// Animated count-up (~900ms, eased) then swap to the display string
+function countUp(el, card, done) {
+  el.className = 'ou-figure';
+  const target = card.value;
+  const duration = 900;
+  let startTs = null;
+
+  if (countUpTimer) cancelAnimationFrame(countUpTimer);
+
+  function step(ts) {
+    if (startTs === null) startTs = ts;
+    const t = Math.min((ts - startTs) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+    el.textContent = fmt(card, target * eased);
+    if (t < 1) {
+      countUpTimer = requestAnimationFrame(step);
+    } else {
+      el.textContent = card.display; // exact, human-formatted
+      countUpTimer = null;
+      if (done) done();
+    }
+  }
+  countUpTimer = requestAnimationFrame(step);
+}
+
+function nextRound() {
+  // The challenger just resolved becomes the next anchor
+  anchorIndex = round + 1;
+  round++;
+
+  if (round >= TOTAL_ROUNDS) {
+    showVictory();
+    return;
+  }
+
+  // Slide the resolved challenger's figure into the anchor slot
+  const a = cards[anchorIndex];
+  document.getElementById('anchorName').textContent = a.name;
+  document.getElementById('anchorContext').textContent = a.context;
+  document.getElementById('anchorFigure').textContent = a.display;
+  document.getElementById('anchorFigure').className = 'ou-figure';
+
+  loadRound();
+}
+
+function getRank(correct) {
+  if (correct === 5) return { cls: 'perfect', label: 'Perfect', stars: 3 };
+  if (correct === 4) return { cls: 'cleared', label: 'Cleared', stars: 2 };
+  return { cls: 'finished', label: 'Finished', stars: 1 };
+}
+
+function renderStars(filled) {
+  let html = '';
+  for (let i = 0; i < 3; i++) {
+    html += i < filled
+      ? '<span class="star filled">★</span>'
+      : '<span class="star empty">☆</span>';
+  }
+  return html;
+}
+
+function showVictory() {
+  const complete = document.getElementById('arcadeComplete');
+  const rankEl = document.getElementById('completeRank');
+  const rank = getRank(correct);
+
+  rankEl.className = 'complete-rank ' + rank.cls;
+  document.getElementById('rankLabel').textContent = rank.label;
+  document.getElementById('rankStars').innerHTML = renderStars(rank.stars);
+  document.getElementById('finalCorrect').textContent = correct;
+  document.getElementById('finalStreak').textContent = bestStreak;
+
+  complete.classList.add('show');
+  setTimeout(() => {
+    complete.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+function resetGame() {
+  document.getElementById('arcadeComplete').classList.remove('show');
+  document.getElementById('challengerSlot').className = 'ou-slot challenger';
+  document.getElementById('anchorFigure').className = 'ou-figure';
+  beginPuzzle();
+
+  setTimeout(() => {
+    document.getElementById('playArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// Keyboard: ArrowUp = higher, ArrowDown = lower, Enter = next
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('playArea').hidden) return;
+  if (e.key === 'ArrowUp' && !document.getElementById('btnHigher').disabled) { e.preventDefault(); guess('higher'); }
+  else if (e.key === 'ArrowDown' && !document.getElementById('btnLower').disabled) { e.preventDefault(); guess('lower'); }
+  else if (e.key === 'Enter' && document.getElementById('nextBtn').classList.contains('show')) { e.preventDefault(); nextRound(); }
+});
+
+// SHARE — PLACEHOLDER: stamp the share text and title
+function shareGame() {
+  const url = window.location.href;
+  const text = 'PLACEHOLDER: Higher or lower? Six figures, one at a time. How many can you call? 🔍💰';
+  const title = 'Follow the Money — Moral Fiber Media';
+
+  if (navigator.share) {
+    navigator.share({ title: title, text: text, url: url }).catch(() => {});
+    return;
+  }
+
+  const shareText = text + '\n' + url;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(shareText).then(() => {
+      showShareConfirm();
+    }).catch(() => {
+      fallbackCopy(shareText);
+    });
+  } else {
+    fallbackCopy(shareText);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); showShareConfirm(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function showShareConfirm() {
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    const original = btn.textContent;
+    btn.textContent = '✓ Link Copied';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+</script>
+</body>
+</html>
