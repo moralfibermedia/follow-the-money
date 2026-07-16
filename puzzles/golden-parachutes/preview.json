@@ -1,0 +1,10 @@
+{
+  "kicker": "Follow the Money",
+  "episode": "Golden Parachutes",
+  "subjects": ["Microsoft", "Apple", "Amazon", "Alphabet"],
+  "subtitle": "Four of the biggest names in tech. Four pay packages. Can you rank the CEOs by what they took home?",
+  "matchVerb": "Rank the CEOs by total pay.",
+  "dataLabel": "SEC Proxy Statements (DEF 14A) · FY2024",
+  "dataSource": null,
+  "license": "CC BY 4.0"
+}
