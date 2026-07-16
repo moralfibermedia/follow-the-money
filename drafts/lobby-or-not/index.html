@@ -76,21 +76,22 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- DRAFT — 2024 federal lobbying figures sourced 2026-07-08 (OpenSecrets,
-     from Senate LDA filings). VERIFY each against OpenSecrets before
-     publishing. Unlinked + noindex (see netlify.toml); viewable on
+<!-- DRAFT — 2026-cycle (year-to-date) federal lobbying totals, provided by
+     the editor 2026-07-16 from OpenSecrets client-summary pages (from Senate
+     LDA filings). RE-VERIFY against OpenSecrets before publishing (a mid-cycle
+     total keeps climbing). Unlinked + noindex (see netlify.toml); viewable on
      Netlify Deploy Previews for review. To publish: verify → move to
      puzzles/lobby-or-not/ → preview.png → index card → sitemap.
      NOTE: licensed CC BY-NC-SA 3.0 (OpenSecrets). -->
 <!-- SEO & Social -->
-<meta name="description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech spent in 2024. A Follow the Money puzzle.">
+<meta name="description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech has spent this 2026 cycle. A Follow the Money puzzle.">
 <link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Moral Fiber Media">
 <meta property="og:title" content="Follow the Money — Lobby or Not | Moral Fiber Media">
-<meta property="og:description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech spent in 2024.">
+<meta property="og:description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech has spent this 2026 cycle.">
 <meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not">
 <meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not/preview.png">
 <meta property="og:image:width" content="1200">
@@ -99,7 +100,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Follow the Money — Lobby or Not | Moral Fiber Media">
-<meta name="twitter:description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech spent in 2024.">
+<meta name="twitter:description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech has spent this 2026 cycle.">
 <meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not/preview.png">
 
 <title>Follow the Money — Lobby or Not | Moral Fiber Media</title>
@@ -120,7 +121,7 @@
       "@type": "Quiz",
       "name": "Lobby or Not",
       "url": "https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not",
-      "description": "Guess higher or lower through the 2024 federal lobbying totals of six tech platforms: Alphabet, Snap, Meta, OpenAI, ByteDance, and X.",
+      "description": "Guess higher or lower through the 2026-cycle federal lobbying totals of six tech platforms: Alphabet, Snap, Meta, OpenAI, ByteDance, and X.",
       "educationalUse": "Civic education",
       "inLanguage": "en",
       "publisher": {
@@ -133,7 +134,7 @@
         {
           "@type": "Question",
           "eduQuestionType": "Checkwork",
-          "text": "Was Snap's 2024 federal lobbying spend higher or lower than Alphabet's?",
+          "text": "Was X's 2026-cycle federal lobbying spend higher or lower than Alphabet's?",
           "acceptedAnswer": { "@type": "Answer", "text": "Lower" }
         }
       ]
@@ -1149,7 +1150,7 @@ body {
     <div class="episode-tag">Special Edition</div>
     <h1 class="episode-name">"Lobby or Not"</h1>
     <div class="sub">Six tech platforms. Six federal lobbying bills. One at a time — is the next one higher or lower?</div>
-    <div class="dateline">Source: OpenSecrets · Federal Lobbying · 2024</div>
+    <div class="dateline">Source: OpenSecrets · Federal Lobbying · 2026 Cycle (year-to-date)</div>
   </div>
 
   <!-- INSTRUCTIONS -->
@@ -1159,7 +1160,7 @@ body {
 
   <!-- HOOK BAR (editorial lead) -->
   <div class="hook-bar full-bleed-edge">
-    <span class="hook-inner">Federal lobbying hit a record $4.4 billion in 2024. The platforms that run your feed were right in the mix — but the gap between the biggest tech spender and the smallest is bigger than you'd guess. <strong>Six companies, six very different bills.</strong></span>
+    <span class="hook-inner">The platforms that run your feed all keep lobbyists in Washington — but the gap between the biggest tech spender this cycle and the smallest is bigger than you'd guess. <strong>Six companies, six very different bills.</strong></span>
   </div>
 
   <!-- START GATE -->
@@ -1178,7 +1179,7 @@ body {
     <div class="score-item">Streak: <span id="streakCount">0</span></div>
   </div>
 
-  <div class="metric-line">TOTAL FEDERAL LOBBYING SPEND · 2024</div>
+  <div class="metric-line">TOTAL FEDERAL LOBBYING SPEND · 2026 CYCLE (YTD)</div>
 
   <!-- PROGRESS DOTS (5 rounds) -->
   <div class="ou-progress" id="ouProgress">
@@ -1233,30 +1234,30 @@ body {
     (a tie counts correct for either guess). data-prefix/-suffix
     support $, %, vote counts, etc.
   -->
-  <!-- DRAFT DATA — 2024 full-year federal lobbying totals (OpenSecrets,
-       from Senate LDA filings). Deck order = play order, arranged so
-       guesses alternate lower/higher. VERIFY each figure against the
-       company's OpenSecrets lobbying client page before publishing;
-       swap the two shared source URLs for each client's exact page. -->
+  <!-- DRAFT DATA — 2026-cycle (year-to-date) federal lobbying totals from
+       each company's OpenSecrets client-summary page (Senate LDA filings).
+       Deck order = play order, arranged so guesses alternate lower/higher.
+       RE-VERIFY each figure against the linked OpenSecrets page before
+       publishing — a mid-cycle total keeps climbing. -->
   <div id="ouDeck" hidden>
-    <div class="ou-card" data-id="alphabet" data-value="14800000" data-prefix="$" data-suffix="" data-display="$14.8M"
+    <div class="ou-card" data-id="alphabet" data-value="4135000" data-prefix="$" data-suffix="" data-display="$4,135,000"
          data-name="Alphabet" data-context="Parent of Google &amp; YouTube"
-         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2024&id=D000067823" data-source-label="OpenSecrets — Alphabet federal lobbying, 2024"></div>
-    <div class="ou-card" data-id="snap" data-value="950000" data-prefix="$" data-suffix="" data-display="$950K"
-         data-name="Snap" data-context="Maker of Snapchat"
-         data-source-url="https://www.opensecrets.org/news/2025/02/federal-lobbying-set-new-record-in-2024/" data-source-label="OpenSecrets — Snap federal lobbying, 2024"></div>
-    <div class="ou-card" data-id="meta" data-value="24400000" data-prefix="$" data-suffix="" data-display="$24.4M"
-         data-name="Meta" data-context="Parent of Facebook &amp; Instagram"
-         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2024&id=D000033563" data-source-label="OpenSecrets — Meta federal lobbying, 2024"></div>
-    <div class="ou-card" data-id="openai" data-value="1800000" data-prefix="$" data-suffix="" data-display="$1.8M"
-         data-name="OpenAI" data-context="Maker of ChatGPT"
-         data-source-url="https://www.opensecrets.org/news/2025/02/federal-lobbying-set-new-record-in-2024/" data-source-label="OpenSecrets — OpenAI federal lobbying, 2024"></div>
-    <div class="ou-card" data-id="bytedance" data-value="10400000" data-prefix="$" data-suffix="" data-display="$10.4M"
-         data-name="ByteDance" data-context="Parent of TikTok"
-         data-source-url="https://www.opensecrets.org/news/2025/02/federal-lobbying-set-new-record-in-2024/" data-source-label="OpenSecrets — ByteDance federal lobbying, 2024"></div>
-    <div class="ou-card" data-id="x-twitter" data-value="720000" data-prefix="$" data-suffix="" data-display="$720K"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067823" data-source-label="OpenSecrets — Alphabet federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="x-twitter" data-value="190000" data-prefix="$" data-suffix="" data-display="$190,000"
          data-name="X" data-context="Formerly Twitter"
-         data-source-url="https://www.opensecrets.org/news/2025/02/federal-lobbying-set-new-record-in-2024/" data-source-label="OpenSecrets — X (Twitter) federal lobbying, 2024"></div>
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067113" data-source-label="OpenSecrets — X Inc federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="meta" data-value="7080000" data-prefix="$" data-suffix="" data-display="$7,080,000"
+         data-name="Meta" data-context="Parent of Facebook &amp; Instagram"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000033563" data-source-label="OpenSecrets — Meta federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="snap" data-value="400000" data-prefix="$" data-suffix="" data-display="$400,000"
+         data-name="Snap" data-context="Maker of Snapchat"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000068777" data-source-label="OpenSecrets — Snap Inc federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="bytedance" data-value="2020000" data-prefix="$" data-suffix="" data-display="$2,020,000"
+         data-name="ByteDance" data-context="Parent of TikTok"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000073174" data-source-label="OpenSecrets — ByteDance Inc federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="openai" data-value="1020000" data-prefix="$" data-suffix="" data-display="$1,020,000"
+         data-name="OpenAI" data-context="Maker of ChatGPT"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000084252" data-source-label="OpenSecrets — OpenAI federal lobbying, 2026 cycle"></div>
   </div>
 
   </div><!-- /play-area -->
@@ -1284,9 +1285,9 @@ body {
     </div>
     <div class="complete-sources">
       <div class="src-label">Dive Deeper</div>
-      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2024&id=D000033563" target="_blank" rel="noopener">Meta — OpenSecrets federal lobbying, 2024</a>
-      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2024&id=D000067823" target="_blank" rel="noopener">Alphabet — OpenSecrets federal lobbying, 2024</a>
-      <a href="https://www.opensecrets.org/news/2025/02/federal-lobbying-set-new-record-in-2024/" target="_blank" rel="noopener">Federal lobbying set a new record in 2024 — OpenSecrets</a>
+      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000033563" target="_blank" rel="noopener">Meta — OpenSecrets federal lobbying, 2026 cycle</a>
+      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067823" target="_blank" rel="noopener">Alphabet — OpenSecrets federal lobbying, 2026 cycle</a>
+      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000073174" target="_blank" rel="noopener">ByteDance — OpenSecrets federal lobbying, 2026 cycle</a>
       <a href="https://lda.senate.gov/system/public/" target="_blank" rel="noopener">Search the primary filings — U.S. Senate Lobbying Disclosure Act database</a>
     </div>
     <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
@@ -1740,7 +1741,7 @@ document.addEventListener('keydown', (e) => {
 // SHARE
 function shareGame() {
   const url = window.location.href;
-  const text = 'Higher or lower? Six tech platforms, six federal lobbying bills from 2024 — how many can you call? 🔍💰';
+  const text = 'Higher or lower? Six tech platforms, their 2026-cycle federal lobbying bills — how many can you call? 🔍💰';
   const title = 'Follow the Money — Lobby or Not | Moral Fiber Media';
 
   if (navigator.share) {
