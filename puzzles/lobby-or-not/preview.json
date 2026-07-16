@@ -1,0 +1,10 @@
+{
+  "kicker": "Follow the Money",
+  "episode": "Lobby or Not",
+  "subjects": ["Meta", "Alphabet", "ByteDance", "OpenAI", "Snap", "X"],
+  "subtitle": "Six tech platforms. Six federal lobbying bills. One at a time — is the next one higher or lower?",
+  "matchVerb": "Higher or lower? Call each lobbying bill.",
+  "dataLabel": "OpenSecrets · Federal Lobbying · 2026 Cycle",
+  "dataSource": "OpenSecrets.org",
+  "license": "CC BY-NC-SA 3.0"
+}

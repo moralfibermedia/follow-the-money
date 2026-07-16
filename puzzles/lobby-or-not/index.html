@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!--
   ============================================================
-  TEMPLATE — RANK PUZZLE ("rank" in data/puzzles.json)
-  Order 4 items by a metric, lock it in, reveal the truth.
+  TEMPLATE — OVER/UNDER PUZZLE ("over-under" in puzzles.json)
+  Higher-or-lower deck. Card 1 is the revealed anchor; each
+  following card asks whether its figure comes in HIGHER or
+  LOWER. 6 cards → 5 guess rounds. Streak + score.
 
   ALL CONTENT BELOW IS PLACEHOLDER / SAMPLE DATA.
   Editorial control is 100% human — never ship this file with
@@ -30,27 +32,27 @@
   INTRO / HOOK
   [ ] .intro-bar — how-to-play line
   [ ] .hook-bar — editorial lead (the "wait, what?" fact)
-  [ ] .start-meta — "4 Items · 1 Ranking · Lock It In"
-  [ ] .rank-direction — metric + direction, e.g.
-      "MOST → LEAST · FEDERAL CONTRIBUTIONS · 2024 CYCLE"
+  [ ] .metric-line — what the number MEANS (e.g.
+      "TOTAL FEDERAL CONTRIBUTIONS · 2024 CYCLE")
+  [ ] .start-meta — "6 Cards · 5 Rounds · Higher or Lower"
   [ ] .hint-text
 
-  RANK ITEMS (4 × .rank-item) — starting order in the markup is
-  the SCRAMBLE the player sees (hand-pick it; keep it stable so
-  screenshots/previews are reproducible). Per item:
-  [ ] data-id           — unique slug
-  [ ] data-rank         — correct position 1..4 (1 = top).
-                          Human-stamped, never derived — ties and
-                          editorial direction stay human calls.
-  [ ] data-value        — raw number (bar width = value/max×100,
-                          computed by JS — no percentages to stamp)
-  [ ] data-display      — formatted figure shown on reveal
-  [ ] .rank-name        — display name
-  [ ] .source-reveal    — source label + URL
+  DECK (6 × .ou-card) — DOM order below IS the play order (no
+  shuffle). Card 1 = the revealed anchor. Avoid equal values
+  (a tie counts as correct for either guess). Per card:
+  [ ] data-id      — unique slug
+  [ ] data-value   — raw number (drives the count-up + compare)
+  [ ] data-prefix  — e.g. "$"  (supports $, %, vote counts…)
+  [ ] data-suffix  — e.g. "" or "%" or " votes"
+  [ ] data-display — final formatted string (swaps in after
+                     the count-up finishes)
+  [ ] .ou-name     — entity display name
+  [ ] .ou-context  — one-line metric definition
+  [ ] .source-reveal — source label + URL
 
   COMPLETE SCREEN / SHARE
   [ ] .complete-sub — one-line editorial kicker
-  [ ] .complete-sources — one link per item (Dive Deeper)
+  [ ] .complete-sources — one link per card (Dive Deeper)
   [ ] shareGame() — share text + title
 
   LICENSE — CC BY 4.0 is active below (public-domain data:
@@ -74,32 +76,31 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- DRAFT — figures sourced 2026-07-08, VERIFY each against the linked
-     SEC DEF 14A proxy before publishing. Unlinked + noindex (see
-     netlify.toml); viewable on Netlify Deploy Previews for review.
-     To publish: verify → move to puzzles/golden-parachutes/ →
-     preview.png → index card → sitemap. -->
+<!-- Over/under puzzle. Figures are 2026-cycle (year-to-date) federal lobbying
+     totals from each company's OpenSecrets client-summary page (Senate LDA
+     filings); each is linked inline. A mid-cycle total keeps climbing, so
+     refresh before re-promoting. Licensed CC BY-NC-SA 3.0 (OpenSecrets). -->
 <!-- SEO & Social -->
-<meta name="description" content="Microsoft, Apple, Amazon, Alphabet — rank four tech CEOs by their pay package. One of them makes less than a tenth of the others. A Follow the Money puzzle.">
-<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/golden-parachutes">
+<meta name="description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech has spent this 2026 cycle. A Follow the Money puzzle.">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Moral Fiber Media">
-<meta property="og:title" content="Follow the Money — Golden Parachutes | Moral Fiber Media">
-<meta property="og:description" content="Microsoft, Apple, Amazon, Alphabet — rank four tech CEOs by their pay package. One of them makes less than a tenth of the others.">
-<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/golden-parachutes">
-<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/golden-parachutes/preview.png">
+<meta property="og:title" content="Follow the Money — Lobby or Not | Moral Fiber Media">
+<meta property="og:description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech has spent this 2026 cycle.">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Follow the Money — Golden Parachutes | Moral Fiber Media">
-<meta name="twitter:description" content="Microsoft, Apple, Amazon, Alphabet — rank four tech CEOs by their pay package. One of them makes less than a tenth of the others.">
-<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/golden-parachutes/preview.png">
+<meta name="twitter:title" content="Follow the Money — Lobby or Not | Moral Fiber Media">
+<meta name="twitter:description" content="Six tech platforms, one federal lobbying bill each. Higher or lower? Guess your way through what Big Tech has spent this 2026 cycle.">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not/preview.png">
 
-<title>Follow the Money — Golden Parachutes | Moral Fiber Media</title>
+<title>Follow the Money — Lobby or Not | Moral Fiber Media</title>
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -110,14 +111,14 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Puzzles", "item": "https://followthemoney.moralfibermedia.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Golden Parachutes", "item": "https://followthemoney.moralfibermedia.com/puzzles/golden-parachutes" }
+        { "@type": "ListItem", "position": 2, "name": "Lobby or Not", "item": "https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not" }
       ]
     },
     {
       "@type": "Quiz",
-      "name": "Golden Parachutes",
-      "url": "https://followthemoney.moralfibermedia.com/puzzles/golden-parachutes",
-      "description": "Rank the CEOs of Microsoft, Apple, Amazon, and Alphabet by their most recent fiscal-year total compensation as reported in each company's SEC proxy statement.",
+      "name": "Lobby or Not",
+      "url": "https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not",
+      "description": "Guess higher or lower through the 2026-cycle federal lobbying totals of six tech platforms: Alphabet, Snap, Meta, OpenAI, ByteDance, and X.",
       "educationalUse": "Civic education",
       "inLanguage": "en",
       "publisher": {
@@ -125,13 +126,13 @@
         "name": "Moral Fiber Media",
         "url": "https://moralfibermedia.com"
       },
-      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/3.0/us/",
       "hasPart": [
         {
           "@type": "Question",
           "eduQuestionType": "Checkwork",
-          "text": "Rank Satya Nadella (Microsoft), Tim Cook (Apple), Andy Jassy (Amazon), and Sundar Pichai (Alphabet) from highest to lowest total compensation.",
-          "acceptedAnswer": { "@type": "Answer", "text": "Satya Nadella, Tim Cook, Andy Jassy, Sundar Pichai" }
+          "text": "Was X's 2026-cycle federal lobbying spend higher or lower than Alphabet's?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Lower" }
         }
       ]
     }
@@ -285,7 +286,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   animation: fadeIn 0.5s 0.15s ease both;
 }
 .score-item {
@@ -306,48 +307,8 @@ body {
 .score-item span.correct { color: var(--green); }
 .score-item span.wrong { color: var(--red); }
 
-/* RANK BOARD */
-.rank-board {
-  border: 3px solid var(--ink);
-  background: white;
-  padding: 20px;
-  margin-bottom: 28px;
-  animation: fadeIn 0.5s 0.3s ease both;
-}
-
-.tray-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 10px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.step-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: var(--ink);
-  color: var(--paper);
-  border-radius: 50%;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-.tray-label.armed .step-num { background: var(--gold); }
-.tray-label.complete .step-num { background: var(--green); }
-.tray-label.armed { color: var(--gold); }
-
-.rank-direction {
+/* METRIC LINE — what the number means */
+.metric-line {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 700;
@@ -355,46 +316,36 @@ body {
   text-transform: uppercase;
   color: var(--muted);
   text-align: center;
-  margin-bottom: 16px;
-}
-.rank-direction .dir-arrow { color: var(--red); }
-
-@keyframes attention-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
-  50% { box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.22); }
-}
-.rank-list.attention .rank-item {
-  animation: attention-pulse 1.8s ease-in-out infinite;
+  margin-bottom: 24px;
 }
 
-.rank-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+/* OVER/UNDER TABLE (anchor vs challenger) */
+.ou-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+@media (max-width: 560px) {
+  .ou-table { grid-template-columns: 1fr; }
 }
 
-/* RANK ITEM CARD */
-.rank-item {
-  display: flex;
-  align-items: stretch;
+.ou-slot {
   border: 3px solid var(--ink);
   background: white;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 22px 18px;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
 }
-.rank-item:hover { border-color: var(--gold); }
-.rank-item.selected {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.4);
-}
-.rank-item.dragging { opacity: 0.6; }
-.rank-item.slot-correct { border-color: var(--green); cursor: default; }
-.rank-item.slot-wrong { border-color: var(--red); cursor: default; }
-.rank-item.wrong-flash { animation: wrongShake 0.5s ease; }
+.ou-slot.challenger { border-color: var(--gold); }
+.ou-slot.reveal-correct { border-color: var(--green); box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); }
+.ou-slot.reveal-wrong { border-color: var(--red); }
+.ou-slot.wrong-flash { animation: wrongShake 0.5s ease; }
 
 @keyframes wrongShake {
   0%, 100% { transform: translateX(0); }
@@ -404,81 +355,46 @@ body {
   80% { transform: translateX(5px); }
 }
 
-.slot-badge {
-  flex-shrink: 0;
-  width: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--ink);
-  color: var(--paper);
+.ou-slot-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.ou-slot.challenger .ou-slot-label { color: var(--gold); }
+
+.ou-name {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 10px;
 }
-.rank-item.slot-correct .slot-badge { background: var(--green); }
-.rank-item.slot-wrong .slot-badge { background: var(--red); }
-
-.rank-item-body {
-  flex: 1;
-  padding: 14px 16px;
-  min-width: 0;
-}
-.rank-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-.rank-mark {
-  font-family: 'JetBrains Mono', monospace;
+.ou-context {
+  font-family: 'Source Serif 4', serif;
   font-size: 13px;
-  font-weight: 700;
-  margin-left: 8px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-bottom: 14px;
 }
-.rank-item.slot-correct .rank-mark { color: var(--green); }
-.rank-item.slot-wrong .rank-mark { color: var(--red); }
-
-/* VALUE REVEAL (hidden until Lock It In) */
-.rank-reveal {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
-.rank-reveal.visible {
-  opacity: 1;
-  max-height: 120px;
-  margin-top: 10px;
-}
-.rank-value-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.rank-value-row .bar-track {
-  flex: 1;
-  height: 22px;
-  background: #e8e3da;
-  position: relative;
-  overflow: hidden;
-}
-.rank-value-row .bar-fill {
-  height: 100%;
-  width: 0%;
-  background: var(--ink);
-  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.rank-value {
+.ou-figure {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
+  font-size: 30px;
   font-weight: 700;
-  white-space: nowrap;
+  color: var(--ink);
+  min-height: 38px;
 }
+.ou-figure.mystery { color: var(--muted); }
+.ou-slot.reveal-correct .ou-figure { color: var(--green); }
+.ou-slot.reveal-wrong .ou-figure { color: var(--red); }
 
 /* SOURCE REVEAL */
 .source-reveal {
-  margin-top: 8px;
+  margin-top: 12px;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
@@ -506,35 +422,73 @@ body {
   margin-bottom: 3px;
 }
 
-/* MOVE BUTTONS (tap-first reorder — never requires drag) */
-.move-btns {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid var(--rule);
-}
-.move-btn {
-  flex: 1;
-  min-width: 48px;
-  min-height: 34px;
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-  padding: 0 14px;
-}
-.move-btn:hover { background: var(--ink); color: var(--paper); }
-.move-btn:first-child { border-bottom: 1px solid var(--rule); }
-.rank-list.revealed .move-btn { visibility: hidden; }
-
-/* SUBMIT */
-.submit-row {
+/* GUESS PROMPT */
+.ou-prompt {
   text-align: center;
-  margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-.submit-btn {
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--gold);
+  color: var(--paper);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* HIGHER / LOWER BUTTONS */
+.ou-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+@media (max-width: 500px) {
+  .ou-buttons { flex-direction: column; }
+}
+.ou-btn {
+  flex: 1 1 auto;
+  max-width: 260px;
+  min-height: 60px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.ou-btn:hover:not(:disabled) { background: var(--gold); border-color: var(--gold); }
+.ou-btn:active:not(:disabled) { transform: scale(0.97); }
+.ou-btn:disabled { opacity: 0.4; cursor: default; }
+.ou-btn .arrow { font-size: 20px; margin-right: 6px; }
+
+/* NEXT BUTTON */
+.ou-next-row {
+  text-align: center;
+  margin-bottom: 20px;
+  min-height: 56px;
+}
+.ou-next-btn {
   font-family: 'JetBrains Mono', monospace;
   font-size: 15px;
   font-weight: 700;
@@ -543,17 +497,30 @@ body {
   color: var(--paper);
   background: var(--ink);
   border: 3px solid var(--ink);
-  padding: 16px 44px;
+  padding: 14px 40px;
   cursor: pointer;
   transition: all 0.18s ease;
+  display: none;
 }
-.submit-btn:hover { background: var(--red); border-color: var(--red); }
-.submit-btn:disabled {
-  opacity: 0.35;
-  cursor: default;
-  background: var(--muted);
-  border-color: var(--muted);
+.ou-next-btn.show { display: inline-block; animation: fadeIn 0.3s ease both; }
+.ou-next-btn:hover { background: var(--red); border-color: var(--red); }
+
+/* PROGRESS DOTS */
+.ou-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
 }
+.ou-dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ink);
+  background: transparent;
+}
+.ou-dot.correct { background: var(--green); border-color: var(--green); }
+.ou-dot.wrong { background: var(--red); border-color: var(--red); }
+.ou-dot.current { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(184,134,11,0.3); }
 
 /* HINT TEXT */
 .hint-text {
@@ -562,7 +529,7 @@ body {
   font-size: 12px;
   letter-spacing: 1px;
   color: var(--muted);
-  margin-top: 12px;
+  margin-top: 4px;
   transition: opacity 0.3s;
 }
 
@@ -1074,9 +1041,6 @@ body {
 
 /* Mobile adjustments */
 @media (max-width: 500px) {
-  .rank-name { font-size: 16px; }
-  .slot-badge { width: 40px; font-size: 18px; }
-  .rank-value { font-size: 11px; }
   .social-row { flex-direction: column; }
 }
 
@@ -1178,29 +1142,29 @@ body {
 <div class="game-container">
   <!-- MASTHEAD -->
   <div class="masthead full-bleed">
-    <div class="kicker">Interactive · Executive Pay · SEC Proxy Data</div>
+    <div class="kicker">Interactive · Federal Lobbying · OpenSecrets Data</div>
     <div class="wordmark">FOLLOW<br><em>THE MONEY</em></div>
     <div class="episode-tag">Special Edition</div>
-    <h1 class="episode-name">"Golden Parachutes"</h1>
-    <div class="sub">Four of the biggest names in tech. Four pay packages. Can you rank the CEOs by what they took home?</div>
-    <div class="dateline">Source: SEC DEF 14A Proxy Statements · Most Recent Fiscal Year</div>
+    <h1 class="episode-name">"Lobby or Not"</h1>
+    <div class="sub">Six tech platforms. Six federal lobbying bills. One at a time — is the next one higher or lower?</div>
+    <div class="dateline">Source: OpenSecrets · Federal Lobbying · 2026 Cycle (year-to-date)</div>
   </div>
 
   <!-- INSTRUCTIONS -->
   <div class="intro-bar full-bleed-edge">
-    <strong>How to play:</strong> Put the four cards in order — tap two cards to swap them, or use the arrows. When you're sure, lock it in to reveal the real numbers.
+    <strong>How to play:</strong> The first figure is shown. For each card, guess whether its number is higher or lower — then watch it count up to the truth.
   </div>
 
   <!-- HOOK BAR (editorial lead) -->
   <div class="hook-bar full-bleed-edge">
-    <span class="hook-inner">They run the companies that shape your feed, your phone, your cart, and your search bar. But their pay packages don't track their power — one of these four takes home less than a tenth of another. <strong>The order will surprise you.</strong></span>
+    <span class="hook-inner">The platforms that run your feed all keep lobbyists in Washington — but the gap between the biggest tech spender this cycle and the smallest is bigger than you'd guess. <strong>Six companies, six very different bills.</strong></span>
   </div>
 
   <!-- START GATE -->
   <div class="start-gate" id="startGate">
     <div class="start-gate-cursor">▮</div>
     <button class="start-btn" type="button" onclick="startGame()">▶ Press Start</button>
-    <div class="start-meta">4 Items · 1 Ranking · Lock It In</div>
+    <div class="start-meta">6 Cards · 5 Rounds · Higher or Lower</div>
   </div>
 
   <!-- PLAY AREA -->
@@ -1208,114 +1172,89 @@ body {
 
   <!-- SCORE -->
   <div class="score-bar" aria-live="polite">
-    <div class="score-item">Placed correctly: <span id="correctCount">—</span>/4</div>
+    <div class="score-item">Correct: <span id="correctCount">0</span>/5</div>
+    <div class="score-item">Streak: <span id="streakCount">0</span></div>
   </div>
 
-  <!-- RANK BOARD -->
-  <div class="rank-board">
-    <div class="tray-label" id="trayLabel" aria-live="polite"><span class="step-num">1</span> <span id="trayLabelText">Tap a card, then tap where it goes</span></div>
-    <div class="rank-direction"><span class="dir-arrow">▼</span> HIGHEST → LOWEST · TOTAL CEO COMPENSATION · FY2024 <span class="dir-arrow">▼</span></div>
+  <div class="metric-line">TOTAL FEDERAL LOBBYING SPEND · 2026 CYCLE (YTD)</div>
 
-    <!--
-      RANK ITEMS — markup order below is the starting SCRAMBLE the
-      player sees (hand-picked, stable — never shuffled at runtime).
-      data-rank = the correct position (1 = top). data-value drives
-      the reveal bar width (JS normalizes against the max value).
-    -->
-    <!-- DRAFT DATA — FY2024 total compensation from each company's SEC
-         DEF 14A Summary Compensation Table. VERIFY every figure against
-         the linked proxy before publishing (fiscal years differ by
-         company; values update when new proxies file). -->
-    <div class="rank-list attention" id="rankList">
-      <div class="rank-item" data-id="jassy-amazon" data-rank="3" data-value="40116000" data-display="$40.1M">
-        <div class="slot-badge">1</div>
-        <div class="rank-item-body">
-          <div class="rank-name">Andy Jassy · Amazon<span class="rank-mark"></span></div>
-          <div class="rank-reveal">
-            <div class="rank-value-row">
-              <div class="bar-track"><div class="bar-fill"></div></div>
-              <div class="rank-value">$40.1M</div>
-            </div>
-            <div class="source-reveal">
-              <div class="src-label">Source</div>
-              <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001018724&type=DEF+14A" target="_blank" rel="noopener">SEC proxy (DEF 14A) — Amazon.com, Inc.</a>
-            </div>
-          </div>
-        </div>
-        <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Andy Jassy up" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Andy Jassy down" onclick="moveItem(this, 1, event)">▼</button>
-        </div>
-      </div>
+  <!-- PROGRESS DOTS (5 rounds) -->
+  <div class="ou-progress" id="ouProgress">
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+    <div class="ou-dot"></div>
+  </div>
 
-      <div class="rank-item" data-id="nadella-microsoft" data-rank="1" data-value="79110347" data-display="$79.1M">
-        <div class="slot-badge">2</div>
-        <div class="rank-item-body">
-          <div class="rank-name">Satya Nadella · Microsoft<span class="rank-mark"></span></div>
-          <div class="rank-reveal">
-            <div class="rank-value-row">
-              <div class="bar-track"><div class="bar-fill"></div></div>
-              <div class="rank-value">$79.1M</div>
-            </div>
-            <div class="source-reveal">
-              <div class="src-label">Source</div>
-              <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000789019&type=DEF+14A" target="_blank" rel="noopener">SEC proxy (DEF 14A) — Microsoft Corp.</a>
-            </div>
-          </div>
-        </div>
-        <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Satya Nadella up" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Satya Nadella down" onclick="moveItem(this, 1, event)">▼</button>
-        </div>
-      </div>
-
-      <div class="rank-item" data-id="pichai-alphabet" data-rank="4" data-value="10319413" data-display="$10.3M">
-        <div class="slot-badge">3</div>
-        <div class="rank-item-body">
-          <div class="rank-name">Sundar Pichai · Alphabet<span class="rank-mark"></span></div>
-          <div class="rank-reveal">
-            <div class="rank-value-row">
-              <div class="bar-track"><div class="bar-fill"></div></div>
-              <div class="rank-value">$10.3M</div>
-            </div>
-            <div class="source-reveal">
-              <div class="src-label">Source</div>
-              <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001652044&type=DEF+14A" target="_blank" rel="noopener">SEC proxy (DEF 14A) — Alphabet Inc.</a>
-            </div>
-          </div>
-        </div>
-        <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Sundar Pichai up" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Sundar Pichai down" onclick="moveItem(this, 1, event)">▼</button>
-        </div>
-      </div>
-
-      <div class="rank-item" data-id="cook-apple" data-rank="2" data-value="74610032" data-display="$74.6M">
-        <div class="slot-badge">4</div>
-        <div class="rank-item-body">
-          <div class="rank-name">Tim Cook · Apple<span class="rank-mark"></span></div>
-          <div class="rank-reveal">
-            <div class="rank-value-row">
-              <div class="bar-track"><div class="bar-fill"></div></div>
-              <div class="rank-value">$74.6M</div>
-            </div>
-            <div class="source-reveal">
-              <div class="src-label">Source</div>
-              <a href="https://www.sec.gov/Archives/edgar/data/0000320193/000130817924000010/laapl2024_def14a.htm" target="_blank" rel="noopener">SEC proxy (DEF 14A) — Apple Inc. FY2024</a>
-            </div>
-          </div>
-        </div>
-        <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Tim Cook up" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Tim Cook down" onclick="moveItem(this, 1, event)">▼</button>
-        </div>
+  <!-- OVER/UNDER TABLE -->
+  <div class="ou-table">
+    <div class="ou-slot anchor" id="anchorSlot">
+      <div class="ou-slot-label">Known</div>
+      <div class="ou-name" id="anchorName">—</div>
+      <div class="ou-context" id="anchorContext"></div>
+      <div class="ou-figure" id="anchorFigure">—</div>
+    </div>
+    <div class="ou-slot challenger" id="challengerSlot">
+      <div class="ou-slot-label">Next Up</div>
+      <div class="ou-name" id="challengerName">—</div>
+      <div class="ou-context" id="challengerContext"></div>
+      <div class="ou-figure mystery" id="challengerFigure">?</div>
+      <div class="source-reveal" id="challengerSource">
+        <div class="src-label">Source</div>
+        <a href="#" target="_blank" rel="noopener" id="challengerSourceLink">—</a>
       </div>
     </div>
+  </div>
 
-    <div class="submit-row">
-      <button class="submit-btn" type="button" id="submitBtn" onclick="lockItIn()">Lock It In</button>
-    </div>
-    <div class="hint-text" id="hintText">Hint: the biggest company doesn't always pay the biggest package — watch how equity grants land in a given year.</div>
+  <!-- GUESS PROMPT -->
+  <div class="ou-prompt" id="ouPrompt" aria-live="polite"><span class="step-num">?</span> <span id="ouPromptText">Higher or lower than the figure on the left?</span></div>
+
+  <!-- HIGHER / LOWER BUTTONS -->
+  <div class="ou-buttons">
+    <button class="ou-btn" type="button" id="btnHigher" onclick="guess('higher')"><span class="arrow">▲</span> Higher</button>
+    <button class="ou-btn" type="button" id="btnLower" onclick="guess('lower')"><span class="arrow">▼</span> Lower</button>
+  </div>
+
+  <!-- NEXT -->
+  <div class="ou-next-row">
+    <button class="ou-next-btn" type="button" id="nextBtn" onclick="nextRound()">▶ Next</button>
+  </div>
+
+  <div class="hint-text" id="hintText">Hint: brand size and lobbying budget don't always match — a household name can spend less than a newcomer.</div>
+
+  <!--
+    DECK — DOM order below IS the play order (no shuffle).
+    Card 1 (#ou-anchor-start) is the revealed anchor; cards 2–6
+    are the challengers, one per round. data-value drives the
+    count-up and the higher/lower compare; keep values distinct
+    (a tie counts correct for either guess). data-prefix/-suffix
+    support $, %, vote counts, etc.
+  -->
+  <!-- DRAFT DATA — 2026-cycle (year-to-date) federal lobbying totals from
+       each company's OpenSecrets client-summary page (Senate LDA filings).
+       Deck order = play order, arranged so guesses alternate lower/higher.
+       RE-VERIFY each figure against the linked OpenSecrets page before
+       publishing — a mid-cycle total keeps climbing. -->
+  <div id="ouDeck" hidden>
+    <div class="ou-card" data-id="alphabet" data-value="4135000" data-prefix="$" data-suffix="" data-display="$4,135,000"
+         data-name="Alphabet" data-context="Parent of Google &amp; YouTube"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067823" data-source-label="OpenSecrets — Alphabet federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="x-twitter" data-value="190000" data-prefix="$" data-suffix="" data-display="$190,000"
+         data-name="X" data-context="Formerly Twitter"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067113" data-source-label="OpenSecrets — X Inc federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="meta" data-value="7080000" data-prefix="$" data-suffix="" data-display="$7,080,000"
+         data-name="Meta" data-context="Parent of Facebook &amp; Instagram"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000033563" data-source-label="OpenSecrets — Meta federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="snap" data-value="400000" data-prefix="$" data-suffix="" data-display="$400,000"
+         data-name="Snap" data-context="Maker of Snapchat"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000068777" data-source-label="OpenSecrets — Snap Inc federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="bytedance" data-value="2020000" data-prefix="$" data-suffix="" data-display="$2,020,000"
+         data-name="ByteDance" data-context="Parent of TikTok"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000073174" data-source-label="OpenSecrets — ByteDance Inc federal lobbying, 2026 cycle"></div>
+    <div class="ou-card" data-id="openai" data-value="1020000" data-prefix="$" data-suffix="" data-display="$1,020,000"
+         data-name="OpenAI" data-context="Maker of ChatGPT"
+         data-source-url="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000084252" data-source-label="OpenSecrets — OpenAI federal lobbying, 2026 cycle"></div>
   </div>
 
   </div><!-- /play-area -->
@@ -1324,7 +1263,7 @@ body {
   <div class="arcade-complete full-bleed-edge" id="arcadeComplete">
     <div class="complete-cursor">▮</div>
     <h2 class="complete-title">Puzzle Complete</h2>
-    <div class="complete-sub">Pay tracks equity timing, not power. Every figure is filed with the SEC and public to the dollar.</div>
+    <div class="complete-sub">Every dollar here is disclosed by law under the Lobbying Disclosure Act. The platforms lobby you for attention — and Washington right back.</div>
     <div class="rank-and-stats">
       <div class="complete-rank" id="completeRank">
         <span class="rank-label" id="rankLabel">Perfect</span>
@@ -1332,17 +1271,21 @@ body {
       </div>
       <div class="complete-stats">
         <div class="stat-line">
-          <span class="stat-label">Placed</span>
-          <span class="stat-value"><span id="finalCorrect">4</span>/4</span>
+          <span class="stat-label">Correct</span>
+          <span class="stat-value"><span id="finalCorrect">5</span>/5</span>
+        </div>
+        <div class="stat-line">
+          <span class="stat-label">Best Streak</span>
+          <span class="stat-value" id="finalStreak">5</span>
         </div>
       </div>
     </div>
     <div class="complete-sources">
       <div class="src-label">Dive Deeper</div>
-      <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000789019&type=DEF+14A" target="_blank" rel="noopener">Satya Nadella / Microsoft — SEC proxy (DEF 14A)</a>
-      <a href="https://www.sec.gov/Archives/edgar/data/0000320193/000130817924000010/laapl2024_def14a.htm" target="_blank" rel="noopener">Tim Cook / Apple — SEC proxy (DEF 14A) FY2024</a>
-      <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001018724&type=DEF+14A" target="_blank" rel="noopener">Andy Jassy / Amazon — SEC proxy (DEF 14A)</a>
-      <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001652044&type=DEF+14A" target="_blank" rel="noopener">Sundar Pichai / Alphabet — SEC proxy (DEF 14A)</a>
+      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000033563" target="_blank" rel="noopener">Meta — OpenSecrets federal lobbying, 2026 cycle</a>
+      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067823" target="_blank" rel="noopener">Alphabet — OpenSecrets federal lobbying, 2026 cycle</a>
+      <a href="https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000073174" target="_blank" rel="noopener">ByteDance — OpenSecrets federal lobbying, 2026 cycle</a>
+      <a href="https://lda.senate.gov/system/public/" target="_blank" rel="noopener">Search the primary filings — U.S. Senate Lobbying Disclosure Act database</a>
     </div>
     <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
     <div class="complete-actions">
@@ -1494,18 +1437,16 @@ body {
     </a>
   </div>
 
-  <!-- LICENSE BLOCK — CC BY 4.0 (public-domain data sources).
-       IF ANY DATA IS FROM OPENSECRETS: replace this block with the
-       commented CC BY-NC-SA 3.0 variant below, AND update the
-       JSON-LD "license" URL in <head>, AND the header comment. -->
+  <!-- LICENSE BLOCK — CC BY-NC-SA 3.0 (this puzzle uses OpenSecrets data;
+       ShareAlike is viral so the whole derivative work inherits it). -->
   <div class="license-block">
     <div class="license-row">
       <span class="license-tag">License</span>
-      <span>This puzzle is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · Original content by Moral Fiber Media</span>
+      <span>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a> · Non-commercial use · Attribution required · Share alike</span>
     </div>
     <div class="license-row">
       <span class="license-tag data-tag">Credit</span>
-      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Compensation data from SEC DEF 14A proxy statements (public record)</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Data from <a href="https://www.opensecrets.org/open-data/credit-opensecrets" target="_blank" rel="noopener">OpenSecrets.org</a></span>
     </div>
     <div class="license-row">
       <span class="license-tag data-tag">Legal</span>
@@ -1534,16 +1475,31 @@ body {
 
 <script>
 // ============================================================
-// PUZZLE ENGINE — RANK (order 4 items, one submit, full reveal)
-// State machine: GATE → ORDERING → REVEALED
+// PUZZLE ENGINE — OVER/UNDER (higher-or-lower deck)
+// 6 cards → 5 guess rounds. Card 1 is the revealed anchor.
+// State machine: GATE → ROUND_GUESS → ROUND_REVEAL → … → COMPLETE
 // ============================================================
 
-let selectedItem = null;
-let revealed = false;
-const TOTAL_ITEMS = 4;
+const cards = Array.from(document.querySelectorAll('#ouDeck .ou-card')).map(el => ({
+  id: el.dataset.id,
+  value: +el.dataset.value,
+  prefix: el.dataset.prefix || '',
+  suffix: el.dataset.suffix || '',
+  display: el.dataset.display,
+  name: el.dataset.name,
+  context: el.dataset.context,
+  sourceUrl: el.dataset.sourceUrl,
+  sourceLabel: el.dataset.sourceLabel
+}));
+const TOTAL_ROUNDS = cards.length - 1; // 5
 
-// Starting scramble captured at load so Reset can restore it exactly.
-const startOrder = Array.from(document.querySelectorAll('#rankList .rank-item')).map(el => el.dataset.id);
+let round = 0;          // 0-based index of the CHALLENGER card (1..5)
+let anchorIndex = 0;    // index of the current known anchor
+let correct = 0;
+let streak = 0;
+let bestStreak = 0;
+let awaitingNext = false;
+let countUpTimer = null;
 
 // START GATE — arcade-style attract screen
 function startGame() {
@@ -1556,221 +1512,180 @@ function startGame() {
 
   setTimeout(() => {
     playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    beginPuzzle();
   }, 350);
 }
 
-// STATE-AWARE INSTRUCTION UPDATER
-function updateInstructions() {
-  const trayLabel = document.getElementById('trayLabel');
-  const trayLabelText = document.getElementById('trayLabelText');
-  const stepNum = trayLabel.querySelector('.step-num');
+function fmt(card, value) {
+  // Format a numeric value with the card's prefix/suffix and grouping
+  return card.prefix + Math.round(value).toLocaleString('en-US') + card.suffix;
+}
 
-  if (revealed) {
-    trayLabel.classList.remove('armed');
-    trayLabel.classList.add('complete');
-    stepNum.textContent = '✓';
-    trayLabelText.textContent = 'Revealed — the true order, sourced';
+function beginPuzzle() {
+  round = 0;
+  anchorIndex = 0;
+  correct = 0;
+  streak = 0;
+  bestStreak = 0;
+  awaitingNext = false;
+
+  document.getElementById('correctCount').textContent = '0';
+  document.getElementById('correctCount').className = '';
+  document.getElementById('streakCount').textContent = '0';
+
+  // Reset progress dots
+  document.querySelectorAll('#ouProgress .ou-dot').forEach(d => d.className = 'ou-dot');
+
+  // Anchor = card 0, shown with its real figure
+  const a = cards[anchorIndex];
+  document.getElementById('anchorName').textContent = a.name;
+  document.getElementById('anchorContext').textContent = a.context;
+  document.getElementById('anchorFigure').textContent = a.display;
+
+  loadRound();
+}
+
+// Set up the challenger for the current round (round is 1..5 as a
+// challenger index into cards; anchorIndex is round-1's card)
+function loadRound() {
+  awaitingNext = false;
+  const challengerIdx = round + 1; // challenger card index
+  const c = cards[challengerIdx];
+
+  const slot = document.getElementById('challengerSlot');
+  slot.className = 'ou-slot challenger';
+
+  document.getElementById('challengerName').textContent = c.name;
+  document.getElementById('challengerContext').textContent = c.context;
+  const fig = document.getElementById('challengerFigure');
+  fig.textContent = '?';
+  fig.className = 'ou-figure mystery';
+
+  const src = document.getElementById('challengerSource');
+  src.classList.remove('visible');
+  const link = document.getElementById('challengerSourceLink');
+  link.href = c.sourceUrl;
+  link.textContent = c.sourceLabel;
+
+  document.getElementById('btnHigher').disabled = false;
+  document.getElementById('btnLower').disabled = false;
+  document.getElementById('nextBtn').classList.remove('show');
+
+  const prompt = document.getElementById('ouPrompt');
+  prompt.querySelector('.step-num').textContent = '?';
+  document.getElementById('ouPromptText').textContent =
+    'Is ' + c.name + '’s figure higher or lower than ' + cards[anchorIndex].name + '’s?';
+
+  // Mark the current progress dot
+  document.querySelectorAll('#ouProgress .ou-dot').forEach((d, i) => {
+    d.classList.toggle('current', i === round);
+  });
+}
+
+function guess(direction) {
+  if (awaitingNext) return;
+  awaitingNext = true;
+
+  const anchor = cards[anchorIndex];
+  const challengerIdx = round + 1;
+  const c = cards[challengerIdx];
+
+  document.getElementById('btnHigher').disabled = true;
+  document.getElementById('btnLower').disabled = true;
+
+  // Tie counts as correct for either guess (config note: avoid ties)
+  const actual = c.value === anchor.value ? direction
+               : (c.value > anchor.value ? 'higher' : 'lower');
+  const isCorrect = direction === actual;
+
+  const slot = document.getElementById('challengerSlot');
+
+  // Count up the challenger figure to its true value
+  countUp(document.getElementById('challengerFigure'), c, () => {
+    slot.classList.add(isCorrect ? 'reveal-correct' : 'reveal-wrong');
+    if (!isCorrect) {
+      slot.classList.add('wrong-flash');
+      setTimeout(() => slot.classList.remove('wrong-flash'), 500);
+    }
+    document.getElementById('challengerSource').classList.add('visible');
+
+    // Score + streak
+    const dot = document.querySelectorAll('#ouProgress .ou-dot')[round];
+    dot.classList.remove('current');
+    if (isCorrect) {
+      correct++;
+      streak++;
+      bestStreak = Math.max(bestStreak, streak);
+      dot.classList.add('correct');
+    } else {
+      streak = 0;
+      dot.classList.add('wrong');
+    }
+    document.getElementById('correctCount').textContent = correct;
+    document.getElementById('streakCount').textContent = streak;
+
+    const prompt = document.getElementById('ouPrompt');
+    prompt.querySelector('.step-num').textContent = isCorrect ? '✓' : '✗';
+    document.getElementById('ouPromptText').textContent = isCorrect
+      ? 'Correct — it was ' + actual + '.'
+      : 'Not quite — it was ' + actual + '.';
+
+    // Advance or finish
+    if (round + 1 >= TOTAL_ROUNDS) {
+      document.getElementById('nextBtn').textContent = '▶ See Results';
+    }
+    document.getElementById('nextBtn').classList.add('show');
+  });
+}
+
+// Animated count-up (~900ms, eased) then swap to the display string
+function countUp(el, card, done) {
+  el.className = 'ou-figure';
+  const target = card.value;
+  const duration = 900;
+  let startTs = null;
+
+  if (countUpTimer) cancelAnimationFrame(countUpTimer);
+
+  function step(ts) {
+    if (startTs === null) startTs = ts;
+    const t = Math.min((ts - startTs) / duration, 1);
+    const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+    el.textContent = fmt(card, target * eased);
+    if (t < 1) {
+      countUpTimer = requestAnimationFrame(step);
+    } else {
+      el.textContent = card.display; // exact, human-formatted
+      countUpTimer = null;
+      if (done) done();
+    }
+  }
+  countUpTimer = requestAnimationFrame(step);
+}
+
+function nextRound() {
+  // The challenger just resolved becomes the next anchor
+  anchorIndex = round + 1;
+  round++;
+
+  if (round >= TOTAL_ROUNDS) {
+    showVictory();
     return;
   }
 
-  if (selectedItem) {
-    trayLabel.classList.add('armed');
-    stepNum.textContent = '2';
-    trayLabelText.textContent = 'Now tap the card to swap with';
-  } else {
-    trayLabel.classList.remove('armed');
-    stepNum.textContent = '1';
-    trayLabelText.textContent = 'Tap a card, then tap where it goes';
-  }
+  // Slide the resolved challenger's figure into the anchor slot
+  const a = cards[anchorIndex];
+  document.getElementById('anchorName').textContent = a.name;
+  document.getElementById('anchorContext').textContent = a.context;
+  document.getElementById('anchorFigure').textContent = a.display;
+  document.getElementById('anchorFigure').className = 'ou-figure';
+
+  loadRound();
 }
 
-// FLIP helper — animate items to their new positions after a DOM move
-function flipMove(mutate) {
-  const list = document.getElementById('rankList');
-  const items = Array.from(list.children);
-  const before = new Map(items.map(el => [el, el.getBoundingClientRect().top]));
-
-  mutate();
-
-  items.forEach(el => {
-    const delta = before.get(el) - el.getBoundingClientRect().top;
-    if (!delta) return;
-    el.style.transition = 'none';
-    el.style.transform = 'translateY(' + delta + 'px)';
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        el.style.transition = 'transform 0.25s ease';
-        el.style.transform = '';
-      });
-    });
-  });
-}
-
-// Renumber the fixed slot badges 1..4 after any reorder
-function renumberSlots() {
-  document.querySelectorAll('#rankList .rank-item').forEach((item, i) => {
-    item.querySelector('.slot-badge').textContent = i + 1;
-  });
-}
-
-function clearSelection() {
-  document.querySelectorAll('.rank-item').forEach(el => el.classList.remove('selected'));
-  selectedItem = null;
-}
-
-// TAP-TO-SWAP (works on mobile and desktop)
-document.querySelectorAll('#rankList .rank-item').forEach(item => {
-  item.addEventListener('click', () => {
-    if (revealed) return;
-
-    // First interaction kills the attention pulse
-    document.getElementById('rankList').classList.remove('attention');
-
-    if (!selectedItem) {
-      selectedItem = item;
-      item.classList.add('selected');
-    } else if (selectedItem === item) {
-      clearSelection();
-    } else {
-      swapItems(selectedItem, item);
-      clearSelection();
-    }
-    updateInstructions();
-  });
-});
-
-function swapItems(a, b) {
-  flipMove(() => {
-    const marker = document.createElement('div');
-    a.parentNode.insertBefore(marker, a);
-    b.parentNode.insertBefore(a, b);
-    marker.parentNode.insertBefore(b, marker);
-    marker.remove();
-  });
-  renumberSlots();
-}
-
-// UP/DOWN ARROWS (guaranteed no-drag path)
-function moveItem(btn, dir, event) {
-  event.stopPropagation();
-  if (revealed) return;
-
-  document.getElementById('rankList').classList.remove('attention');
-  clearSelection();
-  updateInstructions();
-
-  const item = btn.closest('.rank-item');
-  const sibling = dir < 0 ? item.previousElementSibling : item.nextElementSibling;
-  if (!sibling) return;
-
-  flipMove(() => {
-    if (dir < 0) {
-      item.parentNode.insertBefore(item, sibling);
-    } else {
-      item.parentNode.insertBefore(sibling, item);
-    }
-  });
-  renumberSlots();
-}
-
-// DRAG AND DROP (desktop enhancement — drop on a card to swap)
-let draggedItem = null;
-
-document.querySelectorAll('#rankList .rank-item').forEach(item => {
-  item.setAttribute('draggable', 'true');
-
-  item.addEventListener('dragstart', (e) => {
-    if (revealed) { e.preventDefault(); return; }
-    draggedItem = item;
-    item.classList.add('dragging');
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/plain', item.dataset.id);
-  });
-
-  item.addEventListener('dragend', () => {
-    item.classList.remove('dragging');
-    draggedItem = null;
-  });
-
-  item.addEventListener('dragover', (e) => {
-    if (revealed) return;
-    e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
-  });
-
-  item.addEventListener('drop', (e) => {
-    e.preventDefault();
-    if (revealed || !draggedItem || draggedItem === item) return;
-    document.getElementById('rankList').classList.remove('attention');
-    clearSelection();
-    swapItems(draggedItem, item);
-    updateInstructions();
-  });
-});
-
-// LOCK IT IN — single submit, then the full reveal sequence
-function lockItIn() {
-  if (revealed) return;
-  revealed = true;
-  clearSelection();
-
-  const list = document.getElementById('rankList');
-  list.classList.add('revealed');
-  list.classList.remove('attention');
-  document.getElementById('submitBtn').disabled = true;
-  document.getElementById('hintText').style.opacity = '0';
-
-  const items = Array.from(list.children);
-  const maxValue = Math.max(...items.map(el => +el.dataset.value));
-  let correct = 0;
-
-  // 1. Mark each slot right/wrong + reveal values and sources
-  items.forEach((item, i) => {
-    const isCorrect = +item.dataset.rank === i + 1;
-    if (isCorrect) {
-      correct++;
-      item.classList.add('slot-correct');
-      item.querySelector('.rank-mark').textContent = '✓';
-    } else {
-      item.classList.add('slot-wrong', 'wrong-flash');
-      item.querySelector('.rank-mark').textContent = '✗';
-      setTimeout(() => item.classList.remove('wrong-flash'), 500);
-    }
-    item.querySelector('.rank-reveal').classList.add('visible');
-    item.querySelector('.source-reveal').classList.add('visible');
-    item.setAttribute('draggable', 'false');
-  });
-
-  // 2. Animate the value bars (widths normalized against the max)
-  setTimeout(() => {
-    items.forEach(item => {
-      const pct = (+item.dataset.value / maxValue) * 100;
-      item.querySelector('.bar-fill').style.width = pct + '%';
-    });
-  }, 250);
-
-  document.getElementById('correctCount').textContent = correct;
-  document.getElementById('correctCount').className = correct === TOTAL_ITEMS ? 'correct' : (correct >= 2 ? '' : 'wrong');
-  updateInstructions();
-
-  // 3. Re-sort into the true order so the final state is the sourced ranking
-  setTimeout(() => {
-    flipMove(() => {
-      Array.from(list.children)
-        .sort((a, b) => +a.dataset.rank - +b.dataset.rank)
-        .forEach(el => list.appendChild(el));
-    });
-    renumberSlots();
-  }, 1600);
-
-  // 4. Victory
-  setTimeout(() => showVictory(correct), 2300);
-}
-
-// With 4 items, corrects can only be 0, 1, 2, or 4 (never 3).
 function getRank(correct) {
-  if (correct === 4) return { cls: 'perfect', label: 'Perfect', stars: 3 };
-  if (correct >= 2) return { cls: 'cleared', label: 'Cleared', stars: 2 };
+  if (correct === 5) return { cls: 'perfect', label: 'Perfect', stars: 3 };
+  if (correct === 4) return { cls: 'cleared', label: 'Cleared', stars: 2 };
   return { cls: 'finished', label: 'Finished', stars: 1 };
 }
 
@@ -1784,7 +1699,7 @@ function renderStars(filled) {
   return html;
 }
 
-function showVictory(correct) {
+function showVictory() {
   const complete = document.getElementById('arcadeComplete');
   const rankEl = document.getElementById('completeRank');
   const rank = getRank(correct);
@@ -1793,6 +1708,7 @@ function showVictory(correct) {
   document.getElementById('rankLabel').textContent = rank.label;
   document.getElementById('rankStars').innerHTML = renderStars(rank.stars);
   document.getElementById('finalCorrect').textContent = correct;
+  document.getElementById('finalStreak').textContent = bestStreak;
 
   complete.classList.add('show');
   setTimeout(() => {
@@ -1801,48 +1717,29 @@ function showVictory(correct) {
 }
 
 function resetGame() {
-  revealed = false;
-  clearSelection();
-
-  const list = document.getElementById('rankList');
-  list.classList.remove('revealed');
-  document.getElementById('submitBtn').disabled = false;
-  document.getElementById('hintText').style.opacity = '1';
   document.getElementById('arcadeComplete').classList.remove('show');
-  document.getElementById('correctCount').textContent = '—';
-  document.getElementById('correctCount').className = '';
-
-  // Restore the hand-picked starting scramble
-  startOrder.forEach(id => {
-    list.appendChild(list.querySelector('.rank-item[data-id="' + id + '"]'));
-  });
-  renumberSlots();
-
-  document.querySelectorAll('#rankList .rank-item').forEach(item => {
-    item.classList.remove('slot-correct', 'slot-wrong', 'wrong-flash');
-    item.querySelector('.rank-mark').textContent = '';
-    item.querySelector('.rank-reveal').classList.remove('visible');
-    item.querySelector('.source-reveal').classList.remove('visible');
-    item.querySelector('.bar-fill').style.width = '0%';
-    item.setAttribute('draggable', 'true');
-  });
-
-  // Re-arm the attention pulse + instructions
-  list.classList.add('attention');
-  const trayLabel = document.getElementById('trayLabel');
-  trayLabel.classList.remove('complete', 'armed');
-  updateInstructions();
+  document.getElementById('challengerSlot').className = 'ou-slot challenger';
+  document.getElementById('anchorFigure').className = 'ou-figure';
+  beginPuzzle();
 
   setTimeout(() => {
     document.getElementById('playArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 100);
 }
 
+// Keyboard: ArrowUp = higher, ArrowDown = lower, Enter = next
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('playArea').hidden) return;
+  if (e.key === 'ArrowUp' && !document.getElementById('btnHigher').disabled) { e.preventDefault(); guess('higher'); }
+  else if (e.key === 'ArrowDown' && !document.getElementById('btnLower').disabled) { e.preventDefault(); guess('lower'); }
+  else if (e.key === 'Enter' && document.getElementById('nextBtn').classList.contains('show')) { e.preventDefault(); nextRound(); }
+});
+
 // SHARE
 function shareGame() {
   const url = window.location.href;
-  const text = 'Microsoft, Apple, Amazon, Alphabet — can you rank the four tech CEOs by their pay package? One takes home less than a tenth of another. 🔍💰';
-  const title = 'Follow the Money — Golden Parachutes | Moral Fiber Media';
+  const text = 'Higher or lower? Six tech platforms, their 2026-cycle federal lobbying bills — how many can you call? 🔍💰';
+  const title = 'Follow the Money — Lobby or Not | Moral Fiber Media';
 
   if (navigator.share) {
     navigator.share({ title: title, text: text, url: url }).catch(() => {});

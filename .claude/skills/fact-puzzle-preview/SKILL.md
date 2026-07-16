@@ -19,10 +19,11 @@ The MFM design system is defined in the `mfm-editorial-design` skill — this sk
 
 - The user only wants meta tag updates without a new image. Edit `index.html` directly instead.
 
-## Two renderers — pick by puzzle type
+## Three renderers — pick by puzzle type
 
 - **Bar-chart / Follow the Money (OpenSecrets):** `render.mjs` + `template.html` — FOLLOW THE MONEY headline, A/B/C bars, OpenSecrets attribution chip. Inputs: the bar-chart `preview.json` documented below.
 - **Text-match / Just the Facts (non-OpenSecrets):** `render-text.mjs` — editorial card with the puzzle name, hook, and answer tiles (which don't spoil the matching), no attribution chip. Uses a **different** `preview.json` shape (`episode`, `subjects`, `subtitle`, `matchVerb`, `dataLabel`, `dataSource: null`) — see the header comment in `render-text.mjs`. Run: `node .claude/skills/fact-puzzle-preview/render-text.mjs just-the-facts/<slug>/preview.json`. Reference output: `just-the-facts/who-spends-your-money/`.
+- **New mechanics (rank / over-under / timeline) or any puzzle needing a configurable license:** `render-card.mjs` — same editorial card as `render-text.mjs`, but the license badge is **parameterized** (`"license"`) and an OpenSecrets-style gold attribution chip renders when `"dataSource"` is set. Use this for CC BY-NC-SA 3.0 puzzles (OpenSecrets) and any card where CC BY 4.0 isn't the right badge. `preview.json` shape: `kicker`, `episode`, `subjects`, `subtitle`, `matchVerb`, `dataLabel`, `dataSource` (`null` or `"OpenSecrets.org"`), `license`. Reference outputs: `puzzles/golden-parachutes/`, `puzzles/lobby-or-not/`, `puzzles/the-docket/`.
 
 Other future series (Say/Do contradiction, etc.) get their own sibling renderer the same way — copy a renderer, swap the card markup, keep the playwright→sharp toolchain.
 
