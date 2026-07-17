@@ -19,21 +19,21 @@ No login. No paywall. No app to download. Just facts.
 **Five puzzles live now:**
 
 🔨 **Puzzle #1: "Hardware Giants"** — Ace Hardware · Home Depot · Lowe's
-→ [Play now](https://follow-the-hardware-giants-money.moralfibermedia.com)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/hardware-giants)
 
 🛒 **Puzzle #2: "Grocery Run"** — Walmart · Kroger · Costco
-→ [Play now](https://follow-the-money-grocery.moralfibermedia.com)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/grocery-run)
 
 💰 **Puzzle #3: "Your Whole Paycheck"** — Amazon · Trader Joe's · Publix
-→ [Play now](https://follow-the-money-whole-paycheck.moralfibermedia.com)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/your-whole-paycheck)
 
 📱 **Puzzle #4: "Can You Hear Me Now?"** — AT&T · Verizon · T-Mobile
-→ [Play now](https://follow-the-money-telecom.moralfibermedia.com)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/can-you-hear-me-now)
 
 🍑 **Special Edition: "Georgia on My Mind"** — Coca-Cola · Delta · Home Depot
-→ [Play now](https://follow-the-money-georgia.moralfibermedia.com)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/georgia-on-my-mind)
 
-**Browse all puzzles:** [follow-the-money-index.moralfibermedia.com](https://follow-the-money-index.moralfibermedia.com)
+**Browse all puzzles:** [followthemoney.moralfibermedia.com](https://followthemoney.moralfibermedia.com/)
 
 More puzzles are coming — streaming, gas stations, social media, coffee, banks. Got an idea for a triplet we should build? Tell us.
 
@@ -47,7 +47,7 @@ These are the commentators, analysts, strategists, podcasters, and organizations
 
 The list includes Brian Tyler Cohen, Glenn Kirschner, Heather Cox Richardson, Joyce Vance, Harry Litman, Democracy Docket, The Lincoln Project, and more — 21 names and growing.
 
-**See the full list:** [fighters-index.moralfibermedia.com](https://fighters-index.moralfibermedia.com)
+**See the full list:** [followthemoney.moralfibermedia.com/fighters](https://followthemoney.moralfibermedia.com/fighters)
 
 Know someone who belongs on this list? Send us their name at contact@moralfibermedia.com.
 
