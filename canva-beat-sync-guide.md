@@ -46,7 +46,7 @@ Before opening Canva, record yourself playing a puzzle on your phone or laptop:
 | 14-17s | Nope. | Wrong guess, shake animation |
 | 17-22s | Every answer links to the source. | Correct matches, maybe two in a row |
 | 22-25s | Five puzzles. Sixty seconds. All free. | Confetti moment |
-| 25-28s | follow-the-money-index.moralfibermedia.com | Hold on URL |
+| 25-28s | followthemoney.moralfibermedia.com | Hold on URL |
 
 ## Step 5: Animations
 
