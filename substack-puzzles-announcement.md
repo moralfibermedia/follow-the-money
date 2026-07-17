@@ -19,21 +19,21 @@ No login. No paywall. No app to download. Just facts.
 **Five puzzles live now:**
 
 🔨 **Puzzle #1: "Hardware Giants"** — Ace Hardware · Home Depot · Lowe's
-→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/hardware-giants)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/hardware-giants?utm_source=substack&utm_medium=email&utm_campaign=announcement)
 
 🛒 **Puzzle #2: "Grocery Run"** — Walmart · Kroger · Costco
-→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/grocery-run)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/grocery-run?utm_source=substack&utm_medium=email&utm_campaign=announcement)
 
 💰 **Puzzle #3: "Your Whole Paycheck"** — Amazon · Trader Joe's · Publix
-→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/your-whole-paycheck)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/your-whole-paycheck?utm_source=substack&utm_medium=email&utm_campaign=announcement)
 
 📱 **Puzzle #4: "Can You Hear Me Now?"** — AT&T · Verizon · T-Mobile
-→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/can-you-hear-me-now)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/can-you-hear-me-now?utm_source=substack&utm_medium=email&utm_campaign=announcement)
 
 🍑 **Special Edition: "Georgia on My Mind"** — Coca-Cola · Delta · Home Depot
-→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/georgia-on-my-mind)
+→ [Play now](https://followthemoney.moralfibermedia.com/puzzles/georgia-on-my-mind?utm_source=substack&utm_medium=email&utm_campaign=announcement)
 
-**Browse all puzzles:** [followthemoney.moralfibermedia.com](https://followthemoney.moralfibermedia.com/)
+**Browse all puzzles:** [followthemoney.moralfibermedia.com](https://followthemoney.moralfibermedia.com/?utm_source=substack&utm_medium=email&utm_campaign=announcement)
 
 More puzzles are coming — streaming, gas stations, social media, coffee, banks. Got an idea for a triplet we should build? Tell us.
 
@@ -47,7 +47,7 @@ These are the commentators, analysts, strategists, podcasters, and organizations
 
 The list includes Brian Tyler Cohen, Glenn Kirschner, Heather Cox Richardson, Joyce Vance, Harry Litman, Democracy Docket, The Lincoln Project, and more — 21 names and growing.
 
-**See the full list:** [followthemoney.moralfibermedia.com/fighters](https://followthemoney.moralfibermedia.com/fighters)
+**See the full list:** [followthemoney.moralfibermedia.com/fighters](https://followthemoney.moralfibermedia.com/fighters?utm_source=substack&utm_medium=email&utm_campaign=announcement)
 
 Know someone who belongs on this list? Send us their name at contact@moralfibermedia.com.
 
