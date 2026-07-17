@@ -781,5 +781,36 @@
       }
     }
   ],
-  "coming_soon": []
+  "coming_soon": [
+    {
+      "id": "tech-titans",
+      "type": "special",
+      "template": "barchart",
+      "title": "Tech Titans",
+      "companies": ["Amazon", "Apple", "Meta"],
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "status": "coming_soon"
+    },
+    {
+      "id": "your-money-their-politics",
+      "type": "standard",
+      "template": "barchart",
+      "title": "Your Money, Their Politics",
+      "companies": ["JPMorgan Chase", "Bank of America", "Wells Fargo"],
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "status": "coming_soon"
+    },
+    {
+      "id": "deliver-me",
+      "type": "standard",
+      "template": "barchart",
+      "title": "Deliver Me",
+      "companies": ["Uber", "Lyft", "DoorDash"],
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "status": "coming_soon"
+    }
+  ]
 }
