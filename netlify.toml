@@ -44,6 +44,39 @@
   status = 404
   force = true
 
+# Workspace-only marketing / social post drafts — never served.
+[[redirects]]
+  from = "/marketing/*"
+  to = "/"
+  status = 404
+  force = true
+
+# Internal project docs kept at the repo root — block from serving.
+# (LICENSE and README.md stay public by convention.)
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/claude-code-spec.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/follow-the-money-roadmap.md"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/follow-the-money-vision.md"
+  to = "/"
+  status = 404
+  force = true
+
 # Unpublished drafts — built from templates, pending human data verification.
 # Left servable (so Netlify Deploy Previews can render them for review) but
 # never indexed, and kept unlinked from index.html / sitemap.xml. Before

@@ -144,6 +144,29 @@ Label the last one "Substack" (not "Newsletter").
 
 ---
 
+## Channel-Specific Posts
+
+Promo copy for a puzzle is drafted per channel — never one post pasted everywhere. Drafts live in `marketing/{campaign}/{channel}.md` (workspace-only, blocked from serving). Same voice everywhere (direct, evidence-first, punchy, sourced; lead with the relatable hook, close on "We do the research. You solve the puzzle."), but the format changes per platform:
+
+| Channel | File | Format |
+|---------|------|--------|
+| **Substack** | `substack.md` | Newsletter, ~200 words: headline → body → CTA link → signature. |
+| **Bluesky** | `bluesky.md` | ≤300 chars **including the URL** (~110). Keep body ≤ ~180. Hook + link. |
+| **X** | `x.md` | ≤280 chars (links count as 23 via t.co). Hook + link; optional 2-post thread for the "why." |
+| **Facebook** | `facebook.md` | 2–4 sentences; the link's OG card does the visual work. |
+| **Sez.us** | `sezus.md` | Civic microblog — lead with the public-record / accountability angle. |
+| **TikTok** | `tiktok.md` | Video: on-screen script beats + caption + hashtags. No clickable link in caption → **link in bio**. |
+| **YouTube** | `youtube.md` | Short (title + description) or community post; link is clickable in the description. |
+
+**UTM convention (mandatory on every link):** `?utm_source={platform}&utm_medium={email|social}&utm_campaign={campaign}`.
+- `utm_source` = the specific platform, spelled identically every time (`substack`, `bluesky`, `x`, `facebook`, `tiktok`, `youtube`, `sezus`) — this is what lets Netlify Analytics tell channels apart.
+- `utm_medium` = `email` (Substack) or `social` (everything else).
+- `utm_campaign` = the campaign/puzzle slug (matches the folder name).
+
+Not every campaign needs every channel — write the ones you'll actually post. Full reference: `marketing/README.md`.
+
+---
+
 ## Licensing
 
 ### MFM original content

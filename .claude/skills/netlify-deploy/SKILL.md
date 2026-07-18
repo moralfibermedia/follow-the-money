@@ -79,10 +79,13 @@ follow-the-money/
 │       └── preview.png
 ├── data/                ← workspace only (blocked by netlify.toml)
 ├── template/            ← workspace only (blocked by netlify.toml)
+├── marketing/           ← social/newsletter post drafts, workspace only (blocked)
 └── scripts/             ← workspace only (blocked by netlify.toml)
 ```
 
 `robots.txt` and `_headers` live at the repo root only — they apply site-wide.
+
+**Blocked from serving (`netlify.toml` `force = true` 404s):** `/data/*` (except `comment-counts.json`), `/template/*`, `/scripts/*`, `/index/*`, `/.claude/*`, `/vision/*`, `/marketing/*`. **Gotcha:** the repo root publishes as-is, so root-level `.md` files ARE served by default. Internal docs (`CLAUDE.md`, `follow-the-money-roadmap.md`, `follow-the-money-vision.md`, `claude-code-spec.md`) are individually 404'd in `netlify.toml`; `LICENSE` and `README.md` stay public. **When you add a new internal root doc, block it there or it goes live.**
 
 ---
 

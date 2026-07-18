@@ -11,7 +11,7 @@ Monorepo for FactPuzzles by Moral Fiber Media — interactive civic puzzles buil
 - **CC BY 4.0** for original content. **CC BY-NC-SA 3.0** for OpenSecrets-derived puzzles.
 
 ## Architecture
-Single Netlify site at `followthemoney.moralfibermedia.com`. All pages deploy from one GitHub repo (`moralfibermedia/follow-the-money`). Puzzle index is `index.html` at repo root. Each page lives in its own folder (`puzzles/`, `fighters/`, `legal/`, `doj/`) with an `index.html` and `preview.png`. Shared `robots.txt`, `_headers`, and `netlify.toml` at repo root. Data in `data/`, templates in `template/` (workspace-only, blocked from serving by `netlify.toml`).
+Single Netlify site at `followthemoney.moralfibermedia.com`. All pages deploy from one GitHub repo (`moralfibermedia/follow-the-money`). Puzzle index is `index.html` at repo root. Each page lives in its own folder (`puzzles/`, `fighters/`, `legal/`, `doj/`) with an `index.html` and `preview.png`. Shared `robots.txt`, `_headers`, and `netlify.toml` at repo root. Data in `data/`, templates in `template/`, and social/newsletter post drafts in `marketing/` — all **workspace-only, blocked from serving by `netlify.toml`**. The repo root publishes as-is, so internal `.md` docs that must not be public (`CLAUDE.md`, `follow-the-money-roadmap.md`, `follow-the-money-vision.md`, `claude-code-spec.md`) are explicitly 404'd in `netlify.toml` too; when adding a new internal root doc, block it there (or drop it in `marketing/`).
 
 ## Git Config
 - **GitHub org:** moralfibermedia
@@ -64,6 +64,9 @@ Human provides: 5 events (short title, one-line description, ISO date, correct o
 4. Generate preview image, copy shared files, update root `index.html`.
 
 **Note on previews:** the `fact-puzzle-preview` skill ships a sibling `render-*.mjs` renderer per series/mechanic when the first real puzzle lands — the rank/over-under/timeline mechanics don't have one yet. Author it then (copy an existing renderer, swap the card markup, keep the Playwright→Sharp toolchain).
+
+### Draft channel posts for a puzzle
+Write platform-tailored promo copy into `marketing/{campaign}/{channel}.md` (one file per channel: substack, bluesky, x, facebook, sezus, tiktok, youtube). Follow per-platform format rules + the UTM convention in the `mfm-editorial-design` skill ("Channel-specific posts") and `marketing/README.md`. Every link gets `?utm_source={platform}&utm_medium={email|social}&utm_campaign={campaign}`. The `marketing/` folder is workspace-only (blocked from serving).
 
 ### Add a fighter
 Add to `data/fighters.json`, rebuild `fighters/index.html`.
