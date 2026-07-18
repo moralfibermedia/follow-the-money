@@ -1,5 +1,5 @@
-<!-- Channel: X. 280-char limit; links count as 23 via t.co. Effective length: ~145. -->
+<!-- Channel: X. 280-char limit; links count as 23 via t.co. Effective length: ~134. -->
 
-Meta, Google, TikTok, OpenAI, Snap, X — higher or lower? The gap between the biggest and smallest lobbying bill is huge.
+Six tech platforms. Six federal lobbying bills. One is ~37x another. Higher or lower — how many can you call?
 
 https://followthemoney.moralfibermedia.com/puzzles/lobby-or-not?utm_source=x&utm_medium=social&utm_campaign=lobby-or-not

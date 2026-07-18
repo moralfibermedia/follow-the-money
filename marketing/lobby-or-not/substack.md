@@ -1,6 +1,6 @@
 # Your Feed's Other Bill: Lobbying
 
-The platforms fighting for your attention are also fighting for Washington's — and what each one spends on federal lobbying this cycle is disclosed by law. Six companies, six very different bills: guess higher or lower, card by card, and watch each real number count up. The gap between the biggest spender and the smallest is bigger than you'd guess.
+The platforms fighting for your attention are also fighting for Washington's — and what each spends on federal lobbying is disclosed by law, down to the dollar. Six companies. Six very different bills. The biggest this cycle is roughly **37 times** the smallest — and the order isn't what the logos suggest.
 
 One figure at a time: guess whether the next company's number comes in higher or lower, then watch it count up to the truth — every figure linked to its source.
 

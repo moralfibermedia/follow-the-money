@@ -7,7 +7,7 @@ One of these brands sat out the 2024 election entirely
 
 ## Short — description
 
-Not every brand shows up to write a check. Of Best Buy, Staples, and OfficeMax, one made zero direct federal contributions in the 2024 cycle — and in a puzzle built on donation profiles, that silence is its own kind of statement. The other two both lean the same way, at very different sizes. Match the company to the cash.
+Not every brand shows up to write a check. Of Best Buy, Staples, and OfficeMax, one made zero direct federal contributions in the 2024 cycle — and in a puzzle built on donation profiles, that silence is its own kind of statement. The other two both lean the same way, at very different sizes.
 
 https://followthemoney.moralfibermedia.com/puzzles/office-supplies?utm_source=youtube&utm_medium=social&utm_campaign=office-supplies
 
@@ -15,4 +15,4 @@ https://followthemoney.moralfibermedia.com/puzzles/office-supplies?utm_source=yo
 
 ## Community post (alternative to a Short)
 
-Best Buy, Staples, OfficeMax — one wrote $0 in federal checks in 2024. Silence is a statement too. Match the company to the cash. 👉 https://followthemoney.moralfibermedia.com/puzzles/office-supplies?utm_source=youtube&utm_medium=social&utm_campaign=office-supplies
+Best Buy, Staples, OfficeMax — one wrote $0 in federal checks in 2024. Silence is a statement too. 👉 https://followthemoney.moralfibermedia.com/puzzles/office-supplies?utm_source=youtube&utm_medium=social&utm_campaign=office-supplies

@@ -7,7 +7,7 @@ Two oil giants tilt red. One tilts blue.
 
 ## Short — description
 
-Gas prices are posted on every corner — the political money behind the pump is invisible. Chevron, ExxonMobil, and Shell all write federal checks: two tilt red, in different degrees. The European one tilts blue, and spends pennies on the dollar next to the other two. Classic follow-the-money territory. Match the company to the cash.
+Gas prices are posted on every corner — the political money behind the pump is invisible. Chevron, ExxonMobil, and Shell all write federal checks: two tilt red, in different degrees. The European one tilts blue, and spends pennies on the dollar next to the other two. Classic follow-the-money territory.
 
 https://followthemoney.moralfibermedia.com/puzzles/fill-er-up?utm_source=youtube&utm_medium=social&utm_campaign=fill-er-up
 
@@ -15,4 +15,4 @@ https://followthemoney.moralfibermedia.com/puzzles/fill-er-up?utm_source=youtube
 
 ## Community post (alternative to a Short)
 
-Chevron, ExxonMobil, Shell — two tilt red. The European one tilts blue and spends pennies on the dollar. Match them. Match the company to the cash. 👉 https://followthemoney.moralfibermedia.com/puzzles/fill-er-up?utm_source=youtube&utm_medium=social&utm_campaign=fill-er-up
+Chevron, ExxonMobil, Shell — two tilt red. The European one tilts blue and spends pennies on the dollar. Match them. 👉 https://followthemoney.moralfibermedia.com/puzzles/fill-er-up?utm_source=youtube&utm_medium=social&utm_campaign=fill-er-up
