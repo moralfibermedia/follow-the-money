@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-13T13:58:23Z",
+  "generated": "2026-07-20T13:56:51Z",
   "window": {
     "min_days": 3,
     "max_days": 60
@@ -8,49 +8,28 @@
   "dockets": [
     {
       "score": 11,
-      "why": "medicaid \u00b7 social security \u00b7 significant \u00b7 closes in 8d",
-      "title": "Medicaid Program; Medicaid Managed Care State Directed Payments and Medicaid Fee-for-Service Targeted Medicaid Practitioner Payments",
+      "why": "drug \u00b7 food \u00b7 public health \u00b7 closes in 56d",
+      "title": "Establishment Registration and Product Listing for Tobacco Products",
       "agencies": [
         "Health and Human Services Department",
-        "Centers for Medicare & Medicaid Services"
+        "Food and Drug Administration"
       ],
-      "document_number": "2026-10292",
-      "publication_date": "2026-05-22",
-      "comments_close_on": "2026-07-21",
-      "days_left": 8,
+      "document_number": "2026-13047",
+      "publication_date": "2026-06-29",
+      "comments_close_on": "2026-09-14",
+      "days_left": 56,
       "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-1916-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/05/22/2026-10292/medicaid-program-medicaid-managed-care-state-directed-payments-and-medicaid-fee-for-service-targeted",
+      "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-7130-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/06/29/2026-13047/establishment-registration-and-product-listing-for-tobacco-products",
       "docket_ids": [
-        "CMS-2449-P"
+        "Docket No. FDA-2025-N-7130"
       ],
-      "abstract": "This proposed rule describes alternatives to modify the limit on the total payment rate and other requirements for State directed payments in Medicaid managed care. We propose these changes based on our authority to interpret and implement section 1902(a)(4) of the Social\u2026",
+      "abstract": "The Food and Drug Administration (FDA, the Agency, or we) is proposing regulations to prescribe the format, content, and procedures for establishment registration and tobacco product listing. Complete and accurate establishment registration and product listing information is\u2026",
       "rank": 1
     },
     {
       "score": 10,
-      "why": "drinking water \u00b7 pfas \u00b7 significant \u00b7 closes in 7d",
-      "title": "Rescission of Regulatory Determinations and Removal of Related Provisions for Four PFAS Substances (PFHxS, PFNA, HFPO-DA (GenX), and the Mixture of These Three PFAS Plus PFBS)",
-      "agencies": [
-        "Environmental Protection Agency"
-      ],
-      "document_number": "2026-10085",
-      "publication_date": "2026-05-20",
-      "comments_close_on": "2026-07-20",
-      "days_left": 7,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2025-0654-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/05/20/2026-10085/rescission-of-regulatory-determinations-and-removal-of-related-provisions-for-four-pfas-substances",
-      "docket_ids": [
-        "EPA-HQ-OW-2025-0654",
-        "FRL 12843-01-OW"
-      ],
-      "abstract": "The Environmental Protection Agency (EPA) is proposing to rescind its regulatory determinations to regulate four per- and polyfluoroalkyl substances (PFAS)--perfluorohexane sulfonic acid (PFHxS), perfluorononanoic acid (PFNA), hexafluoropropylene oxide dimer acid and its\u2026",
-      "rank": 2
-    },
-    {
-      "score": 10,
-      "why": "drinking water \u00b7 pfas \u00b7 significant \u00b7 closes in 18d",
+      "why": "drinking water \u00b7 pfas \u00b7 significant \u00b7 closes in 11d",
       "title": "Revisions To Establish the Sixth Unregulated Contaminant Monitoring Rule (UCMR 6) for Public Water Systems",
       "agencies": [
         "Environmental Protection Agency"
@@ -58,7 +37,7 @@
       "document_number": "2026-13263",
       "publication_date": "2026-07-01",
       "comments_close_on": "2026-07-31",
-      "days_left": 18,
+      "days_left": 11,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2023-0469-0097",
       "html_url": "https://www.federalregister.gov/documents/2026/07/01/2026-13263/revisions-to-establish-the-sixth-unregulated-contaminant-monitoring-rule-ucmr-6-for-public-water",
@@ -67,11 +46,11 @@
         "FRL-10857-03-OW"
       ],
       "abstract": "The U.S. Environmental Protection Agency (EPA or agency) is proposing the sixth Unregulated Contaminant Monitoring Rule (UCMR 6). Under the Safe Drinking Water Act (SDWA), the UCMR program gathers data about unregulated contaminant occurrence in drinking water. The proposed UCMR\u2026",
-      "rank": 3
+      "rank": 2
     },
     {
       "score": 10,
-      "why": "food \u00b7 firearm \u00b7 gun \u00b7 closes in 22d",
+      "why": "food \u00b7 firearm \u00b7 gun \u00b7 closes in 15d",
       "title": "Clarifying Interstate Transportation of Firearms Under the Gun Control Act",
       "agencies": [
         "Justice Department",
@@ -80,7 +59,7 @@
       "document_number": "2026-08916",
       "publication_date": "2026-05-06",
       "comments_close_on": "2026-08-04",
-      "days_left": 22,
+      "days_left": 15,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/ATF-2026-0133-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/06/2026-08916/clarifying-interstate-transportation-of-firearms-under-the-gun-control-act",
@@ -89,11 +68,11 @@
         "ATF No. 2025R-18P"
       ],
       "abstract": "The Bureau of Alcohol, Tobacco, Firearms, and Explosives (\"ATF\") proposes amending Department of Justice (\"Department\") regulations to clarify that, for purposes of transporting firearms interstate, any activities that are reasonably necessary to transportation such as staying\u2026",
-      "rank": 4
+      "rank": 3
     },
     {
       "score": 10,
-      "why": "medicare \u00b7 prescription \u00b7 drug price \u00b7 closes in 35d",
+      "why": "medicare \u00b7 prescription \u00b7 drug price \u00b7 closes in 28d",
       "title": "Medicare Drug Price Negotiation Program and Medicare Prescription Drug Benefit Program",
       "agencies": [
         "Health and Human Services Department",
@@ -102,7 +81,7 @@
       "document_number": "2026-12059",
       "publication_date": "2026-06-16",
       "comments_close_on": "2026-08-17",
-      "days_left": 35,
+      "days_left": 28,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2080-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/06/16/2026-12059/medicare-drug-price-negotiation-program-and-medicare-prescription-drug-benefit-program",
@@ -110,11 +89,32 @@
         "CMS-4215-P"
       ],
       "abstract": "This proposed rule would codify the Medicare Drug Price Negotiation Program (\"Negotiation Program\") and would establish certain new policies for the Negotiation Program and the Medicare Prescription Drug Benefit Program as required by the Inflation Reduction Act of 2022. This\u2026",
+      "rank": 4
+    },
+    {
+      "score": 10,
+      "why": "medicare \u00b7 medicaid \u00b7 prescription \u00b7 closes in 56d",
+      "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
+      "agencies": [
+        "Health and Human Services Department",
+        "Centers for Medicare & Medicaid Services"
+      ],
+      "document_number": "2026-14327",
+      "publication_date": "2026-07-16",
+      "comments_close_on": "2026-09-14",
+      "days_left": 56,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2377-0002",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/16/2026-14327/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
+      "docket_ids": [
+        "CMS-1848-P"
+      ],
+      "abstract": "This proposed rule addresses: changes to the physician fee schedule (PFS); other changes to Medicare Part B payment policies to ensure that payment systems are updated to reflect changes in medical practice, relative value of services, and changes in the statute; codification of\u2026",
       "rank": 5
     },
     {
       "score": 9,
-      "why": "drug \u00b7 food \u00b7 significant \u00b7 closes in 60d",
+      "why": "drug \u00b7 food \u00b7 significant \u00b7 closes in 53d",
       "title": "Drug Establishment Registration and Drug Listing Requirements for Establishments Engaged in Distributed Manufacturing and Certain Foreign Establishments",
       "agencies": [
         "Health and Human Services Department",
@@ -123,7 +123,7 @@
       "document_number": "2026-14073",
       "publication_date": "2026-07-13",
       "comments_close_on": "2026-09-11",
-      "days_left": 60,
+      "days_left": 53,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-6075-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/07/13/2026-14073/drug-establishment-registration-and-drug-listing-requirements-for-establishments-engaged-in",
@@ -135,28 +135,7 @@
     },
     {
       "score": 8,
-      "why": "drinking water \u00b7 significant \u00b7 closes in 7d",
-      "title": "Extending the Compliance Deadline for the PFOA and PFOS Maximum Contaminant Levels",
-      "agencies": [
-        "Environmental Protection Agency"
-      ],
-      "document_number": "2026-10086",
-      "publication_date": "2026-05-20",
-      "comments_close_on": "2026-07-20",
-      "days_left": 7,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2025-1742-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/05/20/2026-10086/extending-the-compliance-deadline-for-the-pfoa-and-pfos-maximum-contaminant-levels",
-      "docket_ids": [
-        "EPA-HQ-OW-2025-1742",
-        "FRL 8543.1-01-OW"
-      ],
-      "abstract": "In this proposed rulemaking, the U.S. Environmental Protection Agency (EPA) proposes a federal exemption, pursuant to Safe Drinking Water Act (SDWA) 1416(f) and 1450(a)(1), that will extend the dates of compliance with the Maximum Contaminant Levels (MCLs) for perfluorooctanoic\u2026",
-      "rank": 7
-    },
-    {
-      "score": 8,
-      "why": "firearm \u00b7 gun \u00b7 closes in 22d",
+      "why": "firearm \u00b7 gun \u00b7 closes in 15d",
       "title": "Clarifying Delivery to a Common or Contract Carrier When Transporting Firearms",
       "agencies": [
         "Justice Department",
@@ -165,7 +144,7 @@
       "document_number": "2026-08917",
       "publication_date": "2026-05-06",
       "comments_close_on": "2026-08-04",
-      "days_left": 22,
+      "days_left": 15,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/ATF-2026-0004-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/06/2026-08917/clarifying-delivery-to-a-common-or-contract-carrier-when-transporting-firearms",
@@ -174,11 +153,11 @@
         "ATF No. 2025R-23P"
       ],
       "abstract": "The Bureau of Alcohol, Tobacco, Firearms, and Explosives (\"ATF\") proposes amending Department of Justice (\"Department\") regulations to clarify that, for purposes of the Gun Control Act of 1968, a person who travels aboard a common or contract carrier while in possession of a\u2026",
-      "rank": 8
+      "rank": 7
     },
     {
       "score": 8,
-      "why": "firearm \u00b7 gun \u00b7 closes in 24d",
+      "why": "firearm \u00b7 gun \u00b7 closes in 17d",
       "title": "Firearm Activities in Foreign Trade Zones, Customs-Bonded Warehouses",
       "agencies": [
         "Justice Department",
@@ -187,7 +166,7 @@
       "document_number": "2026-09162",
       "publication_date": "2026-05-08",
       "comments_close_on": "2026-08-06",
-      "days_left": 24,
+      "days_left": 17,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/ATF-2026-0069-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/05/08/2026-09162/firearm-activities-in-foreign-trade-zones-customs-bonded-warehouses",
@@ -196,11 +175,11 @@
         "ATF No. 2025R-06P"
       ],
       "abstract": "The Bureau of Alcohol, Tobacco, Firearms, and Explosives (\"ATF\") proposes amending the definition of \"importation\" in the implementing regulations for the Gun Control Act (\"GCA\") and the National Firearms Act (\"NFA\"). Specifically, the rule proposes to create an exclusion from\u2026",
-      "rank": 9
+      "rank": 8
     },
     {
       "score": 8,
-      "why": "social security \u00b7 significant \u00b7 closes in 28d",
+      "why": "social security \u00b7 significant \u00b7 closes in 21d",
       "title": "Employment and Training Services for Noncustodial Parents in the Child Support Program; Rescission",
       "agencies": [
         "Health and Human Services Department",
@@ -209,17 +188,17 @@
       "document_number": "2026-11530",
       "publication_date": "2026-06-09",
       "comments_close_on": "2026-08-10",
-      "days_left": 28,
+      "days_left": 21,
       "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/ACF-2026-0100-0002",
+      "comment_url": "https://www.regulations.gov/commenton/ACF-2026-0100-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/06/09/2026-11530/employment-and-training-services-for-noncustodial-parents-in-the-child-support-program-rescission",
       "docket_ids": [],
       "abstract": "The Office of Child Support Enforcement proposes to rescind the Employment and Training Services for Noncustodial Parents in the Child Support Program final rule, published in the Federal Register on December 13, 2024. The final rule allowed child support agencies to utilize\u2026",
-      "rank": 10
+      "rank": 9
     },
     {
       "score": 8,
-      "why": "medicare \u00b7 labor \u00b7 consumer \u00b7 closes in 49d",
+      "why": "medicare \u00b7 labor \u00b7 consumer \u00b7 closes in 42d",
       "title": "Medicare Program: Hospital Outpatient Prospective Payment and Ambulatory Surgical Center Payment Systems; and Quality Reporting Programs; Including the Hospital Outpatient Quality Reporting Program and Ambulatory Surgical Center Quality Program; Request for Information on Strengthening the Standardization and Comparability of Hospital Price Transparency (HPT) Data; Prior Authorization; Accrediting Organization (AO) Deeming for Emergency Medical Treatment and Labor Act (EMTALA); and Notices of Closure of Teaching Hospitals and Opportunities To Apply for Available Slots",
       "agencies": [
         "Health and Human Services Department",
@@ -228,7 +207,7 @@
       "document_number": "2026-13656",
       "publication_date": "2026-07-07",
       "comments_close_on": "2026-08-31",
-      "days_left": 49,
+      "days_left": 42,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2344-0002",
       "html_url": "https://www.federalregister.gov/documents/2026/07/07/2026-13656/medicare-program-hospital-outpatient-prospective-payment-and-ambulatory-surgical-center-payment",
@@ -236,24 +215,46 @@
         "CMS-1850-P"
       ],
       "abstract": "This proposed rule would revise the Medicare Hospital Outpatient Prospective Payment System (OPPS) and the Medicare Ambulatory Surgical Center (ASC) payment system for calendar year 2027 based on our continuing experience with these systems. We also describe the changes to the\u2026",
+      "rank": 10
+    },
+    {
+      "score": 7,
+      "why": "consumer \u00b7 significant \u00b7 closes in 17d",
+      "title": "Energy Conservation Program: Procedures, Interpretations, and Policies for Consideration of New or Revised Energy Conservation Standards and Test Procedures for Consumer Products and Certain Commercial/Industrial Equipment",
+      "agencies": [
+        "Energy Department"
+      ],
+      "document_number": "2026-13674",
+      "publication_date": "2026-07-07",
+      "comments_close_on": "2026-08-06",
+      "days_left": 17,
+      "significant": true,
+      "comment_url": "https://www.regulations.gov/commenton/DOE_FRDOC_0001-5419",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/07/2026-13674/energy-conservation-program-procedures-interpretations-and-policies-for-consideration-of-new-or",
+      "docket_ids": [
+        "EERE-2025-BT-STD-0001"
+      ],
+      "abstract": "The U.S. Department of Energy (\"DOE\" or \"the Department\") proposes to update the Department's current rulemaking methodology titled, \"Procedures, Interpretations, and Policies for Consideration of New or Revised Energy Conservation Standards and Test Procedures for Consumer\u2026",
       "rank": 11
     },
     {
       "score": 7,
-      "why": "prescription \u00b7 drug \u00b7 closes in 7d",
-      "title": "Expanding Access to State Prescription Drug Monitoring Programs",
+      "why": "mortgage \u00b7 consumer \u00b7 credit \u00b7 closes in 21d",
+      "title": "Request for Information Regarding Promoting Access to Mortgage Credit",
       "agencies": [
-        "Veterans Affairs Department"
+        "Consumer Financial Protection Bureau"
       ],
-      "document_number": "2026-10084",
-      "publication_date": "2026-05-20",
-      "comments_close_on": "2026-07-20",
-      "days_left": 7,
+      "document_number": "2026-13834",
+      "publication_date": "2026-07-09",
+      "comments_close_on": "2026-08-10",
+      "days_left": 21,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/VA-2026-VHA-0166-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/05/20/2026-10084/expanding-access-to-state-prescription-drug-monitoring-programs",
-      "docket_ids": [],
-      "abstract": "The Department of Veterans Affairs (VA) proposes to amend its regulation that governs disclosure of information to and querying of State prescription drug monitoring programs (PDMPs). The rule would clarify certain statutory definitions, including the definition of delegate and\u2026",
+      "comment_url": "https://www.regulations.gov/commenton/CFPB-2026-0018-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/09/2026-13834/request-for-information-regarding-promoting-access-to-mortgage-credit",
+      "docket_ids": [
+        "Docket No. CFPB-2026-0018"
+      ],
+      "abstract": "This notice requests information from the public about potential regulatory changes that may reduce regulatory burdens and promote access to mortgage credit, as appropriate and consistent with applicable law. The Consumer Financial Protection Bureau (Bureau or CFPB) seeks to\u2026",
       "rank": 12
     }
   ]
