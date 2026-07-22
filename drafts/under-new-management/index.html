@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  TEMPLATE — TIMELINE PUZZLE ("timeline" in data/puzzles.json)
+  Arrange 5 real events in chronological order. Dates are
+  hidden until the reveal — that's the puzzle.
+  Fits court records, dockets, votes, rulemaking milestones.
+
+  ALL CONTENT BELOW IS PLACEHOLDER / SAMPLE DATA.
+  Editorial control is 100% human — never ship this file with
+  sample content. Copy to the series folder and stamp.
+
+  TEMPLATE CONFIG — EVERYTHING A HUMAN STAMPS
+  ============================================================
+  HEAD
+  [ ] <title> — "{Episode} — {Series} | Moral Fiber Media"
+  [ ] <meta name="description">
+  [ ] <link rel="canonical"> + og:url + og:title + og:description
+  [ ] og:image / twitter:image — {path}/preview.png
+  [ ] twitter:title / twitter:description
+  [ ] JSON-LD — BreadcrumbList item names/URLs, Quiz name/url/
+      description/about/hasPart questions, and "license" URL
+      (must match the license block chosen below)
+
+  MASTHEAD
+  [ ] .kicker — category · data source line
+  [ ] .episode-tag — series or "Puzzle #N" tag
+  [ ] h1.episode-name — the unique puzzle name (the ONLY h1)
+  [ ] .sub — one-line setup
+  [ ] .dateline — sources line
+
+  INTRO / HOOK
+  [ ] .intro-bar — how-to-play line
+  [ ] .hook-bar — editorial lead (the "wait, what?" fact)
+  [ ] .start-meta — "5 Events · 1 Timeline · Lock It In"
+  [ ] .rank-direction — e.g. "EARLIEST → LATEST · SAMPLE DOCKET"
+  [ ] .hint-text
+
+  TIMELINE EVENTS (5 × .timeline-event) — markup order below is
+  the SCRAMBLE the player sees (hand-pick it; keep it stable so
+  screenshots/previews are reproducible). Per event:
+  [ ] data-id     — unique slug
+  [ ] data-rank   — correct chronological position 1..5
+                    (1 = earliest). Human-stamped, never derived.
+  [ ] data-date   — ISO date (YYYY-MM-DD). Hidden until reveal;
+                    JS formats the date chip from this one field.
+  [ ] .event-title — short event name
+  [ ] .event-desc  — one-line description (NO date giveaways)
+  [ ] .source-reveal — source label + URL
+
+  COMPLETE SCREEN / SHARE
+  [ ] .complete-sub — one-line editorial kicker
+  [ ] .complete-sources — one link per event (Dive Deeper)
+  [ ] shareGame() — share text + title
+
+  LICENSE — CC BY 4.0 is active below (original content /
+  public-domain records: court filings, Federal Register,
+  Congressional record…). IF ANY DATA IS FROM OPENSECRETS:
+  swap in the commented CC BY-NC-SA 3.0 block, AND the JSON-LD
+  "license" URL, AND the header comment above.
+
+  OPTIONAL — Public Comment CTA: if the puzzle ties to an open
+  comment period, copy the data-driven .comment-cta block from
+  just-the-facts/who-spends-your-money/index.html (see the
+  mfm-editorial-design skill).
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- DRAFT — media-consolidation dates sourced 2026-07-21 (SEC filings /
+     company announcements / news coverage). VERIFY each date against the
+     linked source before publishing; the WBD deal is active litigation and
+     the final event may need updating at publish time. Unlinked + noindex
+     (netlify.toml /drafts/*); viewable on Deploy Previews. To publish:
+     verify → move to puzzles/under-new-management/ → preview.png →
+     index card → sitemap → marketing set. -->
+<!-- SEO & Social -->
+<meta name="description" content="CBS sold, MSNBC renamed, TikTok under new owners, Warner Bros. on the block — can you put the media consolidation wave in order? A FactPuzzle from Moral Fiber Media.">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/under-new-management">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Moral Fiber Media">
+<meta property="og:title" content="Under New Management — Media Consolidation | Moral Fiber Media">
+<meta property="og:description" content="CBS sold, MSNBC renamed, TikTok under new owners, Warner Bros. on the block — can you put the media consolidation wave in order?">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/under-new-management">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/under-new-management/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Under New Management — Media Consolidation | Moral Fiber Media">
+<meta name="twitter:description" content="CBS sold, MSNBC renamed, TikTok under new owners, Warner Bros. on the block — can you put the media consolidation wave in order?">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/under-new-management/preview.png">
+
+<title>Under New Management — Media Consolidation | Moral Fiber Media</title>
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Puzzles", "item": "https://followthemoney.moralfibermedia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Under New Management", "item": "https://followthemoney.moralfibermedia.com/puzzles/under-new-management" }
+      ]
+    },
+    {
+      "@type": "Quiz",
+      "name": "Under New Management",
+      "url": "https://followthemoney.moralfibermedia.com/puzzles/under-new-management",
+      "description": "Arrange five milestones of the 2025-26 media consolidation wave — Skydance-Paramount, the Versant spin-off, the TikTok U.S. joint venture, and the Warner Bros. Discovery deal — in chronological order.",
+      "educationalUse": "Civic education",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Moral Fiber Media",
+        "url": "https://moralfibermedia.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "hasPart": [
+        {
+          "@type": "Question",
+          "eduQuestionType": "Checkwork",
+          "text": "Put these media-consolidation milestones in order: Skydance closes its Paramount merger, Comcast completes the Versant spin-off, the TikTok U.S. joint venture closes, Warner Bros. Discovery signs the Paramount Skydance agreement, and a federal judge pauses the deal.",
+          "acceptedAnswer": { "@type": "Answer", "text": "Skydance-Paramount closes (Aug 2025), Versant spin-off (Jan 2026), TikTok JV closes (Jan 2026), WBD agreement signed (Feb 2026), judge pauses deal (Jul 2026)" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0d0d;
+  --paper: #f2ede4;
+  --red: #d63031;
+  --blue: #2c3e6b;
+  --gold: #b8860b;
+  --muted: #6b6256;
+  --rule: #c0b89a;
+  --green: #27ae60;
+  --rep-red: #8b1a1a;
+  --dem-blue: #1a3a5c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.game-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+/* FULL-BLEED BREAKOUT */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+.full-bleed-edge {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* MASTHEAD */
+.masthead {
+  text-align: center;
+  border-top: 5px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 14px 0 10px;
+  margin-bottom: 6px;
+  animation: fadeIn 0.5s ease both;
+}
+.masthead .kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* Brand wordmark — a div, NOT a heading. The single h1 on this
+   page is the unique episode name below (SEO rule, 2026-06-24). */
+.masthead .wordmark {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin: 8px 0 4px;
+}
+.masthead .wordmark em { font-style: italic; color: var(--red); }
+.masthead .episode-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  display: inline-block;
+  padding: 5px 16px;
+  margin-top: 14px;
+}
+.masthead .episode-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--red);
+  margin: 8px 0 4px;
+  letter-spacing: 0.5px;
+}
+.masthead .sub {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.dateline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* INSTRUCTIONS BAR */
+.intro-bar {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 22px max(32px, calc(50vw - 460px));
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  text-align: center;
+  animation: fadeIn 0.6s 0.1s ease both;
+}
+.intro-bar strong { font-weight: 600; font-style: normal; color: #f0c040; }
+
+/* HOOK BAR (editorial standfirst — the lead) */
+.hook-bar {
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+  padding: 20px max(32px, calc(50vw - 460px));
+  margin-bottom: 28px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.55;
+  border-bottom: 2px solid var(--ink);
+  animation: fadeIn 0.6s 0.15s ease both;
+}
+.hook-bar strong { color: var(--red); font-style: normal; font-weight: 700; }
+.hook-bar .hook-inner { display: block; max-width: 680px; margin: 0 auto; }
+
+/* SCORE BAR */
+.score-bar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.5s 0.15s ease both;
+}
+.score-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.score-item span {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.score-item span.correct { color: var(--green); }
+.score-item span.wrong { color: var(--red); }
+
+/* TIMELINE BOARD */
+.timeline-board {
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 20px;
+  margin-bottom: 28px;
+  animation: fadeIn 0.5s 0.3s ease both;
+}
+
+.tray-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.tray-label.armed .step-num { background: var(--gold); }
+.tray-label.complete .step-num { background: var(--green); }
+.tray-label.armed { color: var(--gold); }
+
+.rank-direction {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 16px;
+}
+.rank-direction .dir-arrow { color: var(--red); }
+
+@keyframes attention-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184, 134, 11, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(184, 134, 11, 0.22); }
+}
+.timeline-list.attention .timeline-event {
+  animation: attention-pulse 1.8s ease-in-out infinite;
+}
+
+/* THE SPINE — vertical rule with node dots down the left */
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  padding-left: 24px;
+}
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  background: var(--ink);
+}
+
+/* TIMELINE EVENT CARD */
+.timeline-event {
+  display: flex;
+  align-items: stretch;
+  border: 3px solid var(--ink);
+  background: white;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+/* node dot on the spine */
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  margin-top: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+}
+.timeline-event.slot-correct::before { border-color: var(--green); background: var(--green); }
+.timeline-event.slot-wrong::before { border-color: var(--red); }
+
+.timeline-event:hover { border-color: var(--gold); }
+.timeline-event.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.4);
+}
+.timeline-event.dragging { opacity: 0.6; }
+.timeline-event.slot-correct { border-color: var(--green); cursor: default; }
+.timeline-event.slot-wrong { border-color: var(--red); cursor: default; }
+.timeline-event.wrong-flash { animation: wrongShake 0.5s ease; }
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+.slot-badge {
+  flex-shrink: 0;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.timeline-event.slot-correct .slot-badge { background: var(--green); }
+.timeline-event.slot-wrong .slot-badge { background: var(--red); }
+
+.event-body {
+  flex: 1;
+  padding: 14px 16px;
+  min-width: 0;
+}
+.event-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.rank-mark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+.timeline-event.slot-correct .rank-mark { color: var(--green); }
+.timeline-event.slot-wrong .rank-mark { color: var(--red); }
+
+.event-desc {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+/* DATE CHIP — hidden until reveal; that's the puzzle */
+.date-chip {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 4px 12px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.date-chip.visible { opacity: 1; transform: translateY(0); }
+.timeline-event.slot-correct .date-chip { background: var(--green); }
+.timeline-event.slot-wrong .date-chip { background: var(--red); }
+
+/* SOURCE REVEAL */
+.source-reveal {
+  margin-top: 8px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.source-reveal.visible {
+  opacity: 1;
+  max-height: 60px;
+}
+.source-reveal a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--blue);
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  word-break: break-all;
+}
+.source-reveal .src-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+/* MOVE BUTTONS (tap-first reorder — never requires drag) */
+.move-btns {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--rule);
+}
+.move-btn {
+  flex: 1;
+  min-width: 48px;
+  min-height: 34px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  padding: 0 14px;
+}
+.move-btn:hover { background: var(--ink); color: var(--paper); }
+.move-btn:first-child { border-bottom: 1px solid var(--rule); }
+.timeline-list.revealed .move-btn { visibility: hidden; }
+
+/* SUBMIT */
+.submit-row {
+  text-align: center;
+  margin-top: 20px;
+}
+.submit-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  padding: 16px 44px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.submit-btn:hover { background: var(--red); border-color: var(--red); }
+.submit-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  background: var(--muted);
+  border-color: var(--muted);
+}
+
+/* HINT TEXT */
+.hint-text {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 12px;
+  transition: opacity 0.3s;
+}
+
+/* ARCADE COMPLETE SCREEN */
+.arcade-complete {
+  display: none;
+  text-align: center;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 28px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+}
+.arcade-complete.show {
+  display: block;
+  animation: complete-flash 0.45s ease-out both;
+}
+@keyframes complete-flash {
+  0%   { opacity: 0; transform: scale(0.96); }
+  60%  { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.complete-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 6px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+
+.complete-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(26px, 4.5vw, 34px);
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.complete-sub {
+  font-family: 'Source Serif 4', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 24px;
+  line-height: 1.5;
+}
+
+.rank-and-stats {
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.complete-rank {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 3px solid var(--muted);
+  color: var(--muted);
+  text-align: center;
+}
+.complete-rank .rank-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.complete-rank .rank-stars {
+  font-size: 22px;
+  letter-spacing: 6px;
+  line-height: 1;
+}
+.complete-rank .rank-stars .star { display: inline-block; }
+.complete-rank .rank-stars .star.filled { color: var(--gold); }
+.complete-rank .rank-stars .star.empty { color: var(--rule); }
+.complete-rank.perfect {
+  border-color: var(--gold);
+  color: var(--gold);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+.complete-rank.cleared {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.complete-rank.finished {
+  border-color: var(--muted);
+  color: var(--muted);
+}
+
+.complete-stats {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  min-width: 220px;
+}
+.stat-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  border-bottom: 1px dotted var(--rule);
+  padding: 6px 0;
+}
+.stat-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.complete-sources {
+  margin: 0 auto 32px;
+  max-width: 560px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  text-align: left;
+  border: 3px solid var(--ink);
+  padding: 22px 26px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.complete-sources .src-label {
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 14px;
+  font-size: 13px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+.complete-sources a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  margin-bottom: 10px;
+  padding: 4px 0;
+  transition: color 0.15s, border-color 0.15s;
+  font-weight: 600;
+}
+.complete-sources a:last-child { margin-bottom: 0; }
+.complete-sources a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.complete-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* BUTTON ROW */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.reset-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reset-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.share-btn {
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.share-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.share-btn.copied {
+  background: var(--green);
+  border-color: var(--green);
+}
+.more-btn {
+  background: none;
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+}
+.more-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* SHARE & FOLLOW */
+.share-section {
+  margin-top: 32px;
+  border: 3px solid var(--ink);
+  background: white;
+  padding: 24px;
+  animation: fadeIn 0.5s 0.35s ease both;
+}
+.share-section .section-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.share-section .section-sub {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.social-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  padding: 12px 20px;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+.social-link:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+.social-icon { font-size: 16px; }
+.social-link.tip-link {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.social-link.tip-link:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+/* INSPIRED BY */
+.inspired-section {
+  margin-top: 28px;
+  animation: fadeIn 0.5s 0.4s ease both;
+}
+.inspired-section .section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+  margin-bottom: 14px;
+}
+.inspired-link {
+  display: flex;
+  align-items: start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+.inspired-link:hover { color: var(--red); }
+.inspired-link:hover .inspired-num { background: var(--red); }
+.inspired-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.15s;
+}
+.inspired-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.inspired-desc {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+.inspired-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* PRO-DEMOCRACY FIGHTERS */
+.fighters-section {
+  margin-top: 24px;
+  animation: fadeIn 0.5s 0.55s ease both;
+}
+.fighters-header {
+  background: var(--ink);
+  color: var(--paper);
+  border: 3px solid var(--ink);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.fighters-header .fighters-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--paper);
+}
+.fighters-header .fighters-teaser {
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(242, 237, 228, 0.7);
+}
+.fighters-list {
+  border: 3px solid var(--ink);
+  border-top: none;
+}
+.fighters-list-inner {
+  padding: 20px 24px;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+.fighter-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1.5px solid var(--rule);
+  transition: all 0.15s;
+}
+.fighter-link:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+.fighter-link:hover .fighter-icon { background: var(--red); }
+.fighter-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.fighter-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.fighter-desc {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.fighters-full-list-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--gold);
+  color: var(--paper);
+  border: 3px solid var(--gold);
+  margin-top: -3px;
+  padding: 18px 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.fighters-full-list-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.fighters-full-list-btn .arrow {
+  font-size: 22px;
+  line-height: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* LICENSE BLOCK */
+.license-block {
+  margin-top: 24px;
+  border-top: 3px solid var(--ink);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.license-row {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+.license-row a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.license-row a:hover { color: var(--ink); }
+.license-tag {
+  flex-shrink: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.license-tag.data-tag { background: var(--muted); }
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .event-title { font-size: 15px; }
+  .slot-badge { width: 44px; font-size: 12px; }
+  .timeline-list { padding-left: 18px; }
+  .timeline-list::before { left: 3px; }
+  .timeline-event::before { left: -18px; width: 10px; height: 10px; margin-top: -5px; }
+  .social-row { flex-direction: column; }
+}
+
+/* ============================================================
+   START GATE (arcade-style attract screen)
+   ============================================================ */
+.start-gate {
+  text-align: center;
+  padding: 56px 20px 60px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      rgba(13, 13, 13, 0.04) 2px,
+      rgba(13, 13, 13, 0.04) 3px
+    ),
+    var(--paper);
+  transition: opacity 0.35s ease, max-height 0.45s ease, padding 0.45s ease, margin 0.45s ease, border-width 0.45s ease;
+  overflow: hidden;
+  max-height: 600px;
+}
+.start-gate.dismissed {
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  pointer-events: none;
+}
+.start-gate-cursor {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 14px;
+  letter-spacing: 8px;
+  animation: arcade-blink 1s steps(2, start) infinite;
+}
+@keyframes arcade-blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+.start-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  border: 4px solid var(--ink);
+  padding: 22px 56px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--ink);
+  animation: arcade-pulse 1.6s ease-in-out infinite;
+}
+@keyframes arcade-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+.start-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--red);
+}
+.start-btn:active {
+  transform: scale(0.97);
+}
+.start-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 22px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   PLAY AREA (revealed after pressing start)
+   ============================================================ */
+.play-area[hidden] { display: none !important; }
+.play-area.revealed { animation: play-reveal 0.55s ease both; }
+@keyframes play-reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<div class="game-container">
+  <!-- MASTHEAD -->
+  <div class="masthead full-bleed">
+    <div class="kicker">Interactive · Public Record · Media Consolidation</div>
+    <h1 class="wordmark">UNDER NEW<br><em>MANAGEMENT</em></h1>
+    <div class="episode-tag">Media Consolidation · 2025–26</div>
+    <div class="sub">CBS sold. MSNBC renamed. TikTok under new owners. Warner Bros. on the block. Can you put the takeover wave in order?</div>
+    <div class="dateline">Sources: SEC filings · company announcements · court record</div>
+  </div>
+
+  <!-- INSTRUCTIONS -->
+  <div class="intro-bar full-bleed-edge">
+    <strong>How to play:</strong> Put the five events in the order they happened — tap two cards to swap them, or use the arrows. Lock it in to reveal the dates.
+  </div>
+
+  <!-- HOOK BAR (editorial lead) -->
+  <div class="hook-bar full-bleed-edge">
+    <span class="hook-inner">In under a year, CBS changed hands, MSNBC lost its name, TikTok's U.S. operation got new part-owners, and the company behind HBO and CNN agreed to a $110.9 billion sale — to the same family that bought CBS. <strong>The order is the story. Can you rebuild it?</strong></span>
+  </div>
+
+  <!-- START GATE -->
+  <div class="start-gate" id="startGate">
+    <div class="start-gate-cursor">▮</div>
+    <button class="start-btn" type="button" onclick="startGame()">▶ Press Start</button>
+    <div class="start-meta">5 Deals · 11 Months · Lock It In</div>
+  </div>
+
+  <!-- PLAY AREA -->
+  <div class="play-area" id="playArea" hidden>
+
+  <!-- SCORE -->
+  <div class="score-bar" aria-live="polite">
+    <div class="score-item">In order: <span id="correctCount">—</span>/5</div>
+  </div>
+
+  <!-- TIMELINE BOARD -->
+  <div class="timeline-board">
+    <div class="tray-label" id="trayLabel" aria-live="polite"><span class="step-num">1</span> <span id="trayLabelText">Tap an event, then tap where it goes</span></div>
+    <div class="rank-direction"><span class="dir-arrow">▼</span> EARLIEST → LATEST · THE CONSOLIDATION WAVE <span class="dir-arrow">▼</span></div>
+
+    <!--
+      TIMELINE EVENTS — markup order below is the starting SCRAMBLE
+      the player sees (hand-picked, stable — never shuffled at
+      runtime). data-rank = correct chronological position (1 =
+      earliest). data-date = ISO date; the date chip is formatted
+      from it by JS and stays hidden until the reveal.
+      Keep .event-desc free of date giveaways ("in March…").
+    -->
+    <div class="timeline-list attention" id="timelineList">
+      <div class="timeline-event" data-id="tiktok-jv" data-rank="3" data-date="2026-01-22">
+        <div class="slot-badge">1st</div>
+        <div class="event-body">
+          <div class="event-title">TikTok gets American part-owners<span class="rank-mark"></span></div>
+          <div class="event-desc">ByteDance closes the deal creating a U.S. joint venture for TikTok — Oracle, Silver Lake, and Abu Dhabi's MGX take 15% each; ByteDance keeps 19.9%.</div>
+          <span class="date-chip"></span>
+          <div class="source-reveal">
+            <div class="src-label">Source</div>
+            <a href="https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504" target="_blank" rel="noopener">TikTok signs U.S. joint-venture deal — ABC News</a>
+          </div>
+        </div>
+        <div class="move-btns">
+          <button class="move-btn" type="button" aria-label="Move the TikTok joint venture earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the TikTok joint venture later" onclick="moveItem(this, 1, event)">▼</button>
+        </div>
+      </div>
+
+      <div class="timeline-event" data-id="skydance-paramount" data-rank="1" data-date="2025-08-07">
+        <div class="slot-badge">2nd</div>
+        <div class="event-body">
+          <div class="event-title">Skydance closes the Paramount merger<span class="rank-mark"></span></div>
+          <div class="event-desc">David Ellison's Skydance completes its merger with Paramount Global — CBS, Paramount Pictures, and Paramount+ come under Ellison-family control.</div>
+          <span class="date-chip"></span>
+          <div class="source-reveal">
+            <div class="src-label">Source</div>
+            <a href="https://en.wikipedia.org/wiki/Acquisition_of_Paramount_Global_by_Skydance_Media" target="_blank" rel="noopener">Skydance-Paramount merger — overview & sources</a>
+          </div>
+        </div>
+        <div class="move-btns">
+          <button class="move-btn" type="button" aria-label="Move the Skydance-Paramount close earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the Skydance-Paramount close later" onclick="moveItem(this, 1, event)">▼</button>
+        </div>
+      </div>
+
+      <div class="timeline-event" data-id="judge-pause" data-rank="5" data-date="2026-07-20">
+        <div class="slot-badge">3rd</div>
+        <div class="event-body">
+          <div class="event-title">A federal judge pauses the Warner deal<span class="rank-mark"></span></div>
+          <div class="event-desc">With twelve state attorneys general suing to block the acquisition, a federal judge halts the Paramount Skydance-Warner deal for at least 14 days.</div>
+          <span class="date-chip"></span>
+          <div class="source-reveal">
+            <div class="src-label">Source</div>
+            <a href="https://www.cnbc.com/2026/07/14/paramount-wbd-merger-lawsuit.html" target="_blank" rel="noopener">State AGs sue over the Paramount-WBD merger — CNBC</a>
+          </div>
+        </div>
+        <div class="move-btns">
+          <button class="move-btn" type="button" aria-label="Move the court pause earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the court pause later" onclick="moveItem(this, 1, event)">▼</button>
+        </div>
+      </div>
+
+      <div class="timeline-event" data-id="versant-spinoff" data-rank="2" data-date="2026-01-02">
+        <div class="slot-badge">4th</div>
+        <div class="event-body">
+          <div class="event-title">MSNBC leaves NBC — and its name behind<span class="rank-mark"></span></div>
+          <div class="event-desc">Comcast completes the Versant spin-off: MSNBC rebrands as MS NOW and exits the NBC family, taking CNBC and the cable networks with it.</div>
+          <span class="date-chip"></span>
+          <div class="source-reveal">
+            <div class="src-label">Source</div>
+            <a href="https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/" target="_blank" rel="noopener">Comcast completes Versant spinoff — Variety</a>
+          </div>
+        </div>
+        <div class="move-btns">
+          <button class="move-btn" type="button" aria-label="Move the Versant spin-off earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the Versant spin-off later" onclick="moveItem(this, 1, event)">▼</button>
+        </div>
+      </div>
+
+      <div class="timeline-event" data-id="wbd-agreement" data-rank="4" data-date="2026-02-27">
+        <div class="slot-badge">5th</div>
+        <div class="event-body">
+          <div class="event-title">Warner Bros. Discovery agrees to sell<span class="rank-mark"></span></div>
+          <div class="event-desc">After Netflix withdraws its rival bid, Warner Bros. Discovery — HBO, CNN, the Warner studio — signs a definitive $110.9 billion agreement with Paramount Skydance.</div>
+          <span class="date-chip"></span>
+          <div class="source-reveal">
+            <div class="src-label">Source</div>
+            <a href="https://en.wikipedia.org/wiki/Proposed_acquisition_of_Warner_Bros._Discovery_by_Paramount_Skydance" target="_blank" rel="noopener">Paramount Skydance-WBD acquisition — overview & sources</a>
+          </div>
+        </div>
+        <div class="move-btns">
+          <button class="move-btn" type="button" aria-label="Move the Warner agreement earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the Warner agreement later" onclick="moveItem(this, 1, event)">▼</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button class="submit-btn" type="button" id="submitBtn" onclick="lockItIn()">Lock It In</button>
+    </div>
+    <div class="hint-text" id="hintText">Hint: the family deal came first — the courtroom came last.</div>
+  </div>
+
+  </div><!-- /play-area -->
+
+  <!-- ARCADE COMPLETE SCREEN -->
+  <div class="arcade-complete full-bleed-edge" id="arcadeComplete">
+    <div class="complete-cursor">▮</div>
+    <h2 class="complete-title">Puzzle Complete</h2>
+    <div class="complete-sub">Eleven months, four brands changing hands — and one family with reach across three of them. Every date is public record.</div>
+    <div class="rank-and-stats">
+      <div class="complete-rank" id="completeRank">
+        <span class="rank-label" id="rankLabel">Perfect</span>
+        <span class="rank-stars" id="rankStars"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></span>
+      </div>
+      <div class="complete-stats">
+        <div class="stat-line">
+          <span class="stat-label">In order</span>
+          <span class="stat-value"><span id="finalCorrect">5</span>/5</span>
+        </div>
+      </div>
+    </div>
+    <div class="complete-sources">
+      <div class="src-label">Dive Deeper</div>
+      <a href="https://en.wikipedia.org/wiki/Proposed_acquisition_of_Warner_Bros._Discovery_by_Paramount_Skydance" target="_blank" rel="noopener">The Paramount Skydance-WBD deal — full timeline &amp; sources</a>
+      <a href="https://www.cnbc.com/2026/07/14/paramount-wbd-merger-lawsuit.html" target="_blank" rel="noopener">Twelve state AGs sue to block the merger — CNBC</a>
+      <a href="https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/" target="_blank" rel="noopener">Versant: MS NOW &amp; CNBC leave Comcast — Variety</a>
+      <a href="https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504" target="_blank" rel="noopener">The TikTok U.S. joint venture — ABC News</a>
+    </div>
+    <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
+    <div class="complete-actions">
+      <button class="share-btn" onclick="shareGame()">📤 Share</button>
+      <a class="more-btn" href="/">More Puzzles →</a>
+    </div>
+  </div>
+
+  <div class="button-row">
+    <button class="reset-btn" onclick="resetGame()">Reset Puzzle</button>
+    <button class="share-btn" onclick="shareGame()">📤 Share Puzzle</button>
+    <a class="more-btn" href="/">More Puzzles →</a>
+  </div>
+
+  <!-- SHARE & FOLLOW -->
+  <div class="share-section">
+    <div class="section-head">Share & Follow</div>
+    <div class="section-sub">Got an idea for the next FactPuzzle? A company, an industry, a voting record? Send us your suggestions — we're building a series and your curiosity drives it.</div>
+    <div class="social-row">
+      <a class="social-link" href="https://www.youtube.com/@MoralFiberMedia" target="_blank" rel="noopener"><span class="social-icon">▶</span> YouTube</a>
+      <a class="social-link" href="https://www.tiktok.com/@moralfibermedia" target="_blank" rel="noopener"><span class="social-icon">♪</span> TikTok</a>
+      <a class="social-link" href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank" rel="noopener"><span class="social-icon">🦋</span> Bluesky</a>
+      <a class="social-link" href="https://sez.us/user/MoralFiberMedia" target="_blank" rel="noopener"><span class="social-icon">💬</span> Sez.us</a>
+      <a class="social-link" href="https://moralfibermedia.com" target="_blank" rel="noopener"><span class="social-icon">✉</span> Substack</a>
+      <a class="social-link tip-link" href="https://buymeacoffee.com/moralfibermedia" target="_blank" rel="noopener"><span class="social-icon">☕</span> Leave a Tip</a>
+    </div>
+  </div>
+
+  <!-- INSPIRED BY -->
+  <div class="inspired-section">
+    <div class="section-label">Inspired By…</div>
+    <a class="inspired-link" href="https://www.resistandunsubscribe.com/" target="_blank" rel="noopener">
+      <div class="inspired-num">1</div>
+      <div>
+        <div class="inspired-title">Resist and Unsubscribe</div>
+        <div class="inspired-desc">Consumer-powered accountability — tracking corporate boycotts and their market impact</div>
+        <div class="inspired-url">resistandunsubscribe.com</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.nokings.org/" target="_blank" rel="noopener">
+      <div class="inspired-num">2</div>
+      <div>
+        <div class="inspired-title">No Kings</div>
+        <div class="inspired-desc">Grassroots civic action — events, trainings, and know-your-rights resources</div>
+        <div class="inspired-url">nokings.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://ash.harvard.edu/ai-and-democracy-movements-project/" target="_blank" rel="noopener">
+      <div class="inspired-num">3</div>
+      <div>
+        <div class="inspired-title">AI and Democracy Movements Project — Harvard Ash Center</div>
+        <div class="inspired-desc">Research at the intersection of artificial intelligence, civic engagement, and democratic participation</div>
+        <div class="inspired-url">ash.harvard.edu</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.citizen.org/" target="_blank" rel="noopener">
+      <div class="inspired-num">4</div>
+      <div>
+        <div class="inspired-title">Public Citizen</div>
+        <div class="inspired-desc">Consumer advocacy and government accountability — corporate power, democracy reform, and the public interest</div>
+        <div class="inspired-url">citizen.org</div>
+      </div>
+    </a>
+    <a class="inspired-link" href="https://www.brennancenter.org/" target="_blank" rel="noopener">
+      <div class="inspired-num">5</div>
+      <div>
+        <div class="inspired-title">Brennan Center for Justice</div>
+        <div class="inspired-desc">NYU Law nonpartisan policy institute defending voting rights, fair elections, and judicial independence</div>
+        <div class="inspired-url">brennancenter.org</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- PRO-DEMOCRACY FIGHTERS -->
+  <div class="fighters-section">
+    <div class="fighters-header">
+      <div class="fighters-label">Pro-Democracy Fighters</div>
+      <div class="fighters-teaser">People and organizations on the front lines</div>
+    </div>
+    <div class="fighters-list">
+      <div class="fighters-list-inner">
+        <a class="fighter-link" href="https://www.youtube.com/briantylercohen" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Brian Tyler Cohen</div>
+            <div class="fighter-desc">Political commentary · YouTube</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.inequalitymedia.org/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Inequality Media</div>
+            <div class="fighter-desc">Robert Reich · Economic explainers</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://kimberlywehle.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Kimberly Wehle</div>
+            <div class="fighter-desc">Constitutional law · Author · Legal analyst</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.youtube.com/@GlennKirschner2" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Glenn Kirschner</div>
+            <div class="fighter-desc">Justice Matters · Former federal prosecutor</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://joycevance.substack.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Joyce Vance</div>
+            <div class="fighter-desc">Former U.S. Attorney · Civil rights voice</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.contrariannews.org" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">The Contrarian</div>
+            <div class="fighter-desc">Jennifer Rubin · Truthful, not neutral</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://lincolnproject.us/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">The Lincoln Project</div>
+            <div class="fighter-desc">Anti-authoritarian PAC · Democratic norms</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://heathercoxrichardson.substack.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Heather Cox Richardson</div>
+            <div class="fighter-desc">Letters from an American · Historian</div>
+          </div>
+        </a>
+        <a class="fighter-link" href="https://www.hopiumchronicles.com/" target="_blank" rel="noopener">
+          <div class="fighter-icon">✊</div>
+          <div>
+            <div class="fighter-name">Simon Rosenberg</div>
+            <div class="fighter-desc">Hopium Chronicles · Data over doom</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <a class="fighters-full-list-btn" href="/fighters" target="_blank" rel="noopener">
+      See the Full List <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- LICENSE BLOCK — CC BY 4.0 (original content / public-domain
+       records). IF ANY DATA IS FROM OPENSECRETS: replace this block
+       with the commented CC BY-NC-SA 3.0 variant below, AND update
+       the JSON-LD "license" URL in <head>, AND the header comment. -->
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This puzzle is licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · Original content by Moral Fiber Media</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Timeline from public record (SEC filings, company announcements, court record)</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="/legal" target="_blank" rel="noopener">Privacy &amp; Terms</a></span>
+    </div>
+  </div>
+  <!-- OPENSECRETS VARIANT (CC BY-NC-SA 3.0 — ShareAlike is viral;
+       the whole derivative work inherits it):
+  <div class="license-block">
+    <div class="license-row">
+      <span class="license-tag">License</span>
+      <span>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a> · Non-commercial use · Attribution required · Share alike</span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Credit</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Data from <a href="https://www.opensecrets.org/open-data/credit-opensecrets" target="_blank" rel="noopener">OpenSecrets.org</a></span>
+    </div>
+    <div class="license-row">
+      <span class="license-tag data-tag">Legal</span>
+      <span><a href="/legal" target="_blank" rel="noopener">Privacy &amp; Terms</a></span>
+    </div>
+  </div>
+  -->
+</div>
+
+
+<script>
+// ============================================================
+// PUZZLE ENGINE — TIMELINE (order 5 events chronologically,
+// one submit, staggered date-chip reveal)
+// State machine: GATE → ORDERING → REVEALED
+// Same reorder engine as the rank template, reframed for dates.
+// ============================================================
+
+let selectedItem = null;
+let revealed = false;
+const TOTAL_ITEMS = 5;
+const ORDINALS = ['1st', '2nd', '3rd', '4th', '5th'];
+
+// Starting scramble captured at load so Reset can restore it exactly.
+const startOrder = Array.from(document.querySelectorAll('#timelineList .timeline-event')).map(el => el.dataset.id);
+
+// START GATE — arcade-style attract screen
+function startGame() {
+  const gate = document.getElementById('startGate');
+  const playArea = document.getElementById('playArea');
+
+  gate.classList.add('dismissed');
+  playArea.hidden = false;
+  playArea.classList.add('revealed');
+
+  setTimeout(() => {
+    playArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 350);
+}
+
+// STATE-AWARE INSTRUCTION UPDATER
+function updateInstructions() {
+  const trayLabel = document.getElementById('trayLabel');
+  const trayLabelText = document.getElementById('trayLabelText');
+  const stepNum = trayLabel.querySelector('.step-num');
+
+  if (revealed) {
+    trayLabel.classList.remove('armed');
+    trayLabel.classList.add('complete');
+    stepNum.textContent = '✓';
+    trayLabelText.textContent = 'Revealed — the true chronology, sourced';
+    return;
+  }
+
+  if (selectedItem) {
+    trayLabel.classList.add('armed');
+    stepNum.textContent = '2';
+    trayLabelText.textContent = 'Now tap the event to swap with';
+  } else {
+    trayLabel.classList.remove('armed');
+    stepNum.textContent = '1';
+    trayLabelText.textContent = 'Tap an event, then tap where it goes';
+  }
+}
+
+// FLIP helper — animate items to their new positions after a DOM move
+function flipMove(mutate) {
+  const list = document.getElementById('timelineList');
+  const items = Array.from(list.children);
+  const before = new Map(items.map(el => [el, el.getBoundingClientRect().top]));
+
+  mutate();
+
+  items.forEach(el => {
+    const delta = before.get(el) - el.getBoundingClientRect().top;
+    if (!delta) return;
+    el.style.transition = 'none';
+    el.style.transform = 'translateY(' + delta + 'px)';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.transition = 'transform 0.25s ease';
+        el.style.transform = '';
+      });
+    });
+  });
+}
+
+// Renumber the fixed slot badges 1st..5th after any reorder
+function renumberSlots() {
+  document.querySelectorAll('#timelineList .timeline-event').forEach((item, i) => {
+    item.querySelector('.slot-badge').textContent = ORDINALS[i];
+  });
+}
+
+function clearSelection() {
+  document.querySelectorAll('.timeline-event').forEach(el => el.classList.remove('selected'));
+  selectedItem = null;
+}
+
+// TAP-TO-SWAP (works on mobile and desktop)
+document.querySelectorAll('#timelineList .timeline-event').forEach(item => {
+  item.addEventListener('click', () => {
+    if (revealed) return;
+
+    // First interaction kills the attention pulse
+    document.getElementById('timelineList').classList.remove('attention');
+
+    if (!selectedItem) {
+      selectedItem = item;
+      item.classList.add('selected');
+    } else if (selectedItem === item) {
+      clearSelection();
+    } else {
+      swapItems(selectedItem, item);
+      clearSelection();
+    }
+    updateInstructions();
+  });
+});
+
+function swapItems(a, b) {
+  flipMove(() => {
+    const marker = document.createElement('div');
+    a.parentNode.insertBefore(marker, a);
+    b.parentNode.insertBefore(a, b);
+    marker.parentNode.insertBefore(b, marker);
+    marker.remove();
+  });
+  renumberSlots();
+}
+
+// UP/DOWN ARROWS (guaranteed no-drag path)
+function moveItem(btn, dir, event) {
+  event.stopPropagation();
+  if (revealed) return;
+
+  document.getElementById('timelineList').classList.remove('attention');
+  clearSelection();
+  updateInstructions();
+
+  const item = btn.closest('.timeline-event');
+  const sibling = dir < 0 ? item.previousElementSibling : item.nextElementSibling;
+  if (!sibling) return;
+
+  flipMove(() => {
+    if (dir < 0) {
+      item.parentNode.insertBefore(item, sibling);
+    } else {
+      item.parentNode.insertBefore(sibling, item);
+    }
+  });
+  renumberSlots();
+}
+
+// DRAG AND DROP (desktop enhancement — drop on a card to swap)
+let draggedItem = null;
+
+document.querySelectorAll('#timelineList .timeline-event').forEach(item => {
+  item.setAttribute('draggable', 'true');
+
+  item.addEventListener('dragstart', (e) => {
+    if (revealed) { e.preventDefault(); return; }
+    draggedItem = item;
+    item.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', item.dataset.id);
+  });
+
+  item.addEventListener('dragend', () => {
+    item.classList.remove('dragging');
+    draggedItem = null;
+  });
+
+  item.addEventListener('dragover', (e) => {
+    if (revealed) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  });
+
+  item.addEventListener('drop', (e) => {
+    e.preventDefault();
+    if (revealed || !draggedItem || draggedItem === item) return;
+    document.getElementById('timelineList').classList.remove('attention');
+    clearSelection();
+    swapItems(draggedItem, item);
+    updateInstructions();
+  });
+});
+
+// Format an ISO date (YYYY-MM-DD) as "JAN 15, 2024" — the human
+// stamps one field; presentation is derived.
+function formatDateChip(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+}
+
+// LOCK IT IN — single submit, then the staggered reveal sequence
+function lockItIn() {
+  if (revealed) return;
+  revealed = true;
+  clearSelection();
+
+  const list = document.getElementById('timelineList');
+  list.classList.add('revealed');
+  list.classList.remove('attention');
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('hintText').style.opacity = '0';
+
+  const items = Array.from(list.children);
+  let correct = 0;
+
+  // 1. Mark each slot right/wrong + reveal sources
+  items.forEach((item, i) => {
+    const isCorrect = +item.dataset.rank === i + 1;
+    if (isCorrect) {
+      correct++;
+      item.classList.add('slot-correct');
+      item.querySelector('.rank-mark').textContent = '✓';
+    } else {
+      item.classList.add('slot-wrong', 'wrong-flash');
+      item.querySelector('.rank-mark').textContent = '✗';
+      setTimeout(() => item.classList.remove('wrong-flash'), 500);
+    }
+    item.querySelector('.source-reveal').classList.add('visible');
+    item.setAttribute('draggable', 'false');
+  });
+
+  // 2. Date chips fade in top-to-bottom, staggered
+  items.forEach((item, i) => {
+    const chip = item.querySelector('.date-chip');
+    chip.textContent = formatDateChip(item.dataset.date);
+    setTimeout(() => chip.classList.add('visible'), 300 + i * 120);
+  });
+
+  document.getElementById('correctCount').textContent = correct;
+  document.getElementById('correctCount').className = correct === TOTAL_ITEMS ? 'correct' : (correct >= 3 ? '' : 'wrong');
+  updateInstructions();
+
+  // 3. Re-sort into true chronology so the final state is the sourced record
+  setTimeout(() => {
+    flipMove(() => {
+      Array.from(list.children)
+        .sort((a, b) => +a.dataset.rank - +b.dataset.rank)
+        .forEach(el => list.appendChild(el));
+    });
+    renumberSlots();
+  }, 1800);
+
+  // 4. Victory
+  setTimeout(() => showVictory(correct), 2500);
+}
+
+// With 5 items, corrects can only be 0, 1, 2, 3, or 5 (never 4).
+function getRank(correct) {
+  if (correct === 5) return { cls: 'perfect', label: 'Perfect', stars: 3 };
+  if (correct >= 3) return { cls: 'cleared', label: 'Cleared', stars: 2 };
+  return { cls: 'finished', label: 'Finished', stars: 1 };
+}
+
+function renderStars(filled) {
+  let html = '';
+  for (let i = 0; i < 3; i++) {
+    html += i < filled
+      ? '<span class="star filled">★</span>'
+      : '<span class="star empty">☆</span>';
+  }
+  return html;
+}
+
+function showVictory(correct) {
+  const complete = document.getElementById('arcadeComplete');
+  const rankEl = document.getElementById('completeRank');
+  const rank = getRank(correct);
+
+  rankEl.className = 'complete-rank ' + rank.cls;
+  document.getElementById('rankLabel').textContent = rank.label;
+  document.getElementById('rankStars').innerHTML = renderStars(rank.stars);
+  document.getElementById('finalCorrect').textContent = correct;
+
+  complete.classList.add('show');
+  setTimeout(() => {
+    complete.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+function resetGame() {
+  revealed = false;
+  clearSelection();
+
+  const list = document.getElementById('timelineList');
+  list.classList.remove('revealed');
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('hintText').style.opacity = '1';
+  document.getElementById('arcadeComplete').classList.remove('show');
+  document.getElementById('correctCount').textContent = '—';
+  document.getElementById('correctCount').className = '';
+
+  // Restore the hand-picked starting scramble
+  startOrder.forEach(id => {
+    list.appendChild(list.querySelector('.timeline-event[data-id="' + id + '"]'));
+  });
+  renumberSlots();
+
+  document.querySelectorAll('#timelineList .timeline-event').forEach(item => {
+    item.classList.remove('slot-correct', 'slot-wrong', 'wrong-flash');
+    item.querySelector('.rank-mark').textContent = '';
+    item.querySelector('.source-reveal').classList.remove('visible');
+    const chip = item.querySelector('.date-chip');
+    chip.classList.remove('visible');
+    chip.textContent = '';
+    item.setAttribute('draggable', 'true');
+  });
+
+  // Re-arm the attention pulse + instructions
+  list.classList.add('attention');
+  const trayLabel = document.getElementById('trayLabel');
+  trayLabel.classList.remove('complete', 'armed');
+  updateInstructions();
+
+  setTimeout(() => {
+    document.getElementById('playArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+// SHARE
+function shareGame() {
+  const url = window.location.href;
+  const text = 'CBS sold. MSNBC renamed. TikTok under new owners. Warner Bros. on the block. Can you put the media takeover wave in order? 🔍📺';
+  const title = 'Under New Management — Moral Fiber Media';
+
+  if (navigator.share) {
+    navigator.share({ title: title, text: text, url: url }).catch(() => {});
+    return;
+  }
+
+  const shareText = text + '\n' + url;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(shareText).then(() => {
+      showShareConfirm();
+    }).catch(() => {
+      fallbackCopy(shareText);
+    });
+  } else {
+    fallbackCopy(shareText);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); showShareConfirm(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function showShareConfirm() {
+  document.querySelectorAll('.share-btn').forEach(btn => {
+    const original = btn.textContent;
+    btn.textContent = '✓ Link Copied';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+</script>
+</body>
+</html>
