@@ -46,7 +46,11 @@
                     JS formats the date chip from this one field.
   [ ] .event-title — short event name
   [ ] .event-desc  — one-line description (NO date giveaways)
-  [ ] .source-reveal — source label + URL
+  [ ] .source-reveal — THREE corroborating sources per event
+      (triangulation standard): prefer (1) .gov / SEC filing with
+      the date on-page, (2) the company's own release, (3) media or
+      trusted overview. Label "Sources — check all three"; reviewers
+      verify the date against all of them before publish.
 
   COMPLETE SCREEN / SHARE
   [ ] .complete-sub — one-line editorial kicker
@@ -504,9 +508,11 @@ body {
 }
 .source-reveal.visible {
   opacity: 1;
-  max-height: 60px;
+  max-height: 180px;
 }
 .source-reveal a {
+  display: block;
+  margin-bottom: 4px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--blue);
@@ -1251,9 +1257,13 @@ body {
           <div class="event-title">Sample Event Three<span class="rank-mark"></span></div>
           <div class="event-desc">PLACEHOLDER: A sample motion was filed. One line, no date giveaways.</div>
           <span class="date-chip"></span>
+          <!-- Triangulation: every event ships THREE sources (gov/SEC ·
+               company · media) — repeat this pattern on all events. -->
           <div class="source-reveal">
-            <div class="src-label">Source</div>
-            <a href="https://example.com/source-three" target="_blank" rel="noopener">PLACEHOLDER SOURCE — Sample Event Three</a>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://example.com/gov-source-three" target="_blank" rel="noopener">PLACEHOLDER GOV/SEC SOURCE — Sample Event Three</a>
+            <a href="https://example.com/company-source-three" target="_blank" rel="noopener">PLACEHOLDER COMPANY SOURCE — Sample Event Three</a>
+            <a href="https://example.com/media-source-three" target="_blank" rel="noopener">PLACEHOLDER MEDIA SOURCE — Sample Event Three</a>
           </div>
         </div>
         <div class="move-btns">

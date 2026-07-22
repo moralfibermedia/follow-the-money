@@ -73,15 +73,19 @@ def build_drafts(drafts_base):
         banner_html = f"<div class='note'>{inline(' '.join(banner.group(1).split()))}</div>" if banner else ""
         hook = re.search(r'<span class="hook-inner">(.*?)</span>', src, re.S)
         hook_html = f"<p class='draft-hook'><em>{' '.join(strip_tags(hook.group(1)).split())}</em></p>" if hook else ""
-        events = re.findall(
-            r'data-id="([^"]+)" data-rank="(\d+)" data-date="([\d-]+)".*?event-title">(.*?)<span.*?<a href="([^"]+)"[^>]*>(.*?)</a>',
-            src, re.S)
+        events = []
+        for chunk in re.findall(r'<div class="timeline-event"(.*?)<div class="move-btns">', src, re.S):
+            meta = re.search(r'data-rank="(\d+)" data-date="([\d-]+)"', chunk)
+            t = re.search(r'event-title">(.*?)<span', chunk, re.S)
+            links = re.findall(r'<a href="([^"]+)"[^>]*>(.*?)</a>', chunk, re.S)
+            if meta and t:
+                events.append((int(meta.group(1)), meta.group(2), t.group(1), links))
         rows = ""
-        for _id, rank, date, etitle, surl, slabel in sorted(events, key=lambda e: int(e[1])):
+        for rank, date, etitle, links in sorted(events):
+            srcs = "<br>".join(f"<a href='{html.escape(u)}' target='_blank' rel='noopener'>{html.escape(strip_tags(l))}</a>" for u, l in links)
             rows += (f"<tr><td class='mono'>{rank}</td><td>{html.escape(strip_tags(etitle))}</td>"
-                     f"<td class='mono'>{date}</td>"
-                     f"<td><a href='{html.escape(surl)}' target='_blank' rel='noopener'>{html.escape(strip_tags(slabel))}</a></td></tr>")
-        table = f"<div class='tbl'><table><thead><tr><th>#</th><th>Event</th><th>Date to verify</th><th>Source</th></tr></thead><tbody>{rows}</tbody></table></div>" if rows else ""
+                     f"<td class='mono'>{date}</td><td>{srcs}</td></tr>")
+        table = f"<div class='tbl'><table><thead><tr><th>#</th><th>Event</th><th>Date to verify</th><th>Sources — check all</th></tr></thead><tbody>{rows}</tbody></table></div>" if rows else ""
         play = f"{drafts_base}/drafts/{slug}/"
         cards.append(f"""<section class="campaign draft" id="draft-{slug}">
 <div class="campaign-head"><label class="rev"><input type="checkbox" data-slug="draft-{slug}"> verified</label>

@@ -76,8 +76,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <!-- DRAFT — media-consolidation dates sourced 2026-07-21 (SEC filings /
-     company announcements / news coverage). VERIFY each date against the
-     linked source before publishing; the WBD deal is active litigation and
+     company announcements / news coverage). VERIFY each date against ALL
+     THREE linked sources per event (triangulation standard: gov/SEC ·
+     company · media; no company/gov primary was located for the TikTok JV
+     close, so it carries three independent outlets). The WBD deal is
+     active litigation and
      the final event may need updating at publish time. Unlinked + noindex
      (netlify.toml /drafts/*); viewable on Deploy Previews. To publish:
      verify → move to puzzles/under-new-management/ → preview.png →
@@ -511,9 +514,11 @@ body {
 }
 .source-reveal.visible {
   opacity: 1;
-  max-height: 60px;
+  max-height: 180px;
 }
 .source-reveal a {
+  display: block;
+  margin-bottom: 4px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: var(--blue);
@@ -1258,8 +1263,10 @@ body {
           <div class="event-desc">ByteDance closes the deal creating a U.S. joint venture for TikTok — Oracle, Silver Lake, and Abu Dhabi's MGX take 15% each; ByteDance keeps 19.9%.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
+            <div class="src-label">Sources — check all three</div>
             <a href="https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504" target="_blank" rel="noopener">TikTok signs U.S. joint-venture deal — ABC News</a>
+            <a href="https://variety.com/2025/digital/news/tiktok-us-joint-venture-deal-close-date-oracle-silver-lake-1236612315/" target="_blank" rel="noopener">JV set to close in January; Oracle/Silver Lake/MGX — Variety</a>
+            <a href="https://www.bloomberg.com/news/articles/2025-12-18/tiktok-says-it-signed-agreements-to-create-new-us-joint-venture" target="_blank" rel="noopener">TikTok statement on the joint venture — Bloomberg</a>
           </div>
         </div>
         <div class="move-btns">
@@ -1275,8 +1282,10 @@ body {
           <div class="event-desc">David Ellison's Skydance completes its merger with Paramount Global — CBS, Paramount Pictures, and Paramount+ come under Ellison-family control.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
+            <div class="src-label">Sources — check all three</div>
             <a href="https://www.sec.gov/Archives/edgar/data/2041610/000119312525175046/d841914d8k12b.htm" target="_blank" rel="noopener">SEC Form 8-K12B — merger completed, filed Aug 7, 2025</a>
+            <a href="https://thedesk.net/2025/07/paramount-skydance-merger-closing-date/" target="_blank" rel="noopener">Paramount sets Aug 7 close date — The Desk</a>
+            <a href="https://en.wikipedia.org/wiki/Acquisition_of_Paramount_Global_by_Skydance_Media" target="_blank" rel="noopener">Skydance–Paramount merger — Wikipedia overview</a>
           </div>
         </div>
         <div class="move-btns">
@@ -1292,8 +1301,10 @@ body {
           <div class="event-desc">With twelve state attorneys general suing to block the acquisition, a federal judge halts the Paramount Skydance-Warner deal for at least 14 days.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
-            <a href="https://www.cnbc.com/2026/07/14/paramount-wbd-merger-lawsuit.html" target="_blank" rel="noopener">State AGs sue over the Paramount-WBD merger — CNBC</a>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://oag.ca.gov/news/press-releases/quiet-set-attorney-general-bonta-secures-critical-early-win-lawsuit-block-warner" target="_blank" rel="noopener">California AG — court pauses the merger (oag.ca.gov)</a>
+            <a href="https://coag.gov/press-releases/state-ags-win-court-order-pausing-paramount-warner-bros-merger/" target="_blank" rel="noopener">Colorado AG — order pausing the merger (coag.gov)</a>
+            <a href="https://www.fool.com/coverage/stock-market-today/2026/07/20/stock-market-today-july-20-warner-bros-discovery-falls-4-as-judge-pauses-usd110-billion-paramount-skydance-deal/" target="_blank" rel="noopener">Judge pauses the deal, July 20 — Motley Fool</a>
           </div>
         </div>
         <div class="move-btns">
@@ -1309,8 +1320,10 @@ body {
           <div class="event-desc">Comcast completes the Versant spin-off: MSNBC rebrands as MS NOW and exits the NBC family, taking CNBC and the cable networks with it.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://www.sec.gov/Archives/edgar/data/1166691/000095010326000079/dp239108_ex9901.htm" target="_blank" rel="noopener">Comcast 8-K exhibit — completion effective Jan 2, 2026 (SEC)</a>
             <a href="https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/" target="_blank" rel="noopener">Comcast completes Versant spinoff — Variety</a>
+            <a href="https://www.forbes.com/sites/joecornell/2026/01/06/comcast-completes-spin-off-of-versant-media-group/" target="_blank" rel="noopener">Comcast completes Versant spin-off — Forbes</a>
           </div>
         </div>
         <div class="move-btns">
@@ -1326,8 +1339,10 @@ body {
           <div class="event-desc">After Netflix withdraws its rival bid, Warner Bros. Discovery — HBO, CNN, the Warner studio — signs a definitive $110.9 billion agreement with Paramount Skydance.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
-            <a href="https://www.paramount.com/press/paramount-to-acquire-warner-bros-discovery-to-form-next-generation-global-media-and-entertainment-company" target="_blank" rel="noopener">Paramount announcement — definitive agreement, Feb 27, 2026</a>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://www.sec.gov/Archives/edgar/data/2041610/000110465926021911/tm2533570d75_ex99-1.htm" target="_blank" rel="noopener">Announcement as filed with the SEC — Feb 27, 2026</a>
+            <a href="https://www.paramount.com/press/paramount-to-acquire-warner-bros-discovery-to-form-next-generation-global-media-and-entertainment-company" target="_blank" rel="noopener">Paramount announcement — definitive agreement</a>
+            <a href="https://www.nbcnews.com/business/media/warner-bros-discovery-signs-merger-agreement-paramount-skydance-rcna261035" target="_blank" rel="noopener">WBD signs merger agreement — NBC News</a>
           </div>
         </div>
         <div class="move-btns">
