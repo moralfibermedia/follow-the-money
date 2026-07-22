@@ -12,7 +12,7 @@ review). scripts/ is blocked from serving, so this never ships to the site.
 import os, re, html, argparse
 
 GROUPS = [
-    ("New Mechanics", ["golden-parachutes", "lobby-or-not", "the-docket"]),
+    ("New Mechanics", ["golden-parachutes", "lobby-or-not", "the-docket", "under-new-management"]),
     ("Bar-Chart Series", ["hardware-giants","grocery-run","your-whole-paycheck","can-you-hear-me-now","stream-wars","fill-er-up","who-owns-your-feed","morning-fix","now-boarding","prescription-politics","office-supplies","americas-250th","georgia-on-my-mind"]),
     ("Specials & Text-Match", ["behind-the-bench","who-spends-your-money","power-to-pardon","pardon-my-receipts","power-grab"]),
 ]
