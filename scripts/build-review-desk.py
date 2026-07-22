@@ -238,6 +238,17 @@ th, td { border-bottom:1px solid var(--rule); padding:6px 14px 6px 0; vertical-a
   font-variant-numeric:tabular-nums; white-space:nowrap; }
 .stats { font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--muted);
   letter-spacing:.08em; margin-top:8px; }
+.deskbar { position:fixed; right:14px; bottom:14px; z-index:9; display:flex; gap:10px;
+  align-items:center; background:var(--card); border:2px solid var(--ink);
+  padding:8px 12px; font-family:ui-monospace,Menlo,monospace; font-size:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,.15); }
+.deskbar .dt { font-variant-numeric:tabular-nums; color:var(--muted); }
+.deskbar .dchecked { color:var(--chipok); }
+.deskbar button { font-family:inherit; font-size:11px; letter-spacing:.15em;
+  text-transform:uppercase; border:2px solid var(--ink); background:var(--ink);
+  color:var(--paper); padding:6px 12px; cursor:pointer; }
+.deskbar button:hover { background:var(--red); border-color:var(--red); }
+.deskbar #dMsg { color:var(--gold); max-width:220px; }
 @media (max-width:820px) { .wrap { flex-direction:column; }
   nav { position:static; width:auto; max-height:none; border-right:none;
     border-bottom:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:2px 10px; } }
@@ -252,6 +263,12 @@ th, td { border-bottom:1px solid var(--rule); padding:6px 14px 6px 0; vertical-a
 <nav>__TOC__</nav>
 <main>__MAIN__</main>
 </div>
+<div class="deskbar">
+  <span class="dt" id="dTimer">00:00</span>
+  <span class="dchecked" id="dChecked"></span>
+  <button id="dDone" type="button">Done — send report</button>
+  <span id="dMsg"></span>
+</div>
 <script>
 const KEY="mfm-mktg-review";
 const state=JSON.parse(localStorage.getItem(KEY)||"{}");
@@ -259,10 +276,52 @@ document.querySelectorAll(".rev input").forEach(cb=>{
   const s=cb.dataset.slug;
   cb.checked=!!state[s]; sync(s,cb.checked);
   cb.addEventListener("change",()=>{ state[s]=cb.checked;
-    localStorage.setItem(KEY,JSON.stringify(state)); sync(s,cb.checked); });
+    localStorage.setItem(KEY,JSON.stringify(state)); sync(s,cb.checked); countChecked(); });
 });
 function sync(s,on){ const t=document.querySelector(`.toc-item[data-slug="${s}"]`);
   if(t) t.classList.toggle("done",on); }
+
+// --- session timer (t0 stamped by the password gate on unlock; falls back to page load) ---
+const t0 = +(sessionStorage.getItem("desk-t0") || Date.now());
+if (!sessionStorage.getItem("desk-t0")) sessionStorage.setItem("desk-t0", String(t0));
+function tick(){
+  const s = Math.floor((Date.now()-t0)/1000);
+  document.getElementById("dTimer").textContent =
+    String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+}
+tick(); setInterval(tick, 1000);
+function countChecked(){
+  const n = Object.values(state).filter(Boolean).length;
+  document.getElementById("dChecked").textContent = n ? n+" ✓" : "";
+}
+countChecked();
+
+// --- DONE: submit a report as a Netlify Form (when hosted on the site);
+//     falls back to copy-to-clipboard where network calls are blocked. ---
+document.getElementById("dDone").addEventListener("click", async () => {
+  const reviewer = (prompt("Your name (goes in the report):") || "anonymous").slice(0,80);
+  const notes = (prompt("Findings / notes (optional):") || "").slice(0,2000);
+  const mins = Math.max(1, Math.round((Date.now()-t0)/60000));
+  const checked = Object.keys(state).filter(k=>state[k]).sort();
+  const report = `Review Desk report — ${new Date().toISOString().slice(0,16).replace("T"," ")} UTC
+Reviewer: ${reviewer}
+Time in desk: ${mins} min
+Verified/reviewed (${checked.length}): ${checked.join(", ") || "none"}
+Notes: ${notes || "—"}`;
+  const msg = document.getElementById("dMsg");
+  try {
+    const r = await fetch("/", { method:"POST",
+      headers:{ "Content-Type":"application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ "form-name":"review-desk-done", reviewer,
+        minutes:String(mins), report }) });
+    if (!r.ok) throw new Error("HTTP "+r.status);
+    msg.textContent = "Report sent ✓";
+  } catch (e) {
+    try { await navigator.clipboard.writeText(report);
+      msg.textContent = "Couldn't send from here — report copied, paste it to MFM.";
+    } catch (e2) { msg.textContent = "Couldn't send — screenshot this: " + report; }
+  }
+});
 </script>
 """
 

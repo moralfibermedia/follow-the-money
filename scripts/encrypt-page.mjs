@@ -65,6 +65,12 @@ button:hover { background:var(--red); border-color:var(--red); }
     <div class="err" id="err"></div>
   </form>
 </div>
+<!-- Static detection form so Netlify Forms registers "review-desk-done" at
+     deploy time; the decrypted desk submits to it via fetch. Hidden, inert. -->
+<form name="review-desk-done" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="reviewer"><input name="minutes"><textarea name="report"></textarea>
+  <input name="bot-field">
+</form>
 <script>
 const SALT = "${salt.toString("base64")}", IV = "${iv.toString("base64")}",
       CT = "${ct.toString("base64")}", ITER = ${ITER};
@@ -81,6 +87,7 @@ async function tryUnlock(pw, silent) {
   try {
     const html = await unlock(pw);
     sessionStorage.setItem("desk-pw", pw);
+    if (!sessionStorage.getItem("desk-t0")) sessionStorage.setItem("desk-t0", String(Date.now()));
     document.open(); document.write(html); document.close();
   } catch (e) {
     if (!silent) document.getElementById("err").textContent = "Wrong passphrase — try again.";
