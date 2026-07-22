@@ -46,11 +46,7 @@
                     JS formats the date chip from this one field.
   [ ] .event-title — short event name
   [ ] .event-desc  — one-line description (NO date giveaways)
-  [ ] .source-reveal — THREE corroborating sources per event
-      (triangulation standard): prefer (1) .gov / SEC filing with
-      the date on-page, (2) the company's own release, (3) media or
-      trusted overview. Label "Sources — check all three"; reviewers
-      verify the date against all of them before publish.
+  [ ] .source-reveal — source label + URL
 
   COMPLETE SCREEN / SHARE
   [ ] .complete-sub — one-line editorial kicker
@@ -79,29 +75,35 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- SEO & Social — PLACEHOLDER: stamp every URL and string -->
-<meta name="description" content="PLACEHOLDER: Five sample events. One record. Can you put them in order? A FactPuzzle from Moral Fiber Media.">
-<link rel="canonical" href="https://followthemoney.moralfibermedia.com/PLACEHOLDER-SERIES/PLACEHOLDER-SLUG">
+<!-- Timeline puzzle. Five milestones of the 2025-26 media-consolidation
+     wave, dates from the public record. Every event carries THREE
+     corroborating sources (triangulation standard: gov/SEC · company ·
+     media; the TikTok JV event carries three independent outlets — no
+     gov/company primary located). NOTE: the WBD deal is active
+     litigation — refresh the final event before re-promoting. -->
+<!-- SEO & Social -->
+<meta name="description" content="CBS sold, MSNBC renamed, TikTok under new owners, Warner Bros. on the block — can you put the media consolidation wave in order? A FactPuzzle from Moral Fiber Media.">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/under-new-management">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Moral Fiber Media">
-<meta property="og:title" content="[SAMPLE] Order the Record — PLACEHOLDER Series | Moral Fiber Media">
-<meta property="og:description" content="PLACEHOLDER: Five sample events. One record. Can you put them in order? A FactPuzzle from Moral Fiber Media.">
-<meta property="og:url" content="https://followthemoney.moralfibermedia.com/PLACEHOLDER-SERIES/PLACEHOLDER-SLUG">
-<meta property="og:image" content="https://followthemoney.moralfibermedia.com/PLACEHOLDER-SERIES/PLACEHOLDER-SLUG/preview.png">
+<meta property="og:title" content="Under New Management — Media Consolidation | Moral Fiber Media">
+<meta property="og:description" content="CBS sold, MSNBC renamed, TikTok under new owners, Warner Bros. on the block — can you put the media consolidation wave in order?">
+<meta property="og:url" content="https://followthemoney.moralfibermedia.com/puzzles/under-new-management">
+<meta property="og:image" content="https://followthemoney.moralfibermedia.com/puzzles/under-new-management/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="[SAMPLE] Order the Record — PLACEHOLDER Series | Moral Fiber Media">
-<meta name="twitter:description" content="PLACEHOLDER: Five sample events. One record. Can you put them in order? A FactPuzzle from Moral Fiber Media.">
-<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/PLACEHOLDER-SERIES/PLACEHOLDER-SLUG/preview.png">
+<meta name="twitter:title" content="Under New Management — Media Consolidation | Moral Fiber Media">
+<meta name="twitter:description" content="CBS sold, MSNBC renamed, TikTok under new owners, Warner Bros. on the block — can you put the media consolidation wave in order?">
+<meta name="twitter:image" content="https://followthemoney.moralfibermedia.com/puzzles/under-new-management/preview.png">
 
-<title>[SAMPLE] Order the Record — PLACEHOLDER Series | Moral Fiber Media</title>
+<title>Under New Management — Media Consolidation | Moral Fiber Media</title>
 
-<!-- Structured data — PLACEHOLDER: stamp names, URLs, questions, license -->
+<!-- Structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -110,14 +112,14 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Puzzles", "item": "https://followthemoney.moralfibermedia.com/" },
-        { "@type": "ListItem", "position": 2, "name": "PLACEHOLDER Episode Name", "item": "https://followthemoney.moralfibermedia.com/PLACEHOLDER-SERIES/PLACEHOLDER-SLUG" }
+        { "@type": "ListItem", "position": 2, "name": "Under New Management", "item": "https://followthemoney.moralfibermedia.com/puzzles/under-new-management" }
       ]
     },
     {
       "@type": "Quiz",
-      "name": "PLACEHOLDER Episode Name",
-      "url": "https://followthemoney.moralfibermedia.com/PLACEHOLDER-SERIES/PLACEHOLDER-SLUG",
-      "description": "PLACEHOLDER: Arrange five sample events in chronological order.",
+      "name": "Under New Management",
+      "url": "https://followthemoney.moralfibermedia.com/puzzles/under-new-management",
+      "description": "Arrange five milestones of the 2025-26 media consolidation wave — Skydance-Paramount, the Versant spin-off, the TikTok U.S. joint venture, and the Warner Bros. Discovery deal — in chronological order.",
       "educationalUse": "Civic education",
       "inLanguage": "en",
       "publisher": {
@@ -130,8 +132,8 @@
         {
           "@type": "Question",
           "eduQuestionType": "Checkwork",
-          "text": "PLACEHOLDER: Arrange Sample Events One through Five in the order they happened.",
-          "acceptedAnswer": { "@type": "Answer", "text": "PLACEHOLDER: Sample Event One, Two, Three, Four, Five" }
+          "text": "Put these media-consolidation milestones in order: Skydance closes its Paramount merger, Comcast completes the Versant spin-off, the TikTok U.S. joint venture closes, Warner Bros. Discovery signs the Paramount Skydance agreement, and a federal judge pauses the deal.",
+          "acceptedAnswer": { "@type": "Answer", "text": "Skydance-Paramount closes (Aug 2025), Versant spin-off (Jan 2026), TikTok JV closes (Jan 2026), WBD agreement signed (Feb 2026), judge pauses deal (Jul 2026)" }
         }
       ]
     }
@@ -1204,12 +1206,11 @@ body {
 <div class="game-container">
   <!-- MASTHEAD -->
   <div class="masthead full-bleed">
-    <div class="kicker">PLACEHOLDER: Interactive · Public Record · Source Category</div>
-    <div class="wordmark">PLACEHOLDER<br><em>SERIES NAME</em></div>
-    <div class="episode-tag">PLACEHOLDER Series Tag</div>
-    <h1 class="episode-name">"[SAMPLE] Order the Record"</h1>
-    <div class="sub">PLACEHOLDER: Five sample events. One record. Put them in the order they happened.</div>
-    <div class="dateline">PLACEHOLDER: Sources · Sample Docket · 20XX</div>
+    <div class="kicker">Interactive · Public Record · Media Consolidation</div>
+    <h1 class="wordmark">UNDER NEW<br><em>MANAGEMENT</em></h1>
+    <div class="episode-tag">Media Consolidation · 2025–26</div>
+    <div class="sub">CBS sold. MSNBC renamed. TikTok under new owners. Warner Bros. on the block. Can you put the takeover wave in order?</div>
+    <div class="dateline">Sources: SEC filings · company announcements · court record</div>
   </div>
 
   <!-- INSTRUCTIONS -->
@@ -1219,14 +1220,14 @@ body {
 
   <!-- HOOK BAR (editorial lead) -->
   <div class="hook-bar full-bleed-edge">
-    <span class="hook-inner">PLACEHOLDER: The one-sentence editorial hook goes here — why the order of these events is the story. <strong>The kicker lands in red.</strong></span>
+    <span class="hook-inner">In under a year, CBS changed hands, MSNBC lost its name, TikTok's U.S. operation got new part-owners, and the company behind HBO and CNN agreed to a $110.9 billion sale — to the same family that bought CBS. <strong>The order is the story. Can you rebuild it?</strong></span>
   </div>
 
   <!-- START GATE -->
   <div class="start-gate" id="startGate">
     <div class="start-gate-cursor">▮</div>
     <button class="start-btn" type="button" onclick="startGame()">▶ Press Start</button>
-    <div class="start-meta">5 Events · 1 Timeline · Lock It In</div>
+    <div class="start-meta">5 Deals · 11 Months · Lock It In</div>
   </div>
 
   <!-- PLAY AREA -->
@@ -1240,7 +1241,7 @@ body {
   <!-- TIMELINE BOARD -->
   <div class="timeline-board">
     <div class="tray-label" id="trayLabel" aria-live="polite"><span class="step-num">1</span> <span id="trayLabelText">Tap an event, then tap where it goes</span></div>
-    <div class="rank-direction"><span class="dir-arrow">▼</span> PLACEHOLDER: EARLIEST → LATEST · SAMPLE RECORD <span class="dir-arrow">▼</span></div>
+    <div class="rank-direction"><span class="dir-arrow">▼</span> EARLIEST → LATEST · THE CONSOLIDATION WAVE <span class="dir-arrow">▼</span></div>
 
     <!--
       TIMELINE EVENTS — markup order below is the starting SCRAMBLE
@@ -1251,92 +1252,98 @@ body {
       Keep .event-desc free of date giveaways ("in March…").
     -->
     <div class="timeline-list attention" id="timelineList">
-      <div class="timeline-event" data-id="sample-three" data-rank="3" data-date="2024-06-20">
+      <div class="timeline-event" data-id="tiktok-jv" data-rank="3" data-date="2026-01-22">
         <div class="slot-badge">1st</div>
         <div class="event-body">
-          <div class="event-title">Sample Event Three<span class="rank-mark"></span></div>
-          <div class="event-desc">PLACEHOLDER: A sample motion was filed. One line, no date giveaways.</div>
+          <div class="event-title">TikTok gets American part-owners<span class="rank-mark"></span></div>
+          <div class="event-desc">ByteDance closes the deal creating a U.S. joint venture for TikTok — Oracle, Silver Lake, and Abu Dhabi's MGX take 15% each; ByteDance keeps 19.9%.</div>
           <span class="date-chip"></span>
-          <!-- Triangulation: every event ships THREE sources (gov/SEC ·
-               company · media) — repeat this pattern on all events. -->
           <div class="source-reveal">
             <div class="src-label">Sources — check all three</div>
-            <a href="https://example.com/gov-source-three" target="_blank" rel="noopener">PLACEHOLDER GOV/SEC SOURCE — Sample Event Three</a>
-            <a href="https://example.com/company-source-three" target="_blank" rel="noopener">PLACEHOLDER COMPANY SOURCE — Sample Event Three</a>
-            <a href="https://example.com/media-source-three" target="_blank" rel="noopener">PLACEHOLDER MEDIA SOURCE — Sample Event Three</a>
+            <a href="https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504" target="_blank" rel="noopener">TikTok signs U.S. joint-venture deal — ABC News</a>
+            <a href="https://variety.com/2025/digital/news/tiktok-us-joint-venture-deal-close-date-oracle-silver-lake-1236612315/" target="_blank" rel="noopener">JV set to close in January; Oracle/Silver Lake/MGX — Variety</a>
+            <a href="https://www.bloomberg.com/news/articles/2025-12-18/tiktok-says-it-signed-agreements-to-create-new-us-joint-venture" target="_blank" rel="noopener">TikTok statement on the joint venture — Bloomberg</a>
           </div>
         </div>
         <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Sample Event Three earlier" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Sample Event Three later" onclick="moveItem(this, 1, event)">▼</button>
+          <button class="move-btn" type="button" aria-label="Move the TikTok joint venture earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the TikTok joint venture later" onclick="moveItem(this, 1, event)">▼</button>
         </div>
       </div>
 
-      <div class="timeline-event" data-id="sample-one" data-rank="1" data-date="2024-01-15">
+      <div class="timeline-event" data-id="skydance-paramount" data-rank="1" data-date="2025-08-07">
         <div class="slot-badge">2nd</div>
         <div class="event-body">
-          <div class="event-title">Sample Event One<span class="rank-mark"></span></div>
-          <div class="event-desc">PLACEHOLDER: A sample complaint was filed. One line, no date giveaways.</div>
+          <div class="event-title">Skydance closes the Paramount merger<span class="rank-mark"></span></div>
+          <div class="event-desc">David Ellison's Skydance completes its merger with Paramount Global — CBS, Paramount Pictures, and Paramount+ come under Ellison-family control.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
-            <a href="https://example.com/source-one" target="_blank" rel="noopener">PLACEHOLDER SOURCE — Sample Event One</a>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://www.sec.gov/Archives/edgar/data/2041610/000119312525175046/d841914d8k12b.htm" target="_blank" rel="noopener">SEC Form 8-K12B — merger completed, filed Aug 7, 2025</a>
+            <a href="https://thedesk.net/2025/07/paramount-skydance-merger-closing-date/" target="_blank" rel="noopener">Paramount sets Aug 7 close date — The Desk</a>
+            <a href="https://en.wikipedia.org/wiki/Acquisition_of_Paramount_Global_by_Skydance_Media" target="_blank" rel="noopener">Skydance–Paramount merger — Wikipedia overview</a>
           </div>
         </div>
         <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Sample Event One earlier" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Sample Event One later" onclick="moveItem(this, 1, event)">▼</button>
+          <button class="move-btn" type="button" aria-label="Move the Skydance-Paramount close earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the Skydance-Paramount close later" onclick="moveItem(this, 1, event)">▼</button>
         </div>
       </div>
 
-      <div class="timeline-event" data-id="sample-five" data-rank="5" data-date="2024-11-30">
+      <div class="timeline-event" data-id="judge-pause" data-rank="5" data-date="2026-07-20">
         <div class="slot-badge">3rd</div>
         <div class="event-body">
-          <div class="event-title">Sample Event Five<span class="rank-mark"></span></div>
-          <div class="event-desc">PLACEHOLDER: A sample ruling was issued. One line, no date giveaways.</div>
+          <div class="event-title">A federal judge pauses the Warner deal<span class="rank-mark"></span></div>
+          <div class="event-desc">With twelve state attorneys general suing to block the acquisition, a federal judge halts the Paramount Skydance-Warner deal for at least 14 days.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
-            <a href="https://example.com/source-five" target="_blank" rel="noopener">PLACEHOLDER SOURCE — Sample Event Five</a>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://oag.ca.gov/news/press-releases/quiet-set-attorney-general-bonta-secures-critical-early-win-lawsuit-block-warner" target="_blank" rel="noopener">California AG — court pauses the merger (oag.ca.gov)</a>
+            <a href="https://coag.gov/press-releases/state-ags-win-court-order-pausing-paramount-warner-bros-merger/" target="_blank" rel="noopener">Colorado AG — order pausing the merger (coag.gov)</a>
+            <a href="https://www.fool.com/coverage/stock-market-today/2026/07/20/stock-market-today-july-20-warner-bros-discovery-falls-4-as-judge-pauses-usd110-billion-paramount-skydance-deal/" target="_blank" rel="noopener">Judge pauses the deal, July 20 — Motley Fool</a>
           </div>
         </div>
         <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Sample Event Five earlier" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Sample Event Five later" onclick="moveItem(this, 1, event)">▼</button>
+          <button class="move-btn" type="button" aria-label="Move the court pause earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the court pause later" onclick="moveItem(this, 1, event)">▼</button>
         </div>
       </div>
 
-      <div class="timeline-event" data-id="sample-two" data-rank="2" data-date="2024-03-02">
+      <div class="timeline-event" data-id="versant-spinoff" data-rank="2" data-date="2026-01-02">
         <div class="slot-badge">4th</div>
         <div class="event-body">
-          <div class="event-title">Sample Event Two<span class="rank-mark"></span></div>
-          <div class="event-desc">PLACEHOLDER: A sample answer was entered. One line, no date giveaways.</div>
+          <div class="event-title">MSNBC leaves NBC — and its name behind<span class="rank-mark"></span></div>
+          <div class="event-desc">Comcast completes the Versant spin-off: MSNBC rebrands as MS NOW and exits the NBC family, taking CNBC and the cable networks with it.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
-            <a href="https://example.com/source-two" target="_blank" rel="noopener">PLACEHOLDER SOURCE — Sample Event Two</a>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://www.sec.gov/Archives/edgar/data/1166691/000095010326000079/dp239108_ex9901.htm" target="_blank" rel="noopener">Comcast 8-K exhibit — completion effective Jan 2, 2026 (SEC)</a>
+            <a href="https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/" target="_blank" rel="noopener">Comcast completes Versant spinoff — Variety</a>
+            <a href="https://www.forbes.com/sites/joecornell/2026/01/06/comcast-completes-spin-off-of-versant-media-group/" target="_blank" rel="noopener">Comcast completes Versant spin-off — Forbes</a>
           </div>
         </div>
         <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Sample Event Two earlier" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Sample Event Two later" onclick="moveItem(this, 1, event)">▼</button>
+          <button class="move-btn" type="button" aria-label="Move the Versant spin-off earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the Versant spin-off later" onclick="moveItem(this, 1, event)">▼</button>
         </div>
       </div>
 
-      <div class="timeline-event" data-id="sample-four" data-rank="4" data-date="2024-09-08">
+      <div class="timeline-event" data-id="wbd-agreement" data-rank="4" data-date="2026-02-27">
         <div class="slot-badge">5th</div>
         <div class="event-body">
-          <div class="event-title">Sample Event Four<span class="rank-mark"></span></div>
-          <div class="event-desc">PLACEHOLDER: A sample hearing was held. One line, no date giveaways.</div>
+          <div class="event-title">Warner Bros. Discovery agrees to sell<span class="rank-mark"></span></div>
+          <div class="event-desc">After Netflix withdraws its rival bid, Warner Bros. Discovery — HBO, CNN, the Warner studio — signs a definitive $110.9 billion agreement with Paramount Skydance.</div>
           <span class="date-chip"></span>
           <div class="source-reveal">
-            <div class="src-label">Source</div>
-            <a href="https://example.com/source-four" target="_blank" rel="noopener">PLACEHOLDER SOURCE — Sample Event Four</a>
+            <div class="src-label">Sources — check all three</div>
+            <a href="https://www.sec.gov/Archives/edgar/data/2041610/000110465926021911/tm2533570d75_ex99-1.htm" target="_blank" rel="noopener">Announcement as filed with the SEC — Feb 27, 2026</a>
+            <a href="https://www.paramount.com/press/paramount-to-acquire-warner-bros-discovery-to-form-next-generation-global-media-and-entertainment-company" target="_blank" rel="noopener">Paramount announcement — definitive agreement</a>
+            <a href="https://www.nbcnews.com/business/media/warner-bros-discovery-signs-merger-agreement-paramount-skydance-rcna261035" target="_blank" rel="noopener">WBD signs merger agreement — NBC News</a>
           </div>
         </div>
         <div class="move-btns">
-          <button class="move-btn" type="button" aria-label="Move Sample Event Four earlier" onclick="moveItem(this, -1, event)">▲</button>
-          <button class="move-btn" type="button" aria-label="Move Sample Event Four later" onclick="moveItem(this, 1, event)">▼</button>
+          <button class="move-btn" type="button" aria-label="Move the Warner agreement earlier" onclick="moveItem(this, -1, event)">▲</button>
+          <button class="move-btn" type="button" aria-label="Move the Warner agreement later" onclick="moveItem(this, 1, event)">▼</button>
         </div>
       </div>
     </div>
@@ -1344,7 +1351,7 @@ body {
     <div class="submit-row">
       <button class="submit-btn" type="button" id="submitBtn" onclick="lockItIn()">Lock It In</button>
     </div>
-    <div class="hint-text" id="hintText">PLACEHOLDER: Hint — a nudge, not the answer</div>
+    <div class="hint-text" id="hintText">Hint: the family deal came first — the courtroom came last.</div>
   </div>
 
   </div><!-- /play-area -->
@@ -1353,7 +1360,7 @@ body {
   <div class="arcade-complete full-bleed-edge" id="arcadeComplete">
     <div class="complete-cursor">▮</div>
     <h2 class="complete-title">Puzzle Complete</h2>
-    <div class="complete-sub">PLACEHOLDER: One-line editorial kicker. Every date is public record.</div>
+    <div class="complete-sub">Eleven months, four brands changing hands — and one family with reach across three of them. Every date is public record.</div>
     <div class="rank-and-stats">
       <div class="complete-rank" id="completeRank">
         <span class="rank-label" id="rankLabel">Perfect</span>
@@ -1368,11 +1375,10 @@ body {
     </div>
     <div class="complete-sources">
       <div class="src-label">Dive Deeper</div>
-      <a href="https://example.com/source-one" target="_blank" rel="noopener">PLACEHOLDER — Sample Event One source</a>
-      <a href="https://example.com/source-two" target="_blank" rel="noopener">PLACEHOLDER — Sample Event Two source</a>
-      <a href="https://example.com/source-three" target="_blank" rel="noopener">PLACEHOLDER — Sample Event Three source</a>
-      <a href="https://example.com/source-four" target="_blank" rel="noopener">PLACEHOLDER — Sample Event Four source</a>
-      <a href="https://example.com/source-five" target="_blank" rel="noopener">PLACEHOLDER — Sample Event Five source</a>
+      <a href="https://en.wikipedia.org/wiki/Proposed_acquisition_of_Warner_Bros._Discovery_by_Paramount_Skydance" target="_blank" rel="noopener">The Paramount Skydance-WBD deal — full timeline &amp; sources</a>
+      <a href="https://www.cnbc.com/2026/07/14/paramount-wbd-merger-lawsuit.html" target="_blank" rel="noopener">Twelve state AGs sue to block the merger — CNBC</a>
+      <a href="https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/" target="_blank" rel="noopener">Versant: MS NOW &amp; CNBC leave Comcast — Variety</a>
+      <a href="https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504" target="_blank" rel="noopener">The TikTok U.S. joint venture — ABC News</a>
     </div>
     <button class="start-btn" type="button" onclick="resetGame()">▶ Play Again</button>
     <div class="complete-actions">
@@ -1535,7 +1541,7 @@ body {
     </div>
     <div class="license-row">
       <span class="license-tag data-tag">Credit</span>
-      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · PLACEHOLDER: Source data from public records</span>
+      <span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Timeline from public record (SEC filings, company announcements, court record)</span>
     </div>
     <div class="license-row">
       <span class="license-tag data-tag">Legal</span>
@@ -1876,11 +1882,11 @@ function resetGame() {
   }, 100);
 }
 
-// SHARE — PLACEHOLDER: stamp the share text and title
+// SHARE
 function shareGame() {
   const url = window.location.href;
-  const text = 'PLACEHOLDER: Five sample events. One record. Can you put them in order? 🔍📜';
-  const title = 'PLACEHOLDER Series — Moral Fiber Media';
+  const text = 'CBS sold. MSNBC renamed. TikTok under new owners. Warner Bros. on the block. Can you put the media takeover wave in order? 🔍📺';
+  const title = 'Under New Management — Moral Fiber Media';
 
   if (navigator.share) {
     navigator.share({ title: title, text: text, url: url }).catch(() => {});

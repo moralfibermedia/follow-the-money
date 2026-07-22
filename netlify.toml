@@ -85,3 +85,12 @@
   for = "/drafts/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# Password-protected Review Desk (AES-encrypted page for outside reviewers;
+# built by scripts/build-review-desk.py + scripts/encrypt-page.mjs). Servable
+# so its DONE button can submit the review-desk-done Netlify Form, but never
+# indexed and never linked from the site.
+[[headers]]
+  for = "/review/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

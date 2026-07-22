@@ -758,6 +758,82 @@
       "source_episode": "https://youtu.be/qu6qszxBYRQ"
     },
     {
+      "id": "under-new-management",
+      "type": "special",
+      "template": "timeline",
+      "title": "Under New Management",
+      "slug": "under-new-management",
+      "path": "puzzles/under-new-management",
+      "subtitle": "CBS sold. MSNBC renamed. TikTok under new owners. Warner Bros. on the block. Can you put the takeover wave in order?",
+      "hook": "In under a year, CBS changed hands, MSNBC lost its name, TikTok's U.S. operation got new part-owners, and the company behind HBO and CNN agreed to a $110.9 billion sale — to the same family that bought CBS.",
+      "hint": "The family deal came first — the courtroom came last.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live",
+      "events": [
+        {
+          "id": "skydance-paramount",
+          "rank": 1,
+          "date": "2025-08-07",
+          "title": "Skydance closes the Paramount merger",
+          "description": "David Ellison's Skydance completes its merger with Paramount Global — CBS, Paramount Pictures, and Paramount+ come under Ellison-family control.",
+          "sources": [
+            { "url": "https://www.sec.gov/Archives/edgar/data/2041610/000119312525175046/d841914d8k12b.htm", "label": "SEC Form 8-K12B — merger completed, filed Aug 7, 2025" },
+            { "url": "https://thedesk.net/2025/07/paramount-skydance-merger-closing-date/", "label": "Paramount sets Aug 7 close date — The Desk" },
+            { "url": "https://en.wikipedia.org/wiki/Acquisition_of_Paramount_Global_by_Skydance_Media", "label": "Skydance–Paramount merger — Wikipedia overview" }
+          ]
+        },
+        {
+          "id": "versant-spinoff",
+          "rank": 2,
+          "date": "2026-01-02",
+          "title": "MSNBC leaves NBC — and its name behind",
+          "description": "Comcast completes the Versant spin-off: MSNBC rebrands as MS NOW and exits the NBC family, taking CNBC and the cable networks with it.",
+          "sources": [
+            { "url": "https://www.sec.gov/Archives/edgar/data/1166691/000095010326000079/dp239108_ex9901.htm", "label": "Comcast 8-K exhibit — completion effective Jan 2, 2026 (SEC)" },
+            { "url": "https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/", "label": "Comcast completes Versant spinoff — Variety" },
+            { "url": "https://www.forbes.com/sites/joecornell/2026/01/06/comcast-completes-spin-off-of-versant-media-group/", "label": "Comcast completes Versant spin-off — Forbes" }
+          ]
+        },
+        {
+          "id": "tiktok-jv",
+          "rank": 3,
+          "date": "2026-01-22",
+          "title": "TikTok gets American part-owners",
+          "description": "ByteDance closes the deal creating a U.S. joint venture for TikTok — Oracle, Silver Lake, and Abu Dhabi's MGX take 15% each; ByteDance keeps 19.9%.",
+          "sources": [
+            { "url": "https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504", "label": "TikTok signs U.S. joint-venture deal — ABC News" },
+            { "url": "https://variety.com/2025/digital/news/tiktok-us-joint-venture-deal-close-date-oracle-silver-lake-1236612315/", "label": "JV set to close in January; Oracle/Silver Lake/MGX — Variety" },
+            { "url": "https://www.bloomberg.com/news/articles/2025-12-18/tiktok-says-it-signed-agreements-to-create-new-us-joint-venture", "label": "TikTok statement on the joint venture — Bloomberg" }
+          ]
+        },
+        {
+          "id": "wbd-agreement",
+          "rank": 4,
+          "date": "2026-02-27",
+          "title": "Warner Bros. Discovery agrees to sell",
+          "description": "After Netflix withdraws its rival bid, Warner Bros. Discovery — HBO, CNN, the Warner studio — signs a definitive $110.9 billion agreement with Paramount Skydance.",
+          "sources": [
+            { "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926021911/tm2533570d75_ex99-1.htm", "label": "Announcement as filed with the SEC — Feb 27, 2026" },
+            { "url": "https://www.paramount.com/press/paramount-to-acquire-warner-bros-discovery-to-form-next-generation-global-media-and-entertainment-company", "label": "Paramount announcement — definitive agreement" },
+            { "url": "https://www.nbcnews.com/business/media/warner-bros-discovery-signs-merger-agreement-paramount-skydance-rcna261035", "label": "WBD signs merger agreement — NBC News" }
+          ]
+        },
+        {
+          "id": "judge-pause",
+          "rank": 5,
+          "date": "2026-07-20",
+          "title": "A federal judge pauses the Warner deal",
+          "description": "With twelve state attorneys general suing to block the acquisition, a federal judge halts the Paramount Skydance-Warner deal for at least 14 days.",
+          "sources": [
+            { "url": "https://oag.ca.gov/news/press-releases/quiet-set-attorney-general-bonta-secures-critical-early-win-lawsuit-block-warner", "label": "California AG — court pauses the merger (oag.ca.gov)" },
+            { "url": "https://coag.gov/press-releases/state-ags-win-court-order-pausing-paramount-warner-bros-merger/", "label": "Colorado AG — order pausing the merger (coag.gov)" },
+            { "url": "https://www.fool.com/coverage/stock-market-today/2026/07/20/stock-market-today-july-20-warner-bros-discovery-falls-4-as-judge-pauses-usd110-billion-paramount-skydance-deal/", "label": "Judge pauses the deal, July 20 — Motley Fool" }
+          ]
+        }
+      ]
+    },
+    {
       "id": "power-grab",
       "type": "standard",
       "template": "text-match",
