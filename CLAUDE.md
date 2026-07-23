@@ -11,7 +11,7 @@ Monorepo for FactPuzzles by Moral Fiber Media — interactive civic puzzles buil
 - **CC BY 4.0** for original content. **CC BY-NC-SA 3.0** for OpenSecrets-derived puzzles.
 
 ## Architecture
-Single Netlify site at `followthemoney.moralfibermedia.com`. All pages deploy from one GitHub repo (`moralfibermedia/follow-the-money`). Puzzle index is `index.html` at repo root. Each page lives in its own folder (`puzzles/`, `fighters/`, `legal/`, `doj/`) with an `index.html` and `preview.png`. Shared `robots.txt`, `_headers`, and `netlify.toml` at repo root. Data in `data/`, templates in `template/`, and social/newsletter post drafts in `marketing/` — all **workspace-only, blocked from serving by `netlify.toml`**. The repo root publishes as-is, so internal `.md` docs that must not be public (`CLAUDE.md`, `follow-the-money-roadmap.md`, `follow-the-money-vision.md`, `claude-code-spec.md`) are explicitly 404'd in `netlify.toml` too; when adding a new internal root doc, block it there (or drop it in `marketing/`).
+Single Netlify site at `followthemoney.moralfibermedia.com`, **built with Eleventy 3** (July 2026 migration): Netlify runs `npm run build` → publishes `_site/`. Sources live in `src/` (layouts, templates, assets); **`data/puzzles.json` is the single source of truth — every puzzle page, the index, and the sitemap are generated from it.** Bespoke visual reports (`doj/`, `2026-ga-elections-legislation/`) and `review/` pass through verbatim; preview art stays beside each puzzle's old content dir. The pre-migration arcade pages are archived at `/v1/{id}/` (noindex) and paired with the live pages on `/compare/`, which also hosts the `design-feedback` Netlify Form. Workspace dirs (`template/` — now deprecated, `marketing/`, `scripts/`, `drafts/`, `data/` except `comment-counts.json`) never ship; internal root `.md` docs are 404'd in `netlify.toml`.
 
 ## Git Config
 - **GitHub org:** moralfibermedia
@@ -26,47 +26,21 @@ Read `.claude/skills/netlify-deploy/SKILL.md` — workflows, site registry, shar
 
 ## Common Tasks
 
-### Build a new bar-chart puzzle
-Human provides: company names, OpenSecrets amounts/percentages/URLs, title, hint, subtitle.
-1. Add entry to `data/puzzles.json`
-2. Stamp into `template/puzzle-template-barchart.html`
-3. Generate preview image (1200x630), copy shared files
-4. Output to `puzzles/{id}/`, update root `index.html`
+### Build a new puzzle (any mechanic)
+Human provides the content + sources; **the page is generated — do not write HTML**.
+1. Add the entry to `data/puzzles.json` with the right `template` (`barchart`, `text-match`, `rank`, `over-under`, `timeline`) and its content fields (companies / facts+answers / items / cards / events — copy an existing entry of the same template as the schema). Timeline events follow the **triangulation standard**: 3 sources each (gov/SEC → company → media).
+2. Drop `preview.json` + render `preview.png` (1200×630) into the page's content dir (`puzzles/{id}/` or the series dir) via the `fact-puzzle-preview` skill.
+3. `npm run build` — the page, hub listing, and sitemap entry all generate. Verify the puzzle solves headless, then PR; the deploy preview is the review surface.
+Optional page copy: bespoke article paragraphs go in `src/_data/prose.json` keyed by id (otherwise composed from hook/subtitle/hint). Featured placement: add the id to `src/_data/site.json` `featured`.
 
-**Zero-spend companies** (no direct federal contributions in the cycle) use the first-class `.bar-chart.zero-spend` tile, not an inline-styled bar row — silence is editorial, not missing data. Flag with `zero_spend: true` in `data/puzzles.json` and `zeroSpend: true` in `preview.json`. Reference: HTML example commented in `template/puzzle-template-barchart.html` above `<div class="charts-grid">`.
-
-### Build a new text-match puzzle
-Human provides: quotes/facts, speakers/answers, source links, title, hint.
-Use `template/puzzle-template-text.html` or `tools/index.html` (puzzle builder).
-
-### Build a new rank puzzle
-Order 4 items by a metric (most→least), one submit, then a full value reveal.
-Human provides: 4 items (name, raw value, formatted display, correct rank 1–4, source URL/label), the metric + direction, title, hook, episode name.
-1. Add entry to `data/puzzles.json` with `"template": "rank"` and an `items` array: `[{ id, name, value, display, rank, source_url, source_label }]`
-2. Stamp into `template/puzzle-template-rank.html` — follow the `TEMPLATE CONFIG` comment at the top of the file. The markup order of the `.rank-item` cards is the starting scramble the player sees (hand-pick it; it's never shuffled at runtime). `data-rank` is the authoritative correct position — never derived from values. Bar widths are computed by JS from `data-value`, so no percentages to stamp.
-3. Pick the license block: CC BY 4.0 is active by default (public-domain data). If any data is from OpenSecrets, swap in the commented CC BY-NC-SA 3.0 block AND update the JSON-LD `license`.
-4. Generate preview image (1200x630), copy shared files, output to `puzzles/{id}/`, update root `index.html`.
-
-### Build a new over/under puzzle
-Higher-or-lower deck: 6 cards, card 1 is the revealed anchor, 5 guess rounds with count-up reveals and streak tracking.
-Human provides: 6 entities in narrative order (name, raw value, prefix/suffix, formatted display, context line, source URL), the metric, title, hook, episode name.
-1. Add entry to `data/puzzles.json` with `"template": "over-under"` and a `cards` array: `[{ id, name, value, prefix, suffix, display, context, source_url, source_label }]`
-2. Stamp into `template/puzzle-template-overunder.html` — follow the `TEMPLATE CONFIG` comment. The DOM order of the `.ou-card` entries **is** the play order (no shuffle); the first card is the revealed anchor. **Avoid equal values** — a tie counts as correct for either guess. `data-prefix`/`data-suffix` support $, %, or vote counts.
-3. Pick the license block (CC BY 4.0 default; CC BY-NC-SA 3.0 if OpenSecrets).
-4. Generate preview image, copy shared files, output to `puzzles/{id}/`, update root `index.html`.
-
-### Build a new timeline puzzle
-Arrange 5 real events chronologically; dates hidden until the reveal. Fits court records, dockets, votes, rulemaking milestones.
-Human provides: 5 events (short title, one-line description, ISO date, correct order 1–5, source URL/label), title, hook, episode name.
-1. Add entry to `data/puzzles.json` with `"template": "timeline"` and an `events` array: `[{ id, title, description, date, rank, source_url, source_label }]` (`date` is ISO `YYYY-MM-DD`)
-2. Stamp into `template/puzzle-template-timeline.html` — follow the `TEMPLATE CONFIG` comment. The markup order of the `.timeline-event` cards is the starting scramble. `data-rank` is the correct chronological position (1 = earliest). Only `data-date` is stamped — the date chip is formatted from it by JS and stays hidden until reveal, so keep `.event-desc` free of date giveaways. **Triangulate every date: three sources per event** — prefer (1) .gov/SEC with the date on-page, (2) the company's own release, (3) media/trusted overview — and have reviewers check all three before publish.
-3. Pick the license block (CC BY 4.0 default; CC BY-NC-SA 3.0 if OpenSecrets). These can live under `puzzles/{id}/` or a series folder (e.g. `just-the-facts/{slug}/`) with a `path` field in the entry.
-4. Generate preview image, copy shared files, update root `index.html`.
-
-**Note on previews:** the `fact-puzzle-preview` skill ships a sibling `render-*.mjs` renderer per series/mechanic when the first real puzzle lands — the rank/over-under/timeline mechanics don't have one yet. Author it then (copy an existing renderer, swap the card markup, keep the Playwright→Sharp toolchain).
+### Draft-first workflow (unverified data)
+Build the entry but stage the page under `drafts/{id}/` conventions and open a PR — drafts are noindexed, appear in the Review Desk verify queue (`scripts/build-review-desk.py`), and publish by flipping into the manifest after human verification. Say "publish {id}" to run the checklist.
 
 ### Draft channel posts for a puzzle
-Write platform-tailored promo copy into `marketing/{campaign}/{channel}.md` (one file per channel: substack, bluesky, x, facebook, sezus, tiktok, youtube). Follow per-platform format rules + the UTM convention in the `mfm-editorial-design` skill ("Channel-specific posts") and `marketing/README.md`. Every link gets `?utm_source={platform}&utm_medium={email|social}&utm_campaign={campaign}`. The `marketing/` folder is workspace-only (blocked from serving).
+Write platform-tailored promo copy into `marketing/{campaign}/{channel}.md` (substack, bluesky, x, facebook, sezus, tiktok, youtube) per the `mfm-editorial-design` skill ("Channel-specific posts") and `marketing/README.md`. Every link gets `?utm_source={platform}&utm_medium={email|social}&utm_campaign={campaign}`.
 
 ### Add a fighter
-Add to `data/fighters.json`, rebuild `fighters/index.html`.
+Add to `data/fighters.json` — `/fighters/` regenerates at build. The 9 featured on every page's tail live in `src/_data/featuredFighters.json`; Inspired By in `src/_data/inspired.json`.
+
+### Design changes
+Layout/typography live once in `src/_includes/` + `src/assets/site.css` — edit there, never per-page. The v2 editorial treatment (article-first, puzzle-as-figure, 4-size scale) is the house format; `/compare/` collects invited design feedback.

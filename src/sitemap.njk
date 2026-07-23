@@ -1,0 +1,16 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- set skip = ["/compare/", "/compare/thanks/"] %}
+{%- for pg in collections.all %}
+{%- if pg.url and skip.indexOf(pg.url) == -1 %}
+  <url><loc>{{ site.base }}{{ pg.url }}</loc><lastmod>{{ pg.date.toISOString().slice(0,10) }}</lastmod></url>
+{%- endif %}
+{%- endfor %}
+{%- for u in ["/doj/bar-rule-infographic/", "/doj/bar-rule-action/", "/2026-ga-elections-legislation/", "/2026-ga-elections-legislation/bill-status/", "/2026-ga-elections-legislation/provoter-bills/"] %}
+  <url><loc>{{ site.base }}{{ u }}</loc></url>
+{%- endfor %}
+</urlset>

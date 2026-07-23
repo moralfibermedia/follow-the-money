@@ -1,5 +1,9 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 # Exception: the live comment-count feed for the Public Comment CTA must be
 # fetchable client-side. Listed BEFORE the /data/* block so it wins (first match).
@@ -83,6 +87,18 @@
 # publishing: verify the data, then move the folder to /puzzles/{slug}/.
 [[headers]]
   for = "/drafts/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+# Format-comparison tool: v1 arcade archive + /compare/ hub. Servable,
+# never indexed; v1 pages canonical to the live (v2) pages.
+[[headers]]
+  for = "/v1/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/compare/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 

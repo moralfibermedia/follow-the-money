@@ -7,3 +7,5 @@ __pycache__/
 *.pyc
 .env
 .claude/skills/*/node_modules/
+_site/
+/node_modules/

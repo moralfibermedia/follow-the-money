@@ -1,0 +1,64 @@
+---
+layout: layouts/base.njk
+pagination: { addAllPagesToCollections: true, data: overunders, size: 1, alias: p }
+permalink: "/{{ p.path }}/index.html"
+pageScript: /assets/overunder.js
+eleventyComputed:
+  pageTitle: "Follow the Money — {{ p.title }} | Moral Fiber Media"
+  pageDescription: "{{ p.subtitle }}"
+  canonicalPath: "/{{ p.path }}"
+  ogImage: "/{{ p.path }}/preview.png"
+  jsonld: "{{ p | puzzleJsonld | safe }}"
+  license: "{{ 'by-nc-sa' if p.data_license == 'CC BY-NC-SA 3.0' else 'by' }}"
+---
+<div class="kicker"><a href="/">Follow the Money</a> · higher or lower</div>
+<h1>{{ p.title | emLast | safe }}</h1>
+<div class="standfirst">{{ p.subtitle }}</div>
+<div class="meta">{{ p.metric }} &nbsp;·&nbsp; {{ p.cards | length }} cards · {{ p.cards | length - 1 }} rounds · ~2 min</div>
+
+{% if p.article_hook %}<p>{{ p.article_hook | safe }}</p>{% endif %}
+<p>The first figure is shown. For each card after it, call higher or lower — then watch the real number count up to the truth, with its source attached. A streak is on the line.</p>
+<p>{{ p.hint | stripHint }}</p>
+
+<div class="figure" id="fig">
+  <div class="fig-cover">
+    <img src="/{{ p.path }}/preview.png" alt="{{ p.title }} — puzzle preview" width="1200" height="630">
+    <div class="fig-bar">
+      <span class="fig-label">Interactive · {{ p.cards | length - 1 }} calls</span>
+      <button class="start-btn" type="button" onclick="startPuzzle()">▶ Start the puzzle</button>
+    </div>
+  </div>
+  <div class="fig-game">
+    <div class="score-bar"><span>Correct <b id="m">0</b>/{{ p.cards | length - 1 }}</span><span>Streak <b id="st">0</b></span></div>
+    <div class="oudots">{% for c in p.cards %}{% if not loop.last %}<span class="oudot"></span>{% endif %}{% endfor %}</div>
+    <div class="outable">
+      <div class="ouslot" id="aslot"><div class="oulab">Known</div>
+        <div class="ouname" id="aname">—</div><div class="ouctx" id="actx"></div><div class="oufig" id="afig">—</div></div>
+      <div class="ouslot challenger" id="cslot"><div class="oulab">Next up</div>
+        <div class="ouname" id="cname">—</div><div class="ouctx" id="cctx"></div><div class="oufig mystery" id="cfig">?</div>
+        <div class="source-reveal" id="csrc"><a href="#" target="_blank" rel="noopener" id="csrclink">—</a></div></div>
+    </div>
+    <div class="tray-label" id="tl"><span class="step-num" id="sn">?</span> <span id="tt">Higher or lower than the figure on the left?</span></div>
+    <div class="oubtns">
+      <button class="oubtn" type="button" id="bh" onclick="guess('higher')">▲ Higher</button>
+      <button class="oubtn" type="button" id="bl" onclick="guess('lower')">▼ Lower</button>
+    </div>
+    <div class="ounext"><button class="start-btn" type="button" id="nextb" onclick="nextRound()">▶ Next</button></div>
+    <div class="doneb" id="doneb">
+      <div class="rank" id="rank"><span id="rankLabel">Perfect</span><span class="stars" id="stars">★★★</span></div>
+      <p>Best streak: <b id="beststreak">0</b> · every figure sourced below.</p>
+      <button class="start-btn again" type="button" onclick="resetPuzzle()">↺ Play again</button>
+      <button class="start-btn again" type="button" id="shareb" onclick="sharePuzzle()">📤 Share</button>
+    </div>
+  </div>
+</div>
+<div class="fig-caption">Hint: {{ p.hint | stripHint }}</div>
+
+<h2>The receipts</h2>
+<div class="receipts"><ul>
+  {%- for c in p.cards %}
+  <li><span>{{ c.name }} — {{ c.display }}</span><a href="{{ c.source_url }}" target="_blank" rel="noopener">{{ c.source_label }} ↗</a></li>
+  {%- endfor %}
+</ul></div>
+
+<script>window.__PUZZLE = { cards: {{ p.cards | dump2 | safe }} };</script>

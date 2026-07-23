@@ -1,0 +1,63 @@
+---
+layout: layouts/base.njk
+permalink: /index.html
+license: by
+creditData: "puzzle data sources credited on each puzzle"
+pageTitle: "Follow the Money — Puzzle Hub | Moral Fiber Media"
+pageDescription: "Interactive civic puzzles built on public data: political donations, lobbying, court records, federal contracts. Free, sourced, no login. We do the research — you solve the puzzle."
+canonicalPath: "/"
+ogImage: "/preview.png"
+---
+<div class="hub-head">
+  <div class="kicker">Moral Fiber Media · Civic Puzzles</div>
+  <h1>Follow the <em>Money</em></h1>
+  <div class="standfirst">Interactive puzzles built on public data — political donations, lobbying bills, court records, federal contracts. Every answer reveals its source.</div>
+  <div class="hub-tagline">{{ site.tagline }} &nbsp;·&nbsp; free · sourced · no login</div>
+</div>
+
+<h2>Fresh off the press</h2>
+<ul class="hub-list">
+{%- for id in site.featured %}
+  {%- set isFirst = loop.first %}
+  {%- for p in puzzles.puzzles %}{% if p.id == id and p.status == "live" %}
+  <li><span class="hub-num">★ {{ p.template | replace("-", " ") }}</span>
+      <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
+      {% if isFirst %}<span class="hub-new">New</span>{% endif %}
+      <span class="hub-hook">{{ p.hook }}</span></li>
+  {%- endif %}{% endfor %}
+{%- endfor %}
+</ul>
+
+<h2>The bar-chart series</h2>
+<p>Where it started: three companies, three donation profiles — match the company to the cash. Data from OpenSecrets.org, 2024 cycle.</p>
+<ul class="hub-list">
+{%- for p in barcharts %}{% if p.number %}
+  <li><span class="hub-num">Puzzle #{{ p.number }}</span>
+      <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+{%- for p in barcharts %}{% if not p.number %}
+  <li><span class="hub-num">★ special</span>
+      <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+</ul>
+
+<h2>Reports · read the receipts</h2>
+<ul class="hub-list">
+  <li><span class="hub-num">Report</span><a class="hub-t" href="/2026-ga-elections-legislation/">2026 Georgia Election Bills</a>
+      <span class="hub-hook">Every election-related bill in the Georgia legislature — scored, sourced, tracked.</span></li>
+  <li><span class="hub-num">Report</span><a class="hub-t" href="/doj/bar-rule-infographic/">The DOJ Bar-Rule Change</a>
+      <span class="hub-hook">What the proposed rule says, what it changes, and the receipts.</span></li>
+  <li><span class="hub-num">Action</span><a class="hub-t" href="/doj/bar-rule-action/">Bar-Rule Action Guide</a>
+      <span class="hub-hook">How to be heard on the record.</span></li>
+</ul>
+
+{%- if puzzles.coming_soon and puzzles.coming_soon.length %}
+<h2>Coming soon</h2>
+<p class="coming">
+{%- for c in puzzles.coming_soon %}
+  <b>"{{ c.title }}"</b> — {{ c.companies | join(" · ") }}{% if not loop.last %}<br>{% endif %}
+{%- endfor %}
+</p>
+{%- endif %}

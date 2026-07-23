@@ -1,0 +1,8 @@
+{
+  "base": "https://followthemoney.moralfibermedia.com",
+  "name": "Moral Fiber Media",
+  "tagline": "We do the research. You solve the puzzle.",
+  "featured": ["under-new-management", "golden-parachutes", "lobby-or-not", "the-docket",
+               "power-grab", "pardon-my-receipts", "power-to-pardon",
+               "who-spends-your-money", "behind-the-bench"]
+}

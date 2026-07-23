@@ -5,6 +5,8 @@ description: Moral Fiber Media editorial design system. Use this skill whenever 
 
 # Moral Fiber Media — Editorial Design System
 
+> **FORMAT DECISION (July 2026): the v2 "editorial" treatment is the house format** — chosen 100% over the arcade format in A/B review. Article-first page: kicker → title with ONE red `<em>` → standfirst → thin meta rule → short setup prose → **puzzle embedded as a figure** (3px-ink frame, cover = the page's preview.png + "▶ Start the puzzle" bar; scroll-past-able) → "The receipts" section → constant Inspired-By + Fighters sections → slim mono tail. **Four type sizes only** (Playfair ~38 title / 19 standfirst / 17 body / 12 mono), 680px measure, one red moment per page. Arcade behavior (pulse, shake, rank+stars, count-ups) lives INSIDE the puzzle frame only. Implementation lives once in `src/_includes/` + `src/assets/site.css` — pages are generated (see CLAUDE.md); don't hand-build pages from the sections below. The pre-migration arcade conventions in this file remain accurate for the `/v1/` archive and as component vocabulary; where they conflict with v2 (masthead scale, full-bleed bars, five-section tail, start-gate-as-wall), **v2 wins**.
+
 ## Identity
 
 Moral Fiber Media is independent civic journalism. The design language is **newspaper editorial meets digital broadsheet** — authoritative, high-contrast, punchy, and source-transparent. It should feel like a front page that takes itself seriously but talks to you like a person.

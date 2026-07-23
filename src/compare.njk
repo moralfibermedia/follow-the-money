@@ -1,0 +1,69 @@
+---
+layout: layouts/base.njk
+permalink: /compare/index.html
+license: by
+pageTitle: "Format comparison — Arcade vs Editorial | Moral Fiber Media"
+pageDescription: "Internal side-by-side of every puzzle in the original arcade format and the v2 editorial format."
+canonicalPath: "/compare/"
+ogImage: "/preview.png"
+extraHead: '<meta name="robots" content="noindex, nofollow">'
+---
+<div class="kicker">★ Internal · Design Tool</div>
+<h1>Arcade vs <em>Editorial</em></h1>
+<div class="standfirst">Every puzzle in both treatments. A = the original arcade format (archived, frozen). B = the v2 editorial format (live). As more mechanics migrate, they appear here automatically.</div>
+<div class="hub-tagline">noindex · unlinked · canonicals point at the live pages</div>
+
+<h2>Bar-chart series</h2>
+<ul class="hub-list">
+{%- for p in barcharts %}
+  <li><span class="hub-num">{% if p.number %}#{{ p.number }}{% else %}★{% endif %}</span>
+      <span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/puzzles/{{ p.id }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+</ul>
+
+<h2>Text-match specials</h2>
+<ul class="hub-list">
+{%- for p in textmatches %}
+  <li><span class="hub-num">★ match</span>
+      <span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+</ul>
+
+<h2>New mechanics</h2>
+<ul class="hub-list">
+{%- for p in ranks %}
+  <li><span class="hub-num">★ rank</span><span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+{%- for p in overunders %}
+  <li><span class="hub-num">★ over/under</span><span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+{%- for p in timelines %}
+  <li><span class="hub-num">★ timeline</span><span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+</ul>
+
+<h2>Your take</h2>
+<p>Played a pair (or a few)? Tell us which format works better and why — every submission lands with the editor.</p>
+<form name="design-feedback" method="POST" action="/compare/thanks/" data-netlify="true" netlify-honeypot="bot-field" class="fb">
+  <p style="display:none"><label>Don't fill this in: <input name="bot-field"></label></p>
+  <div class="fb-row">
+    <label class="fb-l" for="fb-name">Name <span class="fb-opt">(optional)</span></label>
+    <input class="fb-in" id="fb-name" name="reviewer" maxlength="80" autocomplete="name">
+  </div>
+  <div class="fb-row">
+    <span class="fb-l">Which format?</span>
+    <label class="fb-c"><input type="radio" name="preference" value="A — arcade" required> A — arcade</label>
+    <label class="fb-c"><input type="radio" name="preference" value="B — editorial"> B — editorial</label>
+    <label class="fb-c"><input type="radio" name="preference" value="depends / mixed"> depends</label>
+  </div>
+  <div class="fb-row">
+    <label class="fb-l" for="fb-notes">What worked, what didn't</label>
+    <textarea class="fb-in" id="fb-notes" name="notes" rows="5" maxlength="4000" placeholder="Which puzzles did you try? What stood out — type, pacing, the puzzle frame, the arcade energy…"></textarea>
+  </div>
+  <button class="start-btn" type="submit">Send feedback</button>
+</form>
