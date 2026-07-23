@@ -1,3 +1,27 @@
+<div class="promo">
+  <h2 class="promo-h">Inspired by</h2>
+  <div class="inspired">
+  {%- for i in inspired %}
+    <a class="ins" href="{{ i.url }}" target="_blank" rel="noopener">
+      <span class="ins-n">{{ i.n }}</span>
+      <span><span class="ins-t">{{ i.title }}</span><br><span class="ins-d">{{ i.desc }}</span><br><span class="ins-u">{{ i.host }}</span></span>
+    </a>
+  {%- endfor %}
+  </div>
+
+  <h2 class="promo-h">Pro-democracy fighters</h2>
+  <p class="promo-sub">People and organizations on the front lines.</p>
+  <div class="fighters">
+  {%- for fgt in featuredFighters %}
+    <a class="fgt" href="{{ fgt.url }}" target="_blank" rel="noopener">
+      <span class="fgt-i">✊</span>
+      <span><span class="fgt-n">{{ fgt.name }}</span><br><span class="fgt-d">{{ fgt.desc }}</span></span>
+    </a>
+  {%- endfor %}
+  </div>
+  <a class="fgt-all" href="/fighters">See the full list →</a>
+</div>
+
 <div class="tail">
   {% if license == "by-nc-sa" %}
   <div><span class="tag">License</span>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a> · attribution · non-commercial · share-alike</div>

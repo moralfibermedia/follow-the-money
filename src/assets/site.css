@@ -166,3 +166,33 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
 .fb-c { font-family:'JetBrains Mono',monospace; font-size:13px; display:inline-flex;
   gap:7px; align-items:center; cursor:pointer; }
 .fb-c input { accent-color: var(--red); width:15px; height:15px; }
+
+/* ---- constant cross-promotion: inspired-by + fighters ---- */
+.promo { border-top:3px solid var(--ink); margin-top:40px; padding-top:6px; }
+.promo-h { margin:1.1em 0 .45em; }
+.promo-sub { font-size:14.5px; font-style:italic; color:var(--muted); margin:-.3em 0 .7em; }
+.inspired { display:flex; flex-direction:column; }
+.ins { display:flex; gap:12px; padding:10px 2px; border-bottom:1px solid var(--rule);
+  text-decoration:none; color:var(--ink); align-items:flex-start; }
+.ins:hover { color:var(--red); }
+.ins:hover .ins-n { background:var(--red); }
+.ins-n { flex:none; width:24px; height:24px; background:var(--ink); color:var(--paper);
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; transition:background .15s; }
+.ins-t { font-family:'Playfair Display',serif; font-weight:700; font-size:15px; }
+.ins-d { font-size:13px; font-style:italic; color:var(--muted); }
+.ins-u { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:.04em; }
+.fighters { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:8px; }
+.fgt { display:flex; gap:10px; padding:9px 10px; border:1.5px solid var(--rule);
+  text-decoration:none; color:var(--ink); align-items:center; transition:all .15s; }
+.fgt:hover { border-color:var(--red); color:var(--red); }
+.fgt:hover .fgt-i { background:var(--red); }
+.fgt-i { flex:none; width:28px; height:28px; background:var(--ink); color:var(--paper);
+  display:inline-flex; align-items:center; justify-content:center; font-size:13px; transition:background .15s; }
+.fgt-n { font-family:'Playfair Display',serif; font-weight:700; font-size:13.5px; }
+.fgt-d { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:.03em; }
+.fgt-all { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:8px;
+  background:var(--gold); color:var(--paper); border:3px solid var(--gold);
+  font-family:'Playfair Display',serif; font-weight:900; font-size:15px;
+  padding:12px; text-decoration:none; transition:all .2s; }
+.fgt-all:hover { background:var(--red); border-color:var(--red); }
