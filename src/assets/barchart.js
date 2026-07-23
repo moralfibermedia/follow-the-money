@@ -80,4 +80,6 @@
     document.querySelectorAll(".bfill").forEach(b => { b.style.width = "0%"; });
     setTimeout(() => document.querySelectorAll(".bfill").forEach(b => b.style.width = b.dataset.target + "%"), 120);
   };
+  const cov = document.querySelector(".fig-cover");
+  if (cov) cov.addEventListener("click", e => { if (!e.target.closest("a")) window.startPuzzle(); });
 })();

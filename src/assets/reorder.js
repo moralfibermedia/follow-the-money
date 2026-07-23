@@ -107,4 +107,6 @@
     list().classList.add("attention");
     document.getElementById("tl").classList.remove("complete","armed"); instr();
   };
+  const cov = document.querySelector(".fig-cover");
+  if (cov) cov.addEventListener("click", e => { if (!e.target.closest("a")) window.startPuzzle(); });
 })();
