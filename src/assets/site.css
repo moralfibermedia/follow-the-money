@@ -315,18 +315,20 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
 .source-reveal a { color:var(--dem-blue); word-break:break-all; }
 
 /* ==== The Gilded Puzzle Plate ==== */
+/* default = LOUD (editor's pick, pending plate-feedback votes; to flip,
+   swap the .plate and .plate.subtle gradient/duration values) */
 .figure.plate { border:none; background:linear-gradient(110deg,
-    #a1750a 0%, var(--gold) 14%, #d9b45b 28%, #efe0b0 38%, #d9b45b 48%,
-    var(--gold) 62%, #a1750a 78%, var(--gold) 92%, #d9b45b 100%);
-  background-size:250% 100%; padding:5px; position:relative; }
-.figure.plate.loud { background:linear-gradient(110deg,
     #a1750a 0%, var(--gold) 14%, #e6c569 26%, #fff3c9 37%, #e6c569 48%,
     var(--gold) 62%, #a1750a 78%, var(--gold) 92%, #e6c569 100%);
+  background-size:250% 100%; padding:5px; position:relative; }
+.figure.plate.subtle { background:linear-gradient(110deg,
+    #a1750a 0%, var(--gold) 14%, #d9b45b 28%, #efe0b0 38%, #d9b45b 48%,
+    var(--gold) 62%, #a1750a 78%, var(--gold) 92%, #d9b45b 100%);
   background-size:250% 100%; }
 @keyframes gild { from { background-position:0% 0; } to { background-position:250% 0; } }
 @media (prefers-reduced-motion: no-preference) {
-  .figure.plate { animation:gild 9s linear infinite; }
-  .figure.plate.loud { animation-duration:4s; }
+  .figure.plate { animation:gild 4s linear infinite; }
+  .figure.plate.subtle { animation-duration:9s; }
 }
 .plate-body { background:#fff; border:1px solid var(--ink); }
 .plate-head { text-align:center; padding:16px 14px 14px; border-bottom:1px solid var(--ink);
