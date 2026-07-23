@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- A/B comparison hub for the v2 editorial-format experiment. Noindexed. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>V2 A/B — internal | Moral Fiber Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Source+Serif+4:ital@1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#0d0d0d; --paper:#f2ede4; --red:#d63031; --gold:#b8860b; --muted:#6b6256; --rule:#c0b89a; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--paper); color:var(--ink); font-family:'Source Serif 4',Georgia,serif;
+  max-width:680px; margin:0 auto; padding:48px 20px; }
+.kicker { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+h1 { font-family:'Playfair Display',serif; font-weight:900; font-size:34px; margin:.3em 0 .2em; }
+h1 em { color:var(--red); font-style:italic; }
+.sub { font-style:italic; color:var(--muted); margin-bottom:26px; }
+table { width:100%; border-collapse:collapse; }
+th { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted); text-align:left; padding:6px 0; }
+td { border-top:1px solid var(--rule); padding:13px 8px 13px 0; }
+.t { font-family:'Playfair Display',serif; font-weight:900; font-size:18px; font-style:italic; color:var(--red); }
+a.btn { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; text-decoration:none;
+  border:2px solid var(--ink); color:var(--ink); padding:7px 13px; white-space:nowrap; display:inline-block; }
+a.btn:hover { background:var(--ink); color:var(--paper); }
+a.btn.b { background:var(--ink); color:var(--paper); }
+a.btn.b:hover { background:var(--red); border-color:var(--red); }
+.note { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted);
+  border-top:3px solid var(--ink); margin-top:30px; padding-top:12px; line-height:1.7; }
+</style>
+</head>
+<body>
+  <div class="kicker">★ Internal · Design Experiment</div>
+  <h1>A/B: Arcade vs <em>Editorial</em></h1>
+  <div class="sub">Same three puzzles, two treatments. A = the live arcade format. B = the v2 article-first format (calm page, playful game inside the frame). Try both on desktop and at phone width.</div>
+  <table>
+    <thead><tr><th>Puzzle</th><th>A · live</th><th>B · v2</th></tr></thead>
+    <tbody>
+      <tr><td class="t">"Prescription Politics"</td>
+        <td><a class="btn" href="/puzzles/prescription-politics">Play A</a></td>
+        <td><a class="btn b" href="/v2/prescription-politics/">Play B</a></td></tr>
+      <tr><td class="t">"Office Supplies"</td>
+        <td><a class="btn" href="/puzzles/office-supplies">Play A</a></td>
+        <td><a class="btn b" href="/v2/office-supplies/">Play B</a></td></tr>
+      <tr><td class="t">"America's 250th"</td>
+        <td><a class="btn" href="/puzzles/americas-250th">Play A</a></td>
+        <td><a class="btn b" href="/v2/americas-250th/">Play B</a></td></tr>
+    </tbody>
+  </table>
+  <div class="note">V2 pages are noindexed, unlinked from the site, and canonical back to the originals — safe to share for feedback. What changed in B: article-first structure (setup → puzzle-as-figure → receipts), 4-size type scale, one red moment per page, cover art = the social-card preview, arcade behavior kept inside the puzzle frame, slim tail. Content and figures are identical to A.</div>
+</body>
+</html>

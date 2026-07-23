@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- V2 EDITORIAL A/B VARIANT — experiment. Canonical points at the original
+     puzzle; page is noindexed (meta + netlify /v2/* header). Content and
+     figures mirror /puzzles/prescription-politics/ exactly; only the treatment differs. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://followthemoney.moralfibermedia.com/puzzles/prescription-politics">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<title>Prescription Politics (v2 preview) — Follow the Money | Moral Fiber Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#0d0d0d; --paper:#f2ede4; --red:#d63031; --gold:#b8860b;
+  --muted:#6b6256; --rule:#c0b89a; --green:#27ae60;
+  --rep-red:#8b1a1a; --dem-blue:#1a3a5c; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--paper); color:var(--ink);
+  font-family:'Source Serif 4',Georgia,serif; font-size:17px; line-height:1.7; }
+.article { max-width:680px; margin:0 auto; padding:44px 20px 56px; }
+.kicker { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+.kicker a { color:var(--gold); text-decoration:none; }
+.kicker a:hover { color:var(--red); }
+h1 { font-family:'Playfair Display',serif; font-weight:900;
+  font-size:clamp(30px,6vw,40px); line-height:1.12; letter-spacing:-.5px;
+  margin:.35em 0 .25em; text-wrap:balance; }
+h1 em { font-style:italic; color:var(--red); }
+.standfirst { font-size:19px; font-style:italic; color:var(--muted);
+  line-height:1.55; margin-bottom:14px; }
+.meta { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);
+  letter-spacing:.06em; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  padding:8px 0; margin-bottom:28px; }
+p { margin:0 0 1.05em; }
+h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
+  margin:1.6em 0 .5em; }
+
+/* ---- the puzzle as a figure ---- */
+.figure { border:3px solid var(--ink); margin:32px 0; background:#fff; }
+.fig-cover { position:relative; }
+.fig-cover img { display:block; width:100%; height:auto; }
+.fig-bar { display:flex; align-items:center; gap:12px; justify-content:space-between;
+  border-top:3px solid var(--ink); padding:10px 14px; background:var(--paper); }
+.fig-label { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+.start-btn { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--paper); background:var(--ink);
+  border:2px solid var(--ink); padding:10px 20px; cursor:pointer; transition:all .18s; }
+.start-btn:hover { background:var(--red); border-color:var(--red); }
+.fig-game { display:none; padding:16px 14px 18px; }
+.figure.playing .fig-game { display:block; }
+.figure.playing .fig-cover { display:none; }
+.fig-caption { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted);
+  letter-spacing:.04em; margin:8px 2px 0; }
+
+/* ---- game (compact arcade, inside the frame only) ---- */
+.score-bar { display:flex; justify-content:center; gap:22px; margin-bottom:14px;
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); }
+.score-bar b { font-family:'Playfair Display',serif; font-size:20px; color:var(--ink); margin-left:5px; }
+.tray-label { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; text-align:center; margin-bottom:10px;
+  display:flex; gap:8px; justify-content:center; align-items:center; }
+.step-num { display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px;
+  background:var(--ink); color:var(--paper); border-radius:50%; font-size:11px; }
+.tray-label.armed { color:var(--gold); } .tray-label.armed .step-num { background:var(--gold); }
+.tray-label.complete .step-num { background:var(--green); }
+.tiles { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:16px; }
+.tile { width:118px; height:78px; border:3px solid var(--ink); background:#fff;
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  font-family:'Playfair Display',serif; font-weight:700; font-size:14px; text-align:center;
+  line-height:1.2; user-select:none; transition:all .15s; }
+.tile:hover { border-color:var(--gold); }
+.tile.selected { border-color:var(--gold); box-shadow:0 0 0 3px rgba(184,134,11,.35); }
+.tile.placed { opacity:.3; pointer-events:none; border-style:dashed; }
+@keyframes attn { 0%,100%{box-shadow:0 0 0 0 rgba(184,134,11,0)} 50%{box-shadow:0 0 0 5px rgba(184,134,11,.22)} }
+.tiles.attention .tile:not(.placed) { animation:attn 1.8s ease-in-out infinite; }
+.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+@media (max-width:620px){ .cards { grid-template-columns:1fr; } }
+.card { border:2px solid var(--ink); background:#fff; position:relative; padding:26px 10px 10px; }
+.card.matched { border-color:var(--green); }
+.card.wrong { animation:shake .45s ease; border-color:var(--red); }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 55%{transform:translateX(6px)} 80%{transform:translateX(-3px)} }
+.card-letter { position:absolute; top:-1px; left:-1px; background:var(--ink); color:var(--paper);
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em; padding:3px 8px; }
+.card.matched .card-letter { background:var(--green); }
+.card-total { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
+  text-align:center; margin-bottom:10px; }
+.bars { display:flex; flex-direction:column; gap:7px; min-height:64px; justify-content:center; }
+.brow { display:flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:10px; }
+.bp { width:28px; text-align:right; flex-shrink:0; font-weight:700; }
+.bp.dem{color:var(--dem-blue)} .bp.rep{color:var(--rep-red)}
+.btrack { flex:1; height:18px; background:#e8e3da; overflow:hidden; }
+.bfill { height:100%; width:0; transition:width .8s cubic-bezier(.25,.46,.45,.94); }
+.bfill.dem{background:var(--dem-blue)} .bfill.rep{background:var(--rep-red)}
+.bpct { width:40px; text-align:right; flex-shrink:0; font-weight:700; }
+.bpct.dem{color:var(--dem-blue)} .bpct.rep{color:var(--rep-red)}
+.zero { text-align:center; font-style:italic; font-size:13.5px; line-height:1.5;
+  padding:6px 6px; display:flex; flex-direction:column; gap:8px; align-items:center; min-height:64px; justify-content:center; }
+.zero::before,.zero::after { content:""; width:36px; height:2px; background:var(--ink); }
+.drop { margin-top:10px; border:2px dashed var(--rule); min-height:42px; display:flex;
+  align-items:center; justify-content:center; font-family:'JetBrains Mono',monospace;
+  font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--rule);
+  cursor:pointer; transition:all .15s; text-align:center; padding:4px; }
+.drop:hover { border-color:var(--gold); color:var(--gold); }
+.drop.done { border-style:solid; border-color:var(--green); color:var(--green);
+  font-family:'Playfair Display',serif; font-size:13px; font-weight:700;
+  text-transform:none; letter-spacing:0; }
+.srcline { margin-top:8px; display:none; font-family:'JetBrains Mono',monospace; font-size:10px; }
+.card.matched .srcline { display:block; }
+.srcline a { color:var(--dem-blue); word-break:break-all; }
+.doneb { display:none; text-align:center; border-top:2px solid var(--ink); margin-top:16px; padding-top:16px; }
+.doneb.show { display:block; animation:pop .4s ease-out both; }
+@keyframes pop { 0%{opacity:0;transform:scale(.97)} 100%{opacity:1;transform:scale(1)} }
+.rank { display:inline-flex; flex-direction:column; gap:6px; border:3px solid var(--gold);
+  color:var(--gold); padding:10px 18px; font-family:'JetBrains Mono',monospace;
+  font-weight:700; letter-spacing:.22em; text-transform:uppercase; font-size:14px; margin-bottom:10px; }
+.rank.cleared { border-color:var(--ink); color:var(--ink); }
+.rank.finished { border-color:var(--muted); color:var(--muted); }
+.stars { font-size:16px; letter-spacing:.3em; }
+.doneb .again { margin-top:6px; }
+.doneb p { font-size:14px; font-style:italic; color:var(--muted); margin:6px 0 10px; }
+
+/* ---- receipts + tail ---- */
+.receipts ul { list-style:none; }
+.receipts li { border-bottom:1px solid var(--rule); padding:9px 0;
+  display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+.receipts a { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); }
+.receipts a:hover { color:var(--red); }
+.tail { border-top:3px solid var(--ink); margin-top:40px; padding-top:16px;
+  display:flex; flex-direction:column; gap:9px;
+  font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); letter-spacing:.03em; }
+.tail a { color:var(--muted); }
+.tail a:hover { color:var(--ink); }
+.tag { background:var(--ink); color:var(--paper); font-size:10px; font-weight:700;
+  letter-spacing:.14em; padding:2px 7px; text-transform:uppercase; margin-right:8px; }
+</style>
+</head>
+<body>
+<div class="article">
+  <div class="kicker"><a href="/">Follow the Money</a> · Puzzle #10 · v2 preview</div>
+  <h1>Prescription <em>Politics</em></h1>
+  <div class="standfirst">Three pharma giants. Three donation profiles. Can you match the company to the cash?</div>
+  <div class="meta">OpenSecrets.org · 2024 cycle · federal candidates &nbsp;·&nbsp; 3 companies · ~2 min</div>
+
+  <p>Pfizer, Johnson &amp; Johnson, Eli Lilly — three names on the pharmacy shelf, three political action committees writing checks in Washington. Big Pharma hedges both sides. Not equally.</p><p>The numbers below are federal campaign contributions for the 2024 cycle, as tracked by OpenSecrets.org: corporate PAC giving plus employees' individual donations to federal candidates. They are not direct corporate treasury gifts — those are illegal — and they don't include lobbying, which is a separate (and much larger) ledger.</p><p>You'll see three unlabeled donation profiles — party split and total spend. One hint before you start: only one of these three PACs tilts toward the party that votes against letting Medicare negotiate drug prices.</p>
+
+  <div class="figure" id="fig">
+    <div class="fig-cover">
+      <img src="/puzzles/prescription-politics/preview.png" alt="Prescription Politics — puzzle preview" width="1200" height="630">
+      <div class="fig-bar">
+        <span class="fig-label">Interactive · 3 matches</span>
+        <button class="start-btn" type="button" onclick="startPuzzle()">▶ Start the puzzle</button>
+      </div>
+    </div>
+    <div class="fig-game">
+      <div class="score-bar"><span>Matched <b id="m">0</b>/3</span><span>Attempts <b id="a">0</b></span></div>
+      <div class="tray-label" id="tl"><span class="step-num" id="sn">1</span> <span id="tt">Tap a company below</span></div>
+      <div class="tiles attention" id="tiles"><div class="tile" data-company="pfizer" onclick="pick(this)">Pfizer</div><div class="tile" data-company="jnj" onclick="pick(this)">Johnson &amp;<br>Johnson</div><div class="tile" data-company="lilly" onclick="pick(this)">Eli Lilly</div></div>
+      <div class="cards"><div class="card" data-company="pfizer" id="card-pfizer">
+  <div class="card-letter">A</div>
+  <div class="card-total">$1,578,171</div>
+  <div class="bars"><div class="brow"><span class="bp dem">DEM</span><span class="btrack"><span class="bfill dem" data-target="60.60"></span></span><span class="bpct dem">60.6%</span></div><div class="brow"><span class="bp rep">REP</span><span class="btrack"><span class="bfill rep" data-target="39.40"></span></span><span class="bpct rep">39.4%</span></div></div>
+  <div class="drop" data-company="pfizer">Match a company here</div>
+  <div class="srcline" id="src-pfizer"></div>
+</div><div class="card" data-company="jnj" id="card-jnj">
+  <div class="card-letter">B</div>
+  <div class="card-total">$1,046,181</div>
+  <div class="bars"><div class="brow"><span class="bp dem">DEM</span><span class="btrack"><span class="bfill dem" data-target="61.76"></span></span><span class="bpct dem">61.8%</span></div><div class="brow"><span class="bp rep">REP</span><span class="btrack"><span class="bfill rep" data-target="38.24"></span></span><span class="bpct rep">38.2%</span></div></div>
+  <div class="drop" data-company="jnj">Match a company here</div>
+  <div class="srcline" id="src-jnj"></div>
+</div><div class="card" data-company="lilly" id="card-lilly">
+  <div class="card-letter">C</div>
+  <div class="card-total">$854,140</div>
+  <div class="bars"><div class="brow"><span class="bp rep">REP</span><span class="btrack"><span class="bfill rep" data-target="51.38"></span></span><span class="bpct rep">51.4%</span></div><div class="brow"><span class="bp dem">DEM</span><span class="btrack"><span class="bfill dem" data-target="48.62"></span></span><span class="bpct dem">48.6%</span></div></div>
+  <div class="drop" data-company="lilly">Match a company here</div>
+  <div class="srcline" id="src-lilly"></div>
+</div></div>
+      <div class="doneb" id="doneb">
+        <div class="rank" id="rank"><span id="rankLabel">Perfect</span><span class="stars" id="stars">★★★</span></div>
+        <p>Every match above now shows its source — the receipts are one click away.</p>
+        <button class="start-btn again" type="button" onclick="resetPuzzle()">↺ Play again</button>
+      </div>
+    </div>
+  </div>
+  <div class="fig-caption">Hint: Only one PAC tilts toward the party that votes against Medicare drug price negotiation.</div>
+
+  <h2>The receipts</h2>
+  <p>Every figure in this puzzle comes from OpenSecrets.org — party split and totals for the 2024 federal cycle. Check them yourself:</p>
+  <div class="receipts"><ul><li><span>Pfizer</span><a href="https://www.opensecrets.org/orgs/pfizer-inc/recipients?id=D000000138" target="_blank" rel="noopener">opensecrets.org profile ↗</a></li><li><span>Johnson & Johnson</span><a href="https://www.opensecrets.org/orgs/johnson-johnson/recipients?id=D000000386" target="_blank" rel="noopener">opensecrets.org profile ↗</a></li><li><span>Eli Lilly</span><a href="https://www.opensecrets.org/orgs/eli-lilly-co/recipients?id=D000000166" target="_blank" rel="noopener">opensecrets.org profile ↗</a></li></ul></div>
+
+  <div class="tail">
+    <div><span class="tag">License</span>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/" target="_blank" rel="noopener">CC BY-NC-SA 3.0</a> · attribution · non-commercial · share-alike</div>
+    <div><span class="tag">Credit</span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a> · Data from <a href="https://www.opensecrets.org/open-data/credit-opensecrets" target="_blank" rel="noopener">OpenSecrets.org</a></div>
+    <div><span class="tag">More</span><a href="/">All puzzles</a> · <a href="/fighters">Pro-democracy fighters</a> · <a href="/legal">Privacy &amp; terms</a> · <a href="/puzzles/prescription-politics">See the original layout (A)</a></div>
+  </div>
+</div>
+
+<script>
+const NAMES = {"pfizer": "Pfizer", "jnj": "Johnson & Johnson", "lilly": "Eli Lilly"};
+const SRCS = {"pfizer": "https://www.opensecrets.org/orgs/pfizer-inc/recipients?id=D000000138", "jnj": "https://www.opensecrets.org/orgs/johnson-johnson/recipients?id=D000000386", "lilly": "https://www.opensecrets.org/orgs/eli-lilly-co/recipients?id=D000000166"};
+let sel=null, matches=0, attempts=0;
+function startPuzzle(){
+  document.getElementById('fig').classList.add('playing');
+  setTimeout(()=>document.querySelectorAll('.bfill').forEach(b=>b.style.width=b.dataset.target+'%'),150);
+  setTimeout(()=>document.getElementById('fig').scrollIntoView({behavior:'smooth',block:'start'}),250);
+}
+function instr(){
+  const tl=document.getElementById('tl'), sn=document.getElementById('sn'), tt=document.getElementById('tt');
+  const drops=document.querySelectorAll('.drop:not(.done)');
+  if(matches===3){ tl.classList.remove('armed'); tl.classList.add('complete'); sn.textContent='✓'; tt.textContent='Done — sources revealed'; return; }
+  if(sel){ tl.classList.add('armed'); sn.textContent='2'; tt.textContent='Now tap the chart you think matches';
+    drops.forEach(d=>d.textContent='Tap to place '+NAMES[sel.dataset.company]); }
+  else { tl.classList.remove('armed'); sn.textContent='1'; tt.textContent='Tap a company below';
+    drops.forEach(d=>d.textContent='Match a company here'); }
+}
+function pick(t){
+  if(t.classList.contains('placed')) return;
+  document.querySelectorAll('.tile').forEach(x=>x.classList.remove('selected'));
+  sel=t; t.classList.add('selected');
+  document.getElementById('tiles').classList.remove('attention');
+  instr();
+}
+document.querySelectorAll('.drop').forEach(d=>d.addEventListener('click',function(){
+  if(!sel||this.classList.contains('done')) return;
+  attempts++; document.getElementById('a').textContent=attempts;
+  const g=sel.dataset.company, w=this.dataset.company, card=this.closest('.card');
+  if(g===w){
+    matches++; document.getElementById('m').textContent=matches;
+    this.classList.add('done'); this.textContent='✓ '+NAMES[g];
+    card.classList.add('matched');
+    document.getElementById('src-'+g).innerHTML='<a href="'+SRCS[g]+'" target="_blank" rel="noopener">source: opensecrets.org ↗</a>';
+    sel.classList.add('placed'); sel.classList.remove('selected'); sel=null; instr();
+    if(matches===3) setTimeout(win,500);
+  } else {
+    card.classList.add('wrong'); setTimeout(()=>card.classList.remove('wrong'),450);
+  }
+}));
+function win(){
+  const r = attempts<=3?['perfect','Perfect','★★★']:attempts<=5?['cleared','Cleared','★★☆']:['finished','Finished','★☆☆'];
+  const el=document.getElementById('rank');
+  el.className='rank '+r[0];
+  document.getElementById('rankLabel').textContent=r[1];
+  document.getElementById('stars').textContent=r[2];
+  document.getElementById('doneb').classList.add('show');
+}
+function resetPuzzle(){
+  sel=null; matches=0; attempts=0;
+  document.getElementById('m').textContent='0'; document.getElementById('a').textContent='0';
+  document.getElementById('doneb').classList.remove('show');
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('matched','wrong'));
+  document.querySelectorAll('.drop').forEach(d=>{d.classList.remove('done'); d.textContent='Match a company here';});
+  document.querySelectorAll('.srcline').forEach(s=>s.innerHTML='');
+  document.querySelectorAll('.tile').forEach(t=>t.classList.remove('placed','selected'));
+  document.getElementById('tiles').classList.add('attention');
+  const tl=document.getElementById('tl'); tl.classList.remove('complete','armed'); instr();
+  document.querySelectorAll('.bfill').forEach(b=>{b.style.width='0%';});
+  setTimeout(()=>document.querySelectorAll('.bfill').forEach(b=>b.style.width=b.dataset.target+'%'),120);
+}
+</script>
+</body>
+</html>

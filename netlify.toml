@@ -86,6 +86,13 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# V2 editorial-format A/B experiment — servable for side-by-side review,
+# never indexed, unlinked; v2 pages canonical back to the originals.
+[[headers]]
+  for = "/v2/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # Password-protected Review Desk (AES-encrypted page for outside reviewers;
 # built by scripts/build-review-desk.py + scripts/encrypt-page.mjs). Servable
 # so its DONE button can submit the review-desk-done Netlify Form, but never
