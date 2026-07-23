@@ -1,0 +1,71 @@
+---
+layout: layouts/base.njk
+pagination: { data: ranks, size: 1, alias: p }
+permalink: "/{{ p.path }}/index.html"
+pageScript: /assets/reorder.js
+eleventyComputed:
+  pageTitle: "Follow the Money — {{ p.title }} | Moral Fiber Media"
+  pageDescription: "{{ p.subtitle }}"
+  canonicalPath: "/{{ p.path }}"
+  ogImage: "/{{ p.path }}/preview.png"
+  jsonld: "{{ p | puzzleJsonld | safe }}"
+  license: "{{ 'by-nc-sa' if p.data_license == 'CC BY-NC-SA 3.0' else 'by' }}"
+  creditData: "sourced per item below"
+---
+<div class="kicker"><a href="/">Follow the Money</a> · rank puzzle</div>
+<h1>{{ p.title | emLast | safe }}</h1>
+<div class="standfirst">{{ p.subtitle }}</div>
+<div class="meta">{{ p.direction }} &nbsp;·&nbsp; {{ p.items | length }} items · ~2 min</div>
+
+{% if p.article_hook %}<p>{{ p.article_hook | safe }}</p>{% endif %}
+<p>Drag isn't required — tap two cards to swap them, or use the arrows. When you're sure of the order, lock it in: the real figures animate in, each linked to its source, and the list re-sorts to the truth.</p>
+<p>{{ p.hint | stripHint }}</p>
+
+<div class="figure" id="fig">
+  <div class="fig-cover">
+    <img src="/{{ p.path }}/preview.png" alt="{{ p.title }} — puzzle preview" width="1200" height="630">
+    <div class="fig-bar">
+      <span class="fig-label">Interactive · rank {{ p.items | length }}</span>
+      <button class="start-btn" type="button" onclick="startPuzzle()">▶ Start the puzzle</button>
+    </div>
+  </div>
+  <div class="fig-game">
+    <div class="score-bar"><span>Placed correctly <b id="m">—</b>/{{ p.items | length }}</span></div>
+    <div class="tray-label" id="tl"><span class="step-num" id="sn">1</span> <span id="tt">Tap a card, then tap where it goes</span></div>
+    <div class="rlist attention" id="rlist">
+      {%- for it in p.items | byScramble(p.scramble) %}
+      <div class="ritem" data-id="{{ it.id }}" data-rank="{{ it.rank }}" data-value="{{ it.value }}">
+        <div class="rbadge">{{ loop.index }}</div>
+        <div class="rbody">
+          <div class="rname">{{ it.name }}<span class="rmark"></span></div>
+          <div class="rreveal">
+            <div class="rrow"><span class="btrack"><span class="bfill" style="background:var(--ink)"></span></span><span class="rval">{{ it.display }}</span></div>
+            <div class="rsrc">{%- for s in it.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }}</a>{%- endfor %}</div>
+          </div>
+        </div>
+        <div class="rmove">
+          <button type="button" aria-label="Move {{ it.name }} up" onclick="moveItem(this,-1,event)">▲</button>
+          <button type="button" aria-label="Move {{ it.name }} down" onclick="moveItem(this,1,event)">▼</button>
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="lockrow"><button class="start-btn" type="button" id="lockb" onclick="lockIn()">Lock it in</button></div>
+    <div class="doneb" id="doneb">
+      <div class="rank" id="rank"><span id="rankLabel">Perfect</span><span class="stars" id="stars">★★★</span></div>
+      <p>The true order is above — every figure linked to its source.</p>
+      <button class="start-btn again" type="button" onclick="resetPuzzle()">↺ Play again</button>
+      <button class="start-btn again" type="button" id="shareb" onclick="sharePuzzle()">📤 Share</button>
+    </div>
+  </div>
+</div>
+<div class="fig-caption">Hint: {{ p.hint | stripHint }}</div>
+
+<h2>The receipts</h2>
+<div class="receipts"><ul>
+  {%- for it in p.items %}{%- for s in it.sources %}
+  <li><span>{{ it.name }}</span><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a></li>
+  {%- endfor %}{%- endfor %}
+</ul></div>
+
+<script>window.__PUZZLE = { mode: "rank", total: {{ p.items | length }}, thresholds: [{{ p.items | length }}, 2] };</script>

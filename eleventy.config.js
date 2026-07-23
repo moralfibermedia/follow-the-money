@@ -12,12 +12,14 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy(f));
 
   // ---- not-yet-converted sections served verbatim ----
-  ["fighters", "legal", "doj", "americas-250th", "just-the-facts", "speak-now",
-   "2026-ga-elections-legislation", "review",
-   // non-barchart puzzle pages (convert in E2):
-   "puzzles/golden-parachutes", "puzzles/lobby-or-not", "puzzles/the-docket",
-   "puzzles/under-new-management", "puzzles/behind-the-bench",
+  ["fighters", "legal", "doj", "2026-ga-elections-legislation", "review",
   ].forEach(d => eleventyConfig.addPassthroughCopy(d));
+
+  // preview art for the generated series pages (html is generated)
+  ["americas-250th/**/*.png", "americas-250th/**/preview.json",
+   "just-the-facts/**/*.png", "just-the-facts/**/preview.json",
+   "speak-now/**/*.png", "speak-now/**/preview.json",
+  ].forEach(g => eleventyConfig.addPassthroughCopy(g));
 
   // v1 arcade archive — the pre-migration pages, kept for side-by-side
   // comparison at /compare/ (noindex; canonicals point at the live pages)
@@ -54,6 +56,45 @@ module.exports = function (eleventyConfig) {
     const rep = { p: "rep", label: "REP", pct: c.rep_pct, amt: c.rep_amount };
     return c.leading_party === "rep" ? [rep, dem] : [dem, rep];
   });
+
+  // JSON-LD for text-match / rank / over-under / timeline pages
+  eleventyConfig.addFilter("puzzleJsonld", p => {
+    const base = "https://followthemoney.moralfibermedia.com";
+    const url = `${base}/${p.path || ("puzzles/" + p.id)}`;
+    const lic = p.data_license === "CC BY-NC-SA 3.0"
+      ? "https://creativecommons.org/licenses/by-nc-sa/3.0/us/"
+      : "https://creativecommons.org/licenses/by/4.0/";
+    let hasPart;
+    if (p.template === "text-match") {
+      const names = Object.fromEntries((p.answers || []).map(a => [a.id, a.name]));
+      hasPart = (p.facts || []).map(f => ({ "@type": "Question", "eduQuestionType": "Matching",
+        "text": f.text, "acceptedAnswer": { "@type": "Answer", "text": names[f.answer] || f.answer } }));
+    } else if (p.template === "rank") {
+      hasPart = [{ "@type": "Question", "eduQuestionType": "Checkwork",
+        "text": `Rank ${p.items.map(i => i.name).join(", ")} from most to least.`,
+        "acceptedAnswer": { "@type": "Answer", "text": p.items.map(i => i.name).join(", ") } }];
+    } else if (p.template === "timeline") {
+      hasPart = [{ "@type": "Question", "eduQuestionType": "Checkwork",
+        "text": `Put these events in chronological order: ${p.events.map(e => e.title).join("; ")}.`,
+        "acceptedAnswer": { "@type": "Answer", "text": p.events.map(e => `${e.title} (${e.date})`).join("; ") } }];
+    } else { // over-under
+      hasPart = [{ "@type": "Question", "eduQuestionType": "Checkwork",
+        "text": `Guess higher or lower through: ${p.cards.map(c => c.name).join(", ")}.`,
+        "acceptedAnswer": { "@type": "Answer", "text": p.cards.map(c => `${c.name}: ${c.display}`).join("; ") } }];
+    }
+    return JSON.stringify({ "@context": "https://schema.org", "@graph": [
+      { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Puzzles", "item": base + "/" },
+        { "@type": "ListItem", "position": 2, "name": p.title, "item": url }] },
+      { "@type": "Quiz", "name": p.title, "url": url, "description": p.subtitle,
+        "educationalUse": "Civic education", "inLanguage": "en",
+        "publisher": { "@type": "Organization", "name": "Moral Fiber Media", "url": "https://moralfibermedia.com" },
+        "license": lic, "hasPart": hasPart }] });
+  });
+
+  // reorder helper: items/events in scramble (display) order
+  eleventyConfig.addFilter("byScramble", (list, scramble) =>
+    scramble.map(id => list.find(x => x.id === id)));
 
   // JSON-LD for a bar-chart puzzle page
   eleventyConfig.addFilter("barchartJsonld", p => {

@@ -723,7 +723,70 @@
         "comment_deadline": "2026-07-13T23:59:00-04:00",
         "count_document_id": "OMB-2026-0034-0001",
         "count_label": "comments posted"
-      }
+      },
+      "answers": [
+        {
+          "id": "federal-reserve",
+          "name": "Federal Reserve"
+        },
+        {
+          "id": "sec",
+          "name": "SEC"
+        },
+        {
+          "id": "usps",
+          "name": "U.S. Postal Service"
+        }
+      ],
+      "facts": [
+        {
+          "answer": "federal-reserve",
+          "label": "Reason A",
+          "text": "It sets interest rates for the entire economy, but it funds itself from its own operations and takes no money from Congress — so a rule about spending federal dollars simply doesn't reach it.",
+          "sources": [
+            {
+              "url": "https://www.federalreserve.gov/faqs/about_14986.htm",
+              "label": "Federal Reserve: not funded by congressional appropriations"
+            },
+            {
+              "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+              "label": "Not among the 42 signatories — 91 FR 32198"
+            }
+          ]
+        },
+        {
+          "answer": "sec",
+          "label": "Reason B",
+          "text": "Its job is to police markets and punish fraud, not to administer federal financial assistance. With no aid programs to govern, it had nothing to sign.",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/about/mission",
+              "label": "SEC mission: enforce the securities laws"
+            },
+            {
+              "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+              "label": "Not among the 42 signatories — 91 FR 32198"
+            }
+          ]
+        },
+        {
+          "answer": "usps",
+          "label": "Reason C",
+          "text": "An independent, self-supporting entity funded by what you pay for stamps — Congress walled it off from this kind of executive guidance by statute.",
+          "sources": [
+            {
+              "url": "https://www.law.cornell.edu/uscode/text/39/201",
+              "label": "39 U.S.C. § 201: an independent establishment of the executive branch"
+            },
+            {
+              "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+              "label": "Not among the 42 signatories — 91 FR 32198"
+            }
+          ]
+        }
+      ],
+      "article_hook": "Forty-two federal agencies signed one grant rule — including the Marine Mammal Commission, with a budget you could lose in a rounding error. The Federal Reserve didn't sign. Neither did the SEC. <strong>Size had nothing to do with it.</strong>",
+      "reveal": "It was never about size. The Marine Mammal Commission signed because it gives out federal grants. The Federal Reserve didn't because it doesn't. One signature on this rule means one thing: <strong>you spend the public's money.</strong>"
     },
     {
       "id": "power-to-pardon",
@@ -739,7 +802,89 @@
       "data_source": null,
       "data_license": "CC BY 4.0",
       "status": "live",
-      "source_episode": "https://youtu.be/qu6qszxBYRQ"
+      "source_episode": "https://youtu.be/qu6qszxBYRQ",
+      "answers": [
+        {
+          "id": "clause",
+          "name": "The Pardon Clause"
+        },
+        {
+          "id": "limits",
+          "name": "The Limits"
+        },
+        {
+          "id": "opa",
+          "name": "Office of the Pardon Attorney"
+        },
+        {
+          "id": "five-year",
+          "name": "The Five-Year Rule"
+        }
+      ],
+      "facts": [
+        {
+          "answer": "clause",
+          "label": "Rule A",
+          "text": "\"He shall have Power to grant Reprieves and Pardons for Offenses against the United States, except in Cases of Impeachment.\" One person, one signature, no appeal.",
+          "sources": [
+            {
+              "url": "https://constitution.congress.gov/constitution/article-2/",
+              "label": "U.S. Constitution, Article II, Section 2"
+            },
+            {
+              "url": "https://www.law.cornell.edu/constitution/articleii",
+              "label": "Cornell LII — verbatim text"
+            }
+          ]
+        },
+        {
+          "answer": "limits",
+          "label": "Rule B",
+          "text": "It reaches only <em>federal</em> crimes — a pardon can't wipe out a state charge, and it can't undo an impeachment.",
+          "sources": [
+            {
+              "url": "https://constitution.congress.gov/browse/essay/artII-S2-C1-3-5/ALDE_00013322/",
+              "label": "Constitution Annotated — Scope of the Pardon Power"
+            },
+            {
+              "url": "https://www.americanbar.org/advocacy/governmental_legislative_work/publications/washingtonletter/dec-2020-wl/legal-fact-check-pardons-1220wl/",
+              "label": "ABA Legal Fact Check — Pardons"
+            }
+          ]
+        },
+        {
+          "answer": "opa",
+          "label": "Rule C",
+          "text": "The Justice Department office meant to vet every clemency request and recommend who's actually worthy — reportedly bypassed in <em>96%</em> of second-term grants.",
+          "sources": [
+            {
+              "url": "https://www.justice.gov/pardon/about-office",
+              "label": "DOJ — Office of the Pardon Attorney"
+            },
+            {
+              "url": "https://www.propublica.org/article/trump-pardons-erased-prosecutions-second-term",
+              "label": "ProPublica — 96% bypassed DOJ guidelines (2026)"
+            }
+          ]
+        },
+        {
+          "answer": "five-year",
+          "label": "Rule D",
+          "text": "The Justice Department's own standard: wait at least five years after release and show you've accepted responsibility — <em>before</em> you even apply.",
+          "sources": [
+            {
+              "url": "https://www.law.cornell.edu/cfr/text/28/1.2",
+              "label": "28 CFR § 1.2 — Eligibility for filing"
+            },
+            {
+              "url": "https://www.justice.gov/pardon/clemency-grants-president-donald-j-trump-2025-present",
+              "label": "DOJ — Clemency Grants record (2025–present)"
+            }
+          ]
+        }
+      ],
+      "article_hook": "The Constitution lets a president erase a federal crime with a signature — no judge, no jury, no appeal. There's exactly one hard limit written into the clause itself. <strong>Everything else is just norms.</strong>",
+      "reveal": "The pardon power is the closest thing in the Constitution to a king's prerogative — one person, no appeal, and the only hard limit is impeachment. Everything else meant to keep it honest is a <strong>norm, not a law.</strong>"
     },
     {
       "id": "pardon-my-receipts",
@@ -755,7 +900,108 @@
       "data_source": null,
       "data_license": "CC BY 4.0",
       "status": "live",
-      "source_episode": "https://youtu.be/qu6qszxBYRQ"
+      "source_episode": "https://youtu.be/qu6qszxBYRQ",
+      "answers": [
+        {
+          "id": "gentile",
+          "name": "David Gentile"
+        },
+        {
+          "id": "duran",
+          "name": "Lawrence Duran"
+        },
+        {
+          "id": "fiore",
+          "name": "Michele Fiore"
+        },
+        {
+          "id": "jenkins",
+          "name": "Scott Jenkins"
+        },
+        {
+          "id": "milton",
+          "name": "Trevor Milton"
+        }
+      ],
+      "facts": [
+        {
+          "answer": "gentile",
+          "label": "Crime A",
+          "text": "Founder of GPB Capital, who defrauded thousands of investors — about <em>$1.6 billion</em> raised in a Ponzi-like scheme. Sentenced to 7 years and $15.5M in restitution; his sentence was commuted after roughly two weeks in custody.",
+          "sources": [
+            {
+              "url": "https://www.justice.gov/usao-edny/pr/former-private-equity-executives-sentenced-prison",
+              "label": "DOJ EDNY — GPB executives sentenced"
+            },
+            {
+              "url": "https://www.nbcnews.com/politics/white-house/trump-commutes-7-year-prison-sentence-former-private-equity-ceo-david-rcna246744",
+              "label": "NBC News — Trump commutes Gentile's sentence (Dec 2025)"
+            }
+          ]
+        },
+        {
+          "answer": "duran",
+          "label": "Crime B",
+          "text": "Ran what was then the largest Medicare fraud in U.S. history — <em>$205 million</em> billed, $87.5M in restitution. A 50-year sentence, commuted to time served.",
+          "sources": [
+            {
+              "url": "https://archives.fbi.gov/archives/miami/press-releases/2011/owner-of-miami-area-mental-health-company-sentenced-to-50-years-in-prison-for-orchestrating-205-million-medicare-fraud-scheme",
+              "label": "FBI — 50-year sentence, $205M Medicare fraud"
+            },
+            {
+              "url": "https://www.justice.gov/pardon/clemency-grants-president-donald-j-trump-2025-present",
+              "label": "DOJ — Clemency Grants record (2025–present)"
+            }
+          ]
+        },
+        {
+          "answer": "fiore",
+          "label": "Crime C",
+          "text": "Raised more than <em>$70,000</em> to honor fallen police officers, then spent it on rent, plastic surgery, and a wedding. Convicted of wire fraud; pardoned before being sentenced.",
+          "sources": [
+            {
+              "url": "https://www.justice.gov/archives/opa/pr/former-las-vegas-city-councilwoman-convicted-charity-fraud-scheme",
+              "label": "DOJ — Las Vegas councilwoman convicted of charity fraud"
+            },
+            {
+              "url": "https://www.cbsnews.com/news/trump-pardons-michele-fiore-las-vegas-nevada-politician-fraud/",
+              "label": "CBS News — Trump pardons Michele Fiore (Apr 2025)"
+            }
+          ]
+        },
+        {
+          "answer": "jenkins",
+          "label": "Crime D",
+          "text": "A Virginia sheriff who sold auxiliary deputy badges for more than <em>$75,000</em> in bribes. Convicted on all 12 counts; pardoned hours before he was to report to prison.",
+          "sources": [
+            {
+              "url": "https://www.cbsnews.com/news/trump-says-hes-pardoning-a-virginia-sheriff-convicted-on-bribery-charges/",
+              "label": "CBS News — sheriff convicted of $75,000 in bribes"
+            },
+            {
+              "url": "https://www.nbcwashington.com/news/local/northern-virginia/trump-pardons-former-culpeper-county-sheriff-found-guilty-in-bribes-for-badges-scheme/3922046/",
+              "label": "NBC4 — Trump pardons ex-sheriff (May 2025)"
+            }
+          ]
+        },
+        {
+          "answer": "milton",
+          "label": "Crime E",
+          "text": "Nikola's founder, convicted of defrauding investors of <em>hundreds of millions</em> with false claims about his trucks. Pardoned weeks after he and his wife gave $1.8 million to Trump's campaign.",
+          "sources": [
+            {
+              "url": "https://www.cnbc.com/2025/03/28/trump-pardons-nikola-trevor-milton-ceo-securities-fraud-electric-vehicle.html",
+              "label": "CNBC — Trump pardons Trevor Milton (Mar 2025)"
+            },
+            {
+              "url": "https://fortune.com/2025/03/28/trump-pardon-nikola-trevor-milton-electric-vehicles-investor-restitution/",
+              "label": "Fortune — pardon, restitution &amp; the $1.8M donation"
+            }
+          ]
+        }
+      ],
+      "article_hook": "The Constitution lets a president erase almost any federal crime — no judge, no jury, no appeal. In 2025 the pardons came fast, and the restitution vanished with them. <strong>Here's who walked.</strong>",
+      "reveal": "Five federal convictions. Five grants of clemency. The Constitution makes the pardon power nearly absolute — so the only real check is who's paying attention. Whether these pardons were <strong>bought</strong> is the open question; the pardons themselves are on the record."
     },
     {
       "id": "under-new-management",
@@ -876,7 +1122,16 @@
             }
           ]
         }
-      ]
+      ],
+      "scramble": [
+        "tiktok-jv",
+        "skydance-paramount",
+        "judge-pause",
+        "versant-spinoff",
+        "wbd-agreement"
+      ],
+      "direction": "EARLIEST → LATEST · THE CONSOLIDATION WAVE",
+      "article_hook": "In under a year, CBS changed hands, MSNBC lost its name, TikTok's U.S. operation got new part-owners, and the company behind HBO and CNN agreed to a $110.9 billion sale — to the same family that bought CBS. <strong>The order is the story. Can you rebuild it?</strong>"
     },
     {
       "id": "power-grab",
@@ -899,7 +1154,89 @@
         "comment_deadline": "2026-07-13T23:59:00-04:00",
         "count_document_id": "OMB-2026-0034-0001",
         "count_label": "comments posted"
-      }
+      },
+      "answers": [
+        {
+          "id": "review",
+          "name": "Political Pre-Issuance Review"
+        },
+        {
+          "id": "terminate",
+          "name": "Termination for Convenience"
+        },
+        {
+          "id": "binding",
+          "name": "Guidance → Regulations"
+        },
+        {
+          "id": "content",
+          "name": "Content Restrictions"
+        }
+      ],
+      "facts": [
+        {
+          "answer": "review",
+          "label": "Change A",
+          "text": "Before any discretionary grant goes out, a senior political appointee must sign off — and the rule bars them from simply deferring to the expert peer reviewers. Politics gets the last word over the science.",
+          "sources": [
+            {
+              "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+              "label": "Federal Register — Regulation for Federal Financial Assistance (91 FR 32198)"
+            },
+            {
+              "url": "https://www.faegredrinker.com/en/insights/publications/2026/6/omb-proposes-extensive-reformation-of-federal-grant-regulations",
+              "label": "Faegre Drinker — pre-issuance political review"
+            }
+          ]
+        },
+        {
+          "answer": "terminate",
+          "label": "Change B",
+          "text": "Agencies could cancel an active grant whenever they decide it no longer fits <em>\"agency priorities\"</em> or <em>\"the national interest\"</em> — no finding of wrongdoing, and the rule says they need not offer hearings or appeals.",
+          "sources": [
+            {
+              "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+              "label": "Federal Register — § 200.340, termination"
+            },
+            {
+              "url": "https://www.crowell.com/en/insights/client-alerts/grants-overhauled-what-the-proposed-rewrite-of-2-cfr-part-200-means-for-federal-financial-assistance-award-recipients",
+              "label": "Crowell &amp; Moring — Grants Overhauled"
+            }
+          ]
+        },
+        {
+          "answer": "binding",
+          "label": "Change C",
+          "text": "The rulebook used to call itself flexible <em>\"guidance,\"</em> not binding law. This rewrite swaps in <em>\"regulations\"</em> across hundreds of provisions — making the terms of $1.1 trillion in grants binding, without a vote in Congress.",
+          "sources": [
+            {
+              "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+              "label": "Federal Register — guidance reissued as regulation"
+            },
+            {
+              "url": "https://www.hoganlovells.com/en/publications/federal-grantmaking-transformed",
+              "label": "Hogan Lovells — Federal Grantmaking Transformed"
+            }
+          ]
+        },
+        {
+          "answer": "content",
+          "label": "Change D",
+          "text": "Federal awards may no longer fund what the rule calls <em>\"gender ideology\"</em> or DEI activities — and falling short is treated as a <em>\"material breach\"</em> that can trigger termination.",
+          "sources": [
+            {
+              "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10817/regulation-for-federal-financial-assistance",
+              "label": "Federal Register — prohibited activities"
+            },
+            {
+              "url": "https://www.insidegovernmentcontracts.com/2026/06/proposed-rule-would-fundamentally-impact-federal-grant-and-financial-assistance-framework/",
+              "label": "Inside Government Contracts — content restrictions"
+            }
+          ]
+        }
+      ],
+      "article_hook": "It's the biggest rewrite of how federal grant money works in over a decade — $1.1 trillion a year, across 40-plus agencies. Critics call it a power grab: it hands whoever holds the White House new control over who gets the money. <strong>You can comment until July 13.</strong>",
+      "reveal": "Four changes, one direction: more discretionary control over federal money for whoever's in charge — flexible guidance rewritten as binding law, without a vote in Congress. It's still a <em>proposed</em> rule. Until July 13, the public record is open. <strong>Speak now.</strong>"
     },
     {
       "id": "golden-parachutes",
@@ -913,7 +1250,69 @@
       "hint": "The biggest company doesn't always pay the biggest package — watch how equity grants land in a given year.",
       "data_source": null,
       "data_license": "CC BY 4.0",
-      "status": "live"
+      "status": "live",
+      "items": [
+        {
+          "id": "nadella-microsoft",
+          "rank": 1,
+          "value": 79110347,
+          "display": "$79.1M",
+          "name": "Satya Nadella · Microsoft",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000789019&type=DEF+14A",
+              "label": "SEC proxy (DEF 14A) — Microsoft Corp."
+            }
+          ]
+        },
+        {
+          "id": "cook-apple",
+          "rank": 2,
+          "value": 74610032,
+          "display": "$74.6M",
+          "name": "Tim Cook · Apple",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/Archives/edgar/data/0000320193/000130817924000010/laapl2024_def14a.htm",
+              "label": "SEC proxy (DEF 14A) — Apple Inc. FY2024"
+            }
+          ]
+        },
+        {
+          "id": "jassy-amazon",
+          "rank": 3,
+          "value": 40116000,
+          "display": "$40.1M",
+          "name": "Andy Jassy · Amazon",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001018724&type=DEF+14A",
+              "label": "SEC proxy (DEF 14A) — Amazon.com, Inc."
+            }
+          ]
+        },
+        {
+          "id": "pichai-alphabet",
+          "rank": 4,
+          "value": 10319413,
+          "display": "$10.3M",
+          "name": "Sundar Pichai · Alphabet",
+          "sources": [
+            {
+              "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001652044&type=DEF+14A",
+              "label": "SEC proxy (DEF 14A) — Alphabet Inc."
+            }
+          ]
+        }
+      ],
+      "scramble": [
+        "jassy-amazon",
+        "nadella-microsoft",
+        "pichai-alphabet",
+        "cook-apple"
+      ],
+      "direction": "HIGHEST → LOWEST · TOTAL CEO COMPENSATION · FY2024",
+      "article_hook": "They run the companies that shape your feed, your phone, your cart, and your search bar. But their pay packages don't track their power — one of these four takes home less than a tenth of another. <strong>The order will surprise you.</strong>"
     },
     {
       "id": "lobby-or-not",
@@ -928,7 +1327,77 @@
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
       "cycle": "2026",
-      "status": "live"
+      "status": "live",
+      "cards": [
+        {
+          "id": "alphabet",
+          "value": 4135000,
+          "prefix": "$",
+          "suffix": "",
+          "display": "$4,135,000",
+          "name": "Alphabet",
+          "context": "Parent of Google & YouTube",
+          "source_url": "https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067823",
+          "source_label": "OpenSecrets — Alphabet federal lobbying, 2026 cycle"
+        },
+        {
+          "id": "x-twitter",
+          "value": 190000,
+          "prefix": "$",
+          "suffix": "",
+          "display": "$190,000",
+          "name": "X",
+          "context": "Formerly Twitter",
+          "source_url": "https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000067113",
+          "source_label": "OpenSecrets — X Inc federal lobbying, 2026 cycle"
+        },
+        {
+          "id": "meta",
+          "value": 7080000,
+          "prefix": "$",
+          "suffix": "",
+          "display": "$7,080,000",
+          "name": "Meta",
+          "context": "Parent of Facebook & Instagram",
+          "source_url": "https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000033563",
+          "source_label": "OpenSecrets — Meta federal lobbying, 2026 cycle"
+        },
+        {
+          "id": "snap",
+          "value": 400000,
+          "prefix": "$",
+          "suffix": "",
+          "display": "$400,000",
+          "name": "Snap",
+          "context": "Maker of Snapchat",
+          "source_url": "https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000068777",
+          "source_label": "OpenSecrets — Snap Inc federal lobbying, 2026 cycle"
+        },
+        {
+          "id": "bytedance",
+          "value": 2020000,
+          "prefix": "$",
+          "suffix": "",
+          "display": "$2,020,000",
+          "name": "ByteDance",
+          "context": "Parent of TikTok",
+          "source_url": "https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000073174",
+          "source_label": "OpenSecrets — ByteDance Inc federal lobbying, 2026 cycle"
+        },
+        {
+          "id": "openai",
+          "value": 1020000,
+          "prefix": "$",
+          "suffix": "",
+          "display": "$1,020,000",
+          "name": "OpenAI",
+          "context": "Maker of ChatGPT",
+          "source_url": "https://www.opensecrets.org/federal-lobbying/clients/summary?cycle=2026&id=D000084252",
+          "source_label": "OpenSecrets — OpenAI federal lobbying, 2026 cycle"
+        }
+      ],
+      "metric": "TOTAL FEDERAL LOBBYING SPEND · 2026 CYCLE (YTD)",
+      "article_hook": "The platforms that run your feed all keep lobbyists in Washington — but the gap between the biggest tech spender this cycle and the smallest is bigger than you'd guess. <strong>Six companies, six very different bills.</strong>"
     },
     {
       "id": "the-docket",
@@ -942,7 +1411,83 @@
       "hint": "The charges came first and the fight over the prosecutor came last — the plea deals fell in between.",
       "data_source": null,
       "data_license": "CC BY 4.0",
-      "status": "live"
+      "status": "live",
+      "events": [
+        {
+          "id": "indictment",
+          "rank": 1,
+          "date": "2023-08-14",
+          "title": "The grand jury indictment",
+          "description": "A Fulton County grand jury charges Trump and 18 allies under Georgia's RICO Act over efforts to overturn the 2020 election.",
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Georgia_election_racketeering_prosecution",
+              "label": "Georgia election racketeering prosecution — overview &amp; sources"
+            }
+          ]
+        },
+        {
+          "id": "surrender",
+          "rank": 2,
+          "date": "2023-08-24",
+          "title": "Trump surrenders at the Fulton County Jail",
+          "description": "Trump turns himself in and is booked, producing the first-ever booking photo of a former U.S. president.",
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Georgia_election_racketeering_prosecution",
+              "label": "Georgia election racketeering prosecution — overview &amp; sources"
+            }
+          ]
+        },
+        {
+          "id": "ellis-plea",
+          "rank": 3,
+          "date": "2023-10-24",
+          "title": "Jenna Ellis pleads guilty",
+          "description": "The campaign attorney pleads guilty and agrees to cooperate — the fourth co-defendant to strike a deal in the case.",
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Georgia_election_racketeering_prosecution",
+              "label": "Georgia election racketeering prosecution — overview &amp; sources"
+            }
+          ]
+        },
+        {
+          "id": "mcafee-ruling",
+          "rank": 4,
+          "date": "2024-03-15",
+          "title": "Judge McAfee's ruling on the Willis–Wade relationship",
+          "description": "Judge Scott McAfee rules Willis can stay only if special prosecutor Nathan Wade steps aside; Wade resigns within hours.",
+          "sources": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Georgia_election_racketeering_prosecution",
+              "label": "Georgia election racketeering prosecution — overview &amp; sources"
+            }
+          ]
+        },
+        {
+          "id": "appeals-disqualify",
+          "rank": 5,
+          "date": "2024-12-19",
+          "title": "Court of Appeals disqualifies Willis",
+          "description": "The Georgia Court of Appeals removes DA Fani Willis and her office over the appearance of a conflict of interest.",
+          "sources": [
+            {
+              "url": "https://www.nbcnews.com/politics/donald-trump/appeals-court-disqualifies-fani-willis-trump-georgia-case-rcna184844",
+              "label": "Appeals court disqualifies Fani Willis — NBC News"
+            }
+          ]
+        }
+      ],
+      "scramble": [
+        "ellis-plea",
+        "indictment",
+        "appeals-disqualify",
+        "surrender",
+        "mcafee-ruling"
+      ],
+      "direction": "EARLIEST → LATEST · FULTON COUNTY DOCKET",
+      "article_hook": "A historic indictment, a mugshot, cascading plea deals, and a fight over the prosecutor herself — the Fulton County case moved fast, then unraveled. The order tells the story. <strong>Can you rebuild the timeline?</strong>"
     },
     {
       "id": "behind-the-bench",
@@ -956,7 +1501,63 @@
       "hint": "Follow the endorsements, not the ballot label.",
       "data_source": null,
       "data_license": "CC BY 4.0",
-      "status": "live"
+      "status": "live",
+      "answers": [
+        {
+          "id": "jordan",
+          "name": "Jen Jordan Challenger"
+        },
+        {
+          "id": "warren",
+          "name": "Sarah Hawkins Warren Incumbent"
+        }
+      ],
+      "facts": [
+        {
+          "answer": "jordan",
+          "label": "Fact A · Background",
+          "text": "Former Georgia State Senator, representing District 6 as a Democrat.",
+          "sources": [
+            {
+              "url": "https://ballotpedia.org/Jen_Jordan",
+              "label": "Source: Ballotpedia — Jen Jordan"
+            }
+          ]
+        },
+        {
+          "answer": "warren",
+          "label": "Fact B · Partisanship Rating",
+          "text": "Rated <em>\"Strong Republican\"</em> in Ballotpedia's 2020 study of judicial partisanship before joining the court.",
+          "sources": [
+            {
+              "url": "https://ballotpedia.org/Ballotpedia%27s_Partisanship_in_State_Supreme_Courts_Project",
+              "label": "Source: Ballotpedia Partisanship Project, 2020"
+            }
+          ]
+        },
+        {
+          "answer": "jordan",
+          "label": "Fact C · Endorsements",
+          "text": "Endorsements include EMILY's List, Fair Fight Action, Reproductive Freedom for All, and the Democratic Party of Georgia.",
+          "sources": [
+            {
+              "url": "https://ballotpedia.org/Jen_Jordan",
+              "label": "Source: Ballotpedia — Endorsements"
+            }
+          ]
+        },
+        {
+          "answer": "warren",
+          "label": "Fact D · Endorsement",
+          "text": "Endorsed by Frontline Policy, a Christian advocacy group whose stated mission is <em>\"a God-honoring Georgia.\"</em>",
+          "sources": [
+            {
+              "url": "https://frontlinepolicy.com",
+              "label": "Source: Frontline Policy mission statement"
+            }
+          ]
+        }
+      ]
     }
   ],
   "coming_soon": [

@@ -22,8 +22,30 @@ extraHead: '<meta name="robots" content="noindex, nofollow">'
 {%- endfor %}
 </ul>
 
-<h2>Not yet migrated</h2>
-<p class="coming">Text-match and rank / over-under / timeline puzzles are still in their original format (E2 of the migration). Once each converts, its arcade page joins the <b>/v1/</b> archive and appears above.</p>
+<h2>Text-match specials</h2>
+<ul class="hub-list">
+{%- for p in textmatches %}
+  <li><span class="hub-num">★ match</span>
+      <span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+</ul>
+
+<h2>New mechanics</h2>
+<ul class="hub-list">
+{%- for p in ranks %}
+  <li><span class="hub-num">★ rank</span><span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+{%- for p in overunders %}
+  <li><span class="hub-num">★ over/under</span><span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+{%- for p in timelines %}
+  <li><span class="hub-num">★ timeline</span><span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/{{ p.path }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+</ul>
 
 <h2>Your take</h2>
 <p>Played a pair (or a few)? Tell us which format works better and why — every submission lands with the editor.</p>

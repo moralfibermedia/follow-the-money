@@ -1,0 +1,71 @@
+---
+layout: layouts/base.njk
+pagination: { data: textmatches, size: 1, alias: p }
+permalink: "/{{ p.path }}/index.html"
+pageScript: /assets/textmatch.js
+eleventyComputed:
+  pageTitle: "{{ p.title }} — Follow the Money | Moral Fiber Media"
+  pageDescription: "{{ p.subtitle }}"
+  canonicalPath: "/{{ p.path }}"
+  ogImage: "/{{ p.path }}/preview.png"
+  jsonld: "{{ p | puzzleJsonld | safe }}"
+  license: "{{ 'by-nc-sa' if p.data_license == 'CC BY-NC-SA 3.0' else 'by' }}"
+  creditData: "sourced per match below"
+---
+<div class="kicker"><a href="/">Follow the Money</a> · {{ p.series | default("special") | replace("-", " ") }}</div>
+<h1>{{ p.title | emLast | safe }}</h1>
+<div class="standfirst">{{ p.subtitle }}</div>
+<div class="meta">Public record · sourced per match &nbsp;·&nbsp; {{ p.facts | length }} matches · ~2 min</div>
+
+{% if p.article_hook %}<p>{{ p.article_hook | safe }}</p>{% endif %}
+<p>No trivia, no tricks — just the public record, cut into cards. Below: {{ p.facts | length }} facts and the answers they belong to. Match each one; every correct match reveals its sources so you can check the work line by line.</p>
+<p>{{ p.hint | stripHint }}</p>
+
+<div class="figure" id="fig">
+  <div class="fig-cover">
+    <img src="/{{ p.path }}/preview.png" alt="{{ p.title }} — puzzle preview" width="1200" height="630">
+    <div class="fig-bar">
+      <span class="fig-label">Interactive · {{ p.facts | length }} matches</span>
+      <button class="start-btn" type="button" onclick="startPuzzle()">▶ Start the puzzle</button>
+    </div>
+  </div>
+  <div class="fig-game">
+    <div class="score-bar"><span>Matched <b id="m">0</b>/{{ p.facts | length }}</span><span>Attempts <b id="a">0</b></span></div>
+    <div class="tray-label" id="tl"><span class="step-num" id="sn">1</span> <span id="tt">Tap an answer below</span></div>
+    <div class="tiles attention" id="tiles">
+      {%- for a in p.answers %}
+      <div class="tile wide" data-company="{{ a.id }}" onclick="pick(this)">{{ a.name }}</div>
+      {%- endfor %}
+    </div>
+    <div class="facts">
+      {%- for f in p.facts %}
+      <div class="fact" data-correct="{{ f.answer }}">
+        <div class="fact-label">{{ f.label }}</div>
+        <div class="fact-text">{{ f.text | safe }}</div>
+        <div class="drop">Match an answer here</div>
+        <div class="fact-srcs">
+          {%- for s in f.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener">✓ {{ s.label }}</a>{%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="doneb" id="doneb">
+      <div class="rank" id="rank"><span id="rankLabel">Perfect</span><span class="stars" id="stars">★★★</span></div>
+      {% if p.reveal %}<p class="reveal-note">{{ p.reveal | safe }}</p>{% endif %}
+      <p>Every match above now shows its sources.</p>
+      <button class="start-btn again" type="button" onclick="resetPuzzle()">↺ Play again</button>
+      <button class="start-btn again" type="button" id="shareb" onclick="sharePuzzle()">📤 Share</button>
+    </div>
+  </div>
+</div>
+<div class="fig-caption">Hint: {{ p.hint | stripHint }}</div>
+
+<h2>The receipts</h2>
+<p>Every claim in this puzzle links to the public record:</p>
+<div class="receipts"><ul>
+  {%- for f in p.facts %}{%- for s in f.sources %}
+  <li><span>{{ s.label }}</span><a href="{{ s.url }}" target="_blank" rel="noopener">source ↗</a></li>
+  {%- endfor %}{%- endfor %}
+</ul></div>
+
+<script>window.__PUZZLE = { total: {{ p.facts | length }}, names: { {%- for a in p.answers %}"{{ a.id }}": {{ a.name | dump2 | safe }}{% if not loop.last %},{% endif %}{%- endfor %} } };</script>
