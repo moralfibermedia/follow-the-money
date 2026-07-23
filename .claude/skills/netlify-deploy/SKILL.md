@@ -9,7 +9,7 @@ description: Step-by-step deployment of static HTML/CSS/JS files to Netlify with
 
 MFM uses a single-site monorepo architecture: one GitHub repo (`moralfibermedia/follow-the-money`) deployed as one Netlify site at `followthemoney.moralfibermedia.com`. All pages are served as paths under that domain.
 
-**Stack:** Static HTML monorepo → GitHub → Netlify auto-deploy → Squarespace CNAME → followthemoney.moralfibermedia.com
+**Stack:** Eleventy 3 (src/ → `npm run build` → `_site/`) → GitHub → Netlify auto-deploy (build command `npm run build`, publish `_site`, Node 20) → Squarespace CNAME → followthemoney.moralfibermedia.com. **Pages are generated from `data/puzzles.json`** — see CLAUDE.md Common Tasks; never hand-edit page HTML.
 
 ---
 
@@ -84,6 +84,8 @@ follow-the-money/
 ```
 
 `robots.txt` and `_headers` live at the repo root only — they apply site-wide.
+
+**Post-migration (July 2026) essentials:** sources in `src/` (layouts `src/_includes/`, shared CSS/JS `src/assets/`, data plumbing `src/_data/`); all puzzle pages + index + `/fighters/` + `/legal/` + `sitemap.xml` are build outputs. Passthrough verbatim: `doj/`, `2026-ga-elections-legislation/`, `review/`, `drafts/` (if present), preview art (`**/preview.png|json`), `_headers`, `robots.txt`, `data/comment-counts.json` (the Action-written feed — must keep serving). Arcade archive at `/v1/` + `/compare/` (both noindex). Netlify Forms (`review-desk-done`, `design-feedback`) live in served HTML — keep the static form markup or detection breaks at deploy. A broken build blocks deploys: verify `npx eleventy` locally and rely on deploy previews + one-click rollback.
 
 **Blocked from serving (`netlify.toml` `force = true` 404s):** `/data/*` (except `comment-counts.json`), `/template/*`, `/scripts/*`, `/index/*`, `/.claude/*`, `/vision/*`, `/marketing/*`. **Gotcha:** the repo root publishes as-is, so root-level `.md` files ARE served by default. Internal docs (`CLAUDE.md`, `follow-the-money-roadmap.md`, `follow-the-money-vision.md`, `claude-code-spec.md`) are individually 404'd in `netlify.toml`; `LICENSE` and `README.md` stay public. **When you add a new internal root doc, block it there or it goes live.**
 

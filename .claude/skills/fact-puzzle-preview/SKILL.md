@@ -9,6 +9,8 @@ Generates the 1200×630 `preview.png` that ships next to each puzzle's `index.ht
 
 The MFM design system is defined in the `mfm-editorial-design` skill — this skill applies that system to a fixed preview layout. Don't redesign; just feed in the puzzle data.
 
+**Eleventy note (July 2026):** page HTML is generated, but `preview.json`/`preview.png` still live in each puzzle's content dir (`puzzles/{id}/`, series dirs) and are passthrough-copied at build — renderer paths and workflow unchanged. The preview doubles as the in-article figure cover on every page.
+
 ## When to use
 
 - User asks to make / regenerate / update a preview for a puzzle
