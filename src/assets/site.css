@@ -35,6 +35,19 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
   letter-spacing:.22em; text-transform:uppercase; color:var(--paper); background:var(--ink);
   border:2px solid var(--ink); padding:10px 20px; cursor:pointer; transition:all .18s; }
 .start-btn:hover { background:var(--red); border-color:var(--red); }
+/* the frame's front door gets the arcade treatment */
+.fig-cover { cursor:pointer; }
+.fig-bar .start-btn { font-size:13px; padding:12px 24px;
+  box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--ink); }
+.fig-bar .start-btn::before { content:"▮ "; color:var(--gold);
+  animation:blink 1s steps(2,start) infinite; }
+.fig-bar .start-btn:hover { box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--red); }
+@keyframes blink { 0%,50% {opacity:1} 50.01%,100% {opacity:0} }
+@keyframes throb { 0%,100% {transform:scale(1)} 50% {transform:scale(1.04)} }
+@media (prefers-reduced-motion: no-preference) {
+  .fig-bar .start-btn { animation:throb 1.6s ease-in-out infinite; }
+  .fig-cover:hover .start-btn { animation-duration:.9s; }
+}
 .fig-game { display:none; padding:16px 14px 18px; }
 .figure.playing .fig-game { display:block; }
 .figure.playing .fig-cover { display:none; }

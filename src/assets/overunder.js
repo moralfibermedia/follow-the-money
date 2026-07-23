@@ -85,4 +85,6 @@
       const b = $("shareb"), o = b.textContent; b.textContent = "✓ Link copied"; setTimeout(() => b.textContent = o, 2200); });
   };
   window.resetPuzzle = function () { $("doneb").classList.remove("show"); begin(); };
+  const cov = document.querySelector(".fig-cover");
+  if (cov) cov.addEventListener("click", e => { if (!e.target.closest("a")) window.startPuzzle(); });
 })();
