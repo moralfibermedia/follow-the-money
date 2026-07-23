@@ -90,6 +90,18 @@
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
+# Format-comparison tool: v1 arcade archive + /compare/ hub. Servable,
+# never indexed; v1 pages canonical to the live (v2) pages.
+[[headers]]
+  for = "/v1/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/compare/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # Password-protected Review Desk (AES-encrypted page for outside reviewers;
 # built by scripts/build-review-desk.py + scripts/encrypt-page.mjs). Servable
 # so its DONE button can submit the review-desk-done Netlify Form, but never

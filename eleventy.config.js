@@ -19,6 +19,10 @@ module.exports = function (eleventyConfig) {
    "puzzles/under-new-management", "puzzles/behind-the-bench",
   ].forEach(d => eleventyConfig.addPassthroughCopy(d));
 
+  // v1 arcade archive — the pre-migration pages, kept for side-by-side
+  // comparison at /compare/ (noindex; canonicals point at the live pages)
+  eleventyConfig.addPassthroughCopy("v1");
+
   // preview art for the generated bar-chart pages (html for those is generated)
   eleventyConfig.addPassthroughCopy("puzzles/**/*.png");
   eleventyConfig.addPassthroughCopy("puzzles/**/preview.json");

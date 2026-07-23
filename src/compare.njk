@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+permalink: /compare/index.html
+license: by
+pageTitle: "Format comparison — Arcade vs Editorial | Moral Fiber Media"
+pageDescription: "Internal side-by-side of every puzzle in the original arcade format and the v2 editorial format."
+canonicalPath: "/compare/"
+ogImage: "/preview.png"
+extraHead: '<meta name="robots" content="noindex, nofollow">'
+---
+<div class="kicker">★ Internal · Design Tool</div>
+<h1>Arcade vs <em>Editorial</em></h1>
+<div class="standfirst">Every puzzle in both treatments. A = the original arcade format (archived, frozen). B = the v2 editorial format (live). As more mechanics migrate, they appear here automatically.</div>
+<div class="hub-tagline">noindex · unlinked · canonicals point at the live pages</div>
+
+<h2>Bar-chart series</h2>
+<ul class="hub-list">
+{%- for p in barcharts %}
+  <li><span class="hub-num">{% if p.number %}#{{ p.number }}{% else %}★{% endif %}</span>
+      <span class="hub-t" style="cursor:default">"{{ p.title }}"</span>
+      <span class="hub-hook"><a href="/v1/{{ p.id }}/">Arcade (v1) ↗</a> &nbsp;·&nbsp; <a href="/puzzles/{{ p.id }}/">Editorial (v2) ↗</a></span></li>
+{%- endfor %}
+</ul>
+
+<h2>Not yet migrated</h2>
+<p class="coming">Text-match and rank / over-under / timeline puzzles are still in their original format (E2 of the migration). Once each converts, its arcade page joins the <b>/v1/</b> archive and appears above.</p>
