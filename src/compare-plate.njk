@@ -11,7 +11,7 @@ extraHead: '<meta name="robots" content="noindex, nofollow">'
 <div class="kicker"><a href="/compare/">← Comparison hub</a> · Design lab</div>
 <h1>The Gilded <em>Plate</em></h1>
 <div class="standfirst">The puzzle block, three ways: the current frame, and the new "puzzle-desk plate" — vintage printer's rules, department nameplate, top-center Start, red stamp, gold-leaf shimmer border (subtle vs loud). Buttons here are inert; this page is visual only.</div>
-<div class="hub-tagline">Have a take? Use the feedback form on <a href="/compare/">/compare/</a> and mention <b>plate</b> in your notes.</div>
+<div class="hub-tagline">Scroll the three, then cast your vote below — it lands straight with the editor.</div>
 
 <h2>1 · Current frame</h2>
 <div class="figure">
@@ -53,5 +53,25 @@ extraHead: '<meta name="robots" content="noindex, nofollow">'
     </div>
   </div>
 </div>
+
+<h2>Your vote</h2>
+<form name="plate-feedback" method="POST" action="/compare/thanks/" data-netlify="true" netlify-honeypot="bot-field" class="fb">
+  <p style="display:none"><label>Don't fill this in: <input name="bot-field"></label></p>
+  <div class="fb-row">
+    <span class="fb-l">Which frame?</span>
+    <label class="fb-c"><input type="radio" name="frame" value="current — no plate" required> current</label>
+    <label class="fb-c"><input type="radio" name="frame" value="plate — subtle shimmer"> plate · subtle</label>
+    <label class="fb-c"><input type="radio" name="frame" value="plate — loud shimmer"> plate · loud</label>
+  </div>
+  <div class="fb-row">
+    <label class="fb-l" for="pf-name">Name <span class="fb-opt">(optional)</span></label>
+    <input class="fb-in" id="pf-name" name="reviewer" maxlength="80" autocomplete="name">
+  </div>
+  <div class="fb-row">
+    <label class="fb-l" for="pf-notes">Why? <span class="fb-opt">(optional)</span></label>
+    <textarea class="fb-in" id="pf-notes" name="notes" rows="4" maxlength="2000" placeholder="What draws the eye, what's too much, what's missing…"></textarea>
+  </div>
+  <button class="start-btn" type="submit">Cast vote</button>
+</form>
 
 <p style="margin-top:20px">The plate ships on every puzzle once a shimmer level is chosen; this page stays as the record of the decision and the pattern for future variant tryouts.</p>
