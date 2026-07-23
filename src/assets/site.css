@@ -37,16 +37,16 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
 .start-btn:hover { background:var(--red); border-color:var(--red); }
 /* the frame's front door gets the arcade treatment */
 .fig-cover { cursor:pointer; }
-.fig-bar .start-btn { font-size:13px; padding:12px 24px;
+.fig-bar .start-btn, .plate-head .start-btn { font-size:13px; padding:12px 24px;
   box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--ink); }
-.fig-bar .start-btn::before { content:"▮ "; color:var(--gold);
+.fig-bar .start-btn::before, .plate-head .start-btn::before { content:"▮ "; color:var(--gold);
   animation:blink 1s steps(2,start) infinite; }
-.fig-bar .start-btn:hover { box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--red); }
+.fig-bar .start-btn:hover, .plate-head .start-btn:hover { box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--red); }
 @keyframes blink { 0%,50% {opacity:1} 50.01%,100% {opacity:0} }
 @keyframes throb { 0%,100% {transform:scale(1)} 50% {transform:scale(1.04)} }
 @media (prefers-reduced-motion: no-preference) {
-  .fig-bar .start-btn { animation:throb 1.6s ease-in-out infinite; }
-  .fig-cover:hover .start-btn { animation-duration:.9s; }
+  .fig-bar .start-btn, .plate-head .start-btn { animation:throb 1.6s ease-in-out infinite; }
+  .fig-cover:hover .start-btn, .figure.plate:hover .start-btn { animation-duration:.9s; }
 }
 .fig-game { display:none; padding:16px 14px 18px; }
 .figure.playing .fig-game { display:block; }
@@ -313,3 +313,36 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
   font-family:'JetBrains Mono',monospace; font-size:10.5px; margin-top:8px; }
 .source-reveal.visible { opacity:1; max-height:56px; }
 .source-reveal a { color:var(--dem-blue); word-break:break-all; }
+
+/* ==== The Gilded Puzzle Plate ==== */
+.figure.plate { border:none; background:linear-gradient(110deg,
+    #a1750a 0%, var(--gold) 14%, #d9b45b 28%, #efe0b0 38%, #d9b45b 48%,
+    var(--gold) 62%, #a1750a 78%, var(--gold) 92%, #d9b45b 100%);
+  background-size:250% 100%; padding:5px; position:relative; }
+.figure.plate.loud { background:linear-gradient(110deg,
+    #a1750a 0%, var(--gold) 14%, #e6c569 26%, #fff3c9 37%, #e6c569 48%,
+    var(--gold) 62%, #a1750a 78%, var(--gold) 92%, #e6c569 100%);
+  background-size:250% 100%; }
+@keyframes gild { from { background-position:0% 0; } to { background-position:250% 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  .figure.plate { animation:gild 9s linear infinite; }
+  .figure.plate.loud { animation-duration:4s; }
+}
+.plate-body { background:#fff; border:1px solid var(--ink); }
+.plate-head { text-align:center; padding:16px 14px 14px; border-bottom:1px solid var(--ink);
+  background:
+    radial-gradient(circle at 0 0, transparent 0 4px, var(--rule) 4px 5px, transparent 5px) no-repeat,
+    radial-gradient(circle at 100% 0, transparent 0 4px, var(--rule) 4px 5px, transparent 5px) no-repeat,
+    var(--paper); }
+.plate-name { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+.plate-name .orn { color:var(--gold); letter-spacing:0; }
+.plate-head .start-btn { display:block; margin:0 auto; font-size:14px;
+  padding:14px 34px; letter-spacing:.26em; }
+.plate-meta { font-family:'JetBrains Mono',monospace; font-size:10.5px;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:11px; }
+.plate-stamp { position:absolute; top:-12px; right:12px; z-index:2;
+  font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.12em; color:var(--red); border:2px solid var(--red);
+  background:var(--paper); padding:3px 9px; transform:rotate(-6deg); }
+.figure.plate .fig-cover img { display:block; }

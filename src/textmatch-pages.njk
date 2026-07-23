@@ -21,14 +21,15 @@ eleventyComputed:
 <p>No trivia, no tricks — just the public record, cut into cards. Below: {{ p.facts | length }} facts and the answers they belong to. Match each one; every correct match reveals its sources so you can check the work line by line.</p>
 <p>{{ p.hint | stripHint }}</p>
 
-<div class="figure" id="fig">
-  <div class="fig-cover">
-    <img src="/{{ p.path }}/preview.png" alt="{{ p.title }} — puzzle preview" width="1200" height="630">
-    <div class="fig-bar">
-      <span class="fig-label">Interactive · {{ p.facts | length }} matches</span>
-      <button class="start-btn" type="button" onclick="startPuzzle()">▶ Start the puzzle</button>
-    </div>
-  </div>
+{% set figMechanic = "MATCH THE FACTS" %}
+{% set figMeta = "Interactive · " ~ (p.facts | length) ~ " matches" %}
+{% set figCover = "/" ~ p.path ~ "/preview.png" %}
+{% set figAlt = p.title ~ " — puzzle preview" %}
+{% if p.number %}{% set figStamp = "Nº " ~ p.number %}{% else %}{% set figStamp = "★" %}{% endif %}
+<div class="figure plate" id="fig">
+  <span class="plate-stamp">{{ figStamp }}</span>
+  <div class="plate-body">
+  {% include "figure-plate.njk" %}
   <div class="fig-game">
     <div class="score-bar"><span>Matched <b id="m">0</b>/{{ p.facts | length }}</span><span>Attempts <b id="a">0</b></span></div>
     <div class="tray-label" id="tl"><span class="step-num" id="sn">1</span> <span id="tt">Tap an answer below</span></div>
@@ -56,6 +57,7 @@ eleventyComputed:
       <button class="start-btn again" type="button" onclick="resetPuzzle()">↺ Play again</button>
       <button class="start-btn again" type="button" id="shareb" onclick="sharePuzzle()">📤 Share</button>
     </div>
+  </div>
   </div>
 </div>
 <div class="fig-caption">Hint: {{ p.hint | stripHint }}</div>
