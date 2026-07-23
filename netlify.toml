@@ -31,6 +31,12 @@
   force = true
 
 [[redirects]]
+  from = "/brand/*"
+  to = "/"
+  status = 404
+  force = true
+
+[[redirects]]
   from = "/index/*"
   to = "/"
   status = 404

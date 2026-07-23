@@ -348,3 +348,13 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
   letter-spacing:.12em; color:var(--red); border:2px solid var(--red);
   background:var(--paper); padding:3px 9px; transform:rotate(-6deg); }
 .figure.plate .fig-cover img { display:block; }
+
+/* ---- brand mark ---- */
+.hub-mark { display:block; width:72px; height:72px; margin-bottom:10px; }
+.brandrow { display:flex; align-items:center; gap:12px; padding-bottom:4px; }
+.brandmark { width:44px; height:44px; flex:none; }
+.brandname { font-family:'Playfair Display',serif; font-weight:900; font-size:17px;
+  color:var(--ink); line-height:1.25; letter-spacing:.2px; }
+.brandname em { font-style:italic; color:var(--red); }
+.brandtag { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:400;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
