@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+permalink: /fighters/index.html
+license: by
+pageTitle: "Pro-Democracy Fighters — the full list | Moral Fiber Media"
+pageDescription: "A curated directory of the commentators, analysts, organizers, and organizations on the front lines of democratic accountability."
+canonicalPath: "/fighters"
+ogImage: "/fighters/preview.png"
+---
+<div class="kicker"><a href="/">Follow the Money</a> · directory</div>
+<h1>Pro-Democracy <em>Fighters</em></h1>
+<div class="standfirst">The commentators, analysts, strategists, podcasters, and organizations doing the work — {{ fightersAll | length }} names and growing.</div>
+<div class="hub-tagline">Know someone who belongs here? Tell us: contact@moralfibermedia.com</div>
+
+<div class="fighters" style="margin-top:18px">
+{%- for f in fightersAll %}
+  <a class="fgt" href="{{ f.url }}" target="_blank" rel="noopener">
+    <span class="fgt-i">✊</span>
+    <span><span class="fgt-n">{{ f.name }}</span><br><span class="fgt-d">{{ f.description }}</span><br><span class="ins-u">{{ f.display_url }}</span></span>
+  </a>
+{%- endfor %}
+</div>
+<p style="margin-top:22px"><a href="/">← Back to the puzzles</a></p>

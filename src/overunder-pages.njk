@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-pagination: { data: overunders, size: 1, alias: p }
+pagination: { addAllPagesToCollections: true, data: overunders, size: 1, alias: p }
 permalink: "/{{ p.path }}/index.html"
 pageScript: /assets/overunder.js
 eleventyComputed:

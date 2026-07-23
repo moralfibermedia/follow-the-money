@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-pagination: { data: timelines, size: 1, alias: p }
+pagination: { addAllPagesToCollections: true, data: timelines, size: 1, alias: p }
 permalink: "/{{ p.path }}/index.html"
 pageScript: /assets/reorder.js
 eleventyComputed:

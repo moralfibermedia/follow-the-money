@@ -8,12 +8,16 @@
 module.exports = function (eleventyConfig) {
   // ---- static assets (root) ----
   ["robots.txt", "_headers", "favicon.ico", "favicon-16.png", "favicon-32.png",
-   "apple-touch-icon.png", "preview.png", "sitemap.xml"].forEach(f =>
+   "apple-touch-icon.png", "preview.png"].forEach(f =>
     eleventyConfig.addPassthroughCopy(f));
 
+  // future puzzle drafts (workflow dir; may not exist on every branch)
+  if (require("fs").existsSync("drafts")) eleventyConfig.addPassthroughCopy("drafts");
+
   // ---- not-yet-converted sections served verbatim ----
-  ["fighters", "legal", "doj", "2026-ga-elections-legislation", "review",
+  ["doj", "2026-ga-elections-legislation", "review",
   ].forEach(d => eleventyConfig.addPassthroughCopy(d));
+  eleventyConfig.addPassthroughCopy("fighters/**/*.png");
 
   // preview art for the generated series pages (html is generated)
   ["americas-250th/**/*.png", "americas-250th/**/preview.json",
