@@ -1,0 +1,86 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: barcharts
+  size: 1
+  alias: p
+permalink: "/puzzles/{{ p.id }}/index.html"
+license: by-nc-sa
+pageScript: /assets/barchart.js
+eleventyComputed:
+  pageTitle: "Follow the Money — {{ p.title }} | Moral Fiber Media"
+  pageDescription: "{{ p.subtitle }}"
+  canonicalPath: "/puzzles/{{ p.id }}"
+  ogImage: "/puzzles/{{ p.id }}/preview.png"
+  jsonld: "{{ p | barchartJsonld | safe }}"
+---
+<div class="kicker"><a href="/">Follow the Money</a> · {% if p.number %}Puzzle #{{ p.number }}{% else %}Special Edition{% endif %}</div>
+<h1>{{ p.title | emLast | safe }}</h1>
+<div class="standfirst">{{ p.subtitle }}</div>
+<div class="meta">OpenSecrets.org · {{ p.cycle }} cycle · federal candidates &nbsp;·&nbsp; {{ p.companies | length }} companies · ~2 min</div>
+
+{% if prose[p.id] %}
+  {% for para in prose[p.id] %}<p>{{ para | safe }}</p>{% endfor %}
+{% else %}
+  <p>{% for c in p.companies %}{{ c.name }}{% if not loop.last %}{% if loop.revindex == 2 %}, and {% else %}, {% endif %}{% endif %}{% endfor %} — three brands, three donation profiles. {{ p.hook }}</p>
+  <p>The numbers below are federal campaign contributions for the {{ p.cycle }} cycle, as tracked by OpenSecrets.org: corporate PAC giving plus employees' individual donations to federal candidates. They are not direct corporate treasury gifts — those are illegal — and they don't include lobbying, which is a separate ledger.</p>
+  {% if p.context_note %}
+  <div class="context-note"><span class="cn-label">{{ p.context_note.label }}</span>{{ p.context_note.body }}{% if p.context_note.source_url %} <a href="{{ p.context_note.source_url }}" target="_blank" rel="noopener">({{ p.context_note.source_label }})</a>{% endif %}</div>
+  {% endif %}
+  <p>You'll see three unlabeled donation profiles — party split and total spend. Match each company to its money. {{ p.hint | stripHint }}</p>
+{% endif %}
+
+<div class="figure" id="fig">
+  <div class="fig-cover">
+    <img src="/puzzles/{{ p.id }}/preview.png" alt="{{ p.title }} — puzzle preview" width="1200" height="630">
+    <div class="fig-bar">
+      <span class="fig-label">Interactive · {{ p.companies | length }} matches</span>
+      <button class="start-btn" type="button" onclick="startPuzzle()">▶ Start the puzzle</button>
+    </div>
+  </div>
+  <div class="fig-game">
+    <div class="score-bar"><span>Matched <b id="m">0</b>/{{ p.companies | length }}</span><span>Attempts <b id="a">0</b></span></div>
+    <div class="tray-label" id="tl"><span class="step-num" id="sn">1</span> <span id="tt">Tap a company below</span></div>
+    <div class="tiles attention" id="tiles">
+      {%- for c in p.companies %}
+      <div class="tile" data-company="{{ c.id }}" onclick="pick(this)">{{ c.display_name | safe }}</div>
+      {%- endfor %}
+    </div>
+    <div class="cards">
+      {%- for c in p.companies %}
+      <div class="card" data-company="{{ c.id }}" id="card-{{ c.id }}">
+        <div class="card-letter">{{ ["A","B","C","D"][loop.index0] }}</div>
+        <div class="card-total">{{ c.total | usd }}</div>
+        {%- if c.zero_spend %}
+        <div class="zero">{{ c.zero_spend_message }}</div>
+        {%- else %}
+        <div class="bars">
+          {%- for r in c | barRows %}
+          <div class="brow"><span class="bp {{ r.p }}">{{ r.label }}</span><span class="btrack"><span class="bfill {{ r.p }}" data-target="{{ r.pct }}"></span></span><span class="bpct {{ r.p }}">{{ r.pct | pct1 }}</span></div>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+        <div class="drop" data-company="{{ c.id }}">Match a company here</div>
+        <div class="srcline" id="src-{{ c.id }}"></div>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="doneb" id="doneb">
+      <div class="rank" id="rank"><span id="rankLabel">Perfect</span><span class="stars" id="stars">★★★</span></div>
+      <p>Every match above now shows its source — the receipts are one click away.</p>
+      <button class="start-btn again" type="button" onclick="resetPuzzle()">↺ Play again</button>
+      <button class="start-btn again" type="button" id="shareb" onclick="sharePuzzle()">📤 Share</button>
+    </div>
+  </div>
+</div>
+<div class="fig-caption">{{ p.hint if (p.hint | lower).startsWith("hint") else "Hint: " + (p.hint | stripHint) }}</div>
+
+<h2>The receipts</h2>
+<p>Every figure in this puzzle comes from OpenSecrets.org — party split and totals for the {{ p.cycle }} federal cycle. Check them yourself:</p>
+<div class="receipts"><ul>
+  {%- for c in p.companies %}
+  <li><span>{{ c.name }}{% if c.parent_note %} <em style="font-size:12.5px;color:var(--muted)">— {{ c.parent_note }}</em>{% endif %}</span><a href="{{ c.opensecrets_url }}" target="_blank" rel="noopener">opensecrets.org profile ↗</a></li>
+  {%- endfor %}
+</ul></div>
+
+<script>window.__PUZZLE = {{ p | gameData | safe }};</script>

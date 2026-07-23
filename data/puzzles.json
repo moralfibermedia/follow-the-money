@@ -7,7 +7,7 @@
       "template": "barchart",
       "title": "Hardware Giants",
       "subtitle": "Three hardware stores. Three donation profiles. Can you match the company to the cash?",
-      "hook": "Weekend DIY \u2014 which parking lot do you pull into?",
+      "hook": "Weekend DIY — which parking lot do you pull into?",
       "hint": "Hint: Look at the total spend and party lean",
       "subdomain": "follow-the-hardware-giants-money",
       "data_source": "opensecrets",
@@ -60,7 +60,7 @@
       "template": "barchart",
       "title": "Grocery Run",
       "subtitle": "Three grocery chains. Three donation profiles. Can you match the company to the cash?",
-      "hook": "The biggest spender is nearly purple \u2014 can you spot it?",
+      "hook": "The biggest spender is nearly purple — can you spot it?",
       "hint": "Hint: The biggest spender is almost perfectly split",
       "subdomain": "follow-the-money-grocery",
       "data_source": "opensecrets",
@@ -113,8 +113,8 @@
       "template": "barchart",
       "title": "Your Whole Paycheck",
       "subtitle": "Three premium grocers. Three donation profiles. Can you match the company to the cash?",
-      "hook": "Two lean the same way \u2014 but one spends 31x more.",
-      "hint": "Hint: Two lean the same way \u2014 but one spends 31x more",
+      "hook": "Two lean the same way — but one spends 31x more.",
+      "hint": "Hint: Two lean the same way — but one spends 31x more",
       "subdomain": "follow-the-money-whole-paycheck",
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
@@ -166,8 +166,8 @@
       "template": "barchart",
       "title": "Can You Hear Me Now?",
       "subtitle": "Three telecom giants. Three donation profiles. Can you match the company to the cash?",
-      "hook": "One spent nothing. The other two look almost identical \u2014 almost.",
-      "hint": "Hint: One spent nothing. The other two look almost identical \u2014 almost",
+      "hook": "One spent nothing. The other two look almost identical — almost.",
+      "hint": "Hint: One spent nothing. The other two look almost identical — almost",
       "subdomain": "follow-the-money-telecom",
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
@@ -229,7 +229,7 @@
       "status": "live",
       "context_note": {
         "label": "A note before you play",
-        "body": "This data is corporate PAC giving \u2014 money the company itself distributes through its political action committee. It does not include personal donations from founders, CEOs, or board members. David Ellison's Skydance closed its takeover of Paramount Global in 2025, putting one of the major streaming networks under ownership closely aligned with the current administration. As media consolidation accelerates, the gap between corporate PAC profiles and ownership politics becomes harder to ignore.",
+        "body": "This data is corporate PAC giving — money the company itself distributes through its political action committee. It does not include personal donations from founders, CEOs, or board members. David Ellison's Skydance closed its takeover of Paramount Global in 2025, putting one of the major streaming networks under ownership closely aligned with the current administration. As media consolidation accelerates, the gap between corporate PAC profiles and ownership politics becomes harder to ignore.",
         "source_url": "https://en.wikipedia.org/wiki/Paramount_Skydance",
         "source_label": "Paramount Skydance"
       },
@@ -279,8 +279,8 @@
       "template": "barchart",
       "title": "Fill 'Er Up",
       "subtitle": "Three oil giants. Three donation profiles. Can you match the company to the cash?",
-      "hook": "Two tilt red. The European one tilts blue \u2014 and spends pennies on the dollar.",
-      "hint": "Hint: One company spends 8x less than the others \u2014 and leans the opposite way",
+      "hook": "Two tilt red. The European one tilts blue — and spends pennies on the dollar.",
+      "hint": "Hint: One company spends 8x less than the others — and leans the opposite way",
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
       "cycle": "2024",
@@ -332,14 +332,14 @@
       "title": "Who Owns Your Feed?",
       "subtitle": "Three platforms in your pocket. Three donation profiles. Can you match the app to the cash?",
       "hook": "All three lean blue. The biggest spender outspends the smallest 100-to-1.",
-      "hint": "Hint: One spends ~100x more than another \u2014 and the smallest spender is foreign-owned",
+      "hint": "Hint: One spends ~100x more than another — and the smallest spender is foreign-owned",
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
       "cycle": "2024",
       "status": "live",
       "context_note": {
         "label": "A note before you play",
-        "body": "This is corporate PAC giving \u2014 money the three companies' US-incorporated PACs distributed in 2024, with decisions made by US-person treasurers. It does not capture the much larger flows that actually shape platform policy: personal donations from founders and executives, lobbying spend, dark-money trade-association giving, and post-election positioning by ownership. ByteDance is headquartered in China; its US subsidiary's PAC is legal under FECA, but the corporate parent's interests are not American."
+        "body": "This is corporate PAC giving — money the three companies' US-incorporated PACs distributed in 2024, with decisions made by US-person treasurers. It does not capture the much larger flows that actually shape platform policy: personal donations from founders and executives, lobbying spend, dark-money trade-association giving, and post-election positioning by ownership. ByteDance is headquartered in China; its US subsidiary's PAC is legal under FECA, but the corporate parent's interests are not American."
       },
       "companies": [
         {
@@ -395,7 +395,7 @@
       "status": "live",
       "context_note": {
         "label": "A note before you play",
-        "body": "Two of these are simple \u2014 McDonald's and Starbucks each run their own corporate PACs. The third is not. Dunkin' has been owned by Roark Capital Group since 2020, a private-equity firm whose portfolio also includes Carl's Jr, Hardee's, Jimmy John's, Buffalo Wild Wings, Arby's, Auntie Anne's, Cinnabon, and Sonic. The PAC split you'll see for Dunkin' is Roark's \u2014 reflecting the political interests of a 20-brand fast-food empire, not a donut chain. Former Carl's Jr CEO Andrew Puzder was Trump's first nominee for Labor Secretary.",
+        "body": "Two of these are simple — McDonald's and Starbucks each run their own corporate PACs. The third is not. Dunkin' has been owned by Roark Capital Group since 2020, a private-equity firm whose portfolio also includes Carl's Jr, Hardee's, Jimmy John's, Buffalo Wild Wings, Arby's, Auntie Anne's, Cinnabon, and Sonic. The PAC split you'll see for Dunkin' is Roark's — reflecting the political interests of a 20-brand fast-food empire, not a donut chain. Former Carl's Jr CEO Andrew Puzder was Trump's first nominee for Labor Secretary.",
         "source_url": "https://en.wikipedia.org/wiki/Roark_Capital_Group",
         "source_label": "Roark Capital Group"
       },
@@ -405,9 +405,9 @@
           "name": "McDonald's",
           "display_name": "McDonald's",
           "dem_amount": 305001,
-          "dem_pct": 41.10,
+          "dem_pct": 41.1,
           "rep_amount": 437125,
-          "rep_pct": 58.90,
+          "rep_pct": 58.9,
           "total": 742126,
           "leading_party": "rep",
           "opensecrets_url": "https://www.opensecrets.org/orgs/mcdonald-s-corp/recipients?id=D000000373"
@@ -417,12 +417,12 @@
           "name": "Dunkin' (Roark Capital)",
           "display_name": "Dunkin'<br>(Roark Capital)",
           "dem_amount": 203386,
-          "dem_pct": 56.60,
+          "dem_pct": 56.6,
           "rep_amount": 155923,
-          "rep_pct": 43.40,
+          "rep_pct": 43.4,
           "total": 359309,
           "leading_party": "dem",
-          "parent_note": "Donations are Roark Capital Group's corporate PAC \u2014 the private-equity owner of Dunkin' since 2020, plus Carl's Jr/Hardee's, Jimmy John's, Buffalo Wild Wings, Arby's, Auntie Anne's, Cinnabon, and Sonic.",
+          "parent_note": "Donations are Roark Capital Group's corporate PAC — the private-equity owner of Dunkin' since 2020, plus Carl's Jr/Hardee's, Jimmy John's, Buffalo Wild Wings, Arby's, Auntie Anne's, Cinnabon, and Sonic.",
           "opensecrets_url": "https://www.opensecrets.org/orgs/roark-capital-group/recipients?id=D000028753"
         },
         {
@@ -510,9 +510,9 @@
           "name": "Pfizer",
           "display_name": "Pfizer",
           "dem_amount": 956376,
-          "dem_pct": 60.60,
+          "dem_pct": 60.6,
           "rep_amount": 621795,
-          "rep_pct": 39.40,
+          "rep_pct": 39.4,
           "total": 1578171,
           "leading_party": "dem",
           "opensecrets_url": "https://www.opensecrets.org/orgs/pfizer-inc/recipients?id=D000000138"
@@ -657,7 +657,7 @@
       "title": "Georgia on My Mind",
       "subtitle": "Three Georgia giants. Three donation profiles. Can you match the company to the cash?",
       "hook": "All three HQ'd in Georgia. All three in the spotlight since 2021.",
-      "hint": "Hint: Two lean the same way \u2014 but one spends 8x more than the other",
+      "hint": "Hint: Two lean the same way — but one spends 8x more than the other",
       "subdomain": "follow-the-money-georgia",
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
@@ -778,9 +778,18 @@
           "title": "Skydance closes the Paramount merger",
           "description": "David Ellison's Skydance completes its merger with Paramount Global — CBS, Paramount Pictures, and Paramount+ come under Ellison-family control.",
           "sources": [
-            { "url": "https://www.sec.gov/Archives/edgar/data/2041610/000119312525175046/d841914d8k12b.htm", "label": "SEC Form 8-K12B — merger completed, filed Aug 7, 2025" },
-            { "url": "https://thedesk.net/2025/07/paramount-skydance-merger-closing-date/", "label": "Paramount sets Aug 7 close date — The Desk" },
-            { "url": "https://en.wikipedia.org/wiki/Acquisition_of_Paramount_Global_by_Skydance_Media", "label": "Skydance–Paramount merger — Wikipedia overview" }
+            {
+              "url": "https://www.sec.gov/Archives/edgar/data/2041610/000119312525175046/d841914d8k12b.htm",
+              "label": "SEC Form 8-K12B — merger completed, filed Aug 7, 2025"
+            },
+            {
+              "url": "https://thedesk.net/2025/07/paramount-skydance-merger-closing-date/",
+              "label": "Paramount sets Aug 7 close date — The Desk"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Acquisition_of_Paramount_Global_by_Skydance_Media",
+              "label": "Skydance–Paramount merger — Wikipedia overview"
+            }
           ]
         },
         {
@@ -790,9 +799,18 @@
           "title": "MSNBC leaves NBC — and its name behind",
           "description": "Comcast completes the Versant spin-off: MSNBC rebrands as MS NOW and exits the NBC family, taking CNBC and the cable networks with it.",
           "sources": [
-            { "url": "https://www.sec.gov/Archives/edgar/data/1166691/000095010326000079/dp239108_ex9901.htm", "label": "Comcast 8-K exhibit — completion effective Jan 2, 2026 (SEC)" },
-            { "url": "https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/", "label": "Comcast completes Versant spinoff — Variety" },
-            { "url": "https://www.forbes.com/sites/joecornell/2026/01/06/comcast-completes-spin-off-of-versant-media-group/", "label": "Comcast completes Versant spin-off — Forbes" }
+            {
+              "url": "https://www.sec.gov/Archives/edgar/data/1166691/000095010326000079/dp239108_ex9901.htm",
+              "label": "Comcast 8-K exhibit — completion effective Jan 2, 2026 (SEC)"
+            },
+            {
+              "url": "https://variety.com/2026/tv/news/comcast-completes-versant-spinoff-stock-public-company-1236623658/",
+              "label": "Comcast completes Versant spinoff — Variety"
+            },
+            {
+              "url": "https://www.forbes.com/sites/joecornell/2026/01/06/comcast-completes-spin-off-of-versant-media-group/",
+              "label": "Comcast completes Versant spin-off — Forbes"
+            }
           ]
         },
         {
@@ -802,9 +820,18 @@
           "title": "TikTok gets American part-owners",
           "description": "ByteDance closes the deal creating a U.S. joint venture for TikTok — Oracle, Silver Lake, and Abu Dhabi's MGX take 15% each; ByteDance keeps 19.9%.",
           "sources": [
-            { "url": "https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504", "label": "TikTok signs U.S. joint-venture deal — ABC News" },
-            { "url": "https://variety.com/2025/digital/news/tiktok-us-joint-venture-deal-close-date-oracle-silver-lake-1236612315/", "label": "JV set to close in January; Oracle/Silver Lake/MGX — Variety" },
-            { "url": "https://www.bloomberg.com/news/articles/2025-12-18/tiktok-says-it-signed-agreements-to-create-new-us-joint-venture", "label": "TikTok statement on the joint venture — Bloomberg" }
+            {
+              "url": "https://abcnews.com/US/tiktok-signs-deal-create-new-us-joint-venture/story?id=128540504",
+              "label": "TikTok signs U.S. joint-venture deal — ABC News"
+            },
+            {
+              "url": "https://variety.com/2025/digital/news/tiktok-us-joint-venture-deal-close-date-oracle-silver-lake-1236612315/",
+              "label": "JV set to close in January; Oracle/Silver Lake/MGX — Variety"
+            },
+            {
+              "url": "https://www.bloomberg.com/news/articles/2025-12-18/tiktok-says-it-signed-agreements-to-create-new-us-joint-venture",
+              "label": "TikTok statement on the joint venture — Bloomberg"
+            }
           ]
         },
         {
@@ -814,9 +841,18 @@
           "title": "Warner Bros. Discovery agrees to sell",
           "description": "After Netflix withdraws its rival bid, Warner Bros. Discovery — HBO, CNN, the Warner studio — signs a definitive $110.9 billion agreement with Paramount Skydance.",
           "sources": [
-            { "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926021911/tm2533570d75_ex99-1.htm", "label": "Announcement as filed with the SEC — Feb 27, 2026" },
-            { "url": "https://www.paramount.com/press/paramount-to-acquire-warner-bros-discovery-to-form-next-generation-global-media-and-entertainment-company", "label": "Paramount announcement — definitive agreement" },
-            { "url": "https://www.nbcnews.com/business/media/warner-bros-discovery-signs-merger-agreement-paramount-skydance-rcna261035", "label": "WBD signs merger agreement — NBC News" }
+            {
+              "url": "https://www.sec.gov/Archives/edgar/data/2041610/000110465926021911/tm2533570d75_ex99-1.htm",
+              "label": "Announcement as filed with the SEC — Feb 27, 2026"
+            },
+            {
+              "url": "https://www.paramount.com/press/paramount-to-acquire-warner-bros-discovery-to-form-next-generation-global-media-and-entertainment-company",
+              "label": "Paramount announcement — definitive agreement"
+            },
+            {
+              "url": "https://www.nbcnews.com/business/media/warner-bros-discovery-signs-merger-agreement-paramount-skydance-rcna261035",
+              "label": "WBD signs merger agreement — NBC News"
+            }
           ]
         },
         {
@@ -826,9 +862,18 @@
           "title": "A federal judge pauses the Warner deal",
           "description": "With twelve state attorneys general suing to block the acquisition, a federal judge halts the Paramount Skydance-Warner deal for at least 14 days.",
           "sources": [
-            { "url": "https://oag.ca.gov/news/press-releases/quiet-set-attorney-general-bonta-secures-critical-early-win-lawsuit-block-warner", "label": "California AG — court pauses the merger (oag.ca.gov)" },
-            { "url": "https://coag.gov/press-releases/state-ags-win-court-order-pausing-paramount-warner-bros-merger/", "label": "Colorado AG — order pausing the merger (coag.gov)" },
-            { "url": "https://www.fool.com/coverage/stock-market-today/2026/07/20/stock-market-today-july-20-warner-bros-discovery-falls-4-as-judge-pauses-usd110-billion-paramount-skydance-deal/", "label": "Judge pauses the deal, July 20 — Motley Fool" }
+            {
+              "url": "https://oag.ca.gov/news/press-releases/quiet-set-attorney-general-bonta-secures-critical-early-win-lawsuit-block-warner",
+              "label": "California AG — court pauses the merger (oag.ca.gov)"
+            },
+            {
+              "url": "https://coag.gov/press-releases/state-ags-win-court-order-pausing-paramount-warner-bros-merger/",
+              "label": "Colorado AG — order pausing the merger (coag.gov)"
+            },
+            {
+              "url": "https://www.fool.com/coverage/stock-market-today/2026/07/20/stock-market-today-july-20-warner-bros-discovery-falls-4-as-judge-pauses-usd110-billion-paramount-skydance-deal/",
+              "label": "Judge pauses the deal, July 20 — Motley Fool"
+            }
           ]
         }
       ]
@@ -841,8 +886,8 @@
       "title": "Power Grab",
       "slug": "power-grab",
       "path": "speak-now/power-grab",
-      "subtitle": "OMB is rewriting the rules for $1.1 trillion in federal grants. Match each change to what it does — then comment before July 13.",
-      "hook": "The biggest rewrite of how federal grant money works in over a decade. Critics call it a power grab. You can comment until July 13.",
+      "subtitle": "OMB rewrote the rules for $1.1 trillion in federal grants. Match each change to what it does.",
+      "hook": "The biggest rewrite of how federal grant money works in over a decade. Critics call it a power grab. Match each change to what it actually does.",
       "hint": "Follow the power, not the press release.",
       "data_source": null,
       "data_license": "CC BY 4.0",
@@ -855,6 +900,63 @@
         "count_document_id": "OMB-2026-0034-0001",
         "count_label": "comments posted"
       }
+    },
+    {
+      "id": "golden-parachutes",
+      "type": "special",
+      "template": "rank",
+      "title": "Golden Parachutes",
+      "slug": "golden-parachutes",
+      "path": "puzzles/golden-parachutes",
+      "subtitle": "Four of the biggest names in tech. Four pay packages. Can you rank the CEOs by what they took home?",
+      "hook": "Four of the biggest names in tech, four pay packages. Rank the CEOs by what they took home — one makes less than a tenth of another.",
+      "hint": "The biggest company doesn't always pay the biggest package — watch how equity grants land in a given year.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live"
+    },
+    {
+      "id": "lobby-or-not",
+      "type": "special",
+      "template": "over-under",
+      "title": "Lobby or Not",
+      "slug": "lobby-or-not",
+      "path": "puzzles/lobby-or-not",
+      "subtitle": "Six tech platforms. Six federal lobbying bills. One at a time — is the next one higher or lower?",
+      "hook": "Six tech platforms, six federal lobbying bills. One card at a time — is the next one higher or lower?",
+      "hint": "Brand size and lobbying budget don't always match — a household name can spend less than a newcomer.",
+      "data_source": "opensecrets",
+      "data_license": "CC BY-NC-SA 3.0",
+      "cycle": "2026",
+      "status": "live"
+    },
+    {
+      "id": "the-docket",
+      "type": "special",
+      "template": "timeline",
+      "title": "The Docket",
+      "slug": "the-docket",
+      "path": "puzzles/the-docket",
+      "subtitle": "Five milestones in Georgia's racketeering case against Donald Trump and his allies. Can you put the docket in order?",
+      "hook": "Indictment, mugshot, plea deals, a fight over the prosecutor. Put five milestones of Georgia's RICO case in the order they happened.",
+      "hint": "The charges came first and the fight over the prosecutor came last — the plea deals fell in between.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live"
+    },
+    {
+      "id": "behind-the-bench",
+      "type": "special",
+      "template": "text-match",
+      "title": "Behind the Bench",
+      "slug": "behind-the-bench",
+      "path": "puzzles/behind-the-bench",
+      "subtitle": "Georgia Supreme Court, 2026. The race is officially nonpartisan — the endorsements aren't.",
+      "hook": "Georgia Supreme Court, 2026. The race is officially nonpartisan — the endorsements aren't.",
+      "hint": "Follow the endorsements, not the ballot label.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live"
     }
   ],
   "coming_soon": [
@@ -863,7 +965,11 @@
       "type": "special",
       "template": "barchart",
       "title": "Tech Titans",
-      "companies": ["Amazon", "Apple", "Meta"],
+      "companies": [
+        "Amazon",
+        "Apple",
+        "Meta"
+      ],
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
       "status": "coming_soon"
@@ -873,7 +979,11 @@
       "type": "standard",
       "template": "barchart",
       "title": "Your Money, Their Politics",
-      "companies": ["JPMorgan Chase", "Bank of America", "Wells Fargo"],
+      "companies": [
+        "JPMorgan Chase",
+        "Bank of America",
+        "Wells Fargo"
+      ],
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
       "status": "coming_soon"
@@ -883,7 +993,11 @@
       "type": "standard",
       "template": "barchart",
       "title": "Deliver Me",
-      "companies": ["Uber", "Lyft", "DoorDash"],
+      "companies": [
+        "Uber",
+        "Lyft",
+        "DoorDash"
+      ],
       "data_source": "opensecrets",
       "data_license": "CC BY-NC-SA 3.0",
       "status": "coming_soon"

@@ -1,5 +1,9 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 # Exception: the live comment-count feed for the Public Comment CTA must be
 # fetchable client-side. Listed BEFORE the /data/* block so it wins (first match).
