@@ -202,6 +202,7 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:26px;
   display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
 .receipts a { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted); }
 .receipts a:hover { color:var(--red); }
+.receipt-srcs { display:flex; flex-direction:column; gap:5px; align-items:flex-start; text-align:left; }
 .tail { border-top:3px solid var(--ink); margin-top:40px; padding-top:16px;
   display:flex; flex-direction:column; gap:10px;
   font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted); letter-spacing:.03em; }

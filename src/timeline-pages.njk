@@ -67,9 +67,14 @@ eleventyComputed:
 <h2>The receipts</h2>
 <p>Every date, sourced{% if p.id == "under-new-management" %} three ways — gov/SEC filing, company announcement, independent coverage. Check any of them; check all of them{% endif %}:</p>
 <div class="receipts"><ul>
-  {%- for e in p.events %}{%- for s in e.sources %}
-  <li><span>{{ e.title }}</span><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a></li>
-  {%- endfor %}{%- endfor %}
+  {%- for e in p.events %}
+  <li><span>{{ e.title }}</span>
+    <span class="receipt-srcs">
+    {%- for s in e.sources %}
+      <a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a>
+    {%- endfor %}
+    </span></li>
+  {%- endfor %}
 </ul></div>
 
 <script>window.__PUZZLE = { mode: "timeline", total: {{ p.events | length }}, thresholds: [{{ p.events | length }}, 3] };</script>
