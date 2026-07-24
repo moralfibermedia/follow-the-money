@@ -42,7 +42,7 @@
     <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a>
   </nav>
 </header>
-<div class="article">
+<div class="article{% if wide %} article--wide{% endif %}">
 {{ content | safe }}
 {% include "tail.njk" %}
 </div>

@@ -20,6 +20,10 @@ body { background:var(--paper); color:var(--ink); overflow-x:clip;
 .band-nav a:hover { color:var(--red); }
 @media (max-width:560px) { .band-nav { display:none; } }
 .article { max-width:760px; margin:0 auto; padding:40px 20px 56px; }
+/* directories & listings run wide (print rule: articles narrow, listings wide);
+   intro text keeps a readable measure */
+.article--wide { max-width:1120px; }
+.article--wide .standfirst, .article--wide .hub-tagline { max-width:72ch; }
 .kicker { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
   letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
 .kicker a { color:var(--gold); text-decoration:none; }
