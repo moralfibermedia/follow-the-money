@@ -46,6 +46,7 @@
 {{ content | safe }}
 {% include "tail.njk" %}
 </div>
-{% if pageScript %}<script src="{{ pageScript }}"></script>{% endif %}
+{% if pageScript %}<script src="{{ pageScript }}"></script>
+<script src="/assets/puzzle-result.js"></script>{% endif %}
 </body>
 </html>
