@@ -1,0 +1,74 @@
+---
+layout: layouts/base.njk
+permalink: /compare/plate/index.html
+license: by
+pageTitle: "Design lab — the Gilded Puzzle Plate | Moral Fiber Media"
+pageDescription: "Internal design comparison: the puzzle block's new plate treatment, subtle vs loud shimmer, against the current frame."
+canonicalPath: "/compare/plate/"
+ogImage: "/preview.png"
+extraHead: '<meta name="robots" content="noindex, nofollow">'
+---
+<div class="kicker"><a href="/compare/">← Comparison hub</a> · Design lab</div>
+<h1>The Gilded <em>Plate</em></h1>
+<div class="standfirst">The puzzle block, three ways: the current frame, and the new "puzzle-desk plate" — vintage printer's rules, department nameplate, top-center Start, red stamp, gold-leaf shimmer border (subtle vs loud). Buttons here are inert; this page is visual only.</div>
+<div class="hub-tagline">Scroll the three, then cast your vote below — anonymous, one tap, lands straight with the editor.</div>
+<p><em>Note on size:</em> the plate versions sit wider than the text column on purpose — that breakout is part of the plate design (like a print feature graphic), so they're shown here at true size. The current frame ships at column width. You're voting on the frame and shimmer, not the width.</p>
+
+<h2>1 · Current frame</h2>
+<div class="figure">
+  <div class="fig-cover">
+    <img src="/puzzles/morning-fix/preview.png" alt="Morning Fix — current frame" width="1200" height="630">
+    <div class="fig-bar">
+      <span class="fig-label">Interactive · 3 matches</span>
+      <button class="start-btn" type="button">▶ Start the puzzle</button>
+    </div>
+  </div>
+</div>
+
+<h2>2 · Gilded Plate — subtle shimmer</h2>
+<div class="figure plate subtle">
+  <span class="plate-stamp">Nº 8</span>
+  <div class="plate-body">
+    <div class="plate-head">
+      <div class="plate-name"><span class="orn">✦</span>&nbsp; THE PUZZLE · MATCH THREE &nbsp;<span class="orn">✦</span></div>
+      <button class="start-btn" type="button">▶ Start the puzzle</button>
+      <div class="plate-meta">Interactive · 3 matches</div>
+    </div>
+    <div class="fig-cover">
+      <img src="/puzzles/morning-fix/preview.png" alt="Morning Fix — gilded plate, subtle" width="1200" height="630">
+    </div>
+  </div>
+</div>
+
+<h2>3 · Gilded Plate — loud shimmer <span class="hub-new">currently live</span></h2>
+<div class="figure plate loud">
+  <span class="plate-stamp">Nº 8</span>
+  <div class="plate-body">
+    <div class="plate-head">
+      <div class="plate-name"><span class="orn">✦</span>&nbsp; THE PUZZLE · MATCH THREE &nbsp;<span class="orn">✦</span></div>
+      <button class="start-btn" type="button">▶ Start the puzzle</button>
+      <div class="plate-meta">Interactive · 3 matches</div>
+    </div>
+    <div class="fig-cover">
+      <img src="/puzzles/morning-fix/preview.png" alt="Morning Fix — gilded plate, loud" width="1200" height="630">
+    </div>
+  </div>
+</div>
+
+<h2>Your vote</h2>
+<form name="plate-feedback" method="POST" action="/compare/thanks/" data-netlify="true" netlify-honeypot="bot-field" class="fb">
+  <p style="display:none"><label>Don't fill this in: <input name="bot-field"></label></p>
+  <div class="fb-row">
+    <span class="fb-l">Which frame?</span>
+    <label class="fb-c"><input type="radio" name="frame" value="current — no plate" required> current</label>
+    <label class="fb-c"><input type="radio" name="frame" value="plate — subtle shimmer"> plate · subtle</label>
+    <label class="fb-c"><input type="radio" name="frame" value="plate — loud shimmer"> plate · loud</label>
+  </div>
+  <div class="fb-row">
+    <label class="fb-l" for="pf-notes">Why? <span class="fb-opt">(optional)</span></label>
+    <textarea class="fb-in" id="pf-notes" name="notes" rows="4" maxlength="2000" placeholder="What draws the eye, what's too much, what's missing…"></textarea>
+  </div>
+  <button class="start-btn" type="submit">Cast vote</button>
+</form>
+
+<p style="margin-top:20px">The plate ships on every puzzle once a shimmer level is chosen; this page stays as the record of the decision and the pattern for future variant tryouts.</p>

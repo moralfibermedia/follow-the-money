@@ -31,6 +31,17 @@
 {% if extraHead %}{{ extraHead | safe }}
 {% endif %}</head>
 <body>
+<header class="site-band">
+  <a class="band-brand" href="/">
+    <img src="/assets/mfm-mark.png" alt="" width="34" height="34">
+    <span>Follow the <em>Money</em></span>
+  </a>
+  <nav class="band-nav">
+    <a href="/">Puzzles</a>
+    <a href="/fighters">Fighters</a>
+    <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a>
+  </nav>
+</header>
 <div class="article">
 {{ content | safe }}
 {% include "tail.njk" %}

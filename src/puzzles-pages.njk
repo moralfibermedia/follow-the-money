@@ -31,14 +31,15 @@ eleventyComputed:
   <p>You'll see three unlabeled donation profiles — party split and total spend. Match each company to its money. {{ p.hint | stripHint }}</p>
 {% endif %}
 
-<div class="figure" id="fig">
-  <div class="fig-cover">
-    <img src="/puzzles/{{ p.id }}/preview.png" alt="{{ p.title }} — puzzle preview" width="1200" height="630">
-    <div class="fig-bar">
-      <span class="fig-label">Interactive · {{ p.companies | length }} matches</span>
-      <button class="start-btn" type="button" onclick="startPuzzle()">▶ Start the puzzle</button>
-    </div>
-  </div>
+{% set figMechanic = "MATCH THREE" %}
+{% set figMeta = "Interactive · " ~ (p.companies | length) ~ " matches" %}
+{% set figCover = "/puzzles/" ~ p.id ~ "/preview.png" %}
+{% set figAlt = p.title ~ " — puzzle preview" %}
+{% if p.number %}{% set figStamp = "Nº " ~ p.number %}{% else %}{% set figStamp = "★" %}{% endif %}
+<div class="figure plate" id="fig">
+  <span class="plate-stamp">{{ figStamp }}</span>
+  <div class="plate-body">
+  {% include "figure-plate.njk" %}
   <div class="fig-game">
     <div class="score-bar"><span>Matched <b id="m">0</b>/{{ p.companies | length }}</span><span>Attempts <b id="a">0</b></span></div>
     <div class="tray-label" id="tl"><span class="step-num" id="sn">1</span> <span id="tt">Tap a company below</span></div>
@@ -72,6 +73,7 @@ eleventyComputed:
       <button class="start-btn again" type="button" onclick="resetPuzzle()">↺ Play again</button>
       <button class="start-btn again" type="button" id="shareb" onclick="sharePuzzle()">📤 Share</button>
     </div>
+  </div>
   </div>
 </div>
 <div class="fig-caption">{{ p.hint if (p.hint | lower).startsWith("hint") else "Hint: " + (p.hint | stripHint) }}</div>
