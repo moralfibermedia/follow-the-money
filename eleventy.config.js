@@ -40,6 +40,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
   // ---- filters ----
+  eleventyConfig.addFilter("railPicks", (all, current) =>
+    (all || []).filter(p => p.path !== current).slice(0, 5));
   eleventyConfig.addFilter("usd", n => "$" + Number(n).toLocaleString("en-US"));
   eleventyConfig.addFilter("pct1", n => (Math.round(Number(n) * 10) / 10).toFixed(1) + "%");
   eleventyConfig.addFilter("stripHint", s => String(s || "").replace(/^Hint:\s*/i, ""));
