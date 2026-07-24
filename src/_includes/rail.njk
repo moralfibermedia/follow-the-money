@@ -1,0 +1,14 @@
+<aside class="page-rail">
+  <div class="rail-inner">
+    <div class="rail-label">More from the puzzle desk</div>
+    <ul class="rail-list">
+    {%- for rp in livePuzzles | railPicks(canonicalPath) %}
+      <li><a href="{{ rp.path }}">
+        <span class="rail-mech">{% if rp.number %}Nº {{ rp.number }} · {% endif %}{{ rp.template | replace("-", " ") }}</span>
+        <span class="rail-t">{{ rp.title }}</span>
+      </a></li>
+    {%- endfor %}
+    </ul>
+    <a class="rail-cta" href="https://moralfibermedia.com" target="_blank" rel="noopener">New puzzles in your inbox →</a>
+  </div>
+</aside>

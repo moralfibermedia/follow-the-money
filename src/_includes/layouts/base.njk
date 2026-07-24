@@ -42,8 +42,17 @@
     <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a>
   </nav>
 </header>
-<div class="article{% if wide %} article--wide{% endif %}">
+<div class="article">
+{% if pageScript %}
+<div class="page-grid">
+<div class="page-main">
 {{ content | safe }}
+</div>
+{% include "rail.njk" %}
+</div>
+{% else %}
+{{ content | safe }}
+{% endif %}
 {% include "tail.njk" %}
 </div>
 {% if pageScript %}<script src="{{ pageScript }}"></script>{% endif %}
