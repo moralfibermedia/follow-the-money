@@ -106,6 +106,17 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:26px;
 .fig-caption { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted);
   letter-spacing:.04em; margin:8px 2px 0; }
 
+/* ---- legal page sections ---- */
+.legal-section { border-top:3px solid var(--ink); margin-top:40px; padding-top:16px; }
+.section-label { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.legal-section p, .legal-section ul { max-width:72ch; }
+.legal-section ul { margin:0 0 1.05em; padding-left:24px; }
+.back-link { display:inline-block; margin-top:28px; font-family:'JetBrains Mono',monospace;
+  font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink); text-decoration:none; border-bottom:2px solid var(--gold); }
+.back-link:hover { color:var(--red); border-bottom-color:var(--red); }
+
 /* ---- game (compact arcade, inside the frame only) ---- */
 .score-bar { display:flex; justify-content:center; gap:22px; margin-bottom:14px;
   font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.14em;
