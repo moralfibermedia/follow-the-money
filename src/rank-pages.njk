@@ -65,9 +65,14 @@ eleventyComputed:
 
 <h2>The receipts</h2>
 <div class="receipts"><ul>
-  {%- for it in p.items %}{%- for s in it.sources %}
-  <li><span>{{ it.name }}</span><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a></li>
-  {%- endfor %}{%- endfor %}
+  {%- for it in p.items %}
+  <li><span>{{ it.name }}</span>
+    <span class="receipt-srcs">
+    {%- for s in it.sources %}
+      <a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} ↗</a>
+    {%- endfor %}
+    </span></li>
+  {%- endfor %}
 </ul></div>
 
 <script>window.__PUZZLE = { mode: "rank", total: {{ p.items | length }}, thresholds: [{{ p.items | length }}, 2] };</script>
