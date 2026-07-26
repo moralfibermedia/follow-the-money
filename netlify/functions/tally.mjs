@@ -16,25 +16,29 @@ export default async (req) => {
   const puzzle = clean(d.puzzle);
   if (!puzzle) return new Response("", { status: 400 });
 
-  const store = getStore("puzzle-stats");
-  const stats = (await store.get(KEY, { type: "json" })) || {};
-  const s = stats[puzzle] || { starts: 0, complete: 0, perfect: 0, cleared: 0, finished: 0, timeSum: 0, timeCount: 0 };
+  try {
+    const store = getStore("puzzle-stats");
+    const stats = (await store.get(KEY, { type: "json" })) || {};
+    const s = stats[puzzle] || { starts: 0, complete: 0, perfect: 0, cleared: 0, finished: 0, timeSum: 0, timeCount: 0 };
 
-  if (d.event === "start") {
-    s.starts++;
-  } else if (d.event === "complete") {
-    s.complete++;
-    const rank = String(d.rank || "").toLowerCase();
-    if (rank === "perfect") s.perfect++;
-    else if (rank === "cleared") s.cleared++;
-    else if (rank === "finished") s.finished++;
-    const secs = parseTime(d.time);
-    if (secs) { s.timeSum += secs; s.timeCount++; }
-  } else {
-    return new Response("", { status: 400 });
+    if (d.event === "start") {
+      s.starts++;
+    } else if (d.event === "complete") {
+      s.complete++;
+      const rank = String(d.rank || "").toLowerCase();
+      if (rank === "perfect") s.perfect++;
+      else if (rank === "cleared") s.cleared++;
+      else if (rank === "finished") s.finished++;
+      const secs = parseTime(d.time);
+      if (secs) { s.timeSum += secs; s.timeCount++; }
+    } else {
+      return new Response("", { status: 400 });
+    }
+
+    stats[puzzle] = s;
+    await store.setJSON(KEY, stats);
+    return new Response("", { status: 204 });
+  } catch (err) {
+    return new Response("tally-error: " + (err && err.message ? err.message : String(err)), { status: 500 });
   }
-
-  stats[puzzle] = s;
-  await store.setJSON(KEY, stats);
-  return new Response("", { status: 204 });
 };
