@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+permalink: /inspiredby/index.html
+license: by
+pageTitle: "Inspired By — the people and projects behind this work | Moral Fiber Media"
+pageDescription: "The organizations, newsletters, and research projects that inform and inspire Follow the Money — civic accountability, democracy research, and grassroots action."
+canonicalPath: "/inspiredby"
+ogImage: "/preview.png"
+---
+<div class="kicker"><a href="/">Follow the Money</a> · directory</div>
+<h1>Inspired <em>By</em></h1>
+<div class="standfirst">The organizations, newsletters, and research projects that inform this work — the shoulders we stand on. {{ inspired | length }} and growing.</div>
+<div class="hub-tagline">Know a project that belongs here? Tell us: contact@moralfibermedia.com</div>
+
+<div class="fighters" style="margin-top:18px">
+{%- for i in inspired %}
+  <a class="fgt" href="{{ i.url }}" target="_blank" rel="noopener">
+    <span class="fgt-i">✦</span>
+    <span><span class="fgt-n">{{ i.title }}</span><br><span class="fgt-d">{{ i.desc }}</span><br><span class="ins-u">{{ i.host }}</span></span>
+  </a>
+{%- endfor %}
+</div>
+<p style="margin-top:22px"><a href="/">← Back to the puzzles</a></p>
