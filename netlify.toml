@@ -5,6 +5,15 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[functions]
+  directory = "netlify/functions"
+
+# Friendly private URL for the puzzle stats dashboard (function-backed)
+[[redirects]]
+  from = "/review/stats"
+  to = "/.netlify/functions/stats"
+  status = 200
+
 # Exception: the live comment-count feed for the Public Comment CTA must be
 # fetchable client-side. Listed BEFORE the /data/* block so it wins (first match).
 [[redirects]]
