@@ -20,9 +20,12 @@
 //   }
 import { readFileSync, writeFileSync, unlinkSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
-import { pathToFileURL } from "node:url";
+import { pathToFileURL, fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import sharp from "sharp";
+
+const SKILL_DIR = dirname(fileURLToPath(import.meta.url));
+const MARK = "data:image/png;base64," + readFileSync(join(SKILL_DIR, "mark.png")).toString("base64");
 
 const args = process.argv.slice(2);
 const cfgPath = resolve(args.find((a) => !a.startsWith("-")));
@@ -50,6 +53,8 @@ const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
     padding:54px 70px 46px; display:flex; flex-direction:column; }
   .top { display:flex; justify-content:space-between; align-items:flex-start; }
   .kicker { font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:700; letter-spacing:6px; text-transform:uppercase; color:var(--gold); }
+  .brandrow { display:flex; align-items:center; gap:14px; }
+  .mark { width:56px; height:56px; display:block; }
   .brand { font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--muted); text-align:right; line-height:1.5; }
   .mid { flex:1; display:flex; flex-direction:column; justify-content:center; }
   h1 { font-family:'Playfair Display',serif; font-weight:900; font-size:92px; line-height:1.02; letter-spacing:-1px; margin-bottom:22px; }
@@ -66,7 +71,7 @@ const html = `<!DOCTYPE html><html><head><meta charset="utf-8">
 <body>
   <div class="top">
     <div class="kicker">★ ${esc((cfg.series || "just-the-facts").replace(/-/g, " "))}</div>
-    <div class="brand">FactPuzzle<br>Moral Fiber Media</div>
+    <div class="brandrow"><img class="mark" src="${MARK}" alt=""><div class="brand">FactPuzzle<br>Moral Fiber Media</div></div>
   </div>
   <div class="mid">
     <h1>${head} <em>${tail}</em></h1>

@@ -91,6 +91,7 @@ for (const [i, c] of cfg.charts.entries()) {
 // --- Substitute into template ---
 const tplPath = join(__dirname, "template.html");
 let html = readFileSync(tplPath, "utf8");
+const MARK = "data:image/png;base64," + readFileSync(join(__dirname, "mark.png")).toString("base64");
 
 const numPadded = isSpecial ? "" : String(cfg.number).padStart(2, "0");
 const stampLabel = isSpecial ? "★" : numPadded;
@@ -141,6 +142,7 @@ const chartRows = cfg.charts
   .join("\n");
 
 html = html
+  .replaceAll("{{MARK}}", MARK)
   .replaceAll("{{STAMP_LABEL}}", escapeHtml(stampLabel))
   .replaceAll("{{TAG_LABEL}}", escapeHtml(tagLabel))
   .replaceAll("{{EPISODE}}", episode)
