@@ -9,6 +9,8 @@ Generates the 1200×630 `preview.png` that ships next to each puzzle's `index.ht
 
 The MFM design system is defined in the `mfm-editorial-design` skill — this skill applies that system to a fixed preview layout. Don't redesign; just feed in the puzzle data.
 
+**Brand mark:** all three renderers auto-composite the fist-and-megaphones mark (`mark.png`, inlined as a data URI) into the card — top-right beside the "FactPuzzle · Moral Fiber Media" lockup on the editorial cards, and in the footer signature on the bar-chart masthead. No input needed; regenerating any preview includes it.
+
 **Eleventy note (July 2026):** page HTML is generated, but `preview.json`/`preview.png` still live in each puzzle's content dir (`puzzles/{id}/`, series dirs) and are passthrough-copied at build — renderer paths and workflow unchanged. The preview doubles as the in-article figure cover on every page.
 
 ## When to use
