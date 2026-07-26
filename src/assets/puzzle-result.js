@@ -129,4 +129,25 @@
       setTimeout(function () { b.textContent = o; }, 2200);
     });
   };
+
+  // ---- disco shimmer toggle: opt-in techno border, persisted across puzzles ----
+  (function () {
+    function isDisco() { return document.documentElement.classList.contains("disco"); }
+    function label(btn) { btn.textContent = isDisco() ? "◈ disco on" : "◈ disco"; }
+    var toggles = [];
+    document.querySelectorAll(".figure.plate").forEach(function (plate) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "shimmer-toggle";
+      btn.title = "Toggle disco shimmer";
+      label(btn);
+      btn.addEventListener("click", function () {
+        var on = document.documentElement.classList.toggle("disco");
+        try { localStorage.setItem("ftm-shimmer", on ? "disco" : "gold"); } catch (e) {}
+        toggles.forEach(label);
+      });
+      plate.appendChild(btn);
+      toggles.push(btn);
+    });
+  })();
 })();
