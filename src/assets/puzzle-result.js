@@ -14,7 +14,7 @@
     if (!bar || document.getElementById("ptimer")) return;
     var s = document.createElement("span");
     s.className = "timer-chip";
-    s.innerHTML = 'Time <b id="ptimer">0:00</b><span class="notrace">not a race</span>';
+    s.innerHTML = 'Time <b id="ptimer">0:00</b>';
     bar.appendChild(s);
   }
   function runTimer() {
@@ -50,7 +50,7 @@
     ).map(function (s) { return s.textContent.trim().replace(/\s+/g, " "); });
     var bs = document.getElementById("beststreak");
     if (bs) stats.push("Best streak " + bs.textContent.trim());
-    if (finalTime) stats.push("in " + finalTime + " (not a race)");
+    if (finalTime) stats.push("in " + finalTime);
     return stats.join(" · ");
   }
 
@@ -106,7 +106,7 @@
     if (finalTime) {
       var p = document.createElement("p");
       p.className = "result-time";
-      p.textContent = "Solved in " + finalTime + " — told you it's not a race.";
+      p.textContent = "Solved in " + finalTime + ".";
       doneb.insertBefore(p, doneb.querySelector("p"));
     }
     var sb = document.getElementById("shareb");
