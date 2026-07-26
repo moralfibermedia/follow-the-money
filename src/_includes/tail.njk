@@ -1,13 +1,16 @@
 <div class="promo">
   <h2 class="promo-h">Inspired by</h2>
   <div class="inspired">
-  {%- for i in inspired %}
+  {%- for i in inspired %}{% if loop.index <= 5 %}
     <a class="ins" href="{{ i.url }}" target="_blank" rel="noopener">
       <span class="ins-n">{{ i.n }}</span>
       <span><span class="ins-t">{{ i.title }}</span><br><span class="ins-d">{{ i.desc }}</span><br><span class="ins-u">{{ i.host }}</span></span>
     </a>
-  {%- endfor %}
+  {%- endif %}{%- endfor %}
   </div>
+  {%- if inspired | length > 5 %}
+  <a class="fgt-all" href="/inspiredby">See all {{ inspired | length }} inspirations →</a>
+  {%- endif %}
 
   <h2 class="promo-h">Pro-democracy fighters</h2>
   <p class="promo-sub">People and organizations on the front lines.</p>
@@ -35,5 +38,5 @@
   <div><span class="tag">Credit</span>Created by <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Moral Fiber Media</a>{% if creditData %} · {{ creditData }}{% endif %}</div>
   {% endif %}
   <div><span class="tag">Follow</span><a href="https://www.youtube.com/@MoralFiberMedia" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.tiktok.com/@moralfibermedia" target="_blank" rel="noopener">TikTok</a> · <a href="https://bsky.app/profile/moralfibermedia.bsky.social" target="_blank" rel="noopener">Bluesky</a> · <a href="https://sez.us/user/MoralFiberMedia" target="_blank" rel="noopener">Sez.us</a> · <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a> · <a href="https://buymeacoffee.com/moralfibermedia" target="_blank" rel="noopener">Leave a tip ☕</a></div>
-  <div><span class="tag">More</span><a href="/">All puzzles</a> · <a href="/fighters">Pro-democracy fighters</a> · <a href="/legal">Privacy &amp; terms</a></div>
+  <div><span class="tag">More</span><a href="/">All puzzles</a> · <a href="/fighters">Pro-democracy fighters</a> · <a href="/inspiredby">Inspired by</a> · <a href="/legal">Privacy &amp; terms</a></div>
 </div>
