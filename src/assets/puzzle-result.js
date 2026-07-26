@@ -37,11 +37,13 @@
     var first = !t0;
     _start.apply(this, arguments);
     if (first) runTimer();
+    document.body.classList.add("focus-mode");
   };
   var _reset = window.resetPuzzle;
   if (_reset) window.resetPuzzle = function () {
     _reset.apply(this, arguments);
     runTimer();
+    document.body.classList.add("focus-mode");
   };
 
   function statLine() {
@@ -100,6 +102,7 @@
   var doneb = document.getElementById("doneb");
   if (doneb) new MutationObserver(function () {
     if (!doneb.classList.contains("show")) return;
+    document.body.classList.remove("focus-mode");
     stopTimer();
     var old = doneb.querySelector(".result-time");
     if (old) old.remove();

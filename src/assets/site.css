@@ -406,6 +406,24 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:26px;
   .figure.plate { animation:gild 4s linear infinite; }
   .figure.plate.subtle { animation-duration:9s; }
 }
+
+/* ---- focus mode: Material scrim + elevation when a puzzle is playing ---- */
+.focus-scrim { position:fixed; inset:0; z-index:60; pointer-events:none;
+  opacity:0; transition:opacity .4s ease;
+  background:rgba(13,13,13,.30);
+  -webkit-backdrop-filter:blur(4px) grayscale(.7);
+  backdrop-filter:blur(4px) grayscale(.7); }
+/* fallback where backdrop-filter is unsupported: lean on a heavier tint */
+@supports not (backdrop-filter:blur(4px)) {
+  .focus-scrim { background:rgba(20,18,14,.55); }
+}
+body.focus-mode .focus-scrim { opacity:1; }
+/* the puzzle rises above the scrim onto its own surface */
+body.focus-mode .figure.plate { z-index:70;
+  box-shadow:0 24px 60px -12px rgba(13,13,13,.55), 0 8px 24px -8px rgba(13,13,13,.4); }
+@media (prefers-reduced-motion: no-preference) {
+  body.focus-mode .figure.plate { transition:box-shadow .4s ease; }
+}
 .plate-body { background:#fff; border:1px solid var(--ink); }
 .plate-head { text-align:center; padding:16px 14px 14px; border-bottom:1px solid var(--ink);
   background:
