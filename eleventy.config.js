@@ -66,7 +66,7 @@ module.exports = function (eleventyConfig) {
   // JSON-LD for text-match / rank / over-under / timeline pages
   eleventyConfig.addFilter("puzzleJsonld", p => {
     const base = "https://followthemoney.moralfibermedia.com";
-    const url = `${base}/${p.path || ("puzzles/" + p.id)}`;
+    const url = `${base}/${p.path || ("puzzles/" + p.id)}/`;
     const lic = p.data_license === "CC BY-NC-SA 3.0"
       ? "https://creativecommons.org/licenses/by-nc-sa/3.0/us/"
       : "https://creativecommons.org/licenses/by/4.0/";
@@ -105,7 +105,7 @@ module.exports = function (eleventyConfig) {
   // JSON-LD for a bar-chart puzzle page
   eleventyConfig.addFilter("barchartJsonld", p => {
     const base = "https://followthemoney.moralfibermedia.com";
-    const url = `${base}/puzzles/${p.id}`;
+    const url = `${base}/puzzles/${p.id}/`;
     return JSON.stringify({
       "@context": "https://schema.org",
       "@graph": [
