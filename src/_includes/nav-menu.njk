@@ -1,0 +1,39 @@
+<div class="nav-menu" id="navMenu" role="menu" aria-label="Browse all puzzles">
+  <div class="nav-cols">
+    <div class="nav-col">
+      <div class="nav-h">The bar-chart series</div>
+      {%- for p in barcharts %}{% if p.number %}
+      <a role="menuitem" href="/puzzles/{{ p.id }}">{{ p.title }}</a>
+      {%- endif %}{%- endfor %}
+      {%- for p in barcharts %}{% if not p.number %}
+      <a role="menuitem" href="/puzzles/{{ p.id }}">{{ p.title }}</a>
+      {%- endif %}{%- endfor %}
+    </div>
+    <div class="nav-col">
+      <div class="nav-h">Just the Facts</div>
+      {%- for rp in livePuzzles %}{% if rp.template == "text-match" %}
+      <a role="menuitem" href="{{ rp.path }}">{{ rp.title }}</a>
+      {%- endif %}{%- endfor %}
+      <div class="nav-h">Rankings &amp; timelines</div>
+      {%- for rp in livePuzzles %}{% if rp.template == "rank" or rp.template == "timeline" or rp.template == "over-under" %}
+      <a role="menuitem" href="{{ rp.path }}">{{ rp.title }}</a>
+      {%- endif %}{%- endfor %}
+    </div>
+    <div class="nav-col">
+      <div class="nav-h">Reports</div>
+      <a role="menuitem" href="/2026-ga-elections-legislation/">2026 Georgia Election Bills</a>
+      <a role="menuitem" href="/doj/bar-rule-infographic/">The DOJ Bar-Rule Change</a>
+      <a role="menuitem" href="/doj/bar-rule-action/">Bar-Rule Action Guide</a>
+      {%- if puzzles.coming_soon and puzzles.coming_soon.length %}
+      <div class="nav-h">Coming soon</div>
+      {%- for c in puzzles.coming_soon %}
+      <span class="nav-soon">{{ c.title }}</span>
+      {%- endfor %}
+      {%- endif %}
+    </div>
+  </div>
+  <div class="nav-foot">
+    <a class="nav-foot-all" href="/">All {{ livePuzzles | length }} puzzles →</a>
+    <span class="nav-foot-links"><a href="/fighters">Fighters</a> &nbsp;·&nbsp; <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a></span>
+  </div>
+</div>
