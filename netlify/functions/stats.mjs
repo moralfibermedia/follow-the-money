@@ -15,11 +15,14 @@ export default async (req) => {
   if (locked) return new Response("Unauthorized", { status: 401, headers: { "x-robots-tag": "noindex" } });
 
   const store = getStore("puzzle-stats");
-  const stats = (await store.get("stats", { type: "json" })) || {};
-
-  const rows = Object.entries(stats)
-    .map(([id, s]) => ({ id, ...s }))
-    .sort((a, b) => b.complete - a.complete);
+  const { blobs } = await store.list();
+  const rows = [];
+  for (const b of blobs) {
+    if (b.key === "stats") continue; // skip legacy single-object key
+    const s = await store.get(b.key, { type: "json" });
+    if (s && typeof s.starts === "number") rows.push({ id: b.key, ...s });
+  }
+  rows.sort((a, b) => b.complete - a.complete);
 
   const totals = rows.reduce((t, r) => ({
     starts: t.starts + r.starts, complete: t.complete + r.complete,
