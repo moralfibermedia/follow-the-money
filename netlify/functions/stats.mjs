@@ -14,15 +14,28 @@ export default async (req) => {
   const locked = required && url.searchParams.get("key") !== required;
   if (locked) return new Response("Unauthorized", { status: 401, headers: { "x-robots-tag": "noindex" } });
 
-  const store = getStore("puzzle-stats");
-  const { blobs } = await store.list();
-  const rows = [];
-  for (const b of blobs) {
-    if (b.key === "stats") continue; // skip legacy single-object key
-    const s = await store.get(b.key, { type: "json" });
-    if (s && typeof s.starts === "number") rows.push({ id: b.key, ...s });
-  }
-  rows.sort((a, b) => b.complete - a.complete);
+  // Aggregate over append-only event keys: e/<puzzle>/<type>/<rank>/<secs>/<uuid>
+  const store = getStore("puzzle-events");
+  const agg = {};
+  let cursor;
+  do {
+    const res = await store.list({ prefix: "e/", cursor });
+    for (const b of res.blobs) {
+      const p = b.key.split("/");
+      if (p[0] !== "e" || p.length < 6) continue;
+      const [, puzzle, type, rank, secsStr] = p;
+      const a = agg[puzzle] || (agg[puzzle] = { starts: 0, complete: 0, perfect: 0, cleared: 0, finished: 0, timeSum: 0, timeCount: 0 });
+      if (type === "s") { a.starts++; }
+      else if (type === "c") {
+        a.complete++;
+        if (rank === "p") a.perfect++; else if (rank === "c") a.cleared++; else if (rank === "f") a.finished++;
+        const secs = parseInt(secsStr, 10);
+        if (secs) { a.timeSum += secs; a.timeCount++; }
+      }
+    }
+    cursor = res.cursor;
+  } while (cursor);
+  const rows = Object.entries(agg).map(([id, s]) => ({ id, ...s })).sort((a, b) => b.complete - a.complete);
 
   const totals = rows.reduce((t, r) => ({
     starts: t.starts + r.starts, complete: t.complete + r.complete,
