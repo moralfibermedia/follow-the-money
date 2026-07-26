@@ -38,9 +38,12 @@
     <span>Follow the <em>Money</em></span>
   </a>
   <nav class="band-nav">
-    <a href="/">Puzzles</a>
-    <a href="/fighters">Fighters</a>
-    <a href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a>
+    <div class="nav-item">
+      <button class="nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="navMenu">Puzzles <span class="caret">▾</span></button>
+      {% include "nav-menu.njk" %}
+    </div>
+    <a class="nav-link" href="/fighters">Fighters</a>
+    <a class="nav-link" href="https://moralfibermedia.com" target="_blank" rel="noopener">Substack</a>
   </nav>
 </header>
 <div class="article">
@@ -59,5 +62,15 @@
 {% if pageScript %}<div class="focus-scrim" aria-hidden="true"></div>
 <script src="{{ pageScript }}"></script>
 <script src="/assets/puzzle-result.js"></script>{% endif %}
+<script>
+(function(){
+  var trig=document.querySelector(".nav-trigger"),menu=document.getElementById("navMenu");
+  if(!trig||!menu)return;
+  function close(){menu.classList.remove("open");trig.setAttribute("aria-expanded","false");}
+  trig.addEventListener("click",function(e){e.stopPropagation();var o=menu.classList.toggle("open");trig.setAttribute("aria-expanded",o?"true":"false");});
+  document.addEventListener("click",function(e){if(menu.classList.contains("open")&&!menu.contains(e.target)&&!trig.contains(e.target))close();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")close();});
+})();
+</script>
 </body>
 </html>

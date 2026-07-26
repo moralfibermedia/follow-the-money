@@ -22,11 +22,45 @@ body { background:var(--paper); color:var(--ink); overflow-x:clip;
   font-family:'Playfair Display',serif; font-weight:900; font-size:20px; letter-spacing:-.2px; }
 .band-brand em { font-style:italic; color:var(--red); }
 .band-brand img { display:block; }
-.band-nav { display:flex; gap:20px; }
-.band-nav a { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+.band-nav { display:flex; gap:20px; align-items:center; }
+.band-nav a, .nav-trigger { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
   letter-spacing:.16em; text-transform:uppercase; color:var(--muted); text-decoration:none; }
 .band-nav a:hover { color:var(--red); }
-@media (max-width:560px) { .band-nav { display:none; } }
+@media (max-width:560px) { .band-nav .nav-link { display:none; } }
+
+/* ---- Puzzles mega-menu ---- */
+.nav-item { position:relative; }
+.nav-trigger { background:none; border:none; cursor:pointer; padding:0; display:inline-flex; align-items:center; gap:5px; }
+.nav-trigger:hover, .nav-trigger[aria-expanded="true"] { color:var(--red); }
+.nav-trigger .caret { font-size:9px; transition:transform .18s; }
+.nav-trigger[aria-expanded="true"] .caret { transform:rotate(180deg); }
+.nav-menu { display:none; position:absolute; top:calc(100% + 16px); right:0; z-index:60;
+  width:min(720px, calc(100vw - 32px)); background:var(--paper); border:2px solid var(--ink);
+  box-shadow:0 22px 54px -18px rgba(13,13,13,.45); padding:22px 24px; }
+.nav-menu.open { display:block; }
+.nav-cols { display:flex; gap:32px; align-items:flex-start; }
+.nav-col { flex:1; min-width:0; }
+.nav-h { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--gold); margin:0 0 9px; }
+.nav-col .nav-h:not(:first-child) { margin-top:20px; }
+.nav-menu a[role="menuitem"] { display:block; font-family:'Playfair Display',serif; font-weight:700;
+  font-size:15px; color:var(--ink); text-decoration:none; padding:4px 0; line-height:1.22; }
+.nav-menu a[role="menuitem"]:hover { color:var(--red); }
+.nav-soon { display:block; font-family:'Playfair Display',serif; font-style:italic; font-size:14px;
+  color:var(--muted); padding:4px 0; line-height:1.22; }
+.nav-foot { display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
+  margin-top:20px; padding-top:15px; border-top:1px solid var(--rule);
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+.nav-foot a { color:var(--ink); text-decoration:none; font-weight:700; }
+.nav-foot a:hover { color:var(--red); }
+.nav-foot-all { color:var(--red) !important; }
+@media (max-width:560px) {
+  .nav-menu { position:fixed; top:52px; left:0; right:0; width:100%; max-height:calc(100vh - 56px);
+    overflow-y:auto; border-left:none; border-right:none; box-shadow:0 22px 40px -12px rgba(13,13,13,.5); }
+  .nav-cols { flex-direction:column; gap:0; }
+  .nav-col .nav-h:first-child { margin-top:0; }
+  .nav-col:not(:first-child) .nav-h:first-child { margin-top:20px; }
+}
 /* ---- the broadsheet canvas: one width site-wide; prose keeps its measure ---- */
 .article { max-width:1120px; margin:0 auto; padding:40px 20px 56px; }
 .article > p, .standfirst, .hub-tagline, .page-main > p { max-width:72ch; }
