@@ -155,6 +155,24 @@
       "url": "https://www.brennancenter.org/",
       "description": "NYU Law nonpartisan policy institute defending democracy through research, advocacy, and litigation on voting rights, fair elections, and judicial reform.",
       "display_url": "brennancenter.org"
+    },
+    {
+      "name": "Timothy Snyder",
+      "url": "https://snyder.substack.com",
+      "description": "Historian of authoritarianism and author of On Tyranny. Writes \u201cThinking About\u2026\u201d \u2014 the long view on how democracies fall and how they hold.",
+      "display_url": "snyder.substack.com"
+    },
+    {
+      "name": "Ruth Ben-Ghiat",
+      "url": "https://lucid.substack.com",
+      "description": "NYU historian of fascism and author of Strongmen. Writes \u201cLucid\u201d \u2014 clear-eyed analysis of autocrats, propaganda, and how resistance actually works.",
+      "display_url": "lucid.substack.com"
+    },
+    {
+      "name": "Jessica Craven",
+      "url": "https://chopwoodcarrywaterdailyactions.substack.com",
+      "description": "Activist behind \u201cChop Wood, Carry Water\u201d \u2014 a weekday list of concrete, do-it-now political actions to turn despair into effort.",
+      "display_url": "chopwoodcarrywaterdailyactions.substack.com"
     }
   ]
 }
