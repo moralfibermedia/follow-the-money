@@ -15,7 +15,7 @@ export default async (req) => {
   if (locked) return new Response("Unauthorized", { status: 401, headers: { "x-robots-tag": "noindex" } });
 
   // Aggregate over append-only event keys: e/<puzzle>/<type>/<rank>/<secs>/<uuid>
-  const store = getStore("completions");
+  const store = getStore("solves");
   const agg = {};
   let cursor;
   do {

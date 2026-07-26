@@ -32,7 +32,7 @@ export default async (req) => {
   }
 
   try {
-    const store = getStore("completions");
+    const store = getStore("solves");
     await store.set(`e/${puzzle}/${type}/${rank}/${secs}/${randomUUID()}`, "1");
     return new Response(null, { status: 204 });
   } catch {
