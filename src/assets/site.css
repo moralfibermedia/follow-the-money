@@ -99,7 +99,32 @@ h2 { font-family:'Playfair Display',serif; font-weight:900; font-size:26px;
 @media (prefers-reduced-motion: no-preference) {
   .fig-bar .start-btn, .plate-head .start-btn { animation:throb 1.6s ease-in-out infinite; }
   .fig-cover:hover .start-btn, .figure.plate:hover .start-btn { animation-duration:.9s; }
+  /* once playing, Start goes quiet and Lock It In takes over the pulse */
+  .figure.playing .plate-head .start-btn { animation:none; }
+  .figure.playing #lockb:not(:disabled) { animation:throb 1.6s ease-in-out infinite; }
 }
+/* Lock It In inherits the arcade ring while it's the live action */
+.figure.playing #lockb:not(:disabled) { box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--ink); }
+.figure.playing #lockb:not(:disabled):hover { box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--red); }
+
+/* ---- sheen: a light sweep across the button that's currently calling for a tap ---- */
+.plate-head .start-btn, #lockb { position:relative; overflow:hidden; }
+.plate-head .start-btn::after,
+.figure.playing #lockb:not(:disabled)::after {
+  content:""; position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;
+  background:linear-gradient(115deg, transparent 35%, rgba(255,243,201,.42) 50%, transparent 65%);
+  transform:translateX(-130%); }
+.figure.playing .plate-head .start-btn::after { content:none; }
+@keyframes sheen { 0% {transform:translateX(-130%)} 55%,100% {transform:translateX(130%)} }
+@media (prefers-reduced-motion: no-preference) {
+  .plate-head .start-btn::after,
+  .figure.playing #lockb:not(:disabled)::after { animation:sheen 2.8s ease-in-out infinite; }
+}
+/* dancing mode tints the sheen with the spectrum */
+html.disco .plate-head .start-btn::after,
+html.disco .figure.playing #lockb:not(:disabled)::after {
+  background:linear-gradient(115deg, transparent 28%, rgba(214,48,49,.4) 42%,
+    rgba(184,134,11,.4) 52%, rgba(39,174,96,.35) 62%, transparent 76%); }
 .fig-game { display:none; padding:16px 14px 18px; }
 .figure.playing .fig-game { display:block; }
 .figure.playing .fig-cover { display:none; }
@@ -440,7 +465,10 @@ body.focus-mode .figure.plate { z-index:70;
 .plate-stamp { position:absolute; top:-12px; right:12px; z-index:2;
   font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
   letter-spacing:.12em; color:var(--red); border:2px solid var(--red);
-  background:var(--paper); padding:3px 9px; transform:rotate(-6deg); }
+  background:var(--paper); padding:3px 9px; transform:rotate(-6deg); transition:all .15s; }
+/* while playing, the stamp becomes the close control */
+.figure.playing .plate-stamp { cursor:pointer; }
+.figure.playing .plate-stamp:hover { background:var(--red); color:var(--paper); transform:rotate(-6deg) scale(1.08); }
 .figure.plate .fig-cover img { display:block; }
 
 /* ---- disco shimmer: user-toggled techno border (opt-in, persisted) ---- */
