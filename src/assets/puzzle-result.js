@@ -33,17 +33,35 @@
   }
 
   var _start = window.startPuzzle;
+  // stamp doubles as the close control while playing
+  var stampEl = document.querySelector(".plate-stamp");
+  var stampOrig = stampEl ? stampEl.innerHTML : "";
+  function enterPlay() {
+    document.body.classList.add("focus-mode");
+    if (stampEl) { stampEl.innerHTML = "✕"; stampEl.title = "Close puzzle"; }
+  }
+  window.closePuzzle = function () {
+    var fig = document.getElementById("fig");
+    if (fig) fig.classList.remove("playing");
+    document.body.classList.remove("focus-mode");
+    if (stampEl) { stampEl.innerHTML = stampOrig; stampEl.removeAttribute("title"); }
+    if (fig) fig.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  if (stampEl) stampEl.addEventListener("click", function () {
+    if (document.getElementById("fig").classList.contains("playing")) window.closePuzzle();
+  });
+
   window.startPuzzle = function () {
     var first = !t0;
     _start.apply(this, arguments);
     if (first) runTimer();
-    document.body.classList.add("focus-mode");
+    enterPlay();
   };
   var _reset = window.resetPuzzle;
   if (_reset) window.resetPuzzle = function () {
     _reset.apply(this, arguments);
     runTimer();
-    document.body.classList.add("focus-mode");
+    enterPlay();
   };
 
   function statLine() {
@@ -133,13 +151,13 @@
   // ---- disco shimmer toggle: opt-in techno border, persisted across puzzles ----
   (function () {
     function isDisco() { return document.documentElement.classList.contains("disco"); }
-    function label(btn) { btn.textContent = isDisco() ? "◈ disco on" : "◈ disco"; }
+    function label(btn) { btn.textContent = isDisco() ? "♪ vibing" : "✦ gilding"; }
     var toggles = [];
     document.querySelectorAll(".figure.plate").forEach(function (plate) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "shimmer-toggle";
-      btn.title = "Toggle disco shimmer";
+      btn.title = "Puzzle mood — gilding or vibing";
       label(btn);
       btn.addEventListener("click", function () {
         var on = document.documentElement.classList.toggle("disco");
