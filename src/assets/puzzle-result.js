@@ -1,7 +1,20 @@
 // Timer + shareable result — shared across all puzzle engines.
 // Loads after the engine script; wraps startPuzzle/resetPuzzle and watches #doneb.
 (function () {
-  var t0 = null, tick = null, finalTime = null;
+  var t0 = null, tick = null, finalTime = null, pinged = false;
+
+  // Anonymous completion ping — aggregate counts only, Do-Not-Track honored.
+  var DNT = (navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.msDoNotTrack === "1");
+  function ping(event, extra) {
+    if (DNT || !navigator.sendBeacon) return;
+    try {
+      var id = location.pathname.replace(/\/+$/, "").split("/").pop();
+      var payload = { event: event, puzzle: id };
+      for (var k in (extra || {})) payload[k] = extra[k];
+      navigator.sendBeacon("/.netlify/functions/tally",
+        new Blob([JSON.stringify(payload)], { type: "application/json" }));
+    } catch (e) {}
+  }
 
   function fmt(s) {
     var m = Math.floor(s / 60), r = Math.floor(s % 60);
@@ -54,13 +67,15 @@
   window.startPuzzle = function () {
     var first = !t0;
     _start.apply(this, arguments);
-    if (first) runTimer();
+    if (first) { runTimer(); ping("start"); }
     enterPlay();
   };
   var _reset = window.resetPuzzle;
   if (_reset) window.resetPuzzle = function () {
     _reset.apply(this, arguments);
     runTimer();
+    pinged = false;
+    ping("start");
     enterPlay();
   };
 
@@ -133,6 +148,15 @@
     var sb = document.getElementById("shareb");
     if (sb) sb.textContent = "📤 Share your result";
     buildShareRow();
+    if (!pinged) {
+      pinged = true;
+      var rl = document.getElementById("rankLabel"), at = document.getElementById("a");
+      ping("complete", {
+        rank: rl ? rl.textContent.trim() : "",
+        time: finalTime || "",
+        attempts: at ? at.textContent.trim() : ""
+      });
+    }
   }).observe(doneb, { attributes: true, attributeFilter: ["class"] });
 
   window.sharePuzzle = function () {
