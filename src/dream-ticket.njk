@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+permalink: /dream-ticket/index.html
+license: by
+pageTitle: "Build Your 2028 Dream Ticket | Follow the Money"
+pageDescription: "Pick your ideal 2028 presidential ticket from the names the polls and the movement are already floating — every candidate sourced. See how the country is building it."
+canonicalPath: "/dream-ticket"
+ogImage: "/preview.png"
+---
+<div class="kicker"><a href="/">Follow the Money</a> · Straw poll</div>
+<h1>Build Your 2028 Dream <em>Ticket</em></h1>
+<div class="standfirst">The 2028 race is already surfacing — earlier than anyone expected. Pick your President and Vice President from the names the polls and the movement are floating. Every card is sourced; nobody's here because we made them up.</div>
+<div class="meta">{{ ticket2028.race }} · updated {{ ticket2028.updated }} &nbsp;·&nbsp; anonymous · no login</div>
+
+<div class="ticket-slots" id="ticketSlots">
+  <div class="slot" id="slot-pres"><span class="slot-role">President</span><span class="slot-name" id="pres-name">— pick one —</span></div>
+  <div class="slot-x">+</div>
+  <div class="slot" id="slot-vp"><span class="slot-role">Vice President</span><span class="slot-name" id="vp-name">— pick one —</span></div>
+</div>
+<div class="ticket-actions">
+  <button class="start-btn" id="lockTicket" type="button" disabled onclick="lockTicket()">Lock in my ticket</button>
+  <button class="start-btn again" id="shareTicket" type="button" onclick="shareTicket()" style="display:none">📤 Share my ticket</button>
+  <div class="ticket-share-row" id="ticketShareRow"></div>
+</div>
+
+<div class="cand-grid">
+{%- for c in ticket2028.candidates %}
+  <div class="cand" data-id="{{ c.id }}">
+    <div class="cand-head"><span class="cand-name">{{ c.name }}</span><span class="cand-lane">{{ c.lane }}</span></div>
+    <ul class="cand-facts">
+    {%- for f in c.facts %}
+      <li>{{ f.text }} <a href="{{ f.url }}" target="_blank" rel="noopener">— {{ f.label }} ↗</a></li>
+    {%- endfor %}
+    </ul>
+    <div class="cand-pick">
+      <button class="pick-btn pick-pres" type="button" onclick="pick('pres','{{ c.id }}')">★ President</button>
+      <button class="pick-btn pick-vp" type="button" onclick="pick('vp','{{ c.id }}')">☆ VP</button>
+    </div>
+  </div>
+{%- endfor %}
+</div>
+
+<div class="sourcing-note">These names are drawn from public polling and party/advocate chatter as of {{ ticket2028.updated }} — this is a straw poll, not an endorsement or a prediction. Each fact links to its source, and candidates' own plans vary (Ossoff, for one, says he won't run).</div>
+
+<h2>How the country's building it</h2>
+<div class="leaderboard" id="leaderboard"><p class="lb-empty">Loading the standings…</p></div>
+
+<h2>The receipts</h2>
+<p>Every figure above is public — polling and campaign-finance disclosures. Check them yourself:</p>
+<div class="receipts"><ul>
+{%- for c in ticket2028.candidates %}
+  <li><span>{{ c.short }}</span><span class="receipt-srcs">
+  {%- for f in c.facts %}
+    <a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.label }} ↗</a>
+  {%- endfor %}
+  </span></li>
+{%- endfor %}
+</ul></div>
+
+<script>window.__TICKET = { {% for c in ticket2028.candidates %}"{{ c.id }}": "{{ c.short }}"{% if not loop.last %}, {% endif %}{% endfor %} };</script>
+<script src="/assets/dream-ticket.js"></script>

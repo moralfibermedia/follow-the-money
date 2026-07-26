@@ -1,0 +1,36 @@
+{
+  "race": "2028 Democratic primary",
+  "updated": "July 2026",
+  "candidates": [
+    {
+      "id": "ocasio-cortez",
+      "name": "Alexandria Ocasio-Cortez",
+      "short": "Ocasio-Cortez",
+      "lane": "Progressive",
+      "facts": [
+        { "text": "Leads the 2028 Democratic field at 22% in the July 2026 UNH New Hampshire poll.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5985767-ocasio-cortez-leads-nh-poll/" },
+        { "text": "Strongest with young voters — 35% among Democrats aged 23–29.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5639207-ocasio-cortez-2028-poll-harris-newsom/" }
+      ]
+    },
+    {
+      "id": "buttigieg",
+      "name": "Pete Buttigieg",
+      "short": "Buttigieg",
+      "lane": "Moderate",
+      "facts": [
+        { "text": "Frontrunner in the Emerson College 2028 poll at 19%, ahead of Newsom and Ossoff.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5898010-pete-buttigieg-democratic-presidential-primary-poll/" },
+        { "text": "A close second at 21% in the July 2026 UNH New Hampshire poll.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5985767-ocasio-cortez-leads-nh-poll/" }
+      ]
+    },
+    {
+      "id": "ossoff",
+      "name": "Jon Ossoff",
+      "short": "Ossoff",
+      "lane": "Swing-state",
+      "facts": [
+        { "text": "Third in the Emerson 2028 poll at 13%; Polymarket odds climbed to about 16%.", "label": "Newsweek", "url": "https://www.newsweek.com/jon-ossoff-momentum-growing-12211578" },
+        { "text": "Raised $57M+ for his 2026 reelection, over half from small donors — but says he has no interest in running in 2028.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5975467-georgia-senator-ossoff-reelection-bid/" }
+      ]
+    }
+  ]
+}
