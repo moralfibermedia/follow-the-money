@@ -37,8 +37,8 @@ export default async (req) => {
 
     stats[puzzle] = s;
     await store.setJSON(KEY, stats);
-    return new Response("", { status: 204 });
-  } catch (err) {
-    return new Response("tally-error: " + (err && err.message ? err.message : String(err)), { status: 500 });
+    return new Response(null, { status: 204 });
+  } catch {
+    return new Response(null, { status: 500 });
   }
 };
