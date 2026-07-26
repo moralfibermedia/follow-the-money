@@ -26,6 +26,7 @@
     document.querySelectorAll(".tile").forEach(x => x.classList.remove("selected"));
     sel = t; t.classList.add("selected");
     document.getElementById("tiles").classList.remove("attention");
+    document.querySelectorAll(".drop").forEach(d => d.classList.toggle("cue", !d.classList.contains("done")));
     instr();
   };
 
@@ -40,6 +41,8 @@
       document.getElementById("src-" + g).innerHTML =
         '<a href="' + P.srcs[g] + '" target="_blank" rel="noopener">source: opensecrets.org ↗</a>';
       sel.classList.add("placed"); sel.classList.remove("selected"); sel = null; instr();
+      document.querySelectorAll(".drop").forEach(d => d.classList.remove("cue"));
+      if (matches < TOTAL) document.getElementById("tiles").classList.add("attention");
       if (matches === TOTAL) setTimeout(win, 500);
     } else {
       card.classList.add("wrong"); setTimeout(() => card.classList.remove("wrong"), 450);
@@ -72,7 +75,7 @@
     document.getElementById("m").textContent = "0"; document.getElementById("a").textContent = "0";
     document.getElementById("doneb").classList.remove("show");
     document.querySelectorAll(".card").forEach(c => c.classList.remove("matched", "wrong"));
-    document.querySelectorAll(".drop").forEach(d => { d.classList.remove("done"); d.textContent = "Match a company here"; });
+    document.querySelectorAll(".drop").forEach(d => { d.classList.remove("done", "cue"); d.textContent = "Match a company here"; });
     document.querySelectorAll(".srcline").forEach(s => s.innerHTML = "");
     document.querySelectorAll(".tile").forEach(t => t.classList.remove("placed", "selected"));
     document.getElementById("tiles").classList.add("attention");

@@ -172,7 +172,15 @@ html.disco .figure.playing #lockb:not(:disabled)::after {
 .tile.selected { border-color:var(--gold); box-shadow:0 0 0 3px rgba(184,134,11,.35); }
 .tile.placed { opacity:.3; pointer-events:none; border-style:dashed; }
 @keyframes attn { 0%,100%{box-shadow:0 0 0 0 rgba(184,134,11,0)} 50%{box-shadow:0 0 0 5px rgba(184,134,11,.22)} }
+@keyframes attn-disco { 0%,100%{box-shadow:0 0 0 5px rgba(214,48,49,.26)} 33%{box-shadow:0 0 0 5px rgba(39,174,96,.26)} 66%{box-shadow:0 0 0 5px rgba(26,58,92,.3)} }
 .tiles.attention .tile:not(.placed) { animation:attn 1.8s ease-in-out infinite; }
+/* the cue travels to the target slots once a tile is picked */
+.drop.cue { border-color:var(--gold); color:var(--gold); }
+@media (prefers-reduced-motion: no-preference) {
+  .drop.cue { animation:attn 1.4s ease-in-out infinite; }
+  html.disco .tiles.attention .tile:not(.placed),
+  html.disco .drop.cue { animation:attn-disco 2.4s ease-in-out infinite; }
+}
 .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 @media (max-width:620px){ .cards { grid-template-columns:1fr; } }
 .card { border:2px solid var(--ink); background:#fff; position:relative; padding:26px 10px 10px; }
