@@ -55,7 +55,8 @@
 {% endif %}
 {% include "tail.njk" %}
 </div>
-{% if pageScript %}<script src="{{ pageScript }}"></script>
+{% if pageScript %}<div class="focus-scrim" aria-hidden="true"></div>
+<script src="{{ pageScript }}"></script>
 <script src="/assets/puzzle-result.js"></script>{% endif %}
 </body>
 </html>
