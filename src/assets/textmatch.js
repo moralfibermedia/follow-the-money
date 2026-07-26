@@ -17,7 +17,9 @@
   window.pick = function (t) {
     document.querySelectorAll(".tile").forEach(x => x.classList.remove("selected"));
     sel = t; t.classList.add("selected");
-    document.getElementById("tiles").classList.remove("attention"); instr();
+    document.getElementById("tiles").classList.remove("attention");
+    document.querySelectorAll(".fact:not(.matched) .drop").forEach(d => d.classList.add("cue"));
+    instr();
   };
   document.querySelectorAll(".fact").forEach(card => card.addEventListener("click", function () {
     if (!sel || this.classList.contains("matched")) return;
@@ -27,6 +29,8 @@
       this.classList.add("matched");
       this.querySelector(".drop").textContent = "✓ " + P.names[sel.dataset.company];
       instr();
+      document.querySelectorAll(".drop").forEach(d => d.classList.remove("cue"));
+      if (matches < P.total) document.getElementById("tiles").classList.add("attention");
       if (matches === P.total) setTimeout(win, 500);
     } else { this.classList.add("wrong"); setTimeout(() => this.classList.remove("wrong"), 450); }
   }));
@@ -49,6 +53,7 @@
     document.getElementById("m").textContent = "0"; document.getElementById("a").textContent = "0";
     document.getElementById("doneb").classList.remove("show");
     document.querySelectorAll(".fact").forEach(c => { c.classList.remove("matched","wrong");
+      c.querySelector(".drop").classList.remove("cue");
       c.querySelector(".drop").textContent = "Match an answer here"; });
     document.querySelectorAll(".tile").forEach(t => t.classList.remove("selected"));
     document.getElementById("tiles").classList.add("attention");
