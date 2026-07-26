@@ -1,7 +1,142 @@
 [
-  {"n":1,"title":"Resist and Unsubscribe","url":"https://www.resistandunsubscribe.com/","desc":"Consumer-powered accountability — tracking corporate boycotts and their market impact","host":"resistandunsubscribe.com"},
-  {"n":2,"title":"No Kings","url":"https://www.nokings.org/","desc":"Grassroots civic action — events, trainings, and know-your-rights resources","host":"nokings.org"},
-  {"n":3,"title":"AI and Democracy Movements Project — Harvard Ash Center","url":"https://ash.harvard.edu/ai-and-democracy-movements-project/","desc":"Research at the intersection of artificial intelligence, civic engagement, and democratic participation","host":"ash.harvard.edu"},
-  {"n":4,"title":"Public Citizen","url":"https://www.citizen.org/","desc":"Consumer advocacy and government accountability — corporate power, democracy reform, and the public interest","host":"citizen.org"},
-  {"n":5,"title":"Brennan Center for Justice","url":"https://www.brennancenter.org/","desc":"NYU Law nonpartisan policy institute defending voting rights, fair elections, and judicial independence","host":"brennancenter.org"}
+  {
+    "n": 1,
+    "title": "Resist and Unsubscribe",
+    "url": "https://www.resistandunsubscribe.com/",
+    "desc": "Consumer-powered accountability \u2014 tracking corporate boycotts and their market impact",
+    "host": "resistandunsubscribe.com"
+  },
+  {
+    "n": 2,
+    "title": "No Kings",
+    "url": "https://www.nokings.org/",
+    "desc": "Grassroots civic action \u2014 events, trainings, and know-your-rights resources",
+    "host": "nokings.org"
+  },
+  {
+    "n": 3,
+    "title": "AI and Democracy Movements Project \u2014 Harvard Ash Center",
+    "url": "https://ash.harvard.edu/ai-and-democracy-movements-project/",
+    "desc": "Research at the intersection of artificial intelligence, civic engagement, and democratic participation",
+    "host": "ash.harvard.edu"
+  },
+  {
+    "n": 4,
+    "title": "Public Citizen",
+    "url": "https://www.citizen.org/",
+    "desc": "Consumer advocacy and government accountability \u2014 corporate power, democracy reform, and the public interest",
+    "host": "citizen.org"
+  },
+  {
+    "n": 5,
+    "title": "Brennan Center for Justice",
+    "url": "https://www.brennancenter.org/",
+    "desc": "NYU Law nonpartisan policy institute defending voting rights, fair elections, and judicial independence",
+    "host": "brennancenter.org"
+  },
+  {
+    "n": 6,
+    "title": "OpenSecrets",
+    "url": "https://www.opensecrets.org/",
+    "desc": "The nonpartisan campaign-finance database behind our bar-chart puzzles \u2014 every donation, tracked and public.",
+    "host": "opensecrets.org"
+  },
+  {
+    "n": 7,
+    "title": "Goods Unite Us",
+    "url": "https://www.goodsuniteus.com/",
+    "desc": "An app that scores brands by their political donations \u2014 the grocery run as a puzzle.",
+    "host": "goodsuniteus.com"
+  },
+  {
+    "n": 8,
+    "title": "ProPublica",
+    "url": "https://www.propublica.org/",
+    "desc": "Investigative journalism in the public interest \u2014 deep, documented, and free to read.",
+    "host": "propublica.org"
+  },
+  {
+    "n": 9,
+    "title": "The Marshall Project",
+    "url": "https://www.themarshallproject.org/",
+    "desc": "Nonprofit newsroom covering the U.S. criminal justice system with rigor and receipts.",
+    "host": "themarshallproject.org"
+  },
+  {
+    "n": 10,
+    "title": "Vote.org",
+    "url": "https://www.vote.org/",
+    "desc": "Nonpartisan tools to register, check your status, and turn out.",
+    "host": "vote.org"
+  },
+  {
+    "n": 11,
+    "title": "Common Cause",
+    "url": "https://www.commoncause.org/",
+    "desc": "Pro-democracy watchdog on ethics, voting rights, and gerrymandering.",
+    "host": "commoncause.org"
+  },
+  {
+    "n": 12,
+    "title": "VoteRiders",
+    "url": "https://www.voteriders.org/",
+    "desc": "Helps voters get the ID they need to cast a ballot that counts.",
+    "host": "voteriders.org"
+  },
+  {
+    "n": 13,
+    "title": "Fair Fight",
+    "url": "https://www.fairfight.com/",
+    "desc": "Fighting voter suppression and building free, fair elections.",
+    "host": "fairfight.com"
+  },
+  {
+    "n": 14,
+    "title": "Indivisible",
+    "url": "https://indivisible.org/",
+    "desc": "A grassroots toolkit for showing up \u2014 local groups, guides, and action.",
+    "host": "indivisible.org"
+  },
+  {
+    "n": 15,
+    "title": "UF Election Lab",
+    "url": "https://election.lab.ufl.edu/",
+    "desc": "Michael McDonald's turnout data \u2014 the go-to source for how many Americans actually vote.",
+    "host": "election.lab.ufl.edu"
+  },
+  {
+    "n": 16,
+    "title": "Princeton Gerrymandering Project",
+    "url": "https://gerrymander.princeton.edu/",
+    "desc": "Grades every district map for partisan fairness \u2014 the redistricting report card.",
+    "host": "gerrymander.princeton.edu"
+  },
+  {
+    "n": 17,
+    "title": "The Union",
+    "url": "https://www.jointheunion.us/",
+    "desc": "Pro-democracy grassroots coalition \u2014 192,000+ members across all 50 states.",
+    "host": "jointheunion.us"
+  },
+  {
+    "n": 18,
+    "title": "The Lincoln Project",
+    "url": "https://lincolnproject.us/",
+    "desc": "Anti-authoritarian political action from former Republican operatives defending democratic norms.",
+    "host": "lincolnproject.us"
+  },
+  {
+    "n": 19,
+    "title": "Field Team 6",
+    "url": "https://www.fieldteam6.org/",
+    "desc": "A volunteer army registering Democrats in every swing state, all year round.",
+    "host": "fieldteam6.org"
+  },
+  {
+    "n": 20,
+    "title": "VoPro Pros",
+    "url": "https://www.vopropros.com/",
+    "desc": "Professional-grade volunteers curing ballots and protecting voters in critical jurisdictions.",
+    "host": "vopropros.com"
+  }
 ]
