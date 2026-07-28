@@ -37,6 +37,11 @@ export default async (req) => {
   } while (cursor);
   const rows = Object.entries(agg).map(([id, s]) => ({ id, ...s })).sort((a, b) => b.complete - a.complete);
 
+  const meta = await store.get("meta", { type: "json" }).catch(() => null);
+  const sinceStr = meta && meta.resetAt
+    ? new Date(meta.resetAt).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" })
+    : null;
+
   const totals = rows.reduce((t, r) => ({
     starts: t.starts + r.starts, complete: t.complete + r.complete,
     perfect: t.perfect + r.perfect, cleared: t.cleared + r.cleared, finished: t.finished + r.finished,
@@ -75,10 +80,15 @@ export default async (req) => {
   th { font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); }
   td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; }
   td.id { font-weight:700; } td.good { color:var(--green); } td.muted { color:var(--muted); } td.empty { text-align:center; color:var(--muted); padding:26px; }
+  .resetbar { margin-bottom:20px; display:flex; align-items:center; gap:12px; }
+  .resetbar button { font:inherit; font-weight:700; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:8px 14px; border:2px solid var(--red); background:var(--paper); color:var(--red); cursor:pointer; }
+  .resetbar button:hover { background:var(--red); color:#fff; }
+  .rmsg { font-size:12px; } .rmsg.ok { color:var(--green); } .rmsg.err { color:var(--red); }
 </style></head><body><div class="wrap">
   <h1>Puzzle completions</h1>
-  <div class="sub">Anonymous aggregate counts · no cookies, no identifiers · updates live</div>
+  <div class="sub">Anonymous aggregate counts · no cookies, no identifiers${sinceStr ? " · counting since " + esc(sinceStr) : ""}</div>
   ${banner}
+  ${required ? `<div class="resetbar"><button id="resetBtn" type="button">Reset completions</button><span id="resetMsg" class="rmsg"></span></div>` : ""}
   <div class="cards">
     <div class="card"><div class="n">${totals.starts}</div><div class="l">Starts</div></div>
     <div class="card"><div class="n">${totals.complete}</div><div class="l">Completions</div></div>
@@ -89,7 +99,27 @@ export default async (req) => {
     <thead><tr><th>Puzzle</th><th class="num">Starts</th><th class="num">Done</th><th class="num">Finish %</th><th class="num">★★★</th><th class="num">★★☆</th><th class="num">★☆☆</th><th class="num">Avg time</th></tr></thead>
     <tbody>${body}</tbody>
   </table>
-</div></body></html>`;
+</div>
+<script>
+  (function () {
+    var btn = document.getElementById("resetBtn"); if (!btn) return;
+    btn.addEventListener("click", function () {
+      var key = new URLSearchParams(location.search).get("key");
+      var msg = document.getElementById("resetMsg");
+      if (!confirm("Reset all completion stats? This permanently deletes every recorded start/finish and restarts the 'since' date.")) return;
+      btn.disabled = true; msg.className = "rmsg"; msg.textContent = "Resetting…";
+      fetch("/.netlify/functions/tally", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ event: "reset", key: key }) })
+        .then(function (r) {
+          btn.disabled = false;
+          if (r.status === 204) { msg.className = "rmsg ok"; msg.textContent = "✓ Reset — reload in a few seconds to see the fresh baseline."; }
+          else if (r.status === 401) { msg.className = "rmsg err"; msg.textContent = "✗ Key rejected."; }
+          else { msg.className = "rmsg err"; msg.textContent = "✗ Failed (" + r.status + ")."; }
+        })
+        .catch(function () { btn.disabled = false; msg.className = "rmsg err"; msg.textContent = "✗ Network error."; });
+    });
+  })();
+</script>
+</body></html>`;
 
   return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "x-robots-tag": "noindex, nofollow", "cache-control": "no-store" } });
 };
