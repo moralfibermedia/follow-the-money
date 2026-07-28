@@ -3,67 +3,85 @@
 <title>Puzzle Studio — Moral Fiber Media</title>
 <style>
   :root { --ink:#0d0d0d; --paper:#f2ede4; --red:#d63031; --gold:#b8860b; --muted:#6b6256; --green:#27ae60; --rule:#c0b89a; }
-  * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'JetBrains Mono',ui-monospace,monospace; padding:28px 16px 90px; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'JetBrains Mono',ui-monospace,monospace; padding:28px 16px 96px; }
   .wrap { max-width:760px; margin:0 auto; }
-  h1 { font-family:Georgia,serif; font-size:26px; margin:0 0 2px; } .sub { color:var(--muted); font-size:12.5px; margin-bottom:20px; line-height:1.5; }
+  h1 { font-family:Georgia,serif; font-size:26px; margin:0 0 2px; } .sub { color:var(--muted); font-size:12.5px; margin-bottom:18px; line-height:1.5; }
+  .tabs { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  .tab { font:inherit; font-weight:700; font-size:12px; letter-spacing:.06em; text-transform:uppercase; padding:9px 16px; border:2px solid var(--ink); cursor:pointer; background:var(--paper); color:var(--ink); }
+  .tab.on { background:var(--ink); color:var(--paper); }
   fieldset { border:2px solid var(--ink); background:#fff; margin:0 0 16px; padding:14px 16px; }
   legend { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); padding:0 6px; }
   label { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:10px 0 5px; }
   input, textarea, select { width:100%; font:inherit; font-size:13px; padding:9px 11px; border:1.5px solid var(--rule); background:var(--paper); }
   textarea { resize:vertical; }
-  .fact { border:1px dashed var(--rule); padding:12px; margin:10px 0; position:relative; }
-  .fact .rm { position:absolute; top:8px; right:8px; background:none; border:none; color:var(--muted); cursor:pointer; font-size:15px; }
-  .fact .rm:hover { color:var(--red); }
+  .row { border:1px dashed var(--rule); padding:12px; margin:10px 0; position:relative; }
+  .row .rm { position:absolute; top:8px; right:8px; background:none; border:none; color:var(--muted); cursor:pointer; font-size:15px; }
+  .row .rm:hover { color:var(--red); }
   .row2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
   .btn { font:inherit; font-weight:700; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding:11px 18px; border:2px solid var(--ink); cursor:pointer; background:var(--paper); color:var(--ink); }
-  .btn:hover { background:var(--gold); border-color:var(--gold); }
+  .btn:hover { background:var(--gold); border-color:var(--gold); } .btn.small { padding:7px 12px; font-size:11px; }
   .btn.primary { background:var(--ink); color:var(--paper); } .btn.primary:hover { background:var(--red); border-color:var(--red); }
-  .btn.small { padding:7px 12px; font-size:11px; }
   .bar { position:fixed; left:0; right:0; bottom:0; background:var(--ink); padding:12px 16px; display:flex; gap:10px; justify-content:center; }
   .prev { border:2px solid var(--ink); background:#fff; padding:14px 16px; }
   .prev h3 { font-family:Georgia,serif; margin:0 0 4px; font-size:20px; } .prev h3 em { color:var(--red); font-style:italic; }
-  .prev .pfact { border-bottom:1px solid var(--rule); padding:8px 0; font-family:Georgia,serif; font-size:14px; }
-  .prev .ptiles { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
-  .prev .ptile { border:2px solid var(--ink); background:#fff; padding:8px 14px; font-family:Georgia,serif; font-weight:700; font-size:13px; }
-  .prev .src { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); }
-  .msg { margin-top:12px; font-size:12.5px; padding:10px 12px; border:1.5px solid; display:none; }
-  .msg.ok { display:block; border-color:var(--green); color:var(--green); } .msg.err { display:block; border-color:var(--red); color:var(--red); }
-  .msg a { color:inherit; }
+  .prow { border-bottom:1px solid var(--rule); padding:8px 0; font-family:Georgia,serif; font-size:14px; display:flex; gap:10px; align-items:baseline; }
+  .prow .rk { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--paper); background:var(--ink); padding:2px 7px; flex:none; }
+  .ptiles { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .ptile { border:2px solid var(--ink); background:#fff; padding:8px 14px; font-family:Georgia,serif; font-weight:700; font-size:13px; }
+  .src { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); } .src.warn { color:var(--red); }
+  .msg { margin-top:12px; font-size:12.5px; padding:10px 12px; border:1.5px solid; display:none; } .msg.ok { display:block; border-color:var(--green); color:var(--green); } .msg.err { display:block; border-color:var(--red); color:var(--red); } .msg a { color:inherit; }
   .hint { font-size:11px; color:var(--muted); font-style:italic; margin-top:4px; }
+  .hide { display:none; }
 </style></head><body><div class="wrap">
   <h1>Puzzle Studio</h1>
-  <div class="sub">Build a <strong>text-match</strong> puzzle from a source, then open a PR — the deploy preview is your review surface; nothing goes live until you merge. (More mechanics to follow.)</div>
+  <div class="sub">Build a puzzle from a source, then open a PR — the deploy preview is your review surface; nothing goes live until you merge.</div>
+
+  <div class="tabs">
+    <button class="tab on" data-m="text-match" type="button">Text-match</button>
+    <button class="tab" data-m="rank" type="button">Rank</button>
+    <button class="tab" data-m="timeline" type="button">Timeline</button>
+  </div>
 
   <fieldset>
     <legend>Source &amp; framing</legend>
     <label>Source URL — the video / article / post this puzzle is built from</label>
     <input id="src" placeholder="https://www.youtube.com/watch?v=…">
     <div class="row2">
-      <div><label>Series</label>
-        <select id="series">
-          <option value="just-the-facts">just-the-facts</option>
-          <option value="americas-250th">americas-250th</option>
-          <option value="speak-now">speak-now</option>
-        </select></div>
-      <div><label>Title</label><input id="title" placeholder="Who Spends Your Money?"></div>
+      <div id="seriesWrap"><label>Series</label>
+        <select id="series"><option value="just-the-facts">just-the-facts</option><option value="americas-250th">americas-250th</option><option value="speak-now">speak-now</option></select></div>
+      <div><label>Title</label><input id="title" placeholder="Golden Parachutes"></div>
     </div>
     <label>Subtitle (one line)</label><input id="subtitle" placeholder="The short editorial promise.">
-    <label>Hook (a sentence or two)</label><textarea id="hook" rows="2" placeholder="The setup that makes someone want to play."></textarea>
-    <label>Hint (optional)</label><input id="hint" placeholder="Follow the funding, not the logo.">
-    <div class="hint">The slug/path are generated from the title. Facts need a match + at least one source link each.</div>
+    <label>Hook (a sentence or two)</label><textarea id="hook" rows="2"></textarea>
+    <label>Hint (optional)</label><input id="hint">
+    <div id="dirWrap" class="hide"><label>Direction label</label><input id="direction" placeholder="HIGHEST → LOWEST · TOTAL PAY · FY2024"></div>
   </fieldset>
 
-  <fieldset>
+  <fieldset id="fs-text-match">
     <legend>Facts to match</legend>
     <div id="facts"></div>
     <button class="btn small" type="button" onclick="addFact()">＋ Add a fact</button>
+    <div class="hint">Each fact matches one answer; the distinct answers become the tiles. One source link per fact.</div>
   </fieldset>
 
-  <fieldset>
-    <legend>Live preview</legend>
-    <div class="prev" id="preview"></div>
+  <fieldset id="fs-rank" class="hide">
+    <legend>Items to rank</legend>
+    <div id="items"></div>
+    <button class="btn small" type="button" onclick="addItem()">＋ Add an item</button>
+    <div class="hint">Enter each item's value (a number, for sorting) and how it should display. Rank order is derived from the values.</div>
+    <label style="margin-top:12px">Order</label>
+    <select id="rankdir"><option value="desc">Highest value = 1st</option><option value="asc">Lowest value = 1st</option></select>
   </fieldset>
 
+  <fieldset id="fs-timeline" class="hide">
+    <legend>Events to order</legend>
+    <div id="events"></div>
+    <button class="btn small" type="button" onclick="addEvent()">＋ Add an event</button>
+    <div class="hint">Sorted earliest→latest by date. <strong>Triangulation standard:</strong> aim for 3 sources per event — gov/SEC, the company, and independent media.</div>
+  </fieldset>
+
+  <fieldset><legend>Live preview</legend><div class="prev" id="preview"></div></fieldset>
   <div class="msg" id="msg"></div>
 </div>
 
@@ -73,84 +91,129 @@
 </div>
 
 <script>
-  var facts = document.getElementById("facts");
+  var M = "text-match";
+  function $(id){ return document.getElementById(id); }
   function slug(s){ return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,""); }
   function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i];a[i]=a[j];a[j]=t; } return a; }
+  function wire(el){ el.querySelectorAll("input,textarea,select").forEach(function(x){ x.addEventListener("input",render); }); }
 
-  function addFact(text, match, url, label){
-    var d = document.createElement("div"); d.className = "fact";
-    d.innerHTML = '<button class="rm" type="button" title="Remove" onclick="this.parentNode.remove();render()">✕</button>'
-      + '<label>Fact / claim</label><textarea class="f-text" rows="2">'+esc(text||"")+'</textarea>'
-      + '<div class="row2"><div><label>Matches (the answer)</label><input class="f-match" value="'+esc(match||"")+'" placeholder="Federal Reserve"></div>'
-      + '<div><label>Source label</label><input class="f-label" value="'+esc(label||"")+'" placeholder="Federal Register"></div></div>'
-      + '<label>Source URL</label><input class="f-url" value="'+esc(url||"")+'" placeholder="https://…">';
-    facts.appendChild(d);
-    d.querySelectorAll("input,textarea").forEach(function(el){ el.addEventListener("input", render); });
+  document.querySelectorAll(".tab").forEach(function(t){ t.addEventListener("click", function(){
+    M = t.dataset.m;
+    document.querySelectorAll(".tab").forEach(function(x){ x.classList.toggle("on", x===t); });
+    ["text-match","rank","timeline"].forEach(function(m){ $("fs-"+m).classList.toggle("hide", m!==M); });
+    $("seriesWrap").classList.toggle("hide", M!=="text-match");
+    $("dirWrap").classList.toggle("hide", M==="text-match");
     render();
+  }); });
+
+  function addFact(){ var d=document.createElement("div"); d.className="row";
+    d.innerHTML='<button class="rm" type="button" onclick="this.parentNode.remove();render()">✕</button>'
+     +'<label>Fact / claim</label><textarea class="f-text" rows="2"></textarea>'
+     +'<div class="row2"><div><label>Matches (the answer)</label><input class="f-match"></div><div><label>Source label</label><input class="f-label"></div></div>'
+     +'<label>Source URL</label><input class="f-url">';
+    $("facts").appendChild(d); wire(d); render(); }
+
+  function addItem(){ var d=document.createElement("div"); d.className="row";
+    d.innerHTML='<button class="rm" type="button" onclick="this.parentNode.remove();render()">✕</button>'
+     +'<label>Item name</label><input class="i-name">'
+     +'<div class="row2"><div><label>Value (number, for sorting)</label><input class="i-value" type="number"></div><div><label>Display (shown)</label><input class="i-display" placeholder="$79.1M"></div></div>'
+     +'<div class="row2"><div><label>Source label</label><input class="i-label"></div><div><label>Source URL</label><input class="i-url"></div></div>';
+    $("items").appendChild(d); wire(d); render(); }
+
+  function addEvent(){ var d=document.createElement("div"); d.className="row";
+    d.innerHTML='<button class="rm" type="button" onclick="this.parentNode.remove();render()">✕</button>'
+     +'<div class="row2"><div><label>Date</label><input class="e-date" type="date"></div><div><label>Title</label><input class="e-title"></div></div>'
+     +'<label>Description</label><textarea class="e-desc" rows="2"></textarea>'
+     +'<label>Sources (gov/SEC · company · media)</label>'
+     +'<div class="row2"><input class="e-u1" placeholder="gov/SEC URL"><input class="e-l1" placeholder="label"></div>'
+     +'<div class="row2"><input class="e-u2" placeholder="company URL"><input class="e-l2" placeholder="label"></div>'
+     +'<div class="row2"><input class="e-u3" placeholder="media URL"><input class="e-l3" placeholder="label"></div>';
+    $("events").appendChild(d); wire(d); render(); }
+
+  function common(){
+    var title=$("title").value.trim(), id=slug(title);
+    return { id:id, title:title, series:$("series").value, source_url:$("src").value.trim(),
+      subtitle:$("subtitle").value.trim(), hook:$("hook").value.trim(), hint:$("hint").value.trim(),
+      direction:$("direction").value.trim() };
   }
 
   function collect(){
-    var rows = [].map.call(facts.querySelectorAll(".fact"), function(d){
-      return { text:d.querySelector(".f-text").value.trim(), match:d.querySelector(".f-match").value.trim(),
-               url:d.querySelector(".f-url").value.trim(), label:d.querySelector(".f-label").value.trim() };
-    }).filter(function(r){ return r.text && r.match; });
-    var title = document.getElementById("title").value.trim();
-    var series = document.getElementById("series").value;
-    var id = slug(title);
-    // derive answers from distinct matches
-    var order = [], seen = {};
-    rows.forEach(function(r){ if(!seen[r.match]){ seen[r.match]=1; order.push(r.match); } });
-    var answers = order.map(function(n){ return { id:slug(n), name:n }; });
-    var puzzleFacts = rows.map(function(r,i){
-      var f = { answer:slug(r.match), label:"Fact "+(i+1), text:r.text };
-      if(r.url) f.sources = [{ url:r.url, label:r.label||"source" }];
-      return f;
-    });
-    var entry = {
-      id:id, type:"standard", template:"text-match", series:series, title:title, slug:id,
-      path:series+"/"+id, subtitle:document.getElementById("subtitle").value.trim(),
-      hook:document.getElementById("hook").value.trim(), hint:document.getElementById("hint").value.trim(),
-      data_source:null, data_license:"CC BY 4.0", status:"live",
-      source_url:document.getElementById("src").value.trim(),
-      answers:answers, facts:puzzleFacts
-    };
-    var preview = { episode:title, series:series, subjects:order, subtitle:document.getElementById("subtitle").value.trim(),
-      matchVerb:"Match each fact to where it belongs.", dataLabel:"", dataSource:null, license:"CC BY 4.0" };
-    return { entry:entry, preview:preview, rows:rows, answers:order };
+    var c=common(), entry, preview, prows=[], tiles=[];
+    if(M==="text-match"){
+      var rows=[].map.call($("facts").querySelectorAll(".row"),function(d){ return {
+        text:d.querySelector(".f-text").value.trim(), match:d.querySelector(".f-match").value.trim(),
+        url:d.querySelector(".f-url").value.trim(), label:d.querySelector(".f-label").value.trim() }; })
+        .filter(function(r){ return r.text&&r.match; });
+      var order=[],seen={}; rows.forEach(function(r){ if(!seen[r.match]){seen[r.match]=1;order.push(r.match);} });
+      entry={ id:c.id, type:"standard", template:"text-match", series:c.series, title:c.title, slug:c.id,
+        path:c.series+"/"+c.id, subtitle:c.subtitle, hook:c.hook, hint:c.hint, data_source:null, data_license:"CC BY 4.0",
+        status:"live", source_url:c.source_url, answers:order.map(function(n){return {id:slug(n),name:n};}),
+        facts:rows.map(function(r,i){ var f={answer:slug(r.match),label:"Fact "+(i+1),text:r.text}; if(r.url)f.sources=[{url:r.url,label:r.label||"source"}]; return f; }) };
+      preview={ episode:c.title, series:c.series, subjects:order, subtitle:c.subtitle, matchVerb:"Match each fact to where it belongs.", dataLabel:"", dataSource:null, license:"CC BY 4.0" };
+      prows=rows.map(function(r){ return {t:r.text, ok:!!r.url, lbl:r.label}; }); tiles=order;
+    } else if(M==="rank"){
+      var its=[].map.call($("items").querySelectorAll(".row"),function(d){ return {
+        name:d.querySelector(".i-name").value.trim(), value:parseFloat(d.querySelector(".i-value").value),
+        display:d.querySelector(".i-display").value.trim(), url:d.querySelector(".i-url").value.trim(), label:d.querySelector(".i-label").value.trim() }; })
+        .filter(function(r){ return r.name && !isNaN(r.value); });
+      var dir=$("rankdir").value; var sorted=its.slice().sort(function(a,b){ return dir==="asc"? a.value-b.value : b.value-a.value; });
+      var items=sorted.map(function(r,i){ var it={ id:slug(r.name), rank:i+1, value:r.value, display:r.display||String(r.value), name:r.name }; if(r.url)it.sources=[{url:r.url,label:r.label||"source"}]; return it; });
+      var ids=items.map(function(x){return x.id;}); var scr=shuffle(ids); if(scr.join()===ids.join())scr.reverse();
+      entry={ id:c.id, type:"special", template:"rank", title:c.title, slug:c.id, path:"puzzles/"+c.id, subtitle:c.subtitle,
+        hook:c.hook, hint:c.hint, data_source:null, data_license:"CC BY 4.0", status:"live", source_url:c.source_url,
+        items:items, scramble:scr, direction:c.direction||"HIGHEST → LOWEST" };
+      preview={ kicker:"Follow the Money", episode:c.title, subjects:sorted.map(function(x){return x.name;}), subtitle:c.subtitle, matchVerb:"Rank them in order.", dataLabel:c.direction||"", dataSource:null, license:"CC BY 4.0" };
+      prows=sorted.map(function(r,i){ return {rk:i+1, t:r.name+" — "+(r.display||r.value), ok:!!r.url, lbl:r.label}; });
+    } else {
+      var evs=[].map.call($("events").querySelectorAll(".row"),function(d){ var srcs=[];
+        [["e-u1","e-l1"],["e-u2","e-l2"],["e-u3","e-l3"]].forEach(function(p){ var u=d.querySelector("."+p[0]).value.trim(),l=d.querySelector("."+p[1]).value.trim(); if(u)srcs.push({url:u,label:l||"source"}); });
+        return { date:d.querySelector(".e-date").value, title:d.querySelector(".e-title").value.trim(), desc:d.querySelector(".e-desc").value.trim(), sources:srcs }; })
+        .filter(function(r){ return r.date && r.title; });
+      var sorted=evs.slice().sort(function(a,b){ return a.date<b.date?-1:a.date>b.date?1:0; });
+      var events=sorted.map(function(r,i){ return { id:slug(r.title).slice(0,40), rank:i+1, date:r.date, title:r.title, description:r.desc, sources:r.sources }; });
+      var ids=events.map(function(x){return x.id;}); var scr=shuffle(ids); if(scr.join()===ids.join())scr.reverse();
+      entry={ id:c.id, type:"special", template:"timeline", title:c.title, slug:c.id, path:"puzzles/"+c.id, subtitle:c.subtitle,
+        hook:c.hook, hint:c.hint, data_source:null, data_license:"CC BY 4.0", status:"live", source_url:c.source_url,
+        events:events, scramble:scr, direction:c.direction||"EARLIEST → LATEST" };
+      preview={ kicker:"Follow the Money", episode:c.title, subjects:sorted.map(function(x){return x.title;}), subtitle:c.subtitle, matchVerb:"Put them in order.", dataLabel:c.direction||"", dataSource:null, license:"CC BY 4.0" };
+      prows=sorted.map(function(r,i){ return {rk:i+1, t:r.date+" — "+r.title, ok:r.sources.length>=1, three:r.sources.length>=3, lbl:r.sources.length+" src"}; });
+    }
+    return { entry:entry, preview:preview, prows:prows, tiles:tiles };
   }
 
   function render(){
-    var c = collect();
-    var p = document.getElementById("preview");
-    var t = c.entry.title || "Untitled";
-    var parts = t.split(" "); var head = esc(parts.slice(0,-1).join(" ")); var tail = esc(parts.slice(-1)[0]||"");
-    p.innerHTML = '<h3>'+head+' <em>'+tail+'</em></h3><div class="src">'+esc(c.entry.subtitle||"")+'</div>'
-      + c.rows.map(function(r){ return '<div class="pfact">'+esc(r.text)+(r.url?' <span class="src">— '+esc(r.label||"source")+' ↗</span>':' <span class="src" style="color:#d63031">— needs a source</span>')+'</div>'; }).join("")
-      + '<div class="ptiles">'+c.answers.map(function(a){ return '<span class="ptile">'+esc(a)+'</span>'; }).join("")+'</div>';
+    var c=collect(), p=$("preview"), t=c.entry.title||"Untitled";
+    var parts=t.split(" "), head=esc(parts.slice(0,-1).join(" ")), tail=esc(parts.slice(-1)[0]||"");
+    var rows=c.prows.map(function(r){
+      var rk=r.rk?'<span class="rk">'+r.rk+'</span>':'';
+      var s=r.ok?(r.three===false?'<span class="src warn">— add more sources (aim for 3)</span>':'<span class="src">— '+esc(r.lbl||"sourced")+' ✓</span>'):'<span class="src warn">— needs a source</span>';
+      return '<div class="prow">'+rk+'<span>'+esc(r.t)+' '+s+'</span></div>';
+    }).join("");
+    var tiles=c.tiles.length?'<div class="ptiles">'+c.tiles.map(function(a){return '<span class="ptile">'+esc(a)+'</span>';}).join("")+'</div>':'';
+    p.innerHTML='<h3>'+head+' <em>'+tail+'</em></h3><div class="src">'+esc(c.entry.subtitle||"")+'</div>'+rows+tiles;
   }
 
   function postPuzzle(){
-    var c = collect();
-    var msg = document.getElementById("msg"); msg.className = "msg"; msg.textContent = "";
+    var c=collect(), msg=$("msg"); msg.className="msg"; msg.textContent="";
     if(!c.entry.id){ msg.className="msg err"; msg.textContent="Add a title first."; return; }
-    if(c.rows.length < 2){ msg.className="msg err"; msg.textContent="Add at least two facts."; return; }
-    var missing = c.rows.some(function(r){ return !r.url; });
-    if(missing && !confirm("Some facts have no source link. Every claim should be sourced. Open the PR anyway?")) return;
-    var key = prompt("Publish key (PUBLISH_KEY):"); if(!key) return;
-    msg.className="msg"; msg.textContent="Opening PR…";
-    fetch("/.netlify/functions/publish-puzzle", { method:"POST", headers:{"content-type":"application/json"},
-      body: JSON.stringify({ key:key, puzzle:c.entry, preview:c.preview }) })
+    var n=c.prows.length; if(n<2){ msg.className="msg err"; msg.textContent="Add at least two "+(M==="text-match"?"facts":M==="rank"?"items":"events")+"."; return; }
+    var missing=c.prows.some(function(r){ return !r.ok; });
+    if(missing && !confirm("Some entries have no source link. Every claim should be sourced. Open the PR anyway?")) return;
+    var key=prompt("Publish key (PUBLISH_KEY):"); if(!key) return;
+    msg.textContent="Opening PR…";
+    fetch("/.netlify/functions/publish-puzzle",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:key,puzzle:c.entry,preview:c.preview})})
       .then(function(r){ return r.json().then(function(b){ return {s:r.status,b:b}; }); })
       .then(function(o){
-        if(o.s===200 && o.b.ok){ msg.className="msg ok"; msg.innerHTML="✓ PR opened → <a href='"+o.b.pr+"' target='_blank' rel='noopener'>"+o.b.pr+"</a><br>Review the deploy preview, then merge. (Ask Claude to render the preview.png.)"; }
+        if(o.s===200&&o.b.ok){ msg.className="msg ok"; msg.innerHTML="✓ PR opened → <a href='"+o.b.pr+"' target='_blank' rel='noopener'>"+o.b.pr+"</a><br>Review the deploy preview, then merge. (Ask Claude to render the preview.png.)"; }
         else if(o.s===401){ msg.className="msg err"; msg.textContent="✗ Wrong key, or PUBLISH_KEY isn't set in Netlify."; }
         else if(o.s===409){ msg.className="msg err"; msg.textContent="✗ "+(o.b.error||"That id already exists."); }
-        else if(o.s===500 && /GITHUB_TOKEN/.test(o.b.error||"")){ msg.className="msg err"; msg.textContent="✗ Server needs a GITHUB_TOKEN env var set in Netlify."; }
+        else if(o.s===500&&/GITHUB_TOKEN/.test(o.b.error||"")){ msg.className="msg err"; msg.textContent="✗ Server needs a GITHUB_TOKEN env var in Netlify."; }
         else { msg.className="msg err"; msg.textContent="✗ "+(o.b.error||"error")+(o.b.detail?" — "+o.b.detail:""); }
       })
       .catch(function(){ msg.className="msg err"; msg.textContent="✗ Network error."; });
   }
 
-  addFact(); addFact(); render();
+  addFact(); addFact(); addItem(); addItem(); addEvent(); addEvent(); render();
 </script>
 </body></html>
