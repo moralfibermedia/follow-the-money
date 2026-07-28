@@ -22,14 +22,15 @@ ogImage: "/preview.png"
 </div>
 
 <div class="ballot">
-  <div class="ballot-h">My top three <span class="ballot-hint">rank up to three — your 1st choice counts most</span></div>
+  <div class="ballot-h">My rankings <span class="ballot-hint">up to three tickets — your 1st choice counts most</span></div>
   <ol class="ballot-list" id="ballotList"></ol>
   <div class="ticket-actions">
-    <button class="start-btn" id="submitBallot" type="button" disabled onclick="submitBallot()">Submit my ballot</button>
-    <button class="start-btn again" id="shareTicket" type="button" onclick="shareTicket()" style="display:none">📤 Share my ballot</button>
-    <button class="start-btn again" id="changeTicket" type="button" onclick="changeBallot()" style="display:none">↺ Change my ballot</button>
+    <button class="start-btn" id="submitBallot" type="button" disabled onclick="submitBallot()">Count my rankings</button>
+    <button class="start-btn again" id="shareTicket" type="button" onclick="shareTicket()" style="display:none">📤 Share my rankings</button>
+    <button class="start-btn again" id="changeTicket" type="button" onclick="changeBallot()" style="display:none">↺ Change my rankings</button>
     <div class="ticket-share-row" id="ticketShareRow"></div>
-    <div class="locked-note" id="lockedNote" style="display:none">✓ Ballot locked for this browser — you can change it anytime.</div>
+    <div class="ballot-note" id="countNote">"Count my rankings" adds your picks to the public tally below — anonymously, no login, nothing tied to you.</div>
+    <div class="locked-note" id="lockedNote" style="display:none">✓ You're counted — your rankings are in the tally below. Change them anytime.</div>
   </div>
 </div>
 
@@ -51,27 +52,27 @@ ogImage: "/preview.png"
 {%- endfor %}
 </div>
 
-<div class="sourcing-note">These names are drawn from public polling and party/advocate chatter as of {{ ticket2028.updated }}. Every fact links to its source; a <span class="cand-caveat">⚑</span> marks candidates who haven't committed to running (Ossoff and Whitmer have said no). This is an <strong>unscientific straw poll</strong>, not an endorsement or a prediction — one ballot per browser, and like any open poll it measures enthusiasm, not electorates.</div>
+<div class="sourcing-note">These names are drawn from public polling and party/advocate chatter as of {{ ticket2028.updated }}. Every fact links to its source; a <span class="cand-caveat">⚑</span> marks candidates who haven't committed to running (Ossoff and Whitmer have said no). This is an <strong>unscientific straw poll</strong>, not an endorsement or a prediction — one set of rankings per browser, and like any open poll it measures enthusiasm, not electorates.</div>
 
 <h2>The 3.5% counter</h2>
 <div class="pop-counter">
-  <div class="pop-nums"><b id="popCount">—</b> ballots toward <b>11.9 million</b> — 3.5% of the United States</div>
+  <div class="pop-nums"><b id="popCount">—</b> people counted toward <b>11.9 million</b> — 3.5% of the United States</div>
   <div class="pop-track"><span class="pop-fill" id="popFill"></span></div>
   <div class="pop-pct" id="popPct"></div>
-  <p class="pop-why">Why 3.5%? Political scientist Erica Chenoweth studied a century of civil resistance and found that no government has withstood <strong>3.5% of its population</strong> engaging in sustained, active participation. <a href="https://www.bbc.com/future/article/20190513-it-only-takes-35-of-people-to-change-the-world" target="_blank" rel="noopener">— BBC Future on Chenoweth's research ↗</a> A straw ballot isn't a movement — but every count starts at one. This one counts ballots since our last reset.</p>
+  <p class="pop-why">Why 3.5%? Political scientist Erica Chenoweth studied a century of civil resistance and found that no government has withstood <strong>3.5% of its population</strong> engaging in sustained, active participation. <a href="https://www.bbc.com/future/article/20190513-it-only-takes-35-of-people-to-change-the-world" target="_blank" rel="noopener">— BBC Future on Chenoweth's research ↗</a> A straw poll isn't a movement — but every count starts at one. This one counts everyone who's been counted since our last reset.</p>
 </div>
 
 <h2>How the country's ranking them</h2>
-<div class="borda-note"><strong>How the ranking works — it's a Borda count.</strong> A ranked-voting method: your <b>1st choice earns 3 points</b>, your <b>2nd earns 2</b>, your <b>3rd earns 1</b>, and we total them across every ballot. It rewards tickets with <em>broad</em> support, not just the loudest first-place fans — the same idea behind ranked-choice voting reforms. <a href="https://fairvote.org/" target="_blank" rel="noopener">Learn how ranked voting works ↗</a></div>
+<div class="borda-note"><strong>How the ranking works — it's a Borda count.</strong> A ranked-voting method: your <b>1st choice earns 3 points</b>, your <b>2nd earns 2</b>, your <b>3rd earns 1</b>, and we total them across everyone's rankings. It rewards tickets with <em>broad</em> support, not just the loudest first-place fans — the same idea behind ranked-choice voting reforms. <a href="https://fairvote.org/" target="_blank" rel="noopener">Learn how ranked voting works ↗</a></div>
 <div class="leaderboard" id="leaderboard"><p class="lb-empty">Loading the standings…</p></div>
 
 <h2>How we count (and what we don't keep)</h2>
-<p>Your ballot never becomes a record of <em>you</em>. Here's exactly what happens, and why we built it this way:</p>
+<p>Your rankings never become a record of <em>you</em>. Here's exactly what happens, and why we built it this way:</p>
 <div class="receipts"><ul>
   <li><span>No cookies, no login, no tracking</span><span class="receipt-srcs">nothing follows you between visits or sites</span></li>
   <li><span>Each ranked pick is one anonymous tally mark</span><span class="receipt-srcs">a pairing like "harris / kelly" — no name, no time, no IP, no session</span></li>
   <li><span>It lives in append-only storage, not a database of people</span><span class="receipt-srcs">there is no row that is "you" to leak, join, or subpoena</span></li>
-  <li><span>Your browser remembers only your own ballot</span><span class="receipt-srcs">locally, so you can't double-vote and can change your mind — never sent to us</span></li>
+  <li><span>Your browser remembers only your own rankings</span><span class="receipt-srcs">locally, so you can't double-vote and can change your mind — never sent to us</span></li>
   <li><span>Do Not Track is honored</span><span class="receipt-srcs">if your browser sets it, we send nothing at all</span></li>
 </ul></div>
 <p class="sourcing-note">In short: we can show that "N people ranked this pairing," but we can never show that <em>you</em> did. That's a property of the design, not a promise you have to trust. Full detail on our <a href="/legal">privacy page</a>.</p>
@@ -91,7 +92,7 @@ ogImage: "/preview.png"
 <div class="float-bar" id="floatBar" aria-hidden="true">
   <span class="float-pick" id="floatPick"></span>
   <button class="float-btn add" id="floatAdd" type="button" onclick="addToBallot()">＋ Add to ranked list</button>
-  <button class="float-btn submit" id="floatSubmit" type="button" onclick="submitBallot()">Submit ballot</button>
+  <button class="float-btn submit" id="floatSubmit" type="button" onclick="submitBallot()">Count my rankings</button>
 </div>
 
 <script>window.__TICKET = { {% for c in ticket2028.candidates %}"{{ c.id }}": "{{ c.short }}"{% if not loop.last %}, {% endif %}{% endfor %} };</script>
