@@ -18,6 +18,26 @@ export default async (req) => {
   if (req.method === "POST") {
     let d;
     try { d = await req.json(); } catch { return new Response(null, { status: 400 }); }
+
+    // Operator-only reset: purge all votes and stamp a fresh "since" date.
+    // Gated by the TICKET_ADMIN_KEY env var (set in Netlify) — only we can do it.
+    if (d.event === "reset") {
+      if (!process.env.TICKET_ADMIN_KEY || d.key !== process.env.TICKET_ADMIN_KEY)
+        return new Response(null, { status: 401 });
+      try {
+        for (const prefix of ["t/", "r/"]) {
+          let cursor;
+          do {
+            const res = await store.list({ prefix, cursor });
+            for (const b of res.blobs) await store.delete(b.key);
+            cursor = res.cursor;
+          } while (cursor);
+        }
+        await store.setJSON("meta", { resetAt: new Date().toISOString() });
+        return new Response(null, { status: 204 });
+      } catch { return new Response(null, { status: 500 }); }
+    }
+
     var rankings = Array.isArray(d.rankings) ? d.rankings
       : (d.pres && d.vp ? [{ pres: d.pres, vp: d.vp }] : []); // back-compat single pick
     rankings = rankings.slice(0, 3);
@@ -65,8 +85,9 @@ export default async (req) => {
         if (r.points > 0) combos[combo] = { points: r.points, first: Math.max(0, r.first) };
         if (r.first > 0) ballots += r.first;
       }
-      return json({ ballots, combos });
-    } catch { return json({ ballots: 0, combos: {} }); }
+      const meta = await store.get("meta", { type: "json" }).catch(() => null);
+      return json({ ballots, combos, since: (meta && meta.resetAt) || null });
+    } catch { return json({ ballots: 0, combos: {}, since: null }); }
   }
 
   return new Response(null, { status: 405 });

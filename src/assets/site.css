@@ -673,3 +673,8 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
   .float-pick { flex:1; min-width:0; }
 }
 @media (prefers-reduced-motion: reduce) { .float-bar { transition:none; } }
+
+.borda-note { font-size:14px; line-height:1.5; color:var(--ink); background:#fffdf7;
+  border-left:3px solid var(--gold); padding:10px 14px; margin:0 0 16px; max-width:72ch; }
+.borda-note a { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); white-space:nowrap; }
+.borda-note a:hover { color:var(--red); }

@@ -165,10 +165,12 @@
     fetch("/.netlify/functions/ticket").then(function (r) { return r.json(); }).then(function (d) {
       var lb = $("leaderboard");
       var combos = Object.entries(d.combos || {}).sort(function (a, b) { return b[1].points - a[1].points; }).slice(0, 8);
-      var when = '<div class="lb-when">as of ' + stamp() + ' · updates live · ranked by points (1st = 3, 2nd = 2, 3rd = 1)</div>';
+      var since = "";
+      if (d.since) { try { since = " since " + new Date(d.since).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" }); } catch (e) {} }
+      var when = '<div class="lb-when">as of ' + stamp() + ' · updates live</div>';
       if (!combos.length) { lb.innerHTML = '<p class="lb-empty">No ballots yet — be the first to rank one.</p>' + when; return; }
       var max = combos[0][1].points;
-      lb.innerHTML = '<div class="lb-total">' + d.ballots + ' ballot' + (d.ballots === 1 ? '' : 's') + ' cast</div>' +
+      lb.innerHTML = '<div class="lb-total">' + d.ballots + ' ballot' + (d.ballots === 1 ? '' : 's') + (since || " cast") + '</div>' +
         combos.map(function (c) {
           var parts = c[0].split("/");
           var name = (N[parts[0]] || parts[0]) + " / " + (N[parts[1]] || parts[1]);
