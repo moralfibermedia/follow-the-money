@@ -28,7 +28,8 @@ ogImage: "/preview.png"
 <div class="cand-grid">
 {%- for c in ticket2028.candidates %}
   <div class="cand" data-id="{{ c.id }}">
-    <div class="cand-head"><span class="cand-name">{{ c.name }}{% if c.caveat %} <span class="cand-caveat" title="Has not committed to running">⚑</span>{% endif %}</span><span class="cand-lane">{{ c.lane }}</span></div>
+    <div class="cand-head"><span class="cand-name">{{ c.name }}</span><span class="cand-lane">{{ c.lane }}</span></div>
+    {%- if c.caveat %}<div class="cand-flag">⚑ {{ c.caveat }}</div>{% endif %}
     <ul class="cand-facts">
     {%- for f in c.facts %}
       <li>{{ f.text }} <a href="{{ f.url }}" target="_blank" rel="noopener">— {{ f.label }} ↗</a></li>

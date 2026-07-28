@@ -57,7 +57,7 @@
       "name": "Jon Ossoff",
       "short": "Ossoff",
       "lane": "Swing-state",
-      "caveat": true,
+      "caveat": "Says he won't run in 2028",
       "facts": [
         { "text": "Third in the Emerson 2028 poll at 13%; Polymarket odds climbed to about 16%.", "label": "Newsweek", "url": "https://www.newsweek.com/jon-ossoff-momentum-growing-12211578" },
         { "text": "Raised $57M+ for his 2026 reelection, over half from small donors — but says he has no interest in running in 2028.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5975467-georgia-senator-ossoff-reelection-bid/" }
@@ -68,7 +68,7 @@
       "name": "Gretchen Whitmer",
       "short": "Whitmer",
       "lane": "Governor",
-      "caveat": true,
+      "caveat": "Says she won't run — later, \"never say never\"",
       "facts": [
         { "text": "Polls in the low single digits (0–4%) across spring 2026 surveys.", "label": "Newsweek", "url": "https://www.newsweek.com/gretchen-whitmer-not-running-2028-democratic-primary-polls-12004621" },
         { "text": "Said she won't run in 2028 — then tempered it to 'never say never.'", "label": "Michigan Advance", "url": "https://michiganadvance.com/2026/05/28/whitmer-makes-it-official-she-wont-run-for-president-in-2028/" }
