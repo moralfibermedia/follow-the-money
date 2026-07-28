@@ -1,12 +1,16 @@
-// Dream Ticket straw poll — anonymous, append-only, aggregate only.
-// POST { pres, vp }  -> appends one immutable key  t/<pres>/<vp>/<uuid>
-// GET                -> returns { total, combos, pres, vp } aggregated from list()
-// No cookies, no identifiers, no per-user rows. Public read (the leaderboard IS the point).
+// Dream Ticket ranked straw poll — anonymous, append-only, aggregate only.
+// A ballot is up to three ranked tickets (1st/2nd/3rd). Each ranked pick is
+// its own immutable key; nothing is ever overwritten, and no record can be
+// tied to a person (no cookie, no id, no session, no IP).
+//   POST { rankings: [ {pres,vp}, ... ], event? }   event "retract" writes -1s
+//   key  t|r / <pres> / <vp> / <rank> / <uuid>       rank = 1..3
+//   GET  -> { ballots, combos: { "pres/vp": {points, first} } }   Borda 3/2/1
 import { getStore } from "@netlify/blobs";
 import { randomUUID } from "node:crypto";
 
 const clean = (s) => String(s || "").slice(0, 40).replace(/[^a-z0-9-]/gi, "");
 const json = (obj) => new Response(JSON.stringify(obj), { headers: { "content-type": "application/json; charset=utf-8" } });
+const weight = (rank) => (rank === 1 ? 3 : rank === 2 ? 2 : 1);
 
 export default async (req) => {
   const store = getStore("ticket-votes");
@@ -14,20 +18,29 @@ export default async (req) => {
   if (req.method === "POST") {
     let d;
     try { d = await req.json(); } catch { return new Response(null, { status: 400 }); }
-    const pres = clean(d.pres), vp = clean(d.vp);
-    if (!pres || !vp || pres === vp) return new Response(null, { status: 400 });
-    // "retract" appends an anonymous -1 for a combo (used by change-my-ticket);
-    // votes and retractions are both immutable events, netted at read time.
+    var rankings = Array.isArray(d.rankings) ? d.rankings
+      : (d.pres && d.vp ? [{ pres: d.pres, vp: d.vp }] : []); // back-compat single pick
+    rankings = rankings.slice(0, 3);
     const prefix = d.event === "retract" ? "r" : "t";
+    const seen = {};
+    let wrote = 0;
     try {
-      await store.set(`${prefix}/${pres}/${vp}/${randomUUID()}`, "1");
-      return new Response(null, { status: 204 });
+      for (let i = 0; i < rankings.length; i++) {
+        const pres = clean(rankings[i].pres), vp = clean(rankings[i].vp);
+        if (!pres || !vp || pres === vp) continue;
+        const combo = pres + "/" + vp;
+        if (seen[combo]) continue; // no dup tickets within one ballot
+        seen[combo] = 1;
+        await store.set(`${prefix}/${pres}/${vp}/${i + 1}/${randomUUID()}`, "1");
+        wrote++;
+      }
+      return new Response(null, { status: wrote ? 204 : 400 });
     } catch { return new Response(null, { status: 500 }); }
   }
 
   if (req.method === "GET") {
     try {
-      const raw = {};
+      const raw = {}; // combo -> { points, first }
       for (const prefix of ["t/", "r/"]) {
         let cursor;
         do {
@@ -36,23 +49,24 @@ export default async (req) => {
             const p = b.key.split("/");
             if (p.length < 4) continue;
             const combo = p[1] + "/" + p[2];
-            raw[combo] = (raw[combo] || 0) + (p[0] === "t" ? 1 : -1);
+            // 5-part keys carry a rank; legacy 4-part keys are a first choice
+            const rank = p.length >= 5 ? parseInt(p[3], 10) || 1 : 1;
+            const sign = p[0] === "t" ? 1 : -1;
+            const r = raw[combo] || (raw[combo] = { points: 0, first: 0 });
+            r.points += sign * weight(rank);
+            if (rank === 1) r.first += sign;
           }
           cursor = res.cursor;
         } while (cursor);
       }
-      const combos = {}, pres = {}, vp = {};
-      let total = 0;
-      for (const [combo, n] of Object.entries(raw)) {
-        if (n <= 0) continue; // netted out (or over-retracted) combos drop away
-        const [pr, v] = combo.split("/");
-        combos[combo] = n;
-        pres[pr] = (pres[pr] || 0) + n;
-        vp[v] = (vp[v] || 0) + n;
-        total += n;
+      const combos = {};
+      let ballots = 0;
+      for (const [combo, r] of Object.entries(raw)) {
+        if (r.points > 0) combos[combo] = { points: r.points, first: Math.max(0, r.first) };
+        if (r.first > 0) ballots += r.first;
       }
-      return json({ total, combos, pres, vp });
-    } catch { return json({ total: 0, combos: {}, pres: {}, vp: {} }); }
+      return json({ ballots, combos });
+    } catch { return json({ ballots: 0, combos: {} }); }
   }
 
   return new Response(null, { status: 405 });
