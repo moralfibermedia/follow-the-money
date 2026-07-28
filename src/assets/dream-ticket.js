@@ -182,9 +182,15 @@
       renderPop(d.ballots || 0);
       var lb = $("leaderboard");
       var combos = Object.entries(d.combos || {}).sort(function (a, b) { return b[1].points - a[1].points; }).slice(0, 8);
-      var since = "";
-      if (d.since) { try { since = " since " + new Date(d.since).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" }); } catch (e) {} }
-      var when = '<div class="lb-when">as of ' + stamp() + ' · updates live</div>';
+      var since = "", resetFull = "";
+      if (d.since) {
+        try {
+          var dt = new Date(d.since);
+          since = " since " + dt.toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
+          resetFull = " · counting since " + dt.toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+        } catch (e) {}
+      }
+      var when = '<div class="lb-when">updated ' + stamp() + resetFull + ' · refreshes every 20s</div>';
       if (!combos.length) { lb.innerHTML = '<p class="lb-empty">No rankings counted yet — be the first.</p>' + when; return; }
       var max = combos[0][1].points;
       lb.innerHTML = '<div class="lb-total">' + d.ballots + (d.ballots === 1 ? ' person' : ' people') + ' counted' + (since || '') + '</div>' +

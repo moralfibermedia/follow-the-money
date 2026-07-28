@@ -9,7 +9,9 @@ import { getStore } from "@netlify/blobs";
 import { randomUUID } from "node:crypto";
 
 const clean = (s) => String(s || "").slice(0, 40).replace(/[^a-z0-9-]/gi, "");
-const json = (obj) => new Response(JSON.stringify(obj), { headers: { "content-type": "application/json; charset=utf-8" } });
+const json = (obj) => new Response(JSON.stringify(obj), {
+  headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store, max-age=0" }
+});
 const weight = (rank) => (rank === 1 ? 3 : rank === 2 ? 2 : 1);
 
 export default async (req) => {
