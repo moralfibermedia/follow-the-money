@@ -52,7 +52,7 @@
     var canSubmit = ballot.length >= 1 && !voted();
     if (voted() || (!canAdd && !canSubmit)) { bar.classList.remove("show"); return; }
     $("floatPick").textContent = canAdd ? (N[sel.pres] + " / " + N[sel.vp])
-      : (ballot.length + " ranked — ready to submit");
+      : (ballot.length + " ranked — ready to be counted");
     $("floatAdd").style.display = canAdd ? "" : "none";
     $("floatSubmit").style.display = canSubmit ? "" : "none";
     bar.classList.add("show");
@@ -81,7 +81,7 @@
 
   function shareText() {
     var lines = ballot.map(function (t, i) { return (i + 1) + ". " + N[t.pres] + " / " + N[t.vp]; });
-    return "My 2028 dream ballot 🇺🇸\n" + lines.join("\n") + "\nBuild yours:";
+    return "My 2028 dream tickets, ranked 🇺🇸\n" + lines.join("\n") + "\nBuild yours:";
   }
   function shareUrl(src) {
     return location.origin + location.pathname + "?utm_source=" + src + "&utm_medium=social&utm_campaign=dream-ticket";
@@ -93,6 +93,7 @@
     $("shareTicket").style.display = "";
     $("changeTicket").style.display = "";
     $("lockedNote").style.display = "block";
+    var cn = $("countNote"); if (cn) cn.style.display = "none";
     document.querySelectorAll(".pick-btn").forEach(function (b) { b.disabled = true; });
     buildShare();
   }
@@ -124,6 +125,7 @@
     $("shareTicket").style.display = "none";
     $("changeTicket").style.display = "none";
     $("lockedNote").style.display = "none";
+    var cn2 = $("countNote"); if (cn2) cn2.style.display = "";
     $("addTicket").style.display = "";
     $("submitBallot").style.display = "";
     $("ticketShareRow").innerHTML = "";
@@ -134,7 +136,7 @@
 
   window.shareTicket = function () {
     var text = shareText(), url = shareUrl("web-share");
-    if (navigator.share) { navigator.share({ title: "2028 Dream Ballot", text: text, url: url }).catch(function () {}); return; }
+    if (navigator.share) { navigator.share({ title: "2028 Dream Ticket", text: text, url: url }).catch(function () {}); return; }
     if (navigator.clipboard) navigator.clipboard.writeText(text + "\n" + url).then(function () {
       var b = $("shareTicket"), o = b.textContent;
       b.textContent = "✓ Copied — paste anywhere"; setTimeout(function () { b.textContent = o; }, 2200);
@@ -183,9 +185,9 @@
       var since = "";
       if (d.since) { try { since = " since " + new Date(d.since).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" }); } catch (e) {} }
       var when = '<div class="lb-when">as of ' + stamp() + ' · updates live</div>';
-      if (!combos.length) { lb.innerHTML = '<p class="lb-empty">No ballots yet — be the first to rank one.</p>' + when; return; }
+      if (!combos.length) { lb.innerHTML = '<p class="lb-empty">No rankings counted yet — be the first.</p>' + when; return; }
       var max = combos[0][1].points;
-      lb.innerHTML = '<div class="lb-total">' + d.ballots + ' ballot' + (d.ballots === 1 ? '' : 's') + (since || " cast") + '</div>' +
+      lb.innerHTML = '<div class="lb-total">' + d.ballots + (d.ballots === 1 ? ' person' : ' people') + ' counted' + (since || '') + '</div>' +
         combos.map(function (c) {
           var parts = c[0].split("/");
           var name = (N[parts[0]] || parts[0]) + " / " + (N[parts[1]] || parts[1]);

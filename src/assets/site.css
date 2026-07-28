@@ -692,3 +692,4 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
 .pop-why { font-size:13.5px; font-style:italic; color:var(--muted); line-height:1.55; margin:12px 0 0; }
 .pop-why a { font-family:'JetBrains Mono',monospace; font-size:11px; font-style:normal; color:var(--muted); }
 .pop-why a:hover { color:var(--red); }
+.ballot-note { flex-basis:100%; font-size:12.5px; font-style:italic; color:var(--muted); line-height:1.5; }
