@@ -6,16 +6,43 @@
 //   key  t|r / <pres> / <vp> / <rank> / <uuid>       rank = 1..3
 //   GET  -> { ballots, combos: { "pres/vp": {points, first} } }   Borda 3/2/1
 import { getStore } from "@netlify/blobs";
-import { randomUUID } from "node:crypto";
+import { randomUUID, createHmac, timingSafeEqual } from "node:crypto";
 
 const clean = (s) => String(s || "").slice(0, 40).replace(/[^a-z0-9-]/gi, "");
-const json = (obj) => new Response(JSON.stringify(obj), {
-  headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store, max-age=0" }
+const json = (obj, status = 200) => new Response(JSON.stringify(obj), {
+  status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store, max-age=0" }
 });
 const weight = (rank) => (rank === 1 ? 3 : rank === 2 ? 2 : 1);
 
+// --- signed single-use challenge tokens (only enforced when TICKET_HMAC_SECRET is set) ---
+const TOKEN_TTL = 60 * 60 * 1000; // 60 min — long enough to build a ballot
+const sign = (payload, secret) => createHmac("sha256", secret).update(payload).digest("base64url");
+function makeToken(secret) {
+  const payload = randomUUID() + "." + (Date.now() + TOKEN_TTL);
+  return payload + "." + sign(payload, secret);
+}
+async function tokenOK(token, secret, store) {
+  const parts = String(token || "").split(".");
+  if (parts.length !== 3) return false;
+  const [nonce, exp, sig] = parts;
+  const good = sign(nonce + "." + exp, secret);
+  const a = Buffer.from(sig), b = Buffer.from(good);
+  if (a.length !== b.length || !timingSafeEqual(a, b)) return false;   // bad signature
+  if (!(parseInt(exp, 10) > Date.now())) return false;                 // expired
+  const nkey = "n/" + nonce;
+  if (await store.get(nkey)) return false;                             // already used (no replay)
+  await store.set(nkey, "1");
+  return true;
+}
+
 export default async (req) => {
   const store = getStore("ticket-votes");
+  const SECRET = process.env.TICKET_HMAC_SECRET;
+
+  // Issue a challenge token (empty when protection is off, so the client still works)
+  if (req.method === "GET" && new URL(req.url).searchParams.has("challenge")) {
+    return json({ token: SECRET ? makeToken(SECRET) : "" });
+  }
 
   if (req.method === "POST") {
     let d;
@@ -27,7 +54,7 @@ export default async (req) => {
       if (!process.env.TICKET_ADMIN_KEY || d.key !== process.env.TICKET_ADMIN_KEY)
         return new Response(null, { status: 401 });
       try {
-        for (const prefix of ["t/", "r/"]) {
+        for (const prefix of ["t/", "r/", "n/"]) {
           let cursor;
           do {
             const res = await store.list({ prefix, cursor });
@@ -38,6 +65,12 @@ export default async (req) => {
         await store.setJSON("meta", { resetAt: new Date().toISOString() });
         return new Response(null, { status: 204 });
       } catch { return new Response(null, { status: 500 }); }
+    }
+
+    // Require a valid, unused, unexpired token — but only once the secret exists,
+    // so this can deploy without breaking the live poll.
+    if (SECRET && !(await tokenOK(d.token, SECRET, store))) {
+      return json({ error: "invalid or reused token" }, 403);
     }
 
     var rankings = Array.isArray(d.rankings) ? d.rankings

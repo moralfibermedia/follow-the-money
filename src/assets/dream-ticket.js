@@ -1,8 +1,10 @@
 // Dream Ticket builder — rank up to three tickets (1st/2nd/3rd), submit as a
 // ballot, and see the live Borda-weighted leaderboard.
-// Anonymous: picks are fire-and-forget beacons (Do Not Track honored); the
-// board is a public aggregate read. No cookies, no identifiers. One ballot per
-// browser via localStorage (stops casual re-voting; you can change it anytime).
+// Anonymous: votes go via fetch(keepalive) with a signed single-use challenge
+// token (Do Not Track honored, no cookies, no identifiers); the board is a
+// public aggregate read. One ballot per browser via localStorage (stops casual
+// re-voting; you can change it anytime). The token is an anonymous, expiring,
+// one-time nonce — it identifies a page load, never a person.
 (function () {
   var N = window.__TICKET || {};
   var sel = { pres: null, vp: null };
@@ -10,6 +12,28 @@
   var DNT = (navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.msDoNotTrack === "1");
   var VOTE_KEY = "ftm-ticket-2028";
   var ORD = ["1st", "2nd", "3rd"];
+  var TICKET = "/.netlify/functions/ticket";
+
+  // A signed, single-use challenge token (blank when server protection is off).
+  var challengeToken = "";
+  function fetchChallenge() {
+    return fetch(TICKET + "?challenge=1", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (d) { challengeToken = (d && d.token) || ""; })
+      .catch(function () { challengeToken = ""; });
+  }
+  // Send a vote/retract with its token; on a 403 (stale/used token) refresh once and retry.
+  function sendVote(payload, retried) {
+    if (DNT) return Promise.resolve();
+    payload.token = challengeToken;
+    return fetch(TICKET, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload), keepalive: true })
+      .then(function (r) {
+        if (r.status === 403 && !retried) return fetchChallenge().then(function () { return sendVote(payload, true); });
+        fetchChallenge(); // pre-fetch a fresh token for the next action
+        return r;
+      })
+      .catch(function () {});
+  }
   var $ = function (id) { return document.getElementById(id); };
 
   function storedBallot() {
@@ -100,26 +124,16 @@
 
   window.submitBallot = function () {
     if (!(ballot.length >= 1) || voted()) return;
-    if (!DNT && navigator.sendBeacon) {
-      try {
-        navigator.sendBeacon("/.netlify/functions/ticket",
-          new Blob([JSON.stringify({ rankings: ballot })], { type: "application/json" }));
-      } catch (e) {}
-    }
+    sendVote({ rankings: ballot });
     try { localStorage.setItem(VOTE_KEY, JSON.stringify(ballot)); } catch (e) {}
     render();
     lockedState();
-    setTimeout(loadBoard, 900);
+    setTimeout(loadBoard, 1400);
   };
 
   window.changeBallot = function () {
     var prev = storedBallot();
-    if (prev && prev.length && !DNT && navigator.sendBeacon) {
-      try {
-        navigator.sendBeacon("/.netlify/functions/ticket",
-          new Blob([JSON.stringify({ event: "retract", rankings: prev })], { type: "application/json" }));
-      } catch (e) {}
-    }
+    if (prev && prev.length) sendVote({ event: "retract", rankings: prev });
     try { localStorage.removeItem(VOTE_KEY); } catch (e) {}
     ballot = []; sel = { pres: null, vp: null };
     $("shareTicket").style.display = "none";
@@ -214,6 +228,7 @@
     } else {
       render();
     }
+    if (!DNT) fetchChallenge(); // ready a token in case they vote
     loadBoard();
     setInterval(loadBoard, 20000);
   })();
