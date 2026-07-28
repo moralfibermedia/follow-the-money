@@ -605,3 +605,32 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
 .lb-fill { display:block; height:100%; background:linear-gradient(90deg, var(--dem-blue), var(--gold)); width:0; transition:width .5s ease; }
 .lb-n { flex:0 0 42px; text-align:right; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; }
 @media (max-width:520px) { .lb-name { flex-basis:38%; font-size:13px; } }
+
+.lb-when { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.06em; margin-top:12px; }
+.locked-note { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--green); flex-basis:100%; margin-top:2px; }
+.cand-caveat { color:var(--gold); font-size:.85em; cursor:help; }
+.pick-btn:disabled { opacity:.4; cursor:default; }
+
+/* ---- Dream Ticket promo callouts (discoverability) ---- */
+.dt-hero { display:block; text-decoration:none; margin:0 0 30px; padding:18px 22px;
+  border:3px solid var(--ink); background:linear-gradient(110deg, #fff8e6, var(--paper));
+  position:relative; overflow:hidden; transition:box-shadow .18s, transform .18s; }
+.dt-hero:hover { box-shadow:0 6px 0 rgba(184,134,11,.5); transform:translateY(-2px); }
+.dt-hero .dt-tag, .dt-hero .dt-h, .dt-hero .dt-sub, .dt-hero .dt-go { display:block; }
+.dt-hero .dt-tag { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--red); }
+.dt-hero .dt-h { font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(22px,4vw,30px);
+  color:var(--ink); line-height:1.1; margin:4px 0 3px; }
+.dt-hero .dt-h em { font-style:italic; color:var(--red); }
+.dt-hero .dt-sub { font-size:15px; color:var(--muted); font-style:italic; }
+.dt-hero .dt-go { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-top:8px; display:inline-block; }
+.nav-hot { color:var(--red) !important; }
+.rail-dt { display:block; text-decoration:none; border:2px solid var(--ink); background:#fff8e6;
+  padding:11px 12px; margin-bottom:14px; transition:box-shadow .15s; }
+.rail-dt:hover { box-shadow:0 3px 0 rgba(184,134,11,.4); }
+.rail-dt .rail-dt-tag { font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--red); display:block; }
+.rail-dt .rail-dt-t { font-family:'Playfair Display',serif; font-weight:900; font-style:italic;
+  font-size:16px; color:var(--ink); line-height:1.2; }

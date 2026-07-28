@@ -21,12 +21,13 @@ ogImage: "/preview.png"
   <button class="start-btn" id="lockTicket" type="button" disabled onclick="lockTicket()">Lock in my ticket</button>
   <button class="start-btn again" id="shareTicket" type="button" onclick="shareTicket()" style="display:none">📤 Share my ticket</button>
   <div class="ticket-share-row" id="ticketShareRow"></div>
+  <div class="locked-note" id="lockedNote" style="display:none">✓ You've locked your ticket for this browser — one per visitor.</div>
 </div>
 
 <div class="cand-grid">
 {%- for c in ticket2028.candidates %}
   <div class="cand" data-id="{{ c.id }}">
-    <div class="cand-head"><span class="cand-name">{{ c.name }}</span><span class="cand-lane">{{ c.lane }}</span></div>
+    <div class="cand-head"><span class="cand-name">{{ c.name }}{% if c.caveat %} <span class="cand-caveat" title="Has not committed to running">⚑</span>{% endif %}</span><span class="cand-lane">{{ c.lane }}</span></div>
     <ul class="cand-facts">
     {%- for f in c.facts %}
       <li>{{ f.text }} <a href="{{ f.url }}" target="_blank" rel="noopener">— {{ f.label }} ↗</a></li>
@@ -40,7 +41,7 @@ ogImage: "/preview.png"
 {%- endfor %}
 </div>
 
-<div class="sourcing-note">These names are drawn from public polling and party/advocate chatter as of {{ ticket2028.updated }} — this is a straw poll, not an endorsement or a prediction. Each fact links to its source, and candidates' own plans vary (Ossoff, for one, says he won't run).</div>
+<div class="sourcing-note">These names are drawn from public polling and party/advocate chatter as of {{ ticket2028.updated }}. Every fact links to its source; a <span class="cand-caveat">⚑</span> marks candidates who haven't committed to running (Ossoff and Whitmer have said no). This is an <strong>unscientific straw poll</strong>, not an endorsement or a prediction — one ticket per browser, and like any open poll it measures enthusiasm, not electorates.</div>
 
 <h2>How the country's building it</h2>
 <div class="leaderboard" id="leaderboard"><p class="lb-empty">Loading the standings…</p></div>

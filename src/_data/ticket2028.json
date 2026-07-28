@@ -3,16 +3,6 @@
   "updated": "July 2026",
   "candidates": [
     {
-      "id": "ocasio-cortez",
-      "name": "Alexandria Ocasio-Cortez",
-      "short": "Ocasio-Cortez",
-      "lane": "Progressive",
-      "facts": [
-        { "text": "Leads the 2028 Democratic field at 22% in the July 2026 UNH New Hampshire poll.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5985767-ocasio-cortez-leads-nh-poll/" },
-        { "text": "Strongest with young voters — 35% among Democrats aged 23–29.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5639207-ocasio-cortez-2028-poll-harris-newsom/" }
-      ]
-    },
-    {
       "id": "buttigieg",
       "name": "Pete Buttigieg",
       "short": "Buttigieg",
@@ -23,13 +13,65 @@
       ]
     },
     {
+      "id": "harris",
+      "name": "Kamala Harris",
+      "short": "Harris",
+      "lane": "Frontrunner",
+      "facts": [
+        { "text": "Leads the 2028 Democratic field — an 11.6-point edge in the RealClearPolitics polling average as of mid-July 2026.", "label": "The Center Square", "url": "https://www.thecentersquare.com/national/article_c0cbe579-b306-4407-a57b-6b590288daa3.html" },
+        { "text": "Topped a Harvard/Harris poll at 50% of Democratic primary voters, up from 41% in March.", "label": "Newsweek", "url": "https://www.newsweek.com/kamala-harris-surges-in-new-2028-poll-11889404" }
+      ]
+    },
+    {
+      "id": "kelly",
+      "name": "Mark Kelly",
+      "short": "Kelly",
+      "lane": "Battleground",
+      "facts": [
+        { "text": "Ranked the second-most electable 2028 Democrat in Yale Youth Polling, with a +43 favorability.", "label": "Phoenix New Times", "url": "https://www.phoenixnewtimes.com/news/arizona-kelly-top-presidential-contender-poll-40659493/" },
+        { "text": "Raised $33M since 2022 — the most of any senator up in 2028 — after Trump attacks supercharged his campaign.", "label": "Cronkite News", "url": "https://cronkitenews.azpbs.org/2026/02/17/trump-clash-fundraising-boom-elevate-mark-kellys-2028-presidential-prospects/" }
+      ]
+    },
+    {
+      "id": "newsom",
+      "name": "Gavin Newsom",
+      "short": "Newsom",
+      "lane": "Governor",
+      "facts": [
+        { "text": "Surged to 25% and led the field in Emerson College's national 2028 poll — a 13-point jump.", "label": "Newsweek", "url": "https://www.newsweek.com/gavin-newsom-surges-democratic-primary-poll-2119733" },
+        { "text": "Runs first or second in most national averages, rising on an aggressive anti-Trump strategy.", "label": "Yahoo News", "url": "https://www.yahoo.com/news/articles/gavin-newsom-rises-2028-presidential-201948685.html" }
+      ]
+    },
+    {
+      "id": "ocasio-cortez",
+      "name": "Alexandria Ocasio-Cortez",
+      "short": "Ocasio-Cortez",
+      "lane": "Progressive",
+      "facts": [
+        { "text": "Leads the 2028 Democratic field at 22% in the July 2026 UNH New Hampshire poll.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5985767-ocasio-cortez-leads-nh-poll/" },
+        { "text": "Strongest with young voters — 35% among Democrats aged 23–29.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5639207-ocasio-cortez-2028-poll-harris-newsom/" }
+      ]
+    },
+    {
       "id": "ossoff",
       "name": "Jon Ossoff",
       "short": "Ossoff",
       "lane": "Swing-state",
+      "caveat": true,
       "facts": [
         { "text": "Third in the Emerson 2028 poll at 13%; Polymarket odds climbed to about 16%.", "label": "Newsweek", "url": "https://www.newsweek.com/jon-ossoff-momentum-growing-12211578" },
         { "text": "Raised $57M+ for his 2026 reelection, over half from small donors — but says he has no interest in running in 2028.", "label": "The Hill", "url": "https://thehill.com/homenews/campaign/5975467-georgia-senator-ossoff-reelection-bid/" }
+      ]
+    },
+    {
+      "id": "whitmer",
+      "name": "Gretchen Whitmer",
+      "short": "Whitmer",
+      "lane": "Governor",
+      "caveat": true,
+      "facts": [
+        { "text": "Polls in the low single digits (0–4%) across spring 2026 surveys.", "label": "Newsweek", "url": "https://www.newsweek.com/gretchen-whitmer-not-running-2028-democratic-primary-polls-12004621" },
+        { "text": "Said she won't run in 2028 — then tempered it to 'never say never.'", "label": "Michigan Advance", "url": "https://michiganadvance.com/2026/05/28/whitmer-makes-it-official-she-wont-run-for-president-in-2028/" }
       ]
     }
   ]

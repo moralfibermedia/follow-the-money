@@ -1,11 +1,19 @@
 // Dream Ticket builder — pick President + VP, share, and see the live leaderboard.
 // Anonymous: the pick is a fire-and-forget beacon (Do Not Track honored); the
 // leaderboard is a public aggregate read. No cookies, no identifiers.
+// One ticket per browser is enforced client-side via localStorage — it stops
+// casual re-voting without any server-side tracking; it is an unscientific
+// straw poll, not a certified survey (a determined re-voter can always clear
+// storage or switch devices).
 (function () {
   var N = window.__TICKET || {};
   var sel = { pres: null, vp: null };
   var DNT = (navigator.doNotTrack === "1" || window.doNotTrack === "1" || navigator.msDoNotTrack === "1");
+  var VOTE_KEY = "ftm-ticket-2028";
   var $ = function (id) { return document.getElementById(id); };
+
+  function storedVote() { try { return localStorage.getItem(VOTE_KEY); } catch (e) { return null; } }
+  function markVoted(t) { try { localStorage.setItem(VOTE_KEY, t); } catch (e) {} }
 
   function render() {
     $("pres-name").textContent = sel.pres ? N[sel.pres] : "— pick one —";
@@ -21,6 +29,7 @@
   }
 
   window.pick = function (role, id) {
+    if (storedVote()) return; // already locked this browser — field is read-only
     var other = role === "pres" ? "vp" : "pres";
     if (sel[other] === id) sel[other] = null;      // one person can't hold both slots
     sel[role] = sel[role] === id ? null : id;       // tap again to clear
@@ -36,17 +45,27 @@
     return location.origin + location.pathname + "?utm_source=" + src + "&utm_medium=social&utm_campaign=dream-ticket";
   }
 
-  window.lockTicket = function () {
-    if (!(sel.pres && sel.vp)) return;
-    if (!DNT && navigator.sendBeacon) {
-      try {
-        navigator.sendBeacon("/.netlify/functions/ticket",
-          new Blob([JSON.stringify({ pres: sel.pres, vp: sel.vp })], { type: "application/json" }));
-      } catch (e) {}
-    }
+  function lockedState() {
     $("lockTicket").style.display = "none";
     $("shareTicket").style.display = "";
+    var note = $("lockedNote");
+    if (note) note.style.display = "block";
+    document.querySelectorAll(".pick-btn").forEach(function (b) { b.disabled = true; });
     buildShare();
+  }
+
+  window.lockTicket = function () {
+    if (!(sel.pres && sel.vp)) return;
+    if (!storedVote()) {
+      if (!DNT && navigator.sendBeacon) {
+        try {
+          navigator.sendBeacon("/.netlify/functions/ticket",
+            new Blob([JSON.stringify({ pres: sel.pres, vp: sel.vp })], { type: "application/json" }));
+        } catch (e) {}
+      }
+      markVoted(sel.pres + "/" + sel.vp);
+    }
+    lockedState();
     setTimeout(loadBoard, 900);
   };
 
@@ -76,11 +95,17 @@
     });
   }
 
+  function stamp() {
+    // client-local time of this fetch — labeled "as of" since the tally can lag a beat
+    try { return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }); }
+    catch (e) { return ""; }
+  }
   function loadBoard() {
     fetch("/.netlify/functions/ticket").then(function (r) { return r.json(); }).then(function (d) {
       var lb = $("leaderboard");
       var combos = Object.entries(d.combos || {}).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 8);
-      if (!combos.length) { lb.innerHTML = '<p class="lb-empty">No tickets yet — be the first to lock one in.</p>'; return; }
+      var when = '<div class="lb-when">as of ' + stamp() + ' · updates live</div>';
+      if (!combos.length) { lb.innerHTML = '<p class="lb-empty">No tickets yet — be the first to lock one in.</p>' + when; return; }
       var max = combos[0][1];
       lb.innerHTML = '<div class="lb-total">' + d.total + ' ticket' + (d.total === 1 ? '' : 's') + ' built so far</div>' +
         combos.map(function (c) {
@@ -91,10 +116,23 @@
           return '<div class="lb-row"><span class="lb-name">' + name + '</span>' +
             '<span class="lb-bar"><span class="lb-fill" style="width:' + barW + '%"></span></span>' +
             '<span class="lb-n">' + share + '%</span></div>';
-        }).join("");
+        }).join("") + when;
     }).catch(function () { $("leaderboard").innerHTML = '<p class="lb-empty">Standings unavailable right now.</p>'; });
   }
 
-  render();
+  // Returning voter: restore their locked ticket + show share (one per browser).
+  (function initVote() {
+    var v = storedVote();
+    if (v) {
+      var parts = v.split("/");
+      if (N[parts[0]] && N[parts[1]]) { sel.pres = parts[0]; sel.vp = parts[1]; }
+      render();
+      lockedState();
+    } else {
+      render();
+    }
+  })();
+
   loadBoard();
+  setInterval(loadBoard, 20000); // keep the board live while the page is open
 })();
