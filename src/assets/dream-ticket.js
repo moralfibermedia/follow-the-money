@@ -161,8 +161,23 @@
     try { return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }); }
     catch (e) { return ""; }
   }
+  // 3.5% of the U.S. (~340M, Census 2024 estimate) — Chenoweth's civil-resistance threshold
+  var GOAL = 11900000;
+  function renderPop(ballots) {
+    var el = $("popCount"); if (!el) return;
+    el.textContent = ballots.toLocaleString("en-US");
+    var pct = ballots / GOAL * 100;
+    // adaptive precision so small counts still show a real number
+    var label = pct >= 1 ? pct.toFixed(1) + "%" :
+      pct >= 0.01 ? pct.toFixed(2) + "%" :
+      pct > 0 ? pct.toFixed(5) + "%" : "0%";
+    $("popPct").textContent = label + " of the way there";
+    $("popFill").style.width = Math.max(pct, ballots > 0 ? 0.5 : 0) + "%"; // sliver once nonzero
+  }
+
   function loadBoard() {
     fetch("/.netlify/functions/ticket").then(function (r) { return r.json(); }).then(function (d) {
+      renderPop(d.ballots || 0);
       var lb = $("leaderboard");
       var combos = Object.entries(d.combos || {}).sort(function (a, b) { return b[1].points - a[1].points; }).slice(0, 8);
       var since = "";
