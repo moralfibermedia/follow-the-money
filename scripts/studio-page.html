@@ -1,0 +1,156 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Puzzle Studio — Moral Fiber Media</title>
+<style>
+  :root { --ink:#0d0d0d; --paper:#f2ede4; --red:#d63031; --gold:#b8860b; --muted:#6b6256; --green:#27ae60; --rule:#c0b89a; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:'JetBrains Mono',ui-monospace,monospace; padding:28px 16px 90px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-family:Georgia,serif; font-size:26px; margin:0 0 2px; } .sub { color:var(--muted); font-size:12.5px; margin-bottom:20px; line-height:1.5; }
+  fieldset { border:2px solid var(--ink); background:#fff; margin:0 0 16px; padding:14px 16px; }
+  legend { font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); padding:0 6px; }
+  label { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin:10px 0 5px; }
+  input, textarea, select { width:100%; font:inherit; font-size:13px; padding:9px 11px; border:1.5px solid var(--rule); background:var(--paper); }
+  textarea { resize:vertical; }
+  .fact { border:1px dashed var(--rule); padding:12px; margin:10px 0; position:relative; }
+  .fact .rm { position:absolute; top:8px; right:8px; background:none; border:none; color:var(--muted); cursor:pointer; font-size:15px; }
+  .fact .rm:hover { color:var(--red); }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .btn { font:inherit; font-weight:700; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding:11px 18px; border:2px solid var(--ink); cursor:pointer; background:var(--paper); color:var(--ink); }
+  .btn:hover { background:var(--gold); border-color:var(--gold); }
+  .btn.primary { background:var(--ink); color:var(--paper); } .btn.primary:hover { background:var(--red); border-color:var(--red); }
+  .btn.small { padding:7px 12px; font-size:11px; }
+  .bar { position:fixed; left:0; right:0; bottom:0; background:var(--ink); padding:12px 16px; display:flex; gap:10px; justify-content:center; }
+  .prev { border:2px solid var(--ink); background:#fff; padding:14px 16px; }
+  .prev h3 { font-family:Georgia,serif; margin:0 0 4px; font-size:20px; } .prev h3 em { color:var(--red); font-style:italic; }
+  .prev .pfact { border-bottom:1px solid var(--rule); padding:8px 0; font-family:Georgia,serif; font-size:14px; }
+  .prev .ptiles { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .prev .ptile { border:2px solid var(--ink); background:#fff; padding:8px 14px; font-family:Georgia,serif; font-weight:700; font-size:13px; }
+  .prev .src { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); }
+  .msg { margin-top:12px; font-size:12.5px; padding:10px 12px; border:1.5px solid; display:none; }
+  .msg.ok { display:block; border-color:var(--green); color:var(--green); } .msg.err { display:block; border-color:var(--red); color:var(--red); }
+  .msg a { color:inherit; }
+  .hint { font-size:11px; color:var(--muted); font-style:italic; margin-top:4px; }
+</style></head><body><div class="wrap">
+  <h1>Puzzle Studio</h1>
+  <div class="sub">Build a <strong>text-match</strong> puzzle from a source, then open a PR — the deploy preview is your review surface; nothing goes live until you merge. (More mechanics to follow.)</div>
+
+  <fieldset>
+    <legend>Source &amp; framing</legend>
+    <label>Source URL — the video / article / post this puzzle is built from</label>
+    <input id="src" placeholder="https://www.youtube.com/watch?v=…">
+    <div class="row2">
+      <div><label>Series</label>
+        <select id="series">
+          <option value="just-the-facts">just-the-facts</option>
+          <option value="americas-250th">americas-250th</option>
+          <option value="speak-now">speak-now</option>
+        </select></div>
+      <div><label>Title</label><input id="title" placeholder="Who Spends Your Money?"></div>
+    </div>
+    <label>Subtitle (one line)</label><input id="subtitle" placeholder="The short editorial promise.">
+    <label>Hook (a sentence or two)</label><textarea id="hook" rows="2" placeholder="The setup that makes someone want to play."></textarea>
+    <label>Hint (optional)</label><input id="hint" placeholder="Follow the funding, not the logo.">
+    <div class="hint">The slug/path are generated from the title. Facts need a match + at least one source link each.</div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Facts to match</legend>
+    <div id="facts"></div>
+    <button class="btn small" type="button" onclick="addFact()">＋ Add a fact</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>Live preview</legend>
+    <div class="prev" id="preview"></div>
+  </fieldset>
+
+  <div class="msg" id="msg"></div>
+</div>
+
+<div class="bar">
+  <button class="btn" type="button" onclick="render()">Refresh preview</button>
+  <button class="btn primary" type="button" onclick="postPuzzle()">Open a PR</button>
+</div>
+
+<script>
+  var facts = document.getElementById("facts");
+  function slug(s){ return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,""); }
+  function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function addFact(text, match, url, label){
+    var d = document.createElement("div"); d.className = "fact";
+    d.innerHTML = '<button class="rm" type="button" title="Remove" onclick="this.parentNode.remove();render()">✕</button>'
+      + '<label>Fact / claim</label><textarea class="f-text" rows="2">'+esc(text||"")+'</textarea>'
+      + '<div class="row2"><div><label>Matches (the answer)</label><input class="f-match" value="'+esc(match||"")+'" placeholder="Federal Reserve"></div>'
+      + '<div><label>Source label</label><input class="f-label" value="'+esc(label||"")+'" placeholder="Federal Register"></div></div>'
+      + '<label>Source URL</label><input class="f-url" value="'+esc(url||"")+'" placeholder="https://…">';
+    facts.appendChild(d);
+    d.querySelectorAll("input,textarea").forEach(function(el){ el.addEventListener("input", render); });
+    render();
+  }
+
+  function collect(){
+    var rows = [].map.call(facts.querySelectorAll(".fact"), function(d){
+      return { text:d.querySelector(".f-text").value.trim(), match:d.querySelector(".f-match").value.trim(),
+               url:d.querySelector(".f-url").value.trim(), label:d.querySelector(".f-label").value.trim() };
+    }).filter(function(r){ return r.text && r.match; });
+    var title = document.getElementById("title").value.trim();
+    var series = document.getElementById("series").value;
+    var id = slug(title);
+    // derive answers from distinct matches
+    var order = [], seen = {};
+    rows.forEach(function(r){ if(!seen[r.match]){ seen[r.match]=1; order.push(r.match); } });
+    var answers = order.map(function(n){ return { id:slug(n), name:n }; });
+    var puzzleFacts = rows.map(function(r,i){
+      var f = { answer:slug(r.match), label:"Fact "+(i+1), text:r.text };
+      if(r.url) f.sources = [{ url:r.url, label:r.label||"source" }];
+      return f;
+    });
+    var entry = {
+      id:id, type:"standard", template:"text-match", series:series, title:title, slug:id,
+      path:series+"/"+id, subtitle:document.getElementById("subtitle").value.trim(),
+      hook:document.getElementById("hook").value.trim(), hint:document.getElementById("hint").value.trim(),
+      data_source:null, data_license:"CC BY 4.0", status:"live",
+      source_url:document.getElementById("src").value.trim(),
+      answers:answers, facts:puzzleFacts
+    };
+    var preview = { episode:title, series:series, subjects:order, subtitle:document.getElementById("subtitle").value.trim(),
+      matchVerb:"Match each fact to where it belongs.", dataLabel:"", dataSource:null, license:"CC BY 4.0" };
+    return { entry:entry, preview:preview, rows:rows, answers:order };
+  }
+
+  function render(){
+    var c = collect();
+    var p = document.getElementById("preview");
+    var t = c.entry.title || "Untitled";
+    var parts = t.split(" "); var head = esc(parts.slice(0,-1).join(" ")); var tail = esc(parts.slice(-1)[0]||"");
+    p.innerHTML = '<h3>'+head+' <em>'+tail+'</em></h3><div class="src">'+esc(c.entry.subtitle||"")+'</div>'
+      + c.rows.map(function(r){ return '<div class="pfact">'+esc(r.text)+(r.url?' <span class="src">— '+esc(r.label||"source")+' ↗</span>':' <span class="src" style="color:#d63031">— needs a source</span>')+'</div>'; }).join("")
+      + '<div class="ptiles">'+c.answers.map(function(a){ return '<span class="ptile">'+esc(a)+'</span>'; }).join("")+'</div>';
+  }
+
+  function postPuzzle(){
+    var c = collect();
+    var msg = document.getElementById("msg"); msg.className = "msg"; msg.textContent = "";
+    if(!c.entry.id){ msg.className="msg err"; msg.textContent="Add a title first."; return; }
+    if(c.rows.length < 2){ msg.className="msg err"; msg.textContent="Add at least two facts."; return; }
+    var missing = c.rows.some(function(r){ return !r.url; });
+    if(missing && !confirm("Some facts have no source link. Every claim should be sourced. Open the PR anyway?")) return;
+    var key = prompt("Publish key (PUBLISH_KEY):"); if(!key) return;
+    msg.className="msg"; msg.textContent="Opening PR…";
+    fetch("/.netlify/functions/publish-puzzle", { method:"POST", headers:{"content-type":"application/json"},
+      body: JSON.stringify({ key:key, puzzle:c.entry, preview:c.preview }) })
+      .then(function(r){ return r.json().then(function(b){ return {s:r.status,b:b}; }); })
+      .then(function(o){
+        if(o.s===200 && o.b.ok){ msg.className="msg ok"; msg.innerHTML="✓ PR opened → <a href='"+o.b.pr+"' target='_blank' rel='noopener'>"+o.b.pr+"</a><br>Review the deploy preview, then merge. (Ask Claude to render the preview.png.)"; }
+        else if(o.s===401){ msg.className="msg err"; msg.textContent="✗ Wrong key, or PUBLISH_KEY isn't set in Netlify."; }
+        else if(o.s===409){ msg.className="msg err"; msg.textContent="✗ "+(o.b.error||"That id already exists."); }
+        else if(o.s===500 && /GITHUB_TOKEN/.test(o.b.error||"")){ msg.className="msg err"; msg.textContent="✗ Server needs a GITHUB_TOKEN env var set in Netlify."; }
+        else { msg.className="msg err"; msg.textContent="✗ "+(o.b.error||"error")+(o.b.detail?" — "+o.b.detail:""); }
+      })
+      .catch(function(){ msg.className="msg err"; msg.textContent="✗ Network error."; });
+  }
+
+  addFact(); addFact(); render();
+</script>
+</body></html>
