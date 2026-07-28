@@ -40,3 +40,13 @@ The trailing-slash 301 on `/puzzles/<slug>` preserves the query string, so track
 ## Voice
 
 Direct, evidence-first, punchy — never preachy. Lead with the relatable hook, not the category. Every claim sourced. Signature: *"We do the research. You solve the puzzle."* Full system: the `mfm-editorial-design` skill (see its "Channel-specific posts" section for per-platform format rules).
+
+## Launch console (private)
+
+`/review/launch/` is an AES-encrypted page (same passphrase as the review desk) with per-campaign **Compose** (Bluesky/X/Facebook web-intents) and **Copy** buttons for every channel — post without leaving the desk. Regenerate after editing copy:
+
+```
+python3 scripts/build-launch-console.py -o /tmp/launch.html
+node scripts/encrypt-page.mjs /tmp/launch.html review/launch/index.html '<review-passphrase>' 'Launch console — Moral Fiber Media'
+```
+Then commit `review/launch/index.html`. The passphrase is never stored in the repo — only the ciphertext.
