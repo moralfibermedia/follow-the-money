@@ -16,6 +16,22 @@ export default async (req) => {
   let d;
   try { d = await req.json(); } catch { return new Response(null, { status: 400 }); }
 
+  // Operator-only reset (gated by STATS_KEY): purge completions, stamp a "since" date.
+  if (d.event === "reset") {
+    if (!process.env.STATS_KEY || d.key !== process.env.STATS_KEY) return new Response(null, { status: 401 });
+    try {
+      const store = getStore("solves");
+      let cursor;
+      do {
+        const res = await store.list({ prefix: "e/", cursor });
+        for (const b of res.blobs) await store.delete(b.key);
+        cursor = res.cursor;
+      } while (cursor);
+      await store.setJSON("meta", { resetAt: new Date().toISOString() });
+      return new Response(null, { status: 204 });
+    } catch { return new Response(null, { status: 500 }); }
+  }
+
   const puzzle = clean(d.puzzle);
   if (!puzzle) return new Response(null, { status: 400 });
 
