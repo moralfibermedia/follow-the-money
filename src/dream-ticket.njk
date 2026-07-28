@@ -20,8 +20,9 @@ ogImage: "/preview.png"
 <div class="ticket-actions">
   <button class="start-btn" id="lockTicket" type="button" disabled onclick="lockTicket()">Lock in my ticket</button>
   <button class="start-btn again" id="shareTicket" type="button" onclick="shareTicket()" style="display:none">📤 Share my ticket</button>
+  <button class="start-btn again" id="changeTicket" type="button" onclick="changeTicket()" style="display:none">↺ Change my ticket</button>
   <div class="ticket-share-row" id="ticketShareRow"></div>
-  <div class="locked-note" id="lockedNote" style="display:none">✓ You've locked your ticket for this browser — one per visitor.</div>
+  <div class="locked-note" id="lockedNote" style="display:none">✓ Ticket locked for this browser — one at a time; you can change it.</div>
 </div>
 
 <div class="cand-grid">

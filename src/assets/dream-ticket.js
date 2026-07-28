@@ -50,9 +50,36 @@
     $("shareTicket").style.display = "";
     var note = $("lockedNote");
     if (note) note.style.display = "block";
+    var chg = $("changeTicket");
+    if (chg) chg.style.display = "";
     document.querySelectorAll(".pick-btn").forEach(function (b) { b.disabled = true; });
     buildShare();
   }
+
+  // Change of heart: anonymously retract the browser's recorded combo (-1 for
+  // that pairing), clear the local record, and reopen the field to recast.
+  window.changeTicket = function () {
+    var v = storedVote();
+    if (v) {
+      var parts = v.split("/");
+      if (!DNT && navigator.sendBeacon && parts.length === 2) {
+        try {
+          navigator.sendBeacon("/.netlify/functions/ticket",
+            new Blob([JSON.stringify({ event: "retract", pres: parts[0], vp: parts[1] })], { type: "application/json" }));
+        } catch (e) {}
+      }
+      try { localStorage.removeItem(VOTE_KEY); } catch (e) {}
+    }
+    sel = { pres: null, vp: null };
+    $("shareTicket").style.display = "none";
+    $("changeTicket").style.display = "none";
+    $("lockedNote").style.display = "none";
+    $("lockTicket").style.display = "";
+    $("ticketShareRow").innerHTML = "";
+    document.querySelectorAll(".pick-btn").forEach(function (b) { b.disabled = false; });
+    render();
+    setTimeout(loadBoard, 900);
+  };
 
   window.lockTicket = function () {
     if (!(sel.pres && sel.vp)) return;
