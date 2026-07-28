@@ -678,3 +678,17 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
   border-left:3px solid var(--gold); padding:10px 14px; margin:0 0 16px; max-width:72ch; }
 .borda-note a { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); white-space:nowrap; }
 .borda-note a:hover { color:var(--red); }
+
+/* ---- 3.5% population counter ---- */
+.pop-counter { border:2px solid var(--ink); background:#fff; padding:16px 18px; margin:0 0 26px; }
+.pop-nums { font-size:15px; margin-bottom:10px; }
+.pop-nums b { font-family:'Playfair Display',serif; font-size:22px; }
+.pop-track { height:22px; background:#e8e3da; border:1.5px solid var(--rule); overflow:hidden; }
+.pop-fill { display:block; height:100%; width:0;
+  background:repeating-linear-gradient(115deg, var(--red) 0 10px, #b02324 10px 20px);
+  transition:width .6s ease; }
+.pop-pct { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--red); margin-top:7px; }
+.pop-why { font-size:13.5px; font-style:italic; color:var(--muted); line-height:1.55; margin:12px 0 0; }
+.pop-why a { font-family:'JetBrains Mono',monospace; font-size:11px; font-style:normal; color:var(--muted); }
+.pop-why a:hover { color:var(--red); }
