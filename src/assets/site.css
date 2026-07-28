@@ -551,3 +551,86 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
 .brandname em { font-style:italic; color:var(--red); }
 .brandtag { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:400;
   letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+
+/* ---- Dream Ticket builder ---- */
+.ticket-slots { display:flex; align-items:stretch; gap:12px; margin:24px 0 14px; }
+.ticket-slots .slot { flex:1; border:3px solid var(--ink); background:#fff; padding:14px 16px;
+  display:flex; flex-direction:column; gap:4px; min-width:0; transition:border-color .18s, background .18s; }
+.ticket-slots .slot.filled { border-color:var(--gold); background:#fffdf4; }
+.slot-role { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
+.slot-name { font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(18px,3.4vw,26px); line-height:1.1; }
+.slot.filled .slot-name { color:var(--ink); }
+.slot-x { align-self:center; font-family:'Playfair Display',serif; font-weight:900; font-size:26px; color:var(--muted); }
+.ticket-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin-bottom:8px; }
+.ticket-share-row { display:flex; align-items:center; flex-wrap:wrap; gap:6px 14px; flex-basis:100%;
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+.ticket-share-row a { color:var(--ink); text-decoration:none; border-bottom:2px solid var(--gold); padding-bottom:1px; }
+.ticket-share-row a:hover { color:var(--red); border-bottom-color:var(--red); }
+
+.cand-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; margin:26px 0; }
+.cand { border:2px solid var(--ink); background:#fff; padding:14px 15px 12px; display:flex; flex-direction:column;
+  transition:border-color .18s, box-shadow .18s; }
+.cand.as-pres { border-color:var(--gold); box-shadow:0 0 0 3px rgba(184,134,11,.28); }
+.cand.as-vp { border-color:var(--dem-blue); box-shadow:0 0 0 3px rgba(26,58,92,.22); }
+.cand.as-pres.as-vp { box-shadow:0 0 0 3px rgba(184,134,11,.28); } /* can't be both; guarded in JS */
+.cand-head { display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:8px; }
+.cand-name { font-family:'Playfair Display',serif; font-weight:900; font-size:18px; line-height:1.15; }
+.cand-lane { font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--paper); background:var(--ink); padding:3px 7px; flex:none; }
+.cand-facts { list-style:none; margin:0 0 12px; padding:0; flex:1; }
+.cand-facts li { font-size:13.5px; line-height:1.4; color:var(--ink); padding:6px 0; border-bottom:1px solid var(--rule); }
+.cand-facts li:last-child { border-bottom:none; }
+.cand-facts a { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); white-space:nowrap; }
+.cand-facts a:hover { color:var(--red); }
+.cand-pick { display:flex; gap:8px; }
+.pick-btn { flex:1; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; cursor:pointer; padding:9px 8px; background:var(--paper); border:2px solid var(--ink);
+  color:var(--ink); transition:all .15s; }
+.pick-btn:active { transform:translateY(1px); }
+.cand.as-pres .pick-pres { background:var(--gold); border-color:var(--gold); color:var(--ink); }
+.cand.as-vp .pick-vp { background:var(--dem-blue); border-color:var(--dem-blue); color:var(--paper); }
+.pick-btn:hover { border-color:var(--red); }
+
+.sourcing-note { font-size:13px; font-style:italic; color:var(--muted); line-height:1.5;
+  border-left:3px solid var(--gold); padding:4px 0 4px 14px; margin:8px 0 4px; }
+
+.leaderboard { margin:12px 0 8px; }
+.lb-total { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.lb-empty { font-style:italic; color:var(--muted); }
+.lb-row { display:flex; align-items:center; gap:12px; padding:7px 0; }
+.lb-name { flex:0 0 42%; font-family:'Playfair Display',serif; font-weight:700; font-size:15px; line-height:1.2; }
+.lb-bar { flex:1; height:16px; background:#e8e3da; overflow:hidden; }
+.lb-fill { display:block; height:100%; background:linear-gradient(90deg, var(--dem-blue), var(--gold)); width:0; transition:width .5s ease; }
+.lb-n { flex:0 0 42px; text-align:right; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; }
+@media (max-width:520px) { .lb-name { flex-basis:38%; font-size:13px; } }
+
+.lb-when { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); letter-spacing:.06em; margin-top:12px; }
+.locked-note { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--green); flex-basis:100%; margin-top:2px; }
+.cand-caveat { color:var(--gold); font-size:.85em; cursor:help; }
+.pick-btn:disabled { opacity:.4; cursor:default; }
+
+/* ---- Dream Ticket promo callouts (discoverability) ---- */
+.dt-hero { display:block; text-decoration:none; margin:0 0 30px; padding:18px 22px;
+  border:3px solid var(--ink); background:linear-gradient(110deg, #fff8e6, var(--paper));
+  position:relative; overflow:hidden; transition:box-shadow .18s, transform .18s; }
+.dt-hero:hover { box-shadow:0 6px 0 rgba(184,134,11,.5); transform:translateY(-2px); }
+.dt-hero .dt-tag, .dt-hero .dt-h, .dt-hero .dt-sub, .dt-hero .dt-go { display:block; }
+.dt-hero .dt-tag { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--red); }
+.dt-hero .dt-h { font-family:'Playfair Display',serif; font-weight:900; font-size:clamp(22px,4vw,30px);
+  color:var(--ink); line-height:1.1; margin:4px 0 3px; }
+.dt-hero .dt-h em { font-style:italic; color:var(--red); }
+.dt-hero .dt-sub { font-size:15px; color:var(--muted); font-style:italic; }
+.dt-hero .dt-go { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-top:8px; display:inline-block; }
+.nav-hot { color:var(--red) !important; }
+.rail-dt { display:block; text-decoration:none; border:2px solid var(--ink); background:#fff8e6;
+  padding:11px 12px; margin-bottom:14px; transition:box-shadow .15s; }
+.rail-dt:hover { box-shadow:0 3px 0 rgba(184,134,11,.4); }
+.rail-dt .rail-dt-tag { font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--red); display:block; }
+.rail-dt .rail-dt-t { font-family:'Playfair Display',serif; font-weight:900; font-style:italic;
+  font-size:16px; color:var(--ink); line-height:1.2; }
