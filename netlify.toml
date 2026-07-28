@@ -14,6 +14,12 @@
   to = "/.netlify/functions/stats"
   status = 200
 
+# Operator console for the Dream Ticket poll (key verified server-side)
+[[redirects]]
+  from = "/review/poll-admin"
+  to = "/.netlify/functions/poll-admin"
+  status = 200
+
 # Exception: the live comment-count feed for the Public Comment CTA must be
 # fetchable client-side. Listed BEFORE the /data/* block so it wins (first match).
 [[redirects]]
