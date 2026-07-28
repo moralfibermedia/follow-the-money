@@ -9,7 +9,7 @@ const clean = (s) => String(s || "").slice(0, 40).replace(/[^a-z0-9-]/gi, "");
 const json = (obj) => new Response(JSON.stringify(obj), { headers: { "content-type": "application/json; charset=utf-8" } });
 
 export default async (req) => {
-  const store = getStore("dream-tickets");
+  const store = getStore("ticket-votes");
 
   if (req.method === "POST") {
     let d;
