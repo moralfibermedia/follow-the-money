@@ -187,6 +187,16 @@ Three new puzzle templates now exist beyond bar-chart matching (`template/puzzle
 
 ---
 
+## Deferred Technical Enhancements
+
+Infra/security decisions we've consciously parked — the central log so we don't re-litigate them. Format: decision · why deferred · trigger to revisit.
+
+### Cloudflare Turnstile on the Dream Ticket poll (parked 2026-07-30)
+- **What:** a privacy-clean CAPTCHA (no tracking, no cookies) as a heavier anti-bot wall on the straw-poll vote endpoint, on top of the signed-token layer.
+- **Why deferred:** the poll already has (1) signed single-use HMAC challenge tokens (kills blind endpoint-hammering + replay), (2) one-vote-per-browser, and (3) an operator reset with a dated baseline. For an *explicitly unscientific* straw poll, that's proportionate. Turnstile adds a third-party script and a slice of user friction (some visitors get an interactive challenge), which can cost participation on a viral page.
+- **Trigger to revisit:** evidence of real, sustained manipulation the token layer doesn't stop (e.g., a headless-browser botnet fetching tokens legitimately).
+- **How, when we do it:** "Add widget manually" in Cloudflare (NOT "Set up with Spin" — this repo is bespoke: encrypted static pages + Netlify Functions + the existing HMAC layer; an external agent would misfit/conflict). Then: widget site key on the dream-ticket page, `TURNSTILE_SECRET` env var, server-side siteverify in `netlify/functions/ticket.mjs` **alongside** the HMAC check (both must pass). ~15 min, done by Claude.
+
 ## Production Notes
 
 ### Data sourcing
