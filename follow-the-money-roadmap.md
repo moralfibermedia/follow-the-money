@@ -191,6 +191,12 @@ Three new puzzle templates now exist beyond bar-chart matching (`template/puzzle
 
 Infra/security decisions we've consciously parked — the central log so we don't re-litigate them. Format: decision · why deferred · trigger to revisit.
 
+### Atomic single-use for poll tokens (parked 2026-07-31)
+- **What:** true one-time-use challenge tokens on the poll, via an atomic conditional write (`store.set(nonce, "1", { onlyIfNew: true })`).
+- **Why deferred:** `onlyIfNew` needs **@netlify/blobs ≥ 9** (we're on 8.2.0). On 8.2.0 the fallback is read-then-write, which can't catch a *near-instant / cross-region* replay (Blobs read-after-write is eventually consistent). So today the token layer reliably blocks **no-token and forged-token** requests (the common bots), but a smart bot could fetch one valid token and replay it within its TTL.
+- **Trigger to revisit:** evidence of token-replay abuse, or any other reason to bump the Blobs major.
+- **How, when we do it:** upgrade `@netlify/blobs` 8→10, restore the `onlyIfNew` conditional write in `tokenOK()` (ticket.mjs), and **verify ALL blob-using functions on a deploy preview before merging** (tally, stats, ticket vote/read/reset, poll-admin, publish-puzzle) — a major bump touches every store call. (Interim mitigation available: shorten `TOKEN_TTL` to shrink the replay window.)
+
 ### Cloudflare Turnstile on the Dream Ticket poll (parked 2026-07-30)
 - **What:** a privacy-clean CAPTCHA (no tracking, no cookies) as a heavier anti-bot wall on the straw-poll vote endpoint, on top of the signed-token layer.
 - **Why deferred:** the poll already has (1) signed single-use HMAC challenge tokens (kills blind endpoint-hammering + replay), (2) one-vote-per-browser, and (3) an operator reset with a dated baseline. For an *explicitly unscientific* straw poll, that's proportionate. Turnstile adds a third-party script and a slice of user friction (some visitors get an interactive challenge), which can cost participation on a viral page.
