@@ -242,6 +242,14 @@ th, td { border-bottom:1px solid var(--rule); padding:6px 14px 6px 0; vertical-a
   font-variant-numeric:tabular-nums; white-space:nowrap; }
 .stats { font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--muted);
   letter-spacing:.08em; margin-top:8px; }
+.ops { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.05em;
+  margin-top:10px; padding-top:8px; border-top:1px solid var(--rule);
+  display:flex; flex-wrap:wrap; gap:6px 16px; align-items:baseline; }
+.ops-label { color:var(--muted); text-transform:uppercase; font-size:10px; letter-spacing:.1em; }
+.ops a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule); }
+.ops a:hover { color:var(--red); border-color:var(--red); }
+.ops-key { color:var(--gold); font-size:9px; text-transform:uppercase; letter-spacing:.1em;
+  border:1px solid var(--gold); padding:0 4px; margin-left:2px; }
 .deskbar { position:fixed; right:14px; bottom:14px; z-index:9; display:flex; gap:10px;
   align-items:center; background:var(--card); border:2px solid var(--ink);
   padding:8px 12px; font-family:ui-monospace,Menlo,monospace; font-size:12px;
@@ -262,6 +270,12 @@ th, td { border-bottom:1px solid var(--rule); padding:6px 14px 6px 0; vertical-a
   <h1>Marketing <em>Review Desk</em></h1>
   <p class="sub">Puzzle drafts awaiting verification sit at the top — check each date against its source, then play it on the deploy preview. Below: every channel draft for every published puzzle. Ticks persist in this browser.</p>
   <div class="stats">__STATS__</div>
+  <div class="ops"><span class="ops-label">Operator tools:</span>
+    <a href="/review/studio/">Puzzle Studio</a>
+    <a href="/review/launch/">Launch console</a>
+    <a href="/review/stats">Stats <span class="ops-key">key</span></a>
+    <a href="/review/poll-admin">Poll admin <span class="ops-key">key</span></a>
+  </div>
 </div>
 <div class="wrap">
 <nav>__TOC__</nav>
