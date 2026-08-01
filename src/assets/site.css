@@ -268,10 +268,14 @@ html.disco .figure.playing #lockb:not(:disabled)::after {
 /* ---- receipts + tail ---- */
 .receipts ul { list-style:none; }
 .receipts li { border-bottom:1px solid var(--rule); padding:9px 0;
-  display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,auto); gap:4px 24px; align-items:baseline; }
 .receipts a { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted); }
 .receipts a:hover { color:var(--red); }
-.receipt-srcs { display:flex; flex-direction:column; gap:5px; align-items:flex-start; text-align:left; }
+.receipt-srcs { display:flex; flex-direction:column; gap:5px; align-items:flex-end; text-align:right; }
+@media (max-width:560px) {
+  .receipts li { grid-template-columns:1fr; }
+  .receipt-srcs { align-items:flex-start; text-align:left; }
+}
 .tail { border-top:3px solid var(--ink); margin-top:40px; padding-top:16px;
   display:flex; flex-direction:column; gap:10px;
   font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted); letter-spacing:.03em; }

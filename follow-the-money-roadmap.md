@@ -205,6 +205,14 @@ Infra/security decisions we've consciously parked — the central log so we don'
 
 ## Production Notes
 
+### Secrets & keys
+The site's secrets live **only** as Netlify env vars (`TICKET_HMAC_SECRET`, `TICKET_ADMIN_KEY`, `STATS_KEY`, `PUBLISH_KEY`, `GITHUB_TOKEN`) — never in the repo. Two rules learned the hard way:
+- **Netlify is the runtime, not the safe.** Secret env vars (lock icon) are **write-only** — once saved you can't view them again, only overwrite. So every secret needs a backup *outside* Netlify.
+- **The root backup is physical.** Critical creds get **written down and stored in a physical vault** (safe/lockbox) — cold storage that survives the failure modes every digital option shares (account lockout, forgotten master password, cloud compromise, dead Mac). On each card: env-var **name**, value (printed legibly), **what it's for**, and **date set**. On rotation, update or shred the old card so the live value is never in doubt. Optional convenience copy in Apple **Passwords app**/iCloud Keychain (follows Apple ID, syncs) or 1Password/Bitwarden — *not* the local Keychain Access login keychain (Mac-local, dies with the machine). So: Netlify = working copy, paper-in-a-safe = the backup of record.
+- **Generate on your machine, never in chat.** `openssl rand -base64 24` → paste straight into the vault + Netlify. Keeps the secret out of every transcript/log.
+- **Keep the keys distinct.** `STATS_KEY` and `TICKET_ADMIN_KEY` should be different values — a shared secret means a stats-read leak also unlocks the destructive poll reset.
+- **Rotation is non-breaking** (all code reads from env): overwrite in Netlify → redeploy. `TICKET_HMAC_SECRET` rotation only invalidates in-flight challenge tokens (60-min TTL; client auto-refetches on 403).
+
 ### Data sourcing
 - Primary: OpenSecrets.org `/orgs/[company]/recipients` pages
 - Cycle: Default to most recent completed cycle (currently 2024)

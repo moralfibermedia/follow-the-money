@@ -242,6 +242,30 @@ th, td { border-bottom:1px solid var(--rule); padding:6px 14px 6px 0; vertical-a
   font-variant-numeric:tabular-nums; white-space:nowrap; }
 .stats { font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--muted);
   letter-spacing:.08em; margin-top:8px; }
+.ops { font-family:ui-monospace,Menlo,monospace; font-size:11px; letter-spacing:.03em;
+  margin-top:12px; padding-top:10px; border-top:1px solid var(--rule);
+  display:flex; flex-wrap:wrap; gap:8px 4px; align-items:stretch; }
+.stage { display:flex; align-items:baseline; gap:7px; padding:7px 12px;
+  border:1px solid var(--rule); text-decoration:none; color:var(--ink); background:transparent; }
+a.stage:hover { border-color:var(--red); }
+a.stage:hover .stage-name { color:var(--red); }
+.stage.here { border:2px solid var(--ink); }
+.stage.here::after { content:"◂ you are here"; color:var(--gold);
+  font-size:9px; letter-spacing:.06em; margin-left:2px; }
+.stage-n { color:var(--gold); font-size:10px; }
+.stage-name { font-weight:700; text-transform:uppercase; font-size:11px; letter-spacing:.12em; }
+.stage-what { color:var(--muted); font-size:10px; }
+.stage + .stage::before, .stage + a.stage::before { content:none; }
+.ops > .stage:not(:first-child) { margin-left:18px; position:relative; }
+.ops > .stage:not(:first-child)::before { content:"→"; position:absolute; left:-15px;
+  top:50%; transform:translateY(-50%); color:var(--muted); }
+.ops-aside { margin-left:auto; display:flex; gap:14px; align-items:center; padding-left:16px; }
+.ops-aside a { color:var(--muted); text-decoration:none; border-bottom:1px solid var(--rule); font-size:10px; }
+.ops-aside a:hover { color:var(--red); border-color:var(--red); }
+.ops-key { color:var(--gold); font-size:9px; text-transform:uppercase; letter-spacing:.1em;
+  border:1px solid var(--gold); padding:0 4px; margin-left:2px; }
+@media (max-width:820px) { .ops-aside { margin-left:0; padding-left:0; width:100%; }
+  .ops > .stage:not(:first-child) { margin-left:18px; } }
 .deskbar { position:fixed; right:14px; bottom:14px; z-index:9; display:flex; gap:10px;
   align-items:center; background:var(--card); border:2px solid var(--ink);
   padding:8px 12px; font-family:ui-monospace,Menlo,monospace; font-size:12px;
@@ -258,10 +282,19 @@ th, td { border-bottom:1px solid var(--rule); padding:6px 14px 6px 0; vertical-a
     border-bottom:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:2px 10px; } }
 </style>
 <div class="mast">
-  <div class="kicker">★ Internal · Copy Review</div>
+  <div class="kicker">★ Internal · Build → Review → Publish</div>
   <h1>Marketing <em>Review Desk</em></h1>
   <p class="sub">Puzzle drafts awaiting verification sit at the top — check each date against its source, then play it on the deploy preview. Below: every channel draft for every published puzzle. Ticks persist in this browser.</p>
   <div class="stats">__STATS__</div>
+  <div class="ops">
+    <a class="stage" href="/review/studio/"><span class="stage-n">1</span><span class="stage-name">Build</span><span class="stage-what">Puzzle Studio → opens a PR</span></a>
+    <span class="stage here"><span class="stage-n">2</span><span class="stage-name">Review</span><span class="stage-what">verify drafts &amp; copy on PR previews</span></span>
+    <a class="stage" href="/review/launch/"><span class="stage-n">3</span><span class="stage-name">Publish</span><span class="stage-what">merge PR · post via Launch console</span></a>
+    <span class="ops-aside">
+      <a href="/review/stats">Stats <span class="ops-key">key</span></a>
+      <a href="/review/poll-admin">Poll admin <span class="ops-key">key</span></a>
+    </span>
+  </div>
 </div>
 <div class="wrap">
 <nav>__TOC__</nav>
