@@ -29,14 +29,13 @@ async function tokenOK(token, secret, store) {
   const a = Buffer.from(sig), b = Buffer.from(good);
   if (a.length !== b.length || !timingSafeEqual(a, b)) return false;   // bad signature
   if (!(parseInt(exp, 10) > Date.now())) return false;                 // expired
-  // Single-use via read-then-write. Catches all but a near-instant replay of the
-  // same token inside Blobs' read-after-write propagation window (a few seconds).
-  // Atomic single-use (onlyIfNew) needs @netlify/blobs >= 9 — logged as a deferred
-  // enhancement; for a signed, expiring, straw-poll token this window is acceptable.
-  const nkey = "n/" + nonce;
-  try { if (await store.get(nkey)) return false; } catch {}           // already used
-  try { await store.set(nkey, "1"); } catch {}
-  return true;
+  // Atomic single-use (needs @netlify/blobs >= 9): create the nonce only if it
+  // doesn't already exist. The conditional write is server-authoritative, so a
+  // replay is rejected even under Blobs' eventual read-after-write.
+  try {
+    const res = await store.set("n/" + nonce, "1", { onlyIfNew: true });
+    return !!(res && res.modified === true);                          // false = already used
+  } catch { return false; }
 }
 
 export default async (req) => {
