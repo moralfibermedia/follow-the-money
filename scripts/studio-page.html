@@ -229,7 +229,7 @@
   }
 
   // ---- chat (Build with Claude) ----
-  var history=[], pendingTool=null, lastProposal=null;
+  var chatlog=[], pendingTool=null, lastProposal=null;
   function bubble(cls,text){ var d=document.createElement("div"); d.className="turn "+cls; d.textContent=text;
     $("thread").appendChild(d); $("thread").scrollTop=$("thread").scrollHeight; return d; }
 
@@ -255,22 +255,22 @@
     var content = pendingTool
       ? [{type:"tool_result",tool_use_id:pendingTool,content:"Proposal received — rendered in the studio for the editor."},{type:"text",text:text}]
       : text;
-    history.push({role:"user",content:content});
+    chatlog.push({role:"user",content:content});
     pendingTool=null;
     bubble("you",text); $("cin").value="";
     btn.disabled=true; var wait=bubble("sys","Claude is reading + drafting…");
-    fetch("/.netlify/functions/studio-chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:key,messages:history})})
+    fetch("/.netlify/functions/studio-chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:key,messages:chatlog})})
       .then(function(r){ return r.json().then(function(b){ return {s:r.status,b:b}; }); })
       .then(function(o){
         btn.disabled=false; wait.remove();
-        if(o.s===401){ history.pop(); bubble("sys","✗ Wrong key, or PUBLISH_KEY isn't set in Netlify."); return; }
-        if(o.s!==200){ history.pop(); bubble("sys","✗ "+(o.b.error||"error")+(o.b.detail?" — "+o.b.detail:"")); return; }
-        history.push(o.b.assistant);
+        if(o.s===401){ chatlog.pop(); bubble("sys","✗ Wrong key, or PUBLISH_KEY isn't set in Netlify."); return; }
+        if(o.s!==200){ chatlog.pop(); bubble("sys","✗ "+(o.b.error||"error")+(o.b.detail?" — "+o.b.detail:"")); return; }
+        chatlog.push(o.b.assistant);
         if(o.b.reply) bubble("claude",o.b.reply);
         if(o.b.proposal){ pendingTool=o.b.tool_use_id; applyProposal(o.b.proposal);
           bubble("sys","✦ Draft applied — see the preview below. Keep chatting to refine, or edit by hand in the Text-match tab."); }
       })
-      .catch(function(){ btn.disabled=false; wait.remove(); history.pop(); bubble("sys","✗ Network error."); });
+      .catch(function(){ btn.disabled=false; wait.remove(); chatlog.pop(); bubble("sys","✗ Network error."); });
   }
   $("cin").addEventListener("keydown",function(e){ if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)){ e.preventDefault(); sendChat(); } });
 
