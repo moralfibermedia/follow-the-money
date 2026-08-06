@@ -258,19 +258,66 @@
     chatlog.push({role:"user",content:content});
     pendingTool=null;
     bubble("you",text); $("cin").value="";
-    btn.disabled=true; var wait=bubble("sys","Claude is reading + drafting…");
+    btn.disabled=true;
+    var status=bubble("sys","connecting…");
+    var live=null, textAcc="", tool=null, toolJson="", err=null;
+
+    function finish(errText){
+      btn.disabled=false; status.remove();
+      if(errText){ chatlog.pop(); if(live)live.remove(); bubble("sys","✗ "+errText); return; }
+      var out=[], proposal=null;
+      if(textAcc.trim()) out.push({type:"text",text:textAcc.trim()});
+      if(tool){ try{ proposal=toolJson?JSON.parse(toolJson):null; }catch(e){ proposal=null; }
+        if(proposal) out.push({type:"tool_use",id:tool.id,name:tool.name,input:proposal}); }
+      if(!out.length) out=[{type:"text",text:"(no reply)"}];
+      chatlog.push({role:"assistant",content:out});
+      if(proposal){ pendingTool=tool.id; applyProposal(proposal);
+        bubble("sys","✦ Draft applied — see the preview below. Keep chatting to refine, or edit by hand in the Text-match tab."); }
+    }
+
+    function handle(ev){
+      if(ev.type==="studio_status"){ status.textContent=ev.text; }
+      else if(ev.type==="studio_error"){ err=ev.text||"stream error"; }
+      else if(ev.type==="error"){ err=(ev.error&&ev.error.message)||"stream error"; }
+      else if(ev.type==="content_block_start"){
+        var b=ev.content_block||{};
+        if(b.type==="text"){ if(textAcc&&!/\n$/.test(textAcc)) textAcc+="\n\n"; if(!live) live=bubble("claude",""); }
+        else if(b.type==="tool_use"&&b.name==="propose_puzzle"){ tool={id:b.id,name:b.name}; toolJson=""; status.textContent="✦ drafting the puzzle…"; }
+        else if(b.type==="server_tool_use"){ status.textContent="🔎 searching the web…"; }
+        else if(b.type==="web_search_tool_result"){ status.textContent="✓ reading search results…"; }
+      }
+      else if(ev.type==="content_block_delta"){
+        var dl=ev.delta||{};
+        if(dl.type==="text_delta"){ if(!live) live=bubble("claude","")
+          ; textAcc+=dl.text; live.textContent=textAcc; status.textContent="writing…"; $("thread").scrollTop=$("thread").scrollHeight; }
+        else if(dl.type==="input_json_delta"){ toolJson+=dl.partial_json||""; }
+      }
+    }
+
     fetch("/.netlify/functions/studio-chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:key,messages:chatlog})})
-      .then(function(r){ return r.json().then(function(b){ return {s:r.status,b:b}; }); })
-      .then(function(o){
-        btn.disabled=false; wait.remove();
-        if(o.s===401){ chatlog.pop(); bubble("sys","✗ Wrong key, or PUBLISH_KEY isn't set in Netlify."); return; }
-        if(o.s!==200){ chatlog.pop(); bubble("sys","✗ "+(o.b.error||"error")+(o.b.detail?" — "+o.b.detail:"")); return; }
-        chatlog.push(o.b.assistant);
-        if(o.b.reply) bubble("claude",o.b.reply);
-        if(o.b.proposal){ pendingTool=o.b.tool_use_id; applyProposal(o.b.proposal);
-          bubble("sys","✦ Draft applied — see the preview below. Keep chatting to refine, or edit by hand in the Text-match tab."); }
+      .then(function(r){
+        var ct=r.headers.get("content-type")||"";
+        if(ct.indexOf("event-stream")<0){
+          return r.json().catch(function(){return{};}).then(function(b){
+            finish(r.status===401 ? "Wrong key, or PUBLISH_KEY isn't set in Netlify."
+              : (b.error||"error "+r.status)+(b.detail?" — "+b.detail:""));
+          });
+        }
+        var reader=r.body.getReader(), dec=new TextDecoder(), buf="";
+        function pump(){
+          return reader.read().then(function(res){
+            if(res.done){ finish(err); return; }
+            buf+=dec.decode(res.value,{stream:true});
+            var parts=buf.split("\n\n"); buf=parts.pop();
+            parts.forEach(function(chunk){ chunk.split("\n").forEach(function(line){
+              if(line.slice(0,6)==="data: "){ try{ handle(JSON.parse(line.slice(6))); }catch(e){} }
+            }); });
+            return pump();
+          });
+        }
+        return pump();
       })
-      .catch(function(){ btn.disabled=false; wait.remove(); chatlog.pop(); bubble("sys","✗ Network error."); });
+      .catch(function(){ finish("Network error."); });
   }
   $("cin").addEventListener("keydown",function(e){ if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)){ e.preventDefault(); sendChat(); } });
 

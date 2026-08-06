@@ -1,5 +1,7 @@
 // Conversational puzzle builder — the Studio's chat tab talks to Claude here.
-//   POST { key, messages } → { reply, proposal?, tool_use_id?, assistant }
+//   POST { key, messages } → SSE stream (Anthropic events passed through,
+//   plus our own `studio_status` events), so the editor watches the draft
+//   appear live and Netlify's 10s buffered-response limit never bites.
 // Gated by PUBLISH_KEY (same trust tier as opening a PR; fail-closed 401).
 // Needs ANTHROPIC_API_KEY (500 "not configured" if unset). Neither secret is
 // ever returned or logged.
@@ -7,8 +9,8 @@
 // The function fetches any http(s) links in the newest user message
 // server-side (deterministic, no beta features) and hands the extracted text
 // to the model; the model can also web_search for corroborating primary
-// sources. When the model calls propose_puzzle, the tool input comes back as
-// `proposal` and the page renders/edits it — the human editor decides.
+// sources. The client assembles text deltas + the propose_puzzle tool call
+// from the stream.
 const MODEL = "claude-sonnet-5";
 const API = "https://api.anthropic.com/v1/messages";
 const MAX_MESSAGES = 40;          // conversation cap (sanity)
@@ -92,6 +94,9 @@ async function fetchArticle(url) {
   } catch { return "[Fetch failed — the site may block robots. Ask the editor to paste the text.]"; }
 }
 
+const enc = new TextEncoder();
+const sse = (type, obj) => enc.encode(`event: ${type}\ndata: ${JSON.stringify({ type, ...obj })}\n\n`);
+
 export default async (req) => {
   if (req.method !== "POST") return new Response(null, { status: 405 });
   let d;
@@ -104,40 +109,49 @@ export default async (req) => {
   const messages = Array.isArray(d.messages) ? d.messages.slice(-MAX_MESSAGES) : [];
   if (!messages.length) return json({ error: "no messages" }, 400);
 
-  // Fetch links in the newest user message and append the extracted text.
-  const last = messages[messages.length - 1];
-  if (last && last.role === "user" && typeof last.content === "string") {
-    const urls = (last.content.match(/https?:\/\/[^\s<>"')\]]+/g) || []).slice(0, MAX_URLS);
-    if (urls.length) {
-      const fetched = await Promise.all(urls.map(async (u) => `--- Fetched from ${u} ---\n${await fetchArticle(u)}`));
-      last.content += "\n\n" + fetched.join("\n\n");
-    }
-  }
+  // Stream from the first byte: status events while we fetch/connect, then the
+  // Anthropic SSE stream passed through verbatim.
+  const stream = new ReadableStream({
+    async start(controller) {
+      try {
+        // Fetch links in the newest user message and append the extracted text.
+        const last = messages[messages.length - 1];
+        if (last && last.role === "user" && typeof last.content === "string") {
+          const urls = (last.content.match(/https?:\/\/[^\s<>"')\]]+/g) || []).slice(0, MAX_URLS);
+          for (const u of urls) {
+            controller.enqueue(sse("studio_status", { text: "reading " + u.replace(/^https?:\/\//, "").split("/")[0] + "…" }));
+            last.content += `\n\n--- Fetched from ${u} ---\n${await fetchArticle(u)}`;
+          }
+        }
 
-  const r = await fetch(API, {
-    method: "POST",
-    headers: { "x-api-key": API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-    body: JSON.stringify({
-      model: MODEL, max_tokens: 4096, system: SYSTEM, messages,
-      tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 4 }, PROPOSE_TOOL],
-    }),
+        controller.enqueue(sse("studio_status", { text: "Claude is thinking…" }));
+        const r = await fetch(API, {
+          method: "POST",
+          headers: { "x-api-key": API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
+          body: JSON.stringify({
+            model: MODEL, max_tokens: 4096, stream: true, system: SYSTEM, messages,
+            tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 4 }, PROPOSE_TOOL],
+          }),
+        });
+        if (!r.ok) {
+          const body = await r.json().catch(() => ({}));
+          controller.enqueue(sse("studio_error", { text: (body.error && body.error.message) || ("API error " + r.status) }));
+          controller.close(); return;
+        }
+        const reader = r.body.getReader();
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          controller.enqueue(value);
+        }
+      } catch (e) {
+        try { controller.enqueue(sse("studio_error", { text: String(e && e.message || e) })); } catch {}
+      }
+      try { controller.close(); } catch {}
+    },
   });
-  const body = await r.json().catch(() => ({}));
-  if (!r.ok) return json({ error: "api error", detail: body.error && body.error.message || r.status }, 502);
 
-  // Text for the thread; proposal if the model called propose_puzzle.
-  const reply = (body.content || []).filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
-  const call = (body.content || []).find((b) => b.type === "tool_use" && b.name === "propose_puzzle");
-
-  // What the client should push onto its history as the assistant turn:
-  // text + tool_use only (server-tool blocks stay out of the running history).
-  const assistant = {
-    role: "assistant",
-    content: (body.content || [])
-      .filter((b) => b.type === "text" || (b.type === "tool_use" && b.name === "propose_puzzle"))
-      .map((b) => b.type === "text" ? { type: "text", text: b.text } : { type: "tool_use", id: b.id, name: b.name, input: b.input }),
-  };
-  if (!assistant.content.length) assistant.content = [{ type: "text", text: "(no reply)" }];
-
-  return json({ reply, proposal: call ? call.input : null, tool_use_id: call ? call.id : null, assistant });
+  return new Response(stream, {
+    headers: { "content-type": "text/event-stream; charset=utf-8", "cache-control": "no-store", "x-robots-tag": "noindex" },
+  });
 };
