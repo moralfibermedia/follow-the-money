@@ -1560,13 +1560,13 @@
       ]
     },
     {
-      "id": "one-ballot-two-winners",
+      "id": "fl-primaries",
       "type": "standard",
       "template": "text-match",
       "series": "just-the-facts",
-      "title": "One Ballot, Two Winners",
-      "slug": "one-ballot-two-winners",
-      "path": "just-the-facts/one-ballot-two-winners",
+      "title": "FL Primaries",
+      "slug": "fl-primaries",
+      "path": "just-the-facts/fl-primaries",
       "subtitle": "Florida elects its top two executives as a package deal — match the players to their real jobs.",
       "hook": "When Floridians vote for governor this November, they're actually voting for two people at once. Can you match each name in this endorsement story to the office they actually hold?",
       "hint": "Florida's constitution forces two of these offices onto the same ballot line.",

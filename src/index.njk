@@ -36,6 +36,16 @@ ogImage: "/preview.png"
 {%- endfor %}
 </ul>
 
+<h2>Just the Facts · the text-match series</h2>
+<p>One story from the record, cut into facts — match each claim to where it belongs. Every match reveals its sources. Newest first.</p>
+<ul class="hub-list">
+{%- for p in puzzles.puzzles | reverse %}{% if p.series == "just-the-facts" and p.status == "live" %}
+  <li><span class="hub-num">★ text match</span>
+      <a class="hub-t" href="/{{ p.path }}">"{{ p.title }}"</a>
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+</ul>
+
 <h2>The bar-chart series</h2>
 <p>Where it started: three companies, three donation profiles — match the company to the cash. Data from OpenSecrets.org, 2024 cycle.</p>
 <ul class="hub-list">
