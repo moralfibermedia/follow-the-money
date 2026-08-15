@@ -33,17 +33,51 @@
   .msg { margin-top:12px; font-size:12.5px; padding:10px 12px; border:1.5px solid; display:none; } .msg.ok { display:block; border-color:var(--green); color:var(--green); } .msg.err { display:block; border-color:var(--red); color:var(--red); } .msg a { color:inherit; }
   .hint { font-size:11px; color:var(--muted); font-style:italic; margin-top:4px; }
   .hide { display:none; }
+  /* chat tab */
+  .thread { background:var(--paper); border:1.5px solid var(--rule); padding:12px; max-height:420px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; }
+  .turn { max-width:92%; padding:9px 12px; font-size:13px; line-height:1.55; white-space:pre-wrap; word-wrap:break-word; }
+  .turn.you { align-self:flex-end; background:var(--ink); color:var(--paper); }
+  .turn.claude { align-self:flex-start; background:#fff; border:1.5px solid var(--rule); font-family:Georgia,serif; font-size:14px; }
+  .turn.sys { align-self:center; color:var(--muted); font-size:11px; font-style:italic; background:none; padding:2px; }
+  .chatrow { display:flex; gap:8px; margin-top:10px; }
+  .chatrow textarea { flex:1; }
+  .proposal-note { border:2px solid var(--gold); background:#fff8e6; padding:9px 12px; font-size:12px; margin-top:10px; }
+  /* playable preview */
+  .play-facts .pf { border:1.5px solid var(--rule); background:var(--paper); padding:10px 12px; margin:8px 0; font-family:Georgia,serif; font-size:14px; cursor:pointer; }
+  .play-facts .pf .pdrop { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:11px; border:1.5px dashed var(--gold); color:var(--gold); padding:2px 8px; margin-top:6px; }
+  .play-facts .pf.hit { border-color:var(--green); } .play-facts .pf.hit .pdrop { border-style:solid; border-color:var(--green); color:var(--green); }
+  .play-facts .pf.hit .psrc { display:block; font-family:'JetBrains Mono',monospace; font-size:10.5px; margin-top:4px; }
+  .ptile.sel { background:var(--ink); color:var(--paper); } .ptile.gone { opacity:.25; pointer-events:none; }
+  .ptile { cursor:pointer; }
+  .playmsg { font-family:'JetBrains Mono',monospace; font-size:12px; margin-top:10px; }
+  .playmsg.win { color:var(--green); font-weight:700; }
+  @keyframes wob { 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
+  .pf.no { animation:wob .25s; border-color:var(--red); }
 </style></head><body><div class="wrap">
   <h1>Puzzle Studio</h1>
-  <div class="sub">Build a puzzle from a source, then open a PR — the deploy preview is your review surface; nothing goes live until you merge.</div>
+  <div class="sub">Build a puzzle from a source — chat with Claude from as little as one link, or use the form tabs — then open a PR. The deploy preview is your review surface; nothing goes live until you merge.</div>
 
   <div class="tabs">
-    <button class="tab on" data-m="text-match" type="button">Text-match</button>
+    <button class="tab on" data-m="chat" type="button">✦ Build with Claude</button>
+    <button class="tab" data-m="text-match" type="button">Text-match</button>
     <button class="tab" data-m="rank" type="button">Rank</button>
     <button class="tab" data-m="timeline" type="button">Timeline</button>
   </div>
 
-  <fieldset>
+  <fieldset id="fs-chat">
+    <legend>Build with Claude</legend>
+    <label>Publish key — unlocks chat and the PR button</label>
+    <input id="ckey" type="password" autocomplete="off" placeholder="PUBLISH_KEY">
+    <div class="hint">Paste a link and say what caught your eye — e.g. "build a puzzle from this article; fun fact: FL runs governor and lt. gov on the same ticket." Claude reads the link, proposes a text-match draft, and fills the form — you stay the editor.</div>
+    <div class="thread" id="thread" style="margin-top:12px"><div class="turn sys">Start by pasting a link and your angle.</div></div>
+    <div class="chatrow">
+      <textarea id="cin" rows="3" placeholder="Build a puzzle from this article… https://"></textarea>
+      <button class="btn primary" type="button" id="csend" onclick="sendChat()">Send</button>
+    </div>
+    <div class="proposal-note hide" id="pnote">✦ Draft applied to the form and preview below — edit anything by hand in the <strong>Text-match</strong> tab, try it, then <strong>Open a PR</strong>.</div>
+  </fieldset>
+
+  <fieldset id="fs-frame" class="hide">
     <legend>Source &amp; framing</legend>
     <label>Source URL — the video / article / post this puzzle is built from</label>
     <input id="src" placeholder="https://www.youtube.com/watch?v=…">
@@ -58,7 +92,7 @@
     <div id="dirWrap" class="hide"><label>Direction label</label><input id="direction" placeholder="HIGHEST → LOWEST · TOTAL PAY · FY2024"></div>
   </fieldset>
 
-  <fieldset id="fs-text-match">
+  <fieldset id="fs-text-match" class="hide">
     <legend>Facts to match</legend>
     <div id="facts"></div>
     <button class="btn small" type="button" onclick="addFact()">＋ Add a fact</button>
@@ -81,7 +115,10 @@
     <div class="hint">Sorted earliest→latest by date. <strong>Triangulation standard:</strong> aim for 3 sources per event — gov/SEC, the company, and independent media.</div>
   </fieldset>
 
-  <fieldset><legend>Live preview</legend><div class="prev" id="preview"></div></fieldset>
+  <fieldset><legend>Live preview</legend><div class="prev" id="preview"></div>
+    <button class="btn small" type="button" id="tryBtn" style="margin-top:10px" onclick="playPreview()">▶ Try the puzzle</button>
+    <div id="playArea"></div>
+  </fieldset>
   <div class="msg" id="msg"></div>
 </div>
 
@@ -91,7 +128,7 @@
 </div>
 
 <script>
-  var M = "text-match";
+  var M = "chat";
   function $(id){ return document.getElementById(id); }
   function slug(s){ return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,""); }
   function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
@@ -101,9 +138,11 @@
   document.querySelectorAll(".tab").forEach(function(t){ t.addEventListener("click", function(){
     M = t.dataset.m;
     document.querySelectorAll(".tab").forEach(function(x){ x.classList.toggle("on", x===t); });
+    $("fs-chat").classList.toggle("hide", M!=="chat");
+    $("fs-frame").classList.toggle("hide", M==="chat");
     ["text-match","rank","timeline"].forEach(function(m){ $("fs-"+m).classList.toggle("hide", m!==M); });
     $("seriesWrap").classList.toggle("hide", M!=="text-match");
-    $("dirWrap").classList.toggle("hide", M==="text-match");
+    $("dirWrap").classList.toggle("hide", M==="text-match"||M==="chat");
     render();
   }); });
 
@@ -140,7 +179,8 @@
 
   function collect(){
     var c=common(), entry, preview, prows=[], tiles=[];
-    if(M==="text-match"){
+    var m=(M==="chat")?"text-match":M;
+    if(m==="text-match"){
       var rows=[].map.call($("facts").querySelectorAll(".row"),function(d){ return {
         text:d.querySelector(".f-text").value.trim(), match:d.querySelector(".f-match").value.trim(),
         url:d.querySelector(".f-url").value.trim(), label:d.querySelector(".f-label").value.trim() }; })
@@ -152,7 +192,7 @@
         facts:rows.map(function(r,i){ var f={answer:slug(r.match),label:"Fact "+(i+1),text:r.text}; if(r.url)f.sources=[{url:r.url,label:r.label||"source"}]; return f; }) };
       preview={ episode:c.title, series:c.series, subjects:order, subtitle:c.subtitle, matchVerb:"Match each fact to where it belongs.", dataLabel:"", dataSource:null, license:"CC BY 4.0" };
       prows=rows.map(function(r){ return {t:r.text, ok:!!r.url, lbl:r.label}; }); tiles=order;
-    } else if(M==="rank"){
+    } else if(m==="rank"){
       var its=[].map.call($("items").querySelectorAll(".row"),function(d){ return {
         name:d.querySelector(".i-name").value.trim(), value:parseFloat(d.querySelector(".i-value").value),
         display:d.querySelector(".i-display").value.trim(), url:d.querySelector(".i-url").value.trim(), label:d.querySelector(".i-label").value.trim() }; })
@@ -179,8 +219,107 @@
       preview={ kicker:"Follow the Money", episode:c.title, subjects:sorted.map(function(x){return x.title;}), subtitle:c.subtitle, matchVerb:"Put them in order.", dataLabel:c.direction||"", dataSource:null, license:"CC BY 4.0" };
       prows=sorted.map(function(r,i){ return {rk:i+1, t:r.date+" — "+r.title, ok:r.sources.length>=1, three:r.sources.length>=3, lbl:r.sources.length+" src"}; });
     }
+    // If a chat proposal supplied extra sources for a fact the editor hasn't
+    // rewritten, carry the full source list into the entry (form holds one).
+    if(m==="text-match"&&lastProposal&&entry.facts){ entry.facts.forEach(function(f){
+      var pf=(lastProposal.facts||[]).filter(function(x){ return x.text===f.text; })[0];
+      if(pf&&pf.sources&&pf.sources.length>1) f.sources=pf.sources.map(function(s){ return {url:s.url,label:s.label||"source"}; });
+    }); }
     return { entry:entry, preview:preview, prows:prows, tiles:tiles };
   }
+
+  // ---- chat (Build with Claude) ----
+  var chatlog=[], pendingTool=null, lastProposal=null;
+  function bubble(cls,text){ var d=document.createElement("div"); d.className="turn "+cls; d.textContent=text;
+    $("thread").appendChild(d); $("thread").scrollTop=$("thread").scrollHeight; return d; }
+
+  function applyProposal(p){
+    lastProposal=p;
+    $("title").value=p.title||""; $("subtitle").value=p.subtitle||""; $("hook").value=p.hook||"";
+    $("hint").value=p.hint||""; $("src").value=p.source_url||"";
+    if(p.series&&[].some.call($("series").options,function(o){return o.value===p.series;})) $("series").value=p.series;
+    $("facts").innerHTML="";
+    (p.facts||[]).forEach(function(f){
+      addFact(); var d=$("facts").lastElementChild, s=(f.sources&&f.sources[0])||{};
+      d.querySelector(".f-text").value=f.text||""; d.querySelector(".f-match").value=f.match||"";
+      d.querySelector(".f-url").value=s.url||""; d.querySelector(".f-label").value=s.label||"";
+    });
+    $("pnote").classList.remove("hide");
+    render();
+  }
+
+  function sendChat(){
+    var key=$("ckey").value.trim(), text=$("cin").value.trim(), btn=$("csend");
+    if(!key){ bubble("sys","Enter the publish key first — it unlocks the chat."); return; }
+    if(!text) return;
+    var content = pendingTool
+      ? [{type:"tool_result",tool_use_id:pendingTool,content:"Proposal received — rendered in the studio for the editor."},{type:"text",text:text}]
+      : text;
+    chatlog.push({role:"user",content:content});
+    pendingTool=null;
+    bubble("you",text); $("cin").value="";
+    btn.disabled=true;
+    var status=bubble("sys","connecting…");
+    var live=null, textAcc="", tool=null, toolJson="", err=null;
+
+    function finish(errText){
+      btn.disabled=false; status.remove();
+      if(errText){ chatlog.pop(); if(live)live.remove(); bubble("sys","✗ "+errText); return; }
+      var out=[], proposal=null;
+      if(textAcc.trim()) out.push({type:"text",text:textAcc.trim()});
+      if(tool){ try{ proposal=toolJson?JSON.parse(toolJson):null; }catch(e){ proposal=null; }
+        if(proposal) out.push({type:"tool_use",id:tool.id,name:tool.name,input:proposal}); }
+      if(!out.length) out=[{type:"text",text:"(no reply)"}];
+      chatlog.push({role:"assistant",content:out});
+      if(proposal){ pendingTool=tool.id; applyProposal(proposal);
+        bubble("sys","✦ Draft applied — see the preview below. Keep chatting to refine, or edit by hand in the Text-match tab."); }
+    }
+
+    function handle(ev){
+      if(ev.type==="studio_status"){ status.textContent=ev.text; }
+      else if(ev.type==="studio_error"){ err=ev.text||"stream error"; }
+      else if(ev.type==="error"){ err=(ev.error&&ev.error.message)||"stream error"; }
+      else if(ev.type==="content_block_start"){
+        var b=ev.content_block||{};
+        if(b.type==="text"){ if(textAcc&&!/\n$/.test(textAcc)) textAcc+="\n\n"; if(!live) live=bubble("claude",""); }
+        else if(b.type==="tool_use"&&b.name==="propose_puzzle"){ tool={id:b.id,name:b.name}; toolJson=""; status.textContent="✦ drafting the puzzle…"; }
+        else if(b.type==="server_tool_use"){ status.textContent="🔎 searching the web…"; }
+        else if(b.type==="web_search_tool_result"){ status.textContent="✓ reading search results…"; }
+      }
+      else if(ev.type==="content_block_delta"){
+        var dl=ev.delta||{};
+        if(dl.type==="text_delta"){ if(!live) live=bubble("claude","")
+          ; textAcc+=dl.text; live.textContent=textAcc; status.textContent="writing…"; $("thread").scrollTop=$("thread").scrollHeight; }
+        else if(dl.type==="input_json_delta"){ toolJson+=dl.partial_json||""; }
+      }
+    }
+
+    fetch("/.netlify/functions/studio-chat",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:key,messages:chatlog})})
+      .then(function(r){
+        var ct=r.headers.get("content-type")||"";
+        if(ct.indexOf("event-stream")<0){
+          return r.json().catch(function(){return{};}).then(function(b){
+            finish(r.status===401 ? "Wrong key, or PUBLISH_KEY isn't set in Netlify."
+              : (b.error||"error "+r.status)+(b.detail?" — "+b.detail:""));
+          });
+        }
+        var reader=r.body.getReader(), dec=new TextDecoder(), buf="";
+        function pump(){
+          return reader.read().then(function(res){
+            if(res.done){ finish(err); return; }
+            buf+=dec.decode(res.value,{stream:true});
+            var parts=buf.split("\n\n"); buf=parts.pop();
+            parts.forEach(function(chunk){ chunk.split("\n").forEach(function(line){
+              if(line.slice(0,6)==="data: "){ try{ handle(JSON.parse(line.slice(6))); }catch(e){} }
+            }); });
+            return pump();
+          });
+        }
+        return pump();
+      })
+      .catch(function(){ finish("Network error."); });
+  }
+  $("cin").addEventListener("keydown",function(e){ if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)){ e.preventDefault(); sendChat(); } });
 
   function render(){
     var c=collect(), p=$("preview"), t=c.entry.title||"Untitled";
@@ -192,15 +331,51 @@
     }).join("");
     var tiles=c.tiles.length?'<div class="ptiles">'+c.tiles.map(function(a){return '<span class="ptile">'+esc(a)+'</span>';}).join("")+'</div>':'';
     p.innerHTML='<h3>'+head+' <em>'+tail+'</em></h3><div class="src">'+esc(c.entry.subtitle||"")+'</div>'+rows+tiles;
+    var m=(M==="chat")?"text-match":M;
+    $("tryBtn").style.display=(m==="text-match"&&c.prows.length>=2)?"":"none";
+    $("playArea").innerHTML="";
+  }
+
+  // ---- playable preview (text-match mini engine: pick a tile, click a fact) ----
+  function playPreview(){
+    var c=collect(); if(!c.entry.facts||c.entry.facts.length<2) return;
+    var facts=c.entry.facts, names={}; c.entry.answers.forEach(function(a){ names[a.id]=a.name; });
+    var sel=null, hits=0, tries=0, area=$("playArea");
+    area.innerHTML='<div class="src" style="margin:12px 0 4px">Pick an answer tile, then click the fact it belongs to.</div>'
+      +'<div class="ptiles" id="pvTiles">'+shuffle(c.entry.answers).map(function(a){return '<span class="ptile" data-id="'+esc(a.id)+'">'+esc(a.name)+'</span>';}).join("")+'</div>'
+      +'<div class="play-facts" id="pvFacts">'+shuffle(facts).map(function(f,i){
+          var s=(f.sources&&f.sources[0])?'<span class="psrc">source: <a href="'+esc(f.sources[0].url)+'" target="_blank" rel="noopener">'+esc(f.sources[0].label||f.sources[0].url)+'</a> ↗</span>':'';
+          return '<div class="pf" data-a="'+esc(f.answer)+'">'+esc(f.text)+'<br><span class="pdrop">? drop answer here</span>'+s+'</div>'; }).join("")
+      +'</div><div class="playmsg" id="pvMsg"></div>';
+    area.querySelectorAll(".ptile").forEach(function(t){ t.addEventListener("click",function(){
+      area.querySelectorAll(".ptile").forEach(function(x){ x.classList.remove("sel"); });
+      sel=t; t.classList.add("sel");
+    }); });
+    area.querySelectorAll(".pf").forEach(function(f){ f.addEventListener("click",function(){
+      if(!sel||f.classList.contains("hit")) return;
+      tries++;
+      if(sel.dataset.id===f.dataset.a){
+        hits++; f.classList.add("hit");
+        f.querySelector(".pdrop").textContent="✓ "+names[f.dataset.a];
+        // grey the tile only when no unmatched fact still needs it
+        var still=[].some.call(area.querySelectorAll(".pf:not(.hit)"),function(x){ return x.dataset.a===sel.dataset.id; });
+        if(!still){ sel.classList.add("gone"); }
+        sel.classList.remove("sel"); sel=null;
+        if(hits===facts.length) $("pvMsg").className="playmsg win", $("pvMsg").textContent="✓ Solved in "+tries+" tr"+(tries===1?"y":"ies")+" — this is how it will play. Sources reveal on each match.";
+      } else {
+        f.classList.remove("no"); void f.offsetWidth; f.classList.add("no");
+        $("pvMsg").className="playmsg"; $("pvMsg").textContent="✗ Not that one — "+tries+" tr"+(tries===1?"y":"ies")+" so far.";
+      }
+    }); });
   }
 
   function postPuzzle(){
     var c=collect(), msg=$("msg"); msg.className="msg"; msg.textContent="";
     if(!c.entry.id){ msg.className="msg err"; msg.textContent="Add a title first."; return; }
-    var n=c.prows.length; if(n<2){ msg.className="msg err"; msg.textContent="Add at least two "+(M==="text-match"?"facts":M==="rank"?"items":"events")+"."; return; }
+    var n=c.prows.length; if(n<2){ msg.className="msg err"; msg.textContent="Add at least two "+(M==="rank"?"items":M==="timeline"?"events":"facts")+"."; return; }
     var missing=c.prows.some(function(r){ return !r.ok; });
     if(missing && !confirm("Some entries have no source link. Every claim should be sourced. Open the PR anyway?")) return;
-    var key=prompt("Publish key (PUBLISH_KEY):"); if(!key) return;
+    var key=$("ckey").value.trim()||prompt("Publish key (PUBLISH_KEY):"); if(!key) return;
     msg.textContent="Opening PR…";
     fetch("/.netlify/functions/publish-puzzle",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({key:key,puzzle:c.entry,preview:c.preview})})
       .then(function(r){ return r.json().then(function(b){ return {s:r.status,b:b}; }); })
