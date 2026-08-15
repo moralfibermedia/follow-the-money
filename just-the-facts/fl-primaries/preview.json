@@ -1,0 +1,16 @@
+{
+  "episode": "FL Primaries",
+  "series": "just-the-facts",
+  "subjects": [
+    "Governor",
+    "Lieutenant Governor",
+    "U.S. Representative",
+    "State Senator",
+    "County Mayor"
+  ],
+  "subtitle": "Florida elects its top two executives as a package deal \u2014 match the players to their real jobs.",
+  "matchVerb": "Match each fact to where it belongs.",
+  "dataLabel": "",
+  "dataSource": null,
+  "license": "CC BY 4.0"
+}

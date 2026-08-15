@@ -73,9 +73,9 @@
           "name": "Costco",
           "display_name": "Costco",
           "dem_amount": 659629,
-          "dem_pct": 80.0,
+          "dem_pct": 80,
           "rep_amount": 164817,
-          "rep_pct": 20.0,
+          "rep_pct": 20,
           "total": 824446,
           "leading_party": "dem",
           "opensecrets_url": "https://www.opensecrets.org/orgs/costco-wholesale/recipients?id=D000027773"
@@ -150,9 +150,9 @@
           "name": "Trader Joe's",
           "display_name": "Trader<br>Joe's",
           "dem_amount": 144320,
-          "dem_pct": 88.0,
+          "dem_pct": 88,
           "rep_amount": 19680,
-          "rep_pct": 12.0,
+          "rep_pct": 12,
           "total": 164000,
           "leading_party": "dem",
           "opensecrets_url": "https://www.opensecrets.org/orgs/trader-joe-s/recipients?id=D000046677"
@@ -1554,6 +1554,113 @@
             {
               "url": "https://frontlinepolicy.com",
               "label": "Source: Frontline Policy mission statement"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fl-primaries",
+      "type": "standard",
+      "template": "text-match",
+      "series": "just-the-facts",
+      "title": "FL Primaries",
+      "slug": "fl-primaries",
+      "path": "just-the-facts/fl-primaries",
+      "subtitle": "Florida elects its top two executives as a package deal — match the players to their real jobs.",
+      "hook": "When Floridians vote for governor this November, they're actually voting for two people at once. Can you match each of these Florida names to the office they actually hold?",
+      "hint": "Florida's constitution forces two of these offices onto the same ballot line.",
+      "data_source": null,
+      "data_license": "CC BY 4.0",
+      "status": "live",
+      "source_url": "https://floridianpress.com/2026/07/maxwell-alejandro-frost-endorses-david-jolly-for-governor/",
+      "answers": [
+        {
+          "id": "governor",
+          "name": "Governor"
+        },
+        {
+          "id": "lieutenant-governor",
+          "name": "Lieutenant Governor"
+        },
+        {
+          "id": "u-s-representative",
+          "name": "U.S. Representative"
+        },
+        {
+          "id": "state-senator",
+          "name": "State Senator"
+        },
+        {
+          "id": "county-mayor",
+          "name": "County Mayor"
+        }
+      ],
+      "facts": [
+        {
+          "answer": "governor",
+          "label": "Fact 1",
+          "text": "David Jolly is the presumptive Democratic nominee running for this office in Florida's Nov. 3, 2026 election.",
+          "sources": [
+            {
+              "url": "https://floridianpress.com/2026/07/maxwell-alejandro-frost-endorses-david-jolly-for-governor/",
+              "label": "The Floridian"
+            },
+            {
+              "url": "https://ballotpedia.org/Florida_gubernatorial_and_lieutenant_gubernatorial_election,_2026",
+              "label": "Ballotpedia: 2026 FL gov/lt. gov race"
+            }
+          ]
+        },
+        {
+          "answer": "lieutenant-governor",
+          "label": "Fact 2",
+          "text": "Gwen Graham is running alongside Jolly for this office — one Florida's constitution requires be elected jointly with the governor on a single ticket.",
+          "sources": [
+            {
+              "url": "https://floridianpress.com/2026/07/maxwell-alejandro-frost-endorses-david-jolly-for-governor/",
+              "label": "The Floridian"
+            },
+            {
+              "url": "https://fl.elaws.us/constitution/articleiv_section5",
+              "label": "Fla. Const. art. IV, §5"
+            }
+          ]
+        },
+        {
+          "answer": "u-s-representative",
+          "label": "Fact 3",
+          "text": "Maxwell Alejandro Frost holds this office, representing Florida's District 10 in Central Florida.",
+          "sources": [
+            {
+              "url": "https://floridianpress.com/2026/07/maxwell-alejandro-frost-endorses-david-jolly-for-governor/",
+              "label": "The Floridian"
+            }
+          ]
+        },
+        {
+          "answer": "state-senator",
+          "label": "Fact 4",
+          "text": "Shevrin Jones holds this office, representing District 34 in Tallahassee.",
+          "sources": [
+            {
+              "url": "https://floridianpress.com/2026/07/maxwell-alejandro-frost-endorses-david-jolly-for-governor/",
+              "label": "The Floridian"
+            },
+            {
+              "url": "https://ballotpedia.org/Shevrin_Jones",
+              "label": "Ballotpedia: Shevrin Jones"
+            }
+          ]
+        },
+        {
+          "answer": "county-mayor",
+          "label": "Fact 5",
+          "text": "Daniella Levine Cava holds this office overseeing Miami-Dade County.",
+          "sources": [
+            {
+              "url": "https://floridianpress.com/2026/07/maxwell-alejandro-frost-endorses-david-jolly-for-governor/",
+              "label": "The Floridian"
             }
           ]
         }

@@ -23,17 +23,26 @@ ogImage: "/preview.png"
   <span class="dt-go">Build yours →</span>
 </a>
 
-<h2>Fresh off the press</h2>
+<h2>Just the Facts</h2>
+<p>One story from the record, cut into facts — match each claim to where it belongs. Every match reveals its sources. Newest first.</p>
 <ul class="hub-list">
-{%- for id in site.featured %}
-  {%- set isFirst = loop.first %}
-  {%- for p in puzzles.puzzles %}{% if p.id == id and p.status == "live" %}
+{%- set jtfFirst = true %}
+{%- for p in puzzles.puzzles | reverse %}{% if p.template == "text-match" and p.status == "live" %}
+  <li><span class="hub-num">★ text match</span>
+      <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
+      {% if jtfFirst %}<span class="hub-new">New</span>{% set jtfFirst = false %}{% endif %}
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+</ul>
+
+<h2>Rankings &amp; timelines</h2>
+<p>Put the record in order — rank the numbers, sequence the events, call higher-or-lower. Sources on every answer.</p>
+<ul class="hub-list">
+{%- for p in puzzles.puzzles | reverse %}{% if (p.template == "rank" or p.template == "timeline" or p.template == "over-under") and p.status == "live" %}
   <li><span class="hub-num">★ {{ p.template | replace("-", " ") }}</span>
       <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
-      {% if isFirst %}<span class="hub-new">New</span>{% endif %}
       <span class="hub-hook">{{ p.hook }}</span></li>
-  {%- endif %}{% endfor %}
-{%- endfor %}
+{%- endif %}{% endfor %}
 </ul>
 
 <h2>The bar-chart series</h2>
