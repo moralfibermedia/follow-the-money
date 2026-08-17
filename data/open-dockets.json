@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-10T13:46:59Z",
+  "generated": "2026-08-17T13:52:41Z",
   "window": {
     "min_days": 3,
     "max_days": 60
@@ -8,7 +8,7 @@
   "dockets": [
     {
       "score": 11,
-      "why": "drug \u00b7 food \u00b7 public health \u00b7 closes in 35d",
+      "why": "drug \u00b7 food \u00b7 public health \u00b7 closes in 28d",
       "title": "Establishment Registration and Product Listing for Tobacco Products",
       "agencies": [
         "Health and Human Services Department",
@@ -17,7 +17,7 @@
       "document_number": "2026-13047",
       "publication_date": "2026-06-29",
       "comments_close_on": "2026-09-14",
-      "days_left": 35,
+      "days_left": 28,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-7130-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/06/29/2026-13047/establishment-registration-and-product-listing-for-tobacco-products",
@@ -29,28 +29,7 @@
     },
     {
       "score": 10,
-      "why": "medicare \u00b7 prescription \u00b7 drug price \u00b7 closes in 7d",
-      "title": "Medicare Drug Price Negotiation Program and Medicare Prescription Drug Benefit Program",
-      "agencies": [
-        "Health and Human Services Department",
-        "Centers for Medicare & Medicaid Services"
-      ],
-      "document_number": "2026-12059",
-      "publication_date": "2026-06-16",
-      "comments_close_on": "2026-08-17",
-      "days_left": 7,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2080-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/06/16/2026-12059/medicare-drug-price-negotiation-program-and-medicare-prescription-drug-benefit-program",
-      "docket_ids": [
-        "CMS-4215-P"
-      ],
-      "abstract": "This proposed rule would codify the Medicare Drug Price Negotiation Program (\"Negotiation Program\") and would establish certain new policies for the Negotiation Program and the Medicare Prescription Drug Benefit Program as required by the Inflation Reduction Act of 2022. This\u2026",
-      "rank": 2
-    },
-    {
-      "score": 10,
-      "why": "medicare \u00b7 medicaid \u00b7 prescription \u00b7 closes in 35d",
+      "why": "medicare \u00b7 medicaid \u00b7 prescription \u00b7 closes in 28d",
       "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
       "agencies": [
         "Health and Human Services Department",
@@ -59,7 +38,7 @@
       "document_number": "2026-14327",
       "publication_date": "2026-07-16",
       "comments_close_on": "2026-09-14",
-      "days_left": 35,
+      "days_left": 28,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2377-0002",
       "html_url": "https://www.federalregister.gov/documents/2026/07/16/2026-14327/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
@@ -67,11 +46,11 @@
         "CMS-1848-P"
       ],
       "abstract": "This proposed rule addresses: changes to the physician fee schedule (PFS); other changes to Medicare Part B payment policies to ensure that payment systems are updated to reflect changes in medical practice, relative value of services, and changes in the statute; codification of\u2026",
-      "rank": 3
+      "rank": 2
     },
     {
       "score": 9,
-      "why": "drug \u00b7 food \u00b7 significant \u00b7 closes in 32d",
+      "why": "drug \u00b7 food \u00b7 significant \u00b7 closes in 25d",
       "title": "Drug Establishment Registration and Drug Listing Requirements for Establishments Engaged in Distributed Manufacturing and Certain Foreign Establishments",
       "agencies": [
         "Health and Human Services Department",
@@ -80,7 +59,7 @@
       "document_number": "2026-14073",
       "publication_date": "2026-07-13",
       "comments_close_on": "2026-09-11",
-      "days_left": 32,
+      "days_left": 25,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-6075-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/07/13/2026-14073/drug-establishment-registration-and-drug-listing-requirements-for-establishments-engaged-in",
@@ -88,11 +67,11 @@
         "Docket No. FDA-2025-N-6075"
       ],
       "abstract": "The Food and Drug Administration (FDA, the Agency, or we) is proposing to amend the drug establishment registration and drug listing requirements with respect to establishments engaged in distributed manufacturing and foreign drug establishments. This action, if finalized, will\u2026",
-      "rank": 4
+      "rank": 3
     },
     {
       "score": 9,
-      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 60d",
+      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 53d",
       "title": "HUD's Implementation of the Fair Housing Act's Disparate Impact Standard; Amendments to HUD's Title VI Regulations",
       "agencies": [
         "Housing and Urban Development Department"
@@ -100,19 +79,19 @@
       "document_number": "2026-16228",
       "publication_date": "2026-08-10",
       "comments_close_on": "2026-10-09",
-      "days_left": 60,
+      "days_left": 53,
       "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/HUD_FRDOC_0001-7047",
+      "comment_url": "https://www.regulations.gov/commenton/HUD-2026-0034-0609",
       "html_url": "https://www.federalregister.gov/documents/2026/08/10/2026-16228/huds-implementation-of-the-fair-housing-acts-disparate-impact-standard-amendments-to-huds-title-vi",
       "docket_ids": [
         "Docket No. FR-6540-P-02"
       ],
       "abstract": "HUD published a notice of proposed rulemaking in January of 2026 that proposed to remove HUD's disparate-impact regulations and leave interpretation of disparate-impact liability under the Fair Housing Act to the courts. This supplemental notice of proposed rulemaking continues\u2026",
-      "rank": 5
+      "rank": 4
     },
     {
       "score": 8,
-      "why": "medicare \u00b7 labor \u00b7 consumer \u00b7 closes in 21d",
+      "why": "medicare \u00b7 labor \u00b7 consumer \u00b7 closes in 14d",
       "title": "Medicare Program: Hospital Outpatient Prospective Payment and Ambulatory Surgical Center Payment Systems; and Quality Reporting Programs; Including the Hospital Outpatient Quality Reporting Program and Ambulatory Surgical Center Quality Program; Request for Information on Strengthening the Standardization and Comparability of Hospital Price Transparency (HPT) Data; Prior Authorization; Accrediting Organization (AO) Deeming for Emergency Medical Treatment and Labor Act (EMTALA); and Notices of Closure of Teaching Hospitals and Opportunities To Apply for Available Slots",
       "agencies": [
         "Health and Human Services Department",
@@ -121,7 +100,7 @@
       "document_number": "2026-13656",
       "publication_date": "2026-07-07",
       "comments_close_on": "2026-08-31",
-      "days_left": 21,
+      "days_left": 14,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2344-0002",
       "html_url": "https://www.federalregister.gov/documents/2026/07/07/2026-13656/medicare-program-hospital-outpatient-prospective-payment-and-ambulatory-surgical-center-payment",
@@ -129,11 +108,11 @@
         "CMS-1850-P"
       ],
       "abstract": "This proposed rule would revise the Medicare Hospital Outpatient Prospective Payment System (OPPS) and the Medicare Ambulatory Surgical Center (ASC) payment system for calendar year 2027 based on our continuing experience with these systems. We also describe the changes to the\u2026",
-      "rank": 6
+      "rank": 5
     },
     {
       "score": 8,
-      "why": "immigration \u00b7 significant \u00b7 closes in 49d",
+      "why": "immigration \u00b7 significant \u00b7 closes in 42d",
       "title": "Civil Money Penalty for Actions in Contempt of an Immigration Judge's Proper Exercise of Authority",
       "agencies": [
         "Justice Department",
@@ -142,7 +121,7 @@
       "document_number": "2026-15458",
       "publication_date": "2026-07-30",
       "comments_close_on": "2026-09-28",
-      "days_left": 49,
+      "days_left": 42,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EOIR-2026-0100-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/07/30/2026-15458/civil-money-penalty-for-actions-in-contempt-of-an-immigration-judges-proper-exercise-of-authority",
@@ -151,52 +130,11 @@
         "Dir. Order No. 07-2026"
       ],
       "abstract": "This notice of proposed rulemaking (\"NPRM\") would implement a provision of the Immigration and Nationality Act (\"INA\" or \"the Act\") that authorizes Immigration Judges, under regulations prescribed by the Attorney General, to sanction by civil money penalty any action (or\u2026",
-      "rank": 7
+      "rank": 6
     },
     {
       "score": 7,
-      "why": "clean air \u00b7 significant \u00b7 closes in 11d",
-      "title": "Minor New Source Review Program Air Permitting Public Participation Requirements for State Implementation Plans",
-      "agencies": [
-        "Environmental Protection Agency"
-      ],
-      "document_number": "2026-13667",
-      "publication_date": "2026-07-07",
-      "comments_close_on": "2026-08-21",
-      "days_left": 11,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2025-1212-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/07/2026-13667/minor-new-source-review-program-air-permitting-public-participation-requirements-for-state",
-      "docket_ids": [
-        "EPA-HQ-OAR-2025-1212",
-        "FRL-9632-03-OAR"
-      ],
-      "abstract": "The U.S. Environmental Protection Agency (EPA) is proposing to revise the public participation regulatory requirements for sources subject to Clean Air Act (CAA) New Source Review (NSR) programs approved into State Implementation Plans (SIPs). Specifically, the EPA is proposing\u2026",
-      "rank": 8
-    },
-    {
-      "score": 7,
-      "why": "consumer \u00b7 significant \u00b7 closes in 11d",
-      "title": "Energy Conservation Program: Procedures, Interpretations, and Policies for Consideration of New or Revised Energy Conservation Standards and Test Procedures for Consumer Products and Certain Commercial/Industrial Equipment; Extension of Public Comment Period",
-      "agencies": [
-        "Energy Department"
-      ],
-      "document_number": "2026-15211",
-      "publication_date": "2026-07-28",
-      "comments_close_on": "2026-08-21",
-      "days_left": 11,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/EERE-2025-BT-STD-0001-0054",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/28/2026-15211/energy-conservation-program-procedures-interpretations-and-policies-for-consideration-of-new-or",
-      "docket_ids": [
-        "EERE-2025-BT-STD-0001"
-      ],
-      "abstract": "On July 7, 2026, the U.S. Department of Energy (\"DOE\") published in the Federal Register a notice of proposed rulemaking (\"NOPR\") and announcement of webinar proposing to update the Department's current rulemaking methodology titled, \"Procedures, Interpretations, and Policies\u2026",
-      "rank": 9
-    },
-    {
-      "score": 7,
-      "why": "immigration \u00b7 citizenship \u00b7 closes in 14d",
+      "why": "immigration \u00b7 citizenship \u00b7 closes in 7d",
       "title": "Naturalization Application Fee Adjustments",
       "agencies": [
         "Homeland Security Department"
@@ -204,7 +142,7 @@
       "document_number": "2026-12542",
       "publication_date": "2026-06-23",
       "comments_close_on": "2026-08-24",
-      "days_left": 14,
+      "days_left": 7,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0265-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/06/23/2026-12542/naturalization-application-fee-adjustments",
@@ -213,11 +151,11 @@
         "DHS Docket No. USCIS-2026-0265"
       ],
       "abstract": "The Department of Homeland Security (DHS) proposes to adjust the fees that U.S. Citizenship and Immigration Services (USCIS) charges for Form N-400, and Form N-336, to end both the reduced fee option for Form N-400, and the availability of fee waivers for both forms. Current and\u2026",
-      "rank": 10
+      "rank": 7
     },
     {
       "score": 7,
-      "why": "snap \u00b7 nutrition \u00b7 closes in 14d",
+      "why": "snap \u00b7 nutrition \u00b7 closes in 7d",
       "title": "Supplemental Nutrition Assistance Program: Changes in Federal-State Administrative Cost Sharing",
       "agencies": [
         "Agriculture Department",
@@ -226,7 +164,7 @@
       "document_number": "2026-12696",
       "publication_date": "2026-06-24",
       "comments_close_on": "2026-08-24",
-      "days_left": 14,
+      "days_left": 7,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/FNA-2026-0034-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/06/24/2026-12696/supplemental-nutrition-assistance-program-changes-in-federal-state-administrative-cost-sharing",
@@ -234,11 +172,11 @@
         "FNS-2026-0595"
       ],
       "abstract": "In response to Section 10106 of Public Law 119-21, the One Big Beautiful Bill Act of 2025, this proposed rule would amend the Supplemental Nutrition Assistance Program (SNAP) regulations to codify the reduction of the amount of the Federal government's share of annual SNAP State\u2026",
-      "rank": 11
+      "rank": 8
     },
     {
       "score": 7,
-      "why": "medicare \u00b7 wage \u00b7 closes in 21d",
+      "why": "medicare \u00b7 wage \u00b7 closes in 14d",
       "title": "Calendar Year 2027 Home Health Prospective Payment System (HH PPS) Rate Update; Requirements for the HH Quality Reporting Program and the Expanded HH Value-Based Purchasing Model; Medicare Provider Enrollment, Durable Medical Equipment (DME), and DME, Prosthetics, Orthotics, and Supplies (DMEPOS) Policies",
       "agencies": [
         "Health and Human Services Department",
@@ -247,7 +185,7 @@
       "document_number": "2026-13602",
       "publication_date": "2026-07-06",
       "comments_close_on": "2026-08-31",
-      "days_left": 21,
+      "days_left": 14,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2311-0002",
       "html_url": "https://www.federalregister.gov/documents/2026/07/06/2026-13602/calendar-year-2027-home-health-prospective-payment-system-hh-pps-rate-update-requirements-for-the-hh",
@@ -255,6 +193,69 @@
         "CMS-1844-P"
       ],
       "abstract": "This proposed rule would set forth routine updates to the Medicare home health payment rates in accordance with existing statutory and regulatory requirements. In addition, this proposed rule discusses the behavior adjustment and proposes a temporary behavior adjustment and\u2026",
+      "rank": 9
+    },
+    {
+      "score": 7,
+      "why": "credit \u00b7 election \u00b7 tax \u00b7 closes in 31d",
+      "title": "Section 898(c) Transition Rule for Allocating Foreign Taxes and Section 960(d)(4) Foreign Tax Credit Disallowance",
+      "agencies": [
+        "Treasury Department",
+        "Internal Revenue Service"
+      ],
+      "document_number": "2026-15614",
+      "publication_date": "2026-08-03",
+      "comments_close_on": "2026-09-17",
+      "days_left": 31,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/IRS-2026-0859-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/03/2026-15614/section-898c-transition-rule-for-allocating-foreign-taxes-and-section-960d4-foreign-tax-credit",
+      "docket_ids": [
+        "REG-115145-25"
+      ],
+      "abstract": "This document contains proposed regulations that relate to allocating foreign taxes of foreign corporations affected by the repeal of the one-month deferral election and to the disallowance of foreign tax credits on certain distributions of previously taxed earnings and profits.\u2026",
+      "rank": 10
+    },
+    {
+      "score": 7,
+      "why": "medicaid \u00b7 tax \u00b7 closes in 35d",
+      "title": "Medicaid Program; Amending the Indirect Hold Harmless Threshold of Health Care-Related Taxes",
+      "agencies": [
+        "Health and Human Services Department",
+        "Centers for Medicare & Medicaid Services"
+      ],
+      "document_number": "2026-14897",
+      "publication_date": "2026-07-23",
+      "comments_close_on": "2026-09-21",
+      "days_left": 35,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2476-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/23/2026-14897/medicaid-program-amending-the-indirect-hold-harmless-threshold-of-health-care-related-taxes",
+      "docket_ids": [
+        "CMS-2452-P"
+      ],
+      "abstract": "This proposed rule would revise standards for determining whether an indirect hold harmless arrangement exists for a health care- related tax. This proposed rule is necessary to implement a provision in the \"One Big Beautiful Bill Act,\" herein referred to as the \"Working\u2026",
+      "rank": 11
+    },
+    {
+      "score": 6,
+      "why": "clean air \u00b7 significant \u00b7 closes in 4d",
+      "title": "Minor New Source Review Program Air Permitting Public Participation Requirements for State Implementation Plans",
+      "agencies": [
+        "Environmental Protection Agency"
+      ],
+      "document_number": "2026-13667",
+      "publication_date": "2026-07-07",
+      "comments_close_on": "2026-08-21",
+      "days_left": 4,
+      "significant": true,
+      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2025-1212-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/07/2026-13667/minor-new-source-review-program-air-permitting-public-participation-requirements-for-state",
+      "docket_ids": [
+        "EPA-HQ-OAR-2025-1212",
+        "FRL-9632-03-OAR"
+      ],
+      "abstract": "The U.S. Environmental Protection Agency (EPA) is proposing to revise the public participation regulatory requirements for sources subject to Clean Air Act (CAA) New Source Review (NSR) programs approved into State Implementation Plans (SIPs). Specifically, the EPA is proposing\u2026",
       "rank": 12
     }
   ]
