@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-07T18:15:08Z",
+  "generated": "2026-09-14T18:38:03Z",
   "window": {
     "min_days": 3,
     "max_days": 60
@@ -7,50 +7,8 @@
   "count": 12,
   "dockets": [
     {
-      "score": 11,
-      "why": "drug \u00b7 food \u00b7 public health \u00b7 closes in 7d",
-      "title": "Establishment Registration and Product Listing for Tobacco Products",
-      "agencies": [
-        "Health and Human Services Department",
-        "Food and Drug Administration"
-      ],
-      "document_number": "2026-13047",
-      "publication_date": "2026-06-29",
-      "comments_close_on": "2026-09-14",
-      "days_left": 7,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-7130-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/06/29/2026-13047/establishment-registration-and-product-listing-for-tobacco-products",
-      "docket_ids": [
-        "Docket No. FDA-2025-N-7130"
-      ],
-      "abstract": "The Food and Drug Administration (FDA, the Agency, or we) is proposing regulations to prescribe the format, content, and procedures for establishment registration and tobacco product listing. Complete and accurate establishment registration and product listing information is\u2026",
-      "rank": 1
-    },
-    {
-      "score": 10,
-      "why": "medicare \u00b7 medicaid \u00b7 prescription \u00b7 closes in 7d",
-      "title": "Medicare and Medicaid Programs; CY 2027 Payment Policies Under the Physician Fee Schedule and Other Changes to Part B Payment and Coverage Policies; Medicare Shared Savings Program Requirements; and Medicare Prescription Drug Inflation Rebate Program",
-      "agencies": [
-        "Health and Human Services Department",
-        "Centers for Medicare & Medicaid Services"
-      ],
-      "document_number": "2026-14327",
-      "publication_date": "2026-07-16",
-      "comments_close_on": "2026-09-14",
-      "days_left": 7,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2377-0002",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/16/2026-14327/medicare-and-medicaid-programs-cy-2027-payment-policies-under-the-physician-fee-schedule-and-other",
-      "docket_ids": [
-        "CMS-1848-P"
-      ],
-      "abstract": "This proposed rule addresses: changes to the physician fee schedule (PFS); other changes to Medicare Part B payment policies to ensure that payment systems are updated to reflect changes in medical practice, relative value of services, and changes in the statute; codification of\u2026",
-      "rank": 2
-    },
-    {
       "score": 9,
-      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 32d",
+      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 25d",
       "title": "HUD's Implementation of the Fair Housing Act's Disparate Impact Standard; Amendments to HUD's Title VI Regulations",
       "agencies": [
         "Housing and Urban Development Department"
@@ -58,7 +16,7 @@
       "document_number": "2026-16228",
       "publication_date": "2026-08-10",
       "comments_close_on": "2026-10-09",
-      "days_left": 32,
+      "days_left": 25,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/HUD-2026-0034-0609",
       "html_url": "https://www.federalregister.gov/documents/2026/08/10/2026-16228/huds-implementation-of-the-fair-housing-acts-disparate-impact-standard-amendments-to-huds-title-vi",
@@ -66,32 +24,11 @@
         "Docket No. FR-6540-P-02"
       ],
       "abstract": "HUD published a notice of proposed rulemaking in January of 2026 that proposed to remove HUD's disparate-impact regulations and leave interpretation of disparate-impact liability under the Fair Housing Act to the courts. This supplemental notice of proposed rulemaking continues\u2026",
-      "rank": 3
+      "rank": 1
     },
     {
       "score": 8,
-      "why": "drug \u00b7 food \u00b7 significant \u00b7 closes in 4d",
-      "title": "Drug Establishment Registration and Drug Listing Requirements for Establishments Engaged in Distributed Manufacturing and Certain Foreign Establishments",
-      "agencies": [
-        "Health and Human Services Department",
-        "Food and Drug Administration"
-      ],
-      "document_number": "2026-14073",
-      "publication_date": "2026-07-13",
-      "comments_close_on": "2026-09-11",
-      "days_left": 4,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-6075-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/13/2026-14073/drug-establishment-registration-and-drug-listing-requirements-for-establishments-engaged-in",
-      "docket_ids": [
-        "Docket No. FDA-2025-N-6075"
-      ],
-      "abstract": "The Food and Drug Administration (FDA, the Agency, or we) is proposing to amend the drug establishment registration and drug listing requirements with respect to establishments engaged in distributed manufacturing and foreign drug establishments. This action, if finalized, will\u2026",
-      "rank": 4
-    },
-    {
-      "score": 8,
-      "why": "immigration \u00b7 significant \u00b7 closes in 21d",
+      "why": "immigration \u00b7 significant \u00b7 closes in 14d",
       "title": "Civil Money Penalty for Actions in Contempt of an Immigration Judge's Proper Exercise of Authority",
       "agencies": [
         "Justice Department",
@@ -100,7 +37,7 @@
       "document_number": "2026-15458",
       "publication_date": "2026-07-30",
       "comments_close_on": "2026-09-28",
-      "days_left": 21,
+      "days_left": 14,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EOIR-2026-0100-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/07/30/2026-15458/civil-money-penalty-for-actions-in-contempt-of-an-immigration-judges-proper-exercise-of-authority",
@@ -109,11 +46,75 @@
         "Dir. Order No. 07-2026"
       ],
       "abstract": "This notice of proposed rulemaking (\"NPRM\") would implement a provision of the Immigration and Nationality Act (\"INA\" or \"the Act\") that authorizes Immigration Judges, under regulations prescribed by the Attorney General, to sanction by civil money penalty any action (or\u2026",
-      "rank": 5
+      "rank": 2
     },
     {
       "score": 7,
-      "why": "credit \u00b7 election \u00b7 tax \u00b7 closes in 10d",
+      "why": "medicaid \u00b7 tax \u00b7 closes in 7d",
+      "title": "Medicaid Program; Amending the Indirect Hold Harmless Threshold of Health Care-Related Taxes",
+      "agencies": [
+        "Health and Human Services Department",
+        "Centers for Medicare & Medicaid Services"
+      ],
+      "document_number": "2026-14897",
+      "publication_date": "2026-07-23",
+      "comments_close_on": "2026-09-21",
+      "days_left": 7,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2476-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/23/2026-14897/medicaid-program-amending-the-indirect-hold-harmless-threshold-of-health-care-related-taxes",
+      "docket_ids": [
+        "CMS-2452-P"
+      ],
+      "abstract": "This proposed rule would revise standards for determining whether an indirect hold harmless arrangement exists for a health care- related tax. This proposed rule is necessary to implement a provision in the \"One Big Beautiful Bill Act,\" herein referred to as the \"Working\u2026",
+      "rank": 3
+    },
+    {
+      "score": 7,
+      "why": "education \u00b7 significant \u00b7 closes in 9d",
+      "title": "Education Department General Administrative Regulations",
+      "agencies": [
+        "Education Department"
+      ],
+      "document_number": "2026-17239",
+      "publication_date": "2026-08-24",
+      "comments_close_on": "2026-09-23",
+      "days_left": 9,
+      "significant": true,
+      "comment_url": "https://www.regulations.gov/commenton/ED-2026-OPEPD-2542-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/24/2026-17239/education-department-general-administrative-regulations",
+      "docket_ids": [
+        "Docket ID ED-2026-OPEPD-2542"
+      ],
+      "abstract": "The Secretary of Education proposes to amend the Education Department General Administrative Regulations (EDGAR) and other provisions in 2 CFR parts 3474 and 3485 to update the regulations and better align them with other U.S. Department of Education (Department) regulations and\u2026",
+      "rank": 4
+    },
+    {
+      "score": 7,
+      "why": "clean water \u00b7 significant \u00b7 closes in 25d",
+      "title": "Updated Definition of \u201cWaters of the United States\u201d",
+      "agencies": [
+        "Defense Department",
+        "Engineers Corps",
+        "Environmental Protection Agency"
+      ],
+      "document_number": "2026-18317",
+      "publication_date": "2026-09-09",
+      "comments_close_on": "2026-10-09",
+      "days_left": 25,
+      "significant": true,
+      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2025-0322-15447",
+      "html_url": "https://www.federalregister.gov/documents/2026/09/09/2026-18317/updated-definition-of-waters-of-the-united-states",
+      "docket_ids": [
+        "EPA-HQ-OW-2025-0322",
+        "FRL 11132.1-04-OW"
+      ],
+      "abstract": "The purpose of this supplemental notice of proposed rulemaking is for the U.S. Environmental Protection Agency (EPA) and the Department of the Army (\"the agencies\") to supplement and seek additional comment on certain aspects of an earlier proposal, published on November 20,\u2026",
+      "rank": 5
+    },
+    {
+      "score": 6,
+      "why": "credit \u00b7 election \u00b7 tax \u00b7 closes in 3d",
       "title": "Section 898(c) Transition Rule for Allocating Foreign Taxes and Section 960(d)(4) Foreign Tax Credit Disallowance",
       "agencies": [
         "Treasury Department",
@@ -122,7 +123,7 @@
       "document_number": "2026-15614",
       "publication_date": "2026-08-03",
       "comments_close_on": "2026-09-17",
-      "days_left": 10,
+      "days_left": 3,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/IRS-2026-0859-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/03/2026-15614/section-898c-transition-rule-for-allocating-foreign-taxes-and-section-960d4-foreign-tax-credit",
@@ -133,8 +134,8 @@
       "rank": 6
     },
     {
-      "score": 7,
-      "why": "credit \u00b7 election \u00b7 tax \u00b7 closes in 10d",
+      "score": 6,
+      "why": "credit \u00b7 election \u00b7 tax \u00b7 closes in 3d",
       "title": "Section 898(c) Transition Rule for Allocating Foreign Taxes and Section 960(d)(4) Foreign Tax Credit Disallowance; Correction",
       "agencies": [
         "Treasury Department",
@@ -143,7 +144,7 @@
       "document_number": "2026-17764",
       "publication_date": "2026-08-31",
       "comments_close_on": "2026-09-17",
-      "days_left": 10,
+      "days_left": 3,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/IRS-2026-0859-0003",
       "html_url": "https://www.federalregister.gov/documents/2026/08/31/2026-17764/section-898c-transition-rule-for-allocating-foreign-taxes-and-section-960d4-foreign-tax-credit",
@@ -154,70 +155,8 @@
       "rank": 7
     },
     {
-      "score": 7,
-      "why": "medicaid \u00b7 tax \u00b7 closes in 14d",
-      "title": "Medicaid Program; Amending the Indirect Hold Harmless Threshold of Health Care-Related Taxes",
-      "agencies": [
-        "Health and Human Services Department",
-        "Centers for Medicare & Medicaid Services"
-      ],
-      "document_number": "2026-14897",
-      "publication_date": "2026-07-23",
-      "comments_close_on": "2026-09-21",
-      "days_left": 14,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2476-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/23/2026-14897/medicaid-program-amending-the-indirect-hold-harmless-threshold-of-health-care-related-taxes",
-      "docket_ids": [
-        "CMS-2452-P"
-      ],
-      "abstract": "This proposed rule would revise standards for determining whether an indirect hold harmless arrangement exists for a health care- related tax. This proposed rule is necessary to implement a provision in the \"One Big Beautiful Bill Act,\" herein referred to as the \"Working\u2026",
-      "rank": 8
-    },
-    {
-      "score": 7,
-      "why": "education \u00b7 significant \u00b7 closes in 16d",
-      "title": "Education Department General Administrative Regulations",
-      "agencies": [
-        "Education Department"
-      ],
-      "document_number": "2026-17239",
-      "publication_date": "2026-08-24",
-      "comments_close_on": "2026-09-23",
-      "days_left": 16,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/ED-2026-OPEPD-2542-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/24/2026-17239/education-department-general-administrative-regulations",
-      "docket_ids": [
-        "Docket ID ED-2026-OPEPD-2542"
-      ],
-      "abstract": "The Secretary of Education proposes to amend the Education Department General Administrative Regulations (EDGAR) and other provisions in 2 CFR parts 3474 and 3485 to update the regulations and better align them with other U.S. Department of Education (Department) regulations and\u2026",
-      "rank": 9
-    },
-    {
       "score": 6,
-      "why": "drug \u00b7 food \u00b7 closes in 11d",
-      "title": "International Association of Color Manufacturers; Filing of Color Additive Petition",
-      "agencies": [
-        "Health and Human Services Department",
-        "Food and Drug Administration"
-      ],
-      "document_number": "2026-16943",
-      "publication_date": "2026-08-19",
-      "comments_close_on": "2026-09-18",
-      "days_left": 11,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/FDA-2026-C-8883-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/19/2026-16943/international-association-of-color-manufacturers-filing-of-color-additive-petition",
-      "docket_ids": [
-        "Docket No. FDA-2026-C-8883"
-      ],
-      "abstract": "The Food and Drug Administration (FDA or we) is announcing that we have filed a petition, submitted by the International Association of Color Manufacturers, proposing that we amend our color additive regulations to provide for the safe use of acetone as a solvent in the\u2026",
-      "rank": 10
-    },
-    {
-      "score": 6,
-      "why": "labor \u00b7 immigration \u00b7 closes in 17d",
+      "why": "labor \u00b7 immigration \u00b7 closes in 10d",
       "title": "Fee for Certain H-1B Petitions",
       "agencies": [
         "Homeland Security Department"
@@ -225,7 +164,7 @@
       "document_number": "2026-17324",
       "publication_date": "2026-08-25",
       "comments_close_on": "2026-09-24",
-      "days_left": 17,
+      "days_left": 10,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0298-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/25/2026-17324/fee-for-certain-h-1b-petitions",
@@ -234,11 +173,11 @@
         "DHS Docket No. USCIS-2026-0298"
       ],
       "abstract": "The Department of Homeland Security (DHS) proposes to establish a $103,265 fee, payable at the time of filing, for all H-1B cap-subject petitions, including those eligible for the advanced degree exemption, which would be imposed in addition to all other applicable fees or\u2026",
-      "rank": 11
+      "rank": 8
     },
     {
       "score": 6,
-      "why": "clean air \u00b7 grant \u00b7 closes in 18d",
+      "why": "clean air \u00b7 grant \u00b7 closes in 11d",
       "title": "Response to Clean Air Act Section 176A Petition From New Hampshire",
       "agencies": [
         "Environmental Protection Agency"
@@ -246,7 +185,7 @@
       "document_number": "2026-16331",
       "publication_date": "2026-08-11",
       "comments_close_on": "2026-09-25",
-      "days_left": 18,
+      "days_left": 11,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2026-2179-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/11/2026-16331/response-to-clean-air-act-section-176a-petition-from-new-hampshire",
@@ -255,6 +194,69 @@
         "FRL-13567-01-R1"
       ],
       "abstract": "The Environmental Protection Agency (EPA) is proposing to grant a Clean Air Act (CAA or Act) petition submitted by the state of New Hampshire on December 24, 2025. The petition requests that the EPA remove the State of New Hampshire from the Ozone Transport Region (OTR) based on\u2026",
+      "rank": 9
+    },
+    {
+      "score": 6,
+      "why": "clean air \u00b7 emission \u00b7 closes in 14d",
+      "title": "Approval and Promulgation of State Air Quality Plans for Designated Facilities and Pollutants; Puerto Rico; Negative Declaration for the Oil and Gas Industry",
+      "agencies": [
+        "Environmental Protection Agency"
+      ],
+      "document_number": "2026-17495",
+      "publication_date": "2026-08-27",
+      "comments_close_on": "2026-09-28",
+      "days_left": 14,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/EPA-R02-OAR-2026-2741-0002",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/27/2026-17495/approval-and-promulgation-of-state-air-quality-plans-for-designated-facilities-and-pollutants-puerto",
+      "docket_ids": [
+        "EPA-R02-OAR-2026-2741",
+        "FRL-13326-01-R2"
+      ],
+      "abstract": "Pursuant to the Clean Air Act, the Environmental Protection Agency is proposing to approve a negative declaration for oil and natural gas facilities within the Commonwealth of Puerto Rico. This negative declaration formally certifies that there are no existing crude oil or\u2026",
+      "rank": 10
+    },
+    {
+      "score": 6,
+      "why": "emission \u00b7 public health \u00b7 closes in 18d",
+      "title": "High-Speed Train Noise Emission Standards",
+      "agencies": [
+        "Transportation Department",
+        "Federal Railroad Administration"
+      ],
+      "document_number": "2026-15724",
+      "publication_date": "2026-08-03",
+      "comments_close_on": "2026-10-02",
+      "days_left": 18,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/FRA-2025-0786-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/03/2026-15724/high-speed-train-noise-emission-standards",
+      "docket_ids": [
+        "Docket No. FRA-2025-0786, Notice No. 1"
+      ],
+      "abstract": "This NPRM seeks to amend the noise emission regulations to address the unique noise emission characteristics of trains operating at speeds exceeding 160 miles per hour (mph). Specifically, the proposed regulation would provide an alternative standard for noise emissions from\u2026",
+      "rank": 11
+    },
+    {
+      "score": 6,
+      "why": "drug \u00b7 food \u00b7 closes in 25d",
+      "title": "Radiology Devices; Reclassification of Digital Breast Tomosynthesis System",
+      "agencies": [
+        "Health and Human Services Department",
+        "Food and Drug Administration"
+      ],
+      "document_number": "2026-16209",
+      "publication_date": "2026-08-10",
+      "comments_close_on": "2026-10-09",
+      "days_left": 25,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/FDA-2026-N-7630-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/10/2026-16209/radiology-devices-reclassification-of-digital-breast-tomosynthesis-system",
+      "docket_ids": [
+        "Docket No. FDA-2026-N-7630"
+      ],
+      "abstract": "The Food and Drug Administration (FDA) is proposing to reclassify digital breast tomosynthesis (DBT) systems, product code OTE, which are postamendments class III devices, from class III (premarket approval) into class II (special controls), subject to premarket notification.\u2026",
       "rank": 12
     }
   ]
