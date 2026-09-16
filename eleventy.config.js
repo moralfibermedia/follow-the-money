@@ -46,6 +46,29 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("pct1", n => (Math.round(Number(n) * 10) / 10).toFixed(1) + "%");
   eleventyConfig.addFilter("stripHint", s => String(s || "").replace(/^Hint:\s*/i, ""));
   eleventyConfig.addFilter("dump2", v => JSON.stringify(v));
+
+  // Public Comment CTA state, derived from the data — never hand-edited prose.
+  // open -> closing (<=7 days) -> closed (on the record) -> resolved (final rule
+  // published). The client re-checks the deadline and fills the live count, so a
+  // page cached before a deadline still renders the right state.
+  eleventyConfig.addFilter("commentCta", (cta) => {
+    if (!cta || !cta.count_document_id) return null;
+    const now = Date.now();
+    const deadline = cta.comment_deadline ? new Date(cta.comment_deadline).getTime() : null;
+    const day = 86400000;
+    let state = "open";
+    if (cta.final_rule_url) state = "resolved";
+    else if (deadline && now > deadline) state = "closed";
+    else if (deadline && deadline - now <= 7 * day) state = "closing";
+    const fmt = (t) => new Date(t).toLocaleDateString("en-US",
+      { month: "long", day: "numeric", year: "numeric", timeZone: "America/New_York" });
+    return Object.assign({}, cta, {
+      state,
+      daysLeft: deadline ? Math.max(0, Math.ceil((deadline - now) / day)) : null,
+      deadlineLabel: deadline ? fmt(deadline) : null,
+      finalRuleLabel: cta.final_rule_date ? fmt(new Date(cta.final_rule_date).getTime()) : null,
+    });
+  });
   eleventyConfig.addFilter("emLast", t => {
     const w = String(t).split(" ");
     if (w.length === 1) return `<em>${t}</em>`;

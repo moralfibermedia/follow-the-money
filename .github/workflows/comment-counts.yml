@@ -23,7 +23,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Fetch posted comment counts
         env:
@@ -37,12 +37,65 @@ jobs:
           KEY = os.environ.get("REGULATIONS_GOV_API_KEY", "").strip()
           PATH = "data/comment-counts.json"
 
-          # Tracked documentIds. Add more here as new open-comment puzzles ship.
-          TRACKED = ["OMB-2026-0034-0001"]
+          # The watch list is DERIVED from data/puzzles.json — adding a watched
+          # rule is a data edit, and retiring one happens on its own:
+          #   * a puzzle that isn't live is not watched
+          #   * a rule with final_rule_url set is done; stop polling
+          #   * a closed window stops being polled GRACE_DAYS after its deadline
+          #     (posted counts lag received by weeks, hence the grace period)
+          # Counts already written stay in the JSON, so a closed rule keeps
+          # showing its final tally forever.
+          GRACE_DAYS = 60
+          MANIFEST = "data/puzzles.json"
+
+          def watch_list():
+              try:
+                  puzzles = json.load(open(MANIFEST)).get("puzzles", [])
+              except Exception as e:
+                  print(f"::warning::Could not read {MANIFEST} ({e}); nothing to watch.")
+                  return []
+              now = datetime.now(timezone.utc)
+              out, seen = [], set()
+              for p in puzzles:
+                  cta = p.get("comment_cta") or {}
+                  doc = cta.get("count_document_id")
+                  if not doc or doc in seen:
+                      continue  # several puzzles can cover the same rule; judge it once
+                  seen.add(doc)
+                  if p.get("status") != "live":
+                      print(f"- {doc}: puzzle not live; skipping")
+                      continue
+                  if cta.get("final_rule_url"):
+                      print(f"- {doc}: final rule published; retired from the watch list")
+                      continue
+                  dl = cta.get("comment_deadline")
+                  if dl:
+                      try:
+                          d = datetime.fromisoformat(dl)
+                          if d.tzinfo is None:
+                              d = d.replace(tzinfo=timezone.utc)
+                          age = (now - d).days
+                          if age > GRACE_DAYS:
+                              print(f"- {doc}: closed {age}d ago (> {GRACE_DAYS}d grace); retired")
+                              continue
+                      except ValueError:
+                          print(f"::warning::{doc}: unparseable comment_deadline {dl!r}; watching anyway")
+                  out.append(doc)
+              return out
+
+          TRACKED = watch_list()
+
+          if not TRACKED:
+              print("Nothing to watch — no live docket is open or inside its grace window.")
+              sys.exit(0)
 
           if not KEY:
-              print("::error::REGULATIONS_GOV_API_KEY is not set — leaving JSON untouched.")
-              sys.exit(1)
+              # A warning, not a failure: a missing optional key shouldn't red-X
+              # this repo every morning. Counts simply stop updating.
+              print("::warning::REGULATIONS_GOV_API_KEY is not set — leaving JSON untouched.")
+              sys.exit(0)
+
+          print(f"Watching {len(TRACKED)} docket(s): {', '.join(TRACKED)}")
 
           def get_json(url):
               req = urllib.request.Request(url, headers={"X-Api-Key": KEY})
