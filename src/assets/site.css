@@ -736,14 +736,16 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
   letter-spacing:.12em; color:var(--muted); }
 .fgt-legend { border-left:3px solid var(--gold); background:rgba(184,134,11,.07);
   padding:10px 14px; margin:14px 0 4px; font-size:15px; line-height:1.55; max-width:72ch; }
-.fgt-paid { display:inline-block; margin-left:8px; vertical-align:2px;
-  font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700;
-  letter-spacing:.1em; text-transform:uppercase; white-space:nowrap;
-  color:var(--ink); background:var(--gold); padding:1px 6px; }
-.fgt.is-paid { border-color:var(--gold); }
-.fgt.is-paid .fgt-i { background:var(--gold); }
+.fgt-paid { display:inline-block; margin-left:6px; vertical-align:1px; cursor:help;
+  font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; line-height:1.5;
+  width:15px; height:15px; text-align:center; border-radius:50%;
+  color:var(--paper); background:var(--gold); }
+.fgt.is-paid { border-color:var(--rule); }
 .fgt.is-paid:hover { border-color:var(--red); }
-.fgt-legend .fgt-paid { margin-left:0; }
+.fgt-foot { margin-top:26px; padding-top:10px; border-top:1px solid var(--rule);
+  font-family:'JetBrains Mono',monospace; font-size:11px; line-height:1.7;
+  color:var(--muted); max-width:72ch; }
+.fgt-foot .fgt-paid { margin-left:0; }
 .nav-menu .nav-n { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:400;
   letter-spacing:.1em; color:var(--muted); vertical-align:2px; margin-left:4px; }
 /* long handles/URLs must wrap inside their card, not overflow the grid track */

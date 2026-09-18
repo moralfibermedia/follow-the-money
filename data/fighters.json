@@ -164,13 +164,6 @@
       "description": "Former U.S. Attorney and Deputy Assistant AG. Creator of Talking Feds — roundtable legal analysis."
     },
     {
-      "name": "Resist and Unsubscribe",
-      "category": "Organize & act",
-      "url": "https://www.resistandunsubscribe.com/",
-      "display_url": "resistandunsubscribe.com",
-      "description": "Consumer-powered accountability — tracking corporate boycotts and their market impact."
-    },
-    {
       "name": "No Kings",
       "category": "Organize & act",
       "url": "https://www.nokings.org/",
@@ -226,6 +219,13 @@
       "url": "https://www.american-doom.com/",
       "display_url": "american-doom.com",
       "description": "Independent investigative journalist. Writes American Doom — news, investigations and chronicles from the frontlines of America's wars against itself."
+    },
+    {
+      "name": "Justin Wolfers",
+      "category": "Strategy & commentary",
+      "url": "https://newsletter.platypuseconomics.com/",
+      "display_url": "newsletter.platypuseconomics.com",
+      "description": "Our preferred economist. Writes Platypus Economics — the numbers explained clearly, for 76,000+ readers who aren't economists."
     }
   ],
   "categories": [
