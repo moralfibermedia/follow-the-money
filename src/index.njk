@@ -16,12 +16,16 @@ ogImage: "/preview.png"
   <div class="hub-tagline">{{ site.tagline }} &nbsp;·&nbsp; free · sourced · no login</div>
 </div>
 
-<a class="dt-hero" href="/dream-ticket/">
-  <span class="dt-tag">★ New · Straw poll</span>
-  <span class="dt-h">Build Your 2028 Dream <em>Ticket</em></span>
-  <span class="dt-sub">Pick your President and VP from the names the polls are already floating — every candidate sourced. See how the country's building it.</span>
-  <span class="dt-go">Build yours →</span>
-</a>
+<h2>The pro-democracy directory</h2>
+<p>We aggregate and amplify: the people and organizations doing the work, and the projects this one stands on. Every entry is a live link — go read them, then come back.</p>
+<ul class="hub-list">
+  <li><span class="hub-num">★ directory</span>
+      <a class="hub-t" href="/fighters/">Pro-Democracy Fighters</a>
+      <span class="hub-hook">{{ fightersAll | length }} commentators, lawyers, historians, strategists and organizations — grouped by what they actually do.</span></li>
+  <li><span class="hub-num">★ directory</span>
+      <a class="hub-t" href="/inspiredby/">Inspired By</a>
+      <span class="hub-hook">{{ inspired | length }} projects and organizations whose work informs this one — the shoulders we stand on.</span></li>
+</ul>
 
 <h2>Just the Facts</h2>
 <p>One story from the record, cut into facts — match each claim to where it belongs. Every match reveals its sources. Newest first.</p>
@@ -58,17 +62,6 @@ ogImage: "/preview.png"
       <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
       <span class="hub-hook">{{ p.hook }}</span></li>
 {%- endif %}{% endfor %}
-</ul>
-
-<h2>The pro-democracy directory</h2>
-<p>We aggregate and amplify: the people and organizations doing the work, and the projects this one stands on. Every entry is a live link — go read them, then come back.</p>
-<ul class="hub-list">
-  <li><span class="hub-num">★ directory</span>
-      <a class="hub-t" href="/fighters/">Pro-Democracy Fighters</a>
-      <span class="hub-hook">{{ fightersAll | length }} commentators, lawyers, historians, strategists and organizations — grouped by what they actually do.</span></li>
-  <li><span class="hub-num">★ directory</span>
-      <a class="hub-t" href="/inspiredby/">Inspired By</a>
-      <span class="hub-hook">{{ inspired | length }} projects and organizations whose work informs this one — the shoulders we stand on.</span></li>
 </ul>
 
 <h2>Reports · read the receipts</h2>
