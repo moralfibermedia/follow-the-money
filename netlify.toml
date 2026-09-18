@@ -22,6 +22,14 @@
 
 # Exception: the live comment-count feed for the Public Comment CTA must be
 # fetchable client-side. Listed BEFORE the /data/* block so it wins (first match).
+# The 2028 Dream Ticket straw poll is PARKED (Sept 2026) — the page no longer
+# builds, so send old shared links home rather than to a 404. 302, not 301:
+# this is reversible and we may bring the poll back.
+[[redirects]]
+  from = "/dream-ticket/*"
+  to = "/"
+  status = 302
+
 [[redirects]]
   from = "/data/comment-counts.json"
   to = "/data/comment-counts.json"

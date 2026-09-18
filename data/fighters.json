@@ -3,7 +3,7 @@
     {
       "name": "Brian Tyler Cohen",
       "category": "Strategy & commentary",
-      "supporter": true,
+      "support": true,
       "featured": true,
       "url": "https://www.youtube.com/briantylercohen",
       "display_url": "youtube.com/briantylercohen",
@@ -12,7 +12,7 @@
     {
       "name": "Glenn Kirschner",
       "category": "Law & the courts",
-      "supporter": true,
+      "support": true,
       "featured": true,
       "url": "https://www.youtube.com/@GlennKirschner2",
       "display_url": "youtube.com/@GlennKirschner2",
@@ -35,6 +35,7 @@
     {
       "name": "David Pepper",
       "category": "Strategy & commentary",
+      "support": "bought the books",
       "url": "https://davidpepper.substack.com/",
       "display_url": "davidpepper.substack.com",
       "description": "Democracy advocate, author, and former Ohio Democratic Party chair. Writes Pepperspectives."
@@ -79,7 +80,7 @@
     {
       "name": "Kimberly Wehle",
       "category": "Law & the courts",
-      "supporter": true,
+      "support": true,
       "featured": true,
       "url": "https://kimberlywehle.com/",
       "display_url": "kimberlywehle.com",
@@ -118,7 +119,7 @@
     {
       "name": "The Lincoln Project",
       "category": "Organize & act",
-      "supporter": true,
+      "support": true,
       "featured": true,
       "url": "https://lincolnproject.us/",
       "display_url": "lincolnproject.us",
@@ -134,7 +135,7 @@
     {
       "name": "Democracy Docket",
       "category": "Law & the courts",
-      "supporter": true,
+      "support": true,
       "url": "https://www.democracydocket.com/",
       "display_url": "democracydocket.com",
       "description": "Marc Elias's voting rights platform. Tracking 1,000+ election law cases."
@@ -142,7 +143,7 @@
     {
       "name": "Crimson Goes Blue",
       "category": "Organize & act",
-      "supporter": true,
+      "support": true,
       "url": "https://www.crimsongoesblue.org/",
       "display_url": "crimsongoesblue.org",
       "description": "Harvard alumni-led organization mobilizing graduates for pro-democracy organizing and 2026 midterm engagement."
@@ -217,6 +218,14 @@
       "url": "https://chopwoodcarrywaterdailyactions.substack.com",
       "display_url": "chopwoodcarrywaterdailyactions.substack.com",
       "description": "Activist behind “Chop Wood, Carry Water” — a weekday list of concrete, do-it-now political actions to turn despair into effort."
+    },
+    {
+      "name": "Justin Glawe",
+      "category": "Research & watchdogs",
+      "support": "paid subscriber",
+      "url": "https://www.american-doom.com/",
+      "display_url": "american-doom.com",
+      "description": "Independent investigative journalist. Writes American Doom — news, investigations and chronicles from the frontlines of America's wars against itself."
     }
   ],
   "categories": [

@@ -7,12 +7,12 @@ pageDescription: "A curated directory of the commentators, analysts, organizers,
 canonicalPath: "/fighters"
 ogImage: "/fighters/preview.png"
 ---
-{%- set supporters = fightersAll | selectattr("supporter") | list %}
+{%- set paid = fightersAll | selectattr("support") | list %}
 <div class="kicker"><a href="/">Follow the Money</a> · directory</div>
 <h1>Pro-Democracy <em>Fighters</em></h1>
 <div class="standfirst">The commentators, analysts, strategists, organizers, and organizations doing the work — {{ fightersAll | length }} of them, grouped by what they actually do.</div>
-{%- if supporters | length %}
-<div class="fgt-legend"><span class="fgt-badge">✊ We support</span> marks the {{ supporters | length }} we put our own money behind — a subscription, a membership, or a donation. Everyone here is worth your attention; these are the ones we back.</div>
+{%- if paid | length %}
+<div class="fgt-legend">Everyone on this list has our support — that is what listing them <em>is</em>. The <span class="fgt-paid">$ money behind it</span> mark is narrower: it flags the {{ paid | length }} where we have also spent our own money, and says what on.</div>
 {%- endif %}
 <div class="hub-tagline">Know someone who belongs here? Tell us: contact@moralfibermedia.com</div>
 
@@ -20,9 +20,9 @@ ogImage: "/fighters/preview.png"
 <h2 class="fgt-cat">{{ group.name }} <span class="fgt-cat-n">{{ group.items | length }}</span></h2>
 <div class="fighters">
 {%- for f in group.items %}
-  <a class="fgt{% if f.supporter %} is-supported{% endif %}" href="{{ f.url }}" target="_blank" rel="noopener">
+  <a class="fgt{% if f.support %} is-paid{% endif %}" href="{{ f.url }}" target="_blank" rel="noopener">
     <span class="fgt-i">✊</span>
-    <span><span class="fgt-n">{{ f.name }}</span>{% if f.supporter %}<span class="fgt-badge">✊ We support</span>{% endif %}<br><span class="fgt-d">{{ f.description }}</span><br><span class="ins-u">{{ f.display_url }}</span></span>
+    <span><span class="fgt-n">{{ f.name }}</span>{% if f.support %}<span class="fgt-paid">$ {% if f.support is string %}{{ f.support }}{% else %}money behind it{% endif %}</span>{% endif %}<br><span class="fgt-d">{{ f.description }}</span><br><span class="ins-u">{{ f.display_url }}</span></span>
   </a>
 {%- endfor %}
 </div>

@@ -736,14 +736,14 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
   letter-spacing:.12em; color:var(--muted); }
 .fgt-legend { border-left:3px solid var(--gold); background:rgba(184,134,11,.07);
   padding:10px 14px; margin:14px 0 4px; font-size:15px; line-height:1.55; max-width:72ch; }
-.fgt-badge { display:inline-block; margin-left:8px; vertical-align:2px;
+.fgt-paid { display:inline-block; margin-left:8px; vertical-align:2px;
   font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700;
   letter-spacing:.1em; text-transform:uppercase; white-space:nowrap;
-  color:var(--gold); border:1px solid var(--gold); padding:1px 5px; }
-.fgt.is-supported { border-color:var(--gold); }
-.fgt.is-supported .fgt-i { background:var(--gold); }
-.fgt.is-supported:hover { border-color:var(--red); }
-.fgt-legend .fgt-badge { margin-left:0; }
+  color:var(--ink); background:var(--gold); padding:1px 6px; }
+.fgt.is-paid { border-color:var(--gold); }
+.fgt.is-paid .fgt-i { background:var(--gold); }
+.fgt.is-paid:hover { border-color:var(--red); }
+.fgt-legend .fgt-paid { margin-left:0; }
 .nav-menu .nav-n { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:400;
   letter-spacing:.1em; color:var(--muted); vertical-align:2px; margin-left:4px; }
 /* long handles/URLs must wrap inside their card, not overflow the grid track */
