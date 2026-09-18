@@ -3,6 +3,7 @@
     {
       "name": "Brian Tyler Cohen",
       "category": "Strategy & commentary",
+      "supporter": true,
       "featured": true,
       "url": "https://www.youtube.com/briantylercohen",
       "display_url": "youtube.com/briantylercohen",
@@ -11,6 +12,7 @@
     {
       "name": "Glenn Kirschner",
       "category": "Law & the courts",
+      "supporter": true,
       "featured": true,
       "url": "https://www.youtube.com/@GlennKirschner2",
       "display_url": "youtube.com/@GlennKirschner2",
@@ -77,6 +79,7 @@
     {
       "name": "Kimberly Wehle",
       "category": "Law & the courts",
+      "supporter": true,
       "featured": true,
       "url": "https://kimberlywehle.com/",
       "display_url": "kimberlywehle.com",
@@ -115,6 +118,7 @@
     {
       "name": "The Lincoln Project",
       "category": "Organize & act",
+      "supporter": true,
       "featured": true,
       "url": "https://lincolnproject.us/",
       "display_url": "lincolnproject.us",
@@ -130,6 +134,7 @@
     {
       "name": "Democracy Docket",
       "category": "Law & the courts",
+      "supporter": true,
       "url": "https://www.democracydocket.com/",
       "display_url": "democracydocket.com",
       "description": "Marc Elias's voting rights platform. Tracking 1,000+ election law cases."
@@ -137,6 +142,7 @@
     {
       "name": "Crimson Goes Blue",
       "category": "Organize & act",
+      "supporter": true,
       "url": "https://www.crimsongoesblue.org/",
       "display_url": "crimsongoesblue.org",
       "description": "Harvard alumni-led organization mobilizing graduates for pro-democracy organizing and 2026 midterm engagement."
