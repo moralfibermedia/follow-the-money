@@ -2,177 +2,222 @@
   "fighters": [
     {
       "name": "Brian Tyler Cohen",
+      "category": "Strategy & commentary",
+      "featured": true,
       "url": "https://www.youtube.com/briantylercohen",
-      "description": "Political commentator breaking down the news with clarity and urgency. Host of No Lie with Brian Tyler Cohen.",
-      "display_url": "youtube.com/briantylercohen"
+      "display_url": "youtube.com/briantylercohen",
+      "description": "Political commentator breaking down the news with clarity and urgency. Host of No Lie with Brian Tyler Cohen."
     },
     {
       "name": "Glenn Kirschner",
+      "category": "Law & the courts",
+      "featured": true,
       "url": "https://www.youtube.com/@GlennKirschner2",
-      "description": "Former 30-year federal prosecutor. Host of Justice Matters \u2014 daily legal analysis connecting the dots on accountability.",
-      "display_url": "youtube.com/@GlennKirschner2"
+      "display_url": "youtube.com/@GlennKirschner2",
+      "description": "Former 30-year federal prosecutor. Host of Justice Matters — daily legal analysis connecting the dots on accountability."
     },
     {
       "name": "Al Franken",
+      "category": "Strategy & commentary",
       "url": "https://www.alfranken.com/",
-      "description": "Former U.S. Senator, author, and podcast host. Political satire and commentary rooted in policy substance.",
-      "display_url": "alfranken.com"
+      "display_url": "alfranken.com",
+      "description": "Former U.S. Senator, author, and podcast host. Political satire and commentary rooted in policy substance."
     },
     {
       "name": "Joe Trippi",
+      "category": "Strategy & commentary",
       "url": "https://substack.com/@thattrippishow",
-      "description": "Veteran Democratic strategist and political consultant. Host of That Trippi Show.",
-      "display_url": "substack.com/@thattrippishow"
+      "display_url": "substack.com/@thattrippishow",
+      "description": "Veteran Democratic strategist and political consultant. Host of That Trippi Show."
     },
     {
       "name": "David Pepper",
+      "category": "Strategy & commentary",
       "url": "https://davidpepper.substack.com/",
-      "description": "Democracy advocate, author, and former Ohio Democratic Party chair. Writes Pepperspectives.",
-      "display_url": "davidpepper.substack.com"
+      "display_url": "davidpepper.substack.com",
+      "description": "Democracy advocate, author, and former Ohio Democratic Party chair. Writes Pepperspectives."
     },
     {
       "name": "Reed Galen",
+      "category": "Strategy & commentary",
       "url": "https://reedgalen.substack.com/",
-      "description": "Lincoln Project co-founder and political strategist. Writes The Home Front.",
-      "display_url": "reedgalen.substack.com"
+      "display_url": "reedgalen.substack.com",
+      "description": "Lincoln Project co-founder and political strategist. Writes The Home Front."
     },
     {
       "name": "Rick Wilson",
+      "category": "Strategy & commentary",
       "url": "https://www.againstallenemies.net/",
-      "description": "Lincoln Project co-founder, bestselling author, and Republican strategist turned pro-democracy advocate.",
-      "display_url": "againstallenemies.net"
+      "display_url": "againstallenemies.net",
+      "description": "Lincoln Project co-founder, bestselling author, and Republican strategist turned pro-democracy advocate."
     },
     {
       "name": "#SistersInLaw",
+      "category": "Law & the courts",
       "url": "https://www.politicon.com/podcasts/sisters-in-law/",
-      "description": "Webby Award-winning podcast with Joyce Vance, Jill Wine-Banks, Barb McQuade, and Kimberly Atkins Stohr.",
-      "display_url": "politicon.com/podcasts/sisters-in-law"
+      "display_url": "politicon.com/podcasts/sisters-in-law",
+      "description": "Webby Award-winning podcast with Joyce Vance, Jill Wine-Banks, Barb McQuade, and Kimberly Atkins Stohr."
     },
     {
       "name": "Simon Rosenberg",
+      "category": "Strategy & commentary",
+      "featured": true,
       "url": "https://www.hopiumchronicles.com/",
-      "description": "Democratic strategist who called the 2022 red wave bluff. Writes the Hopium Chronicles \u2014 data over doom.",
-      "display_url": "hopiumchronicles.com"
+      "display_url": "hopiumchronicles.com",
+      "description": "Democratic strategist who called the 2022 red wave bluff. Writes the Hopium Chronicles — data over doom."
     },
     {
       "name": "Inequality Media",
+      "category": "Strategy & commentary",
+      "featured": true,
       "url": "https://www.inequalitymedia.org/",
-      "description": "Robert Reich's media organization producing economic explainers that cut through political noise with data and history.",
-      "display_url": "inequalitymedia.org"
+      "display_url": "inequalitymedia.org",
+      "description": "Robert Reich's media organization producing economic explainers that cut through political noise with data and history."
     },
     {
       "name": "Kimberly Wehle",
+      "category": "Law & the courts",
+      "featured": true,
       "url": "https://kimberlywehle.com/",
-      "description": "Constitutional law professor, author, and legal analyst translating the machinery of government into language everyone can use.",
-      "display_url": "kimberlywehle.com"
+      "display_url": "kimberlywehle.com",
+      "description": "Constitutional law professor, author, and legal analyst translating the machinery of government into language everyone can use."
     },
     {
       "name": "John Della Volpe",
+      "category": "Strategy & commentary",
       "url": "https://www.johndellavolpe.com/",
-      "description": "Director of polling at the Harvard Institute of Politics. Author and expert on youth civic engagement.",
-      "display_url": "johndellavolpe.com"
+      "display_url": "johndellavolpe.com",
+      "description": "Director of polling at the Harvard Institute of Politics. Author and expert on youth civic engagement."
     },
     {
       "name": "Joyce Vance",
+      "category": "Law & the courts",
+      "featured": true,
       "url": "https://joycevance.substack.com/",
-      "description": "Former U.S. Attorney for the Northern District of Alabama. Legal analyst, law professor, and civil rights voice.",
-      "display_url": "joycevance.substack.com"
+      "display_url": "joycevance.substack.com",
+      "description": "Former U.S. Attorney for the Northern District of Alabama. Legal analyst, law professor, and civil rights voice."
     },
     {
       "name": "The Contrarian",
+      "category": "Strategy & commentary",
+      "featured": true,
       "url": "https://www.contrariannews.org",
-      "description": "Jennifer Rubin and Norman Eisen's pro-democracy news organization. Unflinching journalism \u2014 truthful, not neutral.",
-      "display_url": "contrariannews.org"
+      "display_url": "contrariannews.org",
+      "description": "Jennifer Rubin and Norman Eisen's pro-democracy news organization. Unflinching journalism — truthful, not neutral."
     },
     {
       "name": "The Union",
+      "category": "Organize & act",
       "url": "https://www.jointheunion.us/",
-      "description": "Pro-democracy grassroots coalition. 192,000+ members across all 50 states with 100+ partner organizations.",
-      "display_url": "jointheunion.us"
+      "display_url": "jointheunion.us",
+      "description": "Pro-democracy grassroots coalition. 192,000+ members across all 50 states with 100+ partner organizations."
     },
     {
       "name": "The Lincoln Project",
+      "category": "Organize & act",
+      "featured": true,
       "url": "https://lincolnproject.us/",
-      "description": "Anti-authoritarian political action committee. Republicans and independents defending democratic norms.",
-      "display_url": "lincolnproject.us"
+      "display_url": "lincolnproject.us",
+      "description": "Anti-authoritarian political action committee. Republicans and independents defending democratic norms."
     },
     {
       "name": "Katie Phang",
+      "category": "Law & the courts",
       "url": "https://www.youtube.com/@katiephangnews",
-      "description": "Trial attorney and legal analyst. Formerly MSNBC, now delivering daily legal breakdowns on YouTube.",
-      "display_url": "youtube.com/@katiephangnews"
+      "display_url": "youtube.com/@katiephangnews",
+      "description": "Trial attorney and legal analyst. Formerly MSNBC, now delivering daily legal breakdowns on YouTube."
     },
     {
       "name": "Democracy Docket",
+      "category": "Law & the courts",
       "url": "https://www.democracydocket.com/",
-      "description": "Marc Elias's voting rights platform. Tracking 1,000+ election law cases.",
-      "display_url": "democracydocket.com"
+      "display_url": "democracydocket.com",
+      "description": "Marc Elias's voting rights platform. Tracking 1,000+ election law cases."
     },
     {
       "name": "Crimson Goes Blue",
+      "category": "Organize & act",
       "url": "https://www.crimsongoesblue.org/",
-      "description": "Harvard alumni-led organization mobilizing graduates for pro-democracy organizing and 2026 midterm engagement.",
-      "display_url": "crimsongoesblue.org"
+      "display_url": "crimsongoesblue.org",
+      "description": "Harvard alumni-led organization mobilizing graduates for pro-democracy organizing and 2026 midterm engagement."
     },
     {
       "name": "Heather Cox Richardson",
+      "category": "History & authoritarianism",
+      "featured": true,
       "url": "https://heathercoxrichardson.substack.com/",
-      "description": "Historian, Boston College professor, and author of Letters from an American. 2.9M subscribers.",
-      "display_url": "heathercoxrichardson.substack.com"
+      "display_url": "heathercoxrichardson.substack.com",
+      "description": "Historian, Boston College professor, and author of Letters from an American. 2.9M subscribers."
     },
     {
       "name": "Harry Litman",
+      "category": "Law & the courts",
       "url": "https://www.talkingfeds.com/",
-      "description": "Former U.S. Attorney and Deputy Assistant AG. Creator of Talking Feds \u2014 roundtable legal analysis.",
-      "display_url": "talkingfeds.com"
+      "display_url": "talkingfeds.com",
+      "description": "Former U.S. Attorney and Deputy Assistant AG. Creator of Talking Feds — roundtable legal analysis."
     },
     {
       "name": "Resist and Unsubscribe",
+      "category": "Organize & act",
       "url": "https://www.resistandunsubscribe.com/",
-      "description": "Consumer-powered accountability \u2014 tracking corporate boycotts and their market impact.",
-      "display_url": "resistandunsubscribe.com"
+      "display_url": "resistandunsubscribe.com",
+      "description": "Consumer-powered accountability — tracking corporate boycotts and their market impact."
     },
     {
       "name": "No Kings",
+      "category": "Organize & act",
       "url": "https://www.nokings.org/",
-      "description": "Grassroots civic action \u2014 events, trainings, and know-your-rights resources.",
-      "display_url": "nokings.org"
+      "display_url": "nokings.org",
+      "description": "Grassroots civic action — events, trainings, and know-your-rights resources."
     },
     {
       "name": "AI and Democracy Movements Project",
+      "category": "Research & watchdogs",
       "url": "https://ash.harvard.edu/ai-and-democracy-movements-project/",
-      "description": "Harvard Ash Center research at the intersection of AI, civic engagement, and democratic participation.",
-      "display_url": "ash.harvard.edu"
+      "display_url": "ash.harvard.edu",
+      "description": "Harvard Ash Center research at the intersection of AI, civic engagement, and democratic participation."
     },
     {
       "name": "Public Citizen",
+      "category": "Research & watchdogs",
       "url": "https://www.citizen.org/",
-      "description": "Nonprofit consumer advocacy organization \u2014 government accountability, corporate power, and democracy reform.",
-      "display_url": "citizen.org"
+      "display_url": "citizen.org",
+      "description": "Nonprofit consumer advocacy organization — government accountability, corporate power, and democracy reform."
     },
     {
       "name": "Brennan Center for Justice",
+      "category": "Research & watchdogs",
       "url": "https://www.brennancenter.org/",
-      "description": "NYU Law nonpartisan policy institute defending democracy through research, advocacy, and litigation on voting rights, fair elections, and judicial reform.",
-      "display_url": "brennancenter.org"
+      "display_url": "brennancenter.org",
+      "description": "NYU Law nonpartisan policy institute defending democracy through research, advocacy, and litigation on voting rights, fair elections, and judicial reform."
     },
     {
       "name": "Timothy Snyder",
+      "category": "History & authoritarianism",
       "url": "https://snyder.substack.com",
-      "description": "Historian of authoritarianism and author of On Tyranny. Writes \u201cThinking About\u2026\u201d \u2014 the long view on how democracies fall and how they hold.",
-      "display_url": "snyder.substack.com"
+      "display_url": "snyder.substack.com",
+      "description": "Historian of authoritarianism and author of On Tyranny. Writes “Thinking About…” — the long view on how democracies fall and how they hold."
     },
     {
       "name": "Ruth Ben-Ghiat",
+      "category": "History & authoritarianism",
       "url": "https://lucid.substack.com",
-      "description": "NYU historian of fascism and author of Strongmen. Writes \u201cLucid\u201d \u2014 clear-eyed analysis of autocrats, propaganda, and how resistance actually works.",
-      "display_url": "lucid.substack.com"
+      "display_url": "lucid.substack.com",
+      "description": "NYU historian of fascism and author of Strongmen. Writes “Lucid” — clear-eyed analysis of autocrats, propaganda, and how resistance actually works."
     },
     {
       "name": "Jessica Craven",
+      "category": "Organize & act",
       "url": "https://chopwoodcarrywaterdailyactions.substack.com",
-      "description": "Activist behind \u201cChop Wood, Carry Water\u201d \u2014 a weekday list of concrete, do-it-now political actions to turn despair into effort.",
-      "display_url": "chopwoodcarrywaterdailyactions.substack.com"
+      "display_url": "chopwoodcarrywaterdailyactions.substack.com",
+      "description": "Activist behind “Chop Wood, Carry Water” — a weekday list of concrete, do-it-now political actions to turn despair into effort."
     }
+  ],
+  "categories": [
+    "Organize & act",
+    "Law & the courts",
+    "Strategy & commentary",
+    "History & authoritarianism",
+    "Research & watchdogs"
   ]
 }
