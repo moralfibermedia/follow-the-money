@@ -698,6 +698,37 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
 .pop-why a:hover { color:var(--red); }
 .ballot-note { flex-basis:100%; font-size:12.5px; font-style:italic; color:var(--muted); line-height:1.5; }
 
+/* ---- Public Comment CTA (state-driven: open / closing / closed / resolved) ---- */
+.ccta { border:3px solid var(--ink); background:#fff; padding:18px 20px; margin:30px 0; }
+.ccta-k { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.ccta h3 { font-family:'Playfair Display',serif; font-weight:900; font-size:22px;
+  line-height:1.2; margin:0 0 6px; text-wrap:balance; }
+.ccta p { font-size:16px; line-height:1.6; margin:0 0 14px; max-width:60ch; }
+.ccta-btn { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:12px;
+  font-weight:700; letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
+  padding:11px 18px; border:2px solid var(--ink); background:var(--ink); color:var(--paper);
+  transition:background .18s, border-color .18s, transform .15s; }
+.ccta-btn:hover { background:var(--red); border-color:var(--red); }
+.ccta-btn:active { transform:translateY(1px); }
+.ccta-btn.ghost { background:transparent; color:var(--ink); }
+.ccta-btn.ghost:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+/* only the block matching the current state is shown */
+.ccta-say { display:none; }
+.ccta.is-open .say-open, .ccta.is-closing .say-open,
+.ccta.is-closed .say-closed, .ccta.is-resolved .say-final { display:block; }
+/* a closing window earns urgency */
+.ccta.is-closing { border-color:var(--red); }
+.ccta.is-closing .ccta-k { color:var(--red); }
+.ccta-meta { display:flex; flex-wrap:wrap; gap:6px 16px; align-items:baseline;
+  margin-top:14px; padding-top:10px; border-top:1px solid var(--rule);
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em; color:var(--muted); }
+.ccta-count b { color:var(--ink); font-size:13px; font-variant-numeric:tabular-nums; }
+.ccta.is-closing .ccta-when b { color:var(--red); }
+.ccta-rule { margin-left:auto; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--rule); }
+.ccta-rule:hover { color:var(--red); border-color:var(--red); }
+@media (max-width:560px) { .ccta { padding:15px 14px; } .ccta h3 { font-size:19px; }
+  .ccta-rule { margin-left:0; } }
 /* ---- fighters directory: category grouping + "we support" badge ---- */
 .fgt-cat { display:flex; align-items:baseline; gap:10px; font-size:22px;
   margin:30px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--ink); }

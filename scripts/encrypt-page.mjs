@@ -6,7 +6,11 @@
 // Without the password the content is unrecoverable — safe to share the link.
 //
 // Usage:
-//   node scripts/encrypt-page.mjs <input.html> <output.html> <password> [title]
+//   node scripts/encrypt-page.mjs <input.html> <output.html> <password|-> [title]
+//
+// Passing "-" (or omitting the password) reads it from MFM_PAGE_PASSWORD
+// instead, which keeps the passphrase out of argv — where `ps` and your shell
+// history can see it. scripts/rotate-review-passphrase.sh does this for you.
 //
 // Pairs with scripts/build-review-desk.py:
 //   python3 scripts/build-review-desk.py -o /tmp/desk.html --drafts-base <preview>
@@ -14,9 +18,11 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { pbkdf2Sync, createCipheriv, randomBytes } from "node:crypto";
 
-const [input, output, password, title = "Review Desk — Moral Fiber Media"] = process.argv.slice(2);
+const [input, output, passwordArg, title = "Review Desk — Moral Fiber Media"] = process.argv.slice(2);
+const password = (!passwordArg || passwordArg === "-") ? process.env.MFM_PAGE_PASSWORD : passwordArg;
 if (!input || !output || !password) {
-  console.error("usage: encrypt-page.mjs <input.html> <output.html> <password> [title]");
+  console.error("usage: encrypt-page.mjs <input.html> <output.html> <password|-> [title]");
+  console.error("       (with \"-\", the passphrase comes from MFM_PAGE_PASSWORD)");
   process.exit(1);
 }
 
