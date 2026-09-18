@@ -1,0 +1,68 @@
+{#- Public Comment CTA. State comes from data (commentCta filter), never from
+    hand-edited prose: open -> closing -> closed -> resolved. The live posted
+    count is filled client-side from /data/comment-counts.json (written by the
+    comment-counts Action), and the deadline is re-checked in the browser so a
+    page cached before a deadline still renders the right state. -#}
+{%- set cc = p.comment_cta | commentCta %}
+{%- if cc %}
+<div class="ccta is-{{ cc.state }}" data-cc-doc="{{ cc.count_document_id }}"
+     data-cc-deadline="{{ cc.comment_deadline }}">
+  <div class="ccta-k">★ The public record</div>
+
+  <div class="ccta-say say-open">
+    <h3>This rule is still open for public comment.</h3>
+    <p>Anyone can file one — no lawyer, no standing required. Comments become part of the official record the agency is required to consider before it finalises the rule.</p>
+    <a class="ccta-btn" href="{{ cc.comment_url }}" target="_blank" rel="noopener">Add your comment ↗</a>
+  </div>
+
+  <div class="ccta-say say-closed">
+    <h3>The comment window closed{% if cc.deadlineLabel %} {{ cc.deadlineLabel }}{% endif %}.</h3>
+    <p>The record is public and the final rule is the agency's move. We're watching the docket.</p>
+    <a class="ccta-btn ghost" href="{{ cc.comment_closed_url or cc.rule_url }}" target="_blank" rel="noopener">Read the comments on the record ↗</a>
+  </div>
+
+  {%- if cc.state == "resolved" %}
+  <div class="ccta-say say-final">
+    <h3>Final rule published{% if cc.finalRuleLabel %} {{ cc.finalRuleLabel }}{% endif %}.</h3>
+    <p>The comment record is closed and final.</p>
+    <a class="ccta-btn" href="{{ cc.final_rule_url }}" target="_blank" rel="noopener">Read the final rule ↗</a>
+  </div>
+  {%- endif %}
+
+  <div class="ccta-meta">
+    <span class="ccta-count" hidden><b data-cc-count>—</b> {{ cc.count_label or "comments posted" }}</span>
+    <span class="ccta-when">
+      {%- if cc.state == "open" or cc.state == "closing" -%}
+        Closes {{ cc.deadlineLabel }}{% if cc.daysLeft != null %} · <b>{{ cc.daysLeft }} day{% if cc.daysLeft != 1 %}s{% endif %} left</b>{% endif %}
+      {%- endif -%}
+    </span>
+    <a class="ccta-rule" href="{{ cc.rule_url }}" target="_blank" rel="noopener">the rule itself ↗</a>
+  </div>
+</div>
+<script>
+(function () {
+  var box = document.currentScript.previousElementSibling;
+  if (!box || !box.classList.contains("ccta")) return;
+  // Re-check the deadline in the browser: a page built while the window was
+  // open must not keep claiming "open" once it has closed.
+  var dl = Date.parse(box.dataset.ccDeadline || "");
+  if (dl && Date.now() > dl && !box.classList.contains("is-resolved")) {
+    box.classList.remove("is-open", "is-closing");
+    box.classList.add("is-closed");
+    var w = box.querySelector(".ccta-when"); if (w) w.textContent = "";
+  }
+  // Live posted count (lags received by weeks on big dockets — expected).
+  fetch("/data/comment-counts.json", { cache: "no-store" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var rec = d && d[box.dataset.ccDoc];
+      if (!rec || typeof rec.posted !== "number") return;
+      box.querySelectorAll("[data-cc-count]").forEach(function (el) {
+        el.textContent = rec.posted.toLocaleString("en-US");
+      });
+      var c = box.querySelector(".ccta-count"); if (c) c.hidden = false;
+    })
+    .catch(function () {});
+})();
+</script>
+{%- endif %}
