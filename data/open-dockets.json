@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T18:38:03Z",
+  "generated": "2026-09-21T18:41:51Z",
   "window": {
     "min_days": 3,
     "max_days": 60
@@ -8,7 +8,7 @@
   "dockets": [
     {
       "score": 9,
-      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 25d",
+      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 18d",
       "title": "HUD's Implementation of the Fair Housing Act's Disparate Impact Standard; Amendments to HUD's Title VI Regulations",
       "agencies": [
         "Housing and Urban Development Department"
@@ -16,7 +16,7 @@
       "document_number": "2026-16228",
       "publication_date": "2026-08-10",
       "comments_close_on": "2026-10-09",
-      "days_left": 25,
+      "days_left": 18,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/HUD-2026-0034-0609",
       "html_url": "https://www.federalregister.gov/documents/2026/08/10/2026-16228/huds-implementation-of-the-fair-housing-acts-disparate-impact-standard-amendments-to-huds-title-vi",
@@ -28,7 +28,7 @@
     },
     {
       "score": 8,
-      "why": "immigration \u00b7 significant \u00b7 closes in 14d",
+      "why": "immigration \u00b7 significant \u00b7 closes in 7d",
       "title": "Civil Money Penalty for Actions in Contempt of an Immigration Judge's Proper Exercise of Authority",
       "agencies": [
         "Justice Department",
@@ -37,7 +37,7 @@
       "document_number": "2026-15458",
       "publication_date": "2026-07-30",
       "comments_close_on": "2026-09-28",
-      "days_left": 14,
+      "days_left": 7,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EOIR-2026-0100-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/07/30/2026-15458/civil-money-penalty-for-actions-in-contempt-of-an-immigration-judges-proper-exercise-of-authority",
@@ -49,49 +49,29 @@
       "rank": 2
     },
     {
-      "score": 7,
-      "why": "medicaid \u00b7 tax \u00b7 closes in 7d",
-      "title": "Medicaid Program; Amending the Indirect Hold Harmless Threshold of Health Care-Related Taxes",
+      "score": 8,
+      "why": "clean air \u00b7 emission \u00b7 climate \u00b7 closes in 42d",
+      "title": "Rescission of the Greenhouse Gas Findings for Fossil Fuel-Fired Power Plants and Repeal of Regulations for Power Plant Greenhouse Gas Emissions Under Clean Air Act Section 111",
       "agencies": [
-        "Health and Human Services Department",
-        "Centers for Medicare & Medicaid Services"
+        "Environmental Protection Agency"
       ],
-      "document_number": "2026-14897",
-      "publication_date": "2026-07-23",
-      "comments_close_on": "2026-09-21",
-      "days_left": 7,
+      "document_number": "2026-19072",
+      "publication_date": "2026-09-17",
+      "comments_close_on": "2026-11-02",
+      "days_left": 42,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-2476-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/23/2026-14897/medicaid-program-amending-the-indirect-hold-harmless-threshold-of-health-care-related-taxes",
+      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2025-0124-2920",
+      "html_url": "https://www.federalregister.gov/documents/2026/09/17/2026-19072/rescission-of-the-greenhouse-gas-findings-for-fossil-fuel-fired-power-plants-and-repeal-of",
       "docket_ids": [
-        "CMS-2452-P"
+        "EPA-HQ-OAR-2025-0124",
+        "FRL-12674.1-01-OAR"
       ],
-      "abstract": "This proposed rule would revise standards for determining whether an indirect hold harmless arrangement exists for a health care- related tax. This proposed rule is necessary to implement a provision in the \"One Big Beautiful Bill Act,\" herein referred to as the \"Working\u2026",
+      "abstract": "In this action, the U.S. Environmental Protection Agency (EPA) is supplementing its proposal to repeal all greenhouse gas (GHG) emission standards for fossil fuel-fired electric generating units (EGUs) to effectuate the best reading of Clean Air Act (CAA) section 111. We propose\u2026",
       "rank": 3
     },
     {
       "score": 7,
-      "why": "education \u00b7 significant \u00b7 closes in 9d",
-      "title": "Education Department General Administrative Regulations",
-      "agencies": [
-        "Education Department"
-      ],
-      "document_number": "2026-17239",
-      "publication_date": "2026-08-24",
-      "comments_close_on": "2026-09-23",
-      "days_left": 9,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/ED-2026-OPEPD-2542-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/24/2026-17239/education-department-general-administrative-regulations",
-      "docket_ids": [
-        "Docket ID ED-2026-OPEPD-2542"
-      ],
-      "abstract": "The Secretary of Education proposes to amend the Education Department General Administrative Regulations (EDGAR) and other provisions in 2 CFR parts 3474 and 3485 to update the regulations and better align them with other U.S. Department of Education (Department) regulations and\u2026",
-      "rank": 4
-    },
-    {
-      "score": 7,
-      "why": "clean water \u00b7 significant \u00b7 closes in 25d",
+      "why": "clean water \u00b7 significant \u00b7 closes in 18d",
       "title": "Updated Definition of \u201cWaters of the United States\u201d",
       "agencies": [
         "Defense Department",
@@ -101,7 +81,7 @@
       "document_number": "2026-18317",
       "publication_date": "2026-09-09",
       "comments_close_on": "2026-10-09",
-      "days_left": 25,
+      "days_left": 18,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2025-0322-15447",
       "html_url": "https://www.federalregister.gov/documents/2026/09/09/2026-18317/updated-definition-of-waters-of-the-united-states",
@@ -110,95 +90,11 @@
         "FRL 11132.1-04-OW"
       ],
       "abstract": "The purpose of this supplemental notice of proposed rulemaking is for the U.S. Environmental Protection Agency (EPA) and the Department of the Army (\"the agencies\") to supplement and seek additional comment on certain aspects of an earlier proposal, published on November 20,\u2026",
-      "rank": 5
+      "rank": 4
     },
     {
       "score": 6,
-      "why": "credit \u00b7 election \u00b7 tax \u00b7 closes in 3d",
-      "title": "Section 898(c) Transition Rule for Allocating Foreign Taxes and Section 960(d)(4) Foreign Tax Credit Disallowance",
-      "agencies": [
-        "Treasury Department",
-        "Internal Revenue Service"
-      ],
-      "document_number": "2026-15614",
-      "publication_date": "2026-08-03",
-      "comments_close_on": "2026-09-17",
-      "days_left": 3,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/IRS-2026-0859-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/03/2026-15614/section-898c-transition-rule-for-allocating-foreign-taxes-and-section-960d4-foreign-tax-credit",
-      "docket_ids": [
-        "REG-115145-25"
-      ],
-      "abstract": "This document contains proposed regulations that relate to allocating foreign taxes of foreign corporations affected by the repeal of the one-month deferral election and to the disallowance of foreign tax credits on certain distributions of previously taxed earnings and profits.\u2026",
-      "rank": 6
-    },
-    {
-      "score": 6,
-      "why": "credit \u00b7 election \u00b7 tax \u00b7 closes in 3d",
-      "title": "Section 898(c) Transition Rule for Allocating Foreign Taxes and Section 960(d)(4) Foreign Tax Credit Disallowance; Correction",
-      "agencies": [
-        "Treasury Department",
-        "Internal Revenue Service"
-      ],
-      "document_number": "2026-17764",
-      "publication_date": "2026-08-31",
-      "comments_close_on": "2026-09-17",
-      "days_left": 3,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/IRS-2026-0859-0003",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/31/2026-17764/section-898c-transition-rule-for-allocating-foreign-taxes-and-section-960d4-foreign-tax-credit",
-      "docket_ids": [
-        "REG-115145-25"
-      ],
-      "abstract": "This document contains corrections to the proposed regulations (REG-115145-25), published in the Federal Register on August 3, 2026. These proposed regulations relate to allocating foreign taxes of foreign corporations affected by the repeal of the one-month deferral election\u2026",
-      "rank": 7
-    },
-    {
-      "score": 6,
-      "why": "labor \u00b7 immigration \u00b7 closes in 10d",
-      "title": "Fee for Certain H-1B Petitions",
-      "agencies": [
-        "Homeland Security Department"
-      ],
-      "document_number": "2026-17324",
-      "publication_date": "2026-08-25",
-      "comments_close_on": "2026-09-24",
-      "days_left": 10,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0298-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/25/2026-17324/fee-for-certain-h-1b-petitions",
-      "docket_ids": [
-        "CIS No. 2861-26",
-        "DHS Docket No. USCIS-2026-0298"
-      ],
-      "abstract": "The Department of Homeland Security (DHS) proposes to establish a $103,265 fee, payable at the time of filing, for all H-1B cap-subject petitions, including those eligible for the advanced degree exemption, which would be imposed in addition to all other applicable fees or\u2026",
-      "rank": 8
-    },
-    {
-      "score": 6,
-      "why": "clean air \u00b7 grant \u00b7 closes in 11d",
-      "title": "Response to Clean Air Act Section 176A Petition From New Hampshire",
-      "agencies": [
-        "Environmental Protection Agency"
-      ],
-      "document_number": "2026-16331",
-      "publication_date": "2026-08-11",
-      "comments_close_on": "2026-09-25",
-      "days_left": 11,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2026-2179-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/11/2026-16331/response-to-clean-air-act-section-176a-petition-from-new-hampshire",
-      "docket_ids": [
-        "EPA-HQ-OAR-2026-2179",
-        "FRL-13567-01-R1"
-      ],
-      "abstract": "The Environmental Protection Agency (EPA) is proposing to grant a Clean Air Act (CAA or Act) petition submitted by the state of New Hampshire on December 24, 2025. The petition requests that the EPA remove the State of New Hampshire from the Ozone Transport Region (OTR) based on\u2026",
-      "rank": 9
-    },
-    {
-      "score": 6,
-      "why": "clean air \u00b7 emission \u00b7 closes in 14d",
+      "why": "clean air \u00b7 emission \u00b7 closes in 7d",
       "title": "Approval and Promulgation of State Air Quality Plans for Designated Facilities and Pollutants; Puerto Rico; Negative Declaration for the Oil and Gas Industry",
       "agencies": [
         "Environmental Protection Agency"
@@ -206,7 +102,7 @@
       "document_number": "2026-17495",
       "publication_date": "2026-08-27",
       "comments_close_on": "2026-09-28",
-      "days_left": 14,
+      "days_left": 7,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/EPA-R02-OAR-2026-2741-0002",
       "html_url": "https://www.federalregister.gov/documents/2026/08/27/2026-17495/approval-and-promulgation-of-state-air-quality-plans-for-designated-facilities-and-pollutants-puerto",
@@ -215,11 +111,11 @@
         "FRL-13326-01-R2"
       ],
       "abstract": "Pursuant to the Clean Air Act, the Environmental Protection Agency is proposing to approve a negative declaration for oil and natural gas facilities within the Commonwealth of Puerto Rico. This negative declaration formally certifies that there are no existing crude oil or\u2026",
-      "rank": 10
+      "rank": 5
     },
     {
       "score": 6,
-      "why": "emission \u00b7 public health \u00b7 closes in 18d",
+      "why": "emission \u00b7 public health \u00b7 closes in 11d",
       "title": "High-Speed Train Noise Emission Standards",
       "agencies": [
         "Transportation Department",
@@ -228,7 +124,7 @@
       "document_number": "2026-15724",
       "publication_date": "2026-08-03",
       "comments_close_on": "2026-10-02",
-      "days_left": 18,
+      "days_left": 11,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/FRA-2025-0786-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/03/2026-15724/high-speed-train-noise-emission-standards",
@@ -236,11 +132,11 @@
         "Docket No. FRA-2025-0786, Notice No. 1"
       ],
       "abstract": "This NPRM seeks to amend the noise emission regulations to address the unique noise emission characteristics of trains operating at speeds exceeding 160 miles per hour (mph). Specifically, the proposed regulation would provide an alternative standard for noise emissions from\u2026",
-      "rank": 11
+      "rank": 6
     },
     {
       "score": 6,
-      "why": "drug \u00b7 food \u00b7 closes in 25d",
+      "why": "drug \u00b7 food \u00b7 closes in 18d",
       "title": "Radiology Devices; Reclassification of Digital Breast Tomosynthesis System",
       "agencies": [
         "Health and Human Services Department",
@@ -249,7 +145,7 @@
       "document_number": "2026-16209",
       "publication_date": "2026-08-10",
       "comments_close_on": "2026-10-09",
-      "days_left": 25,
+      "days_left": 18,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2026-N-7630-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/10/2026-16209/radiology-devices-reclassification-of-digital-breast-tomosynthesis-system",
@@ -257,6 +153,109 @@
         "Docket No. FDA-2026-N-7630"
       ],
       "abstract": "The Food and Drug Administration (FDA) is proposing to reclassify digital breast tomosynthesis (DBT) systems, product code OTE, which are postamendments class III devices, from class III (premarket approval) into class II (special controls), subject to premarket notification.\u2026",
+      "rank": 7
+    },
+    {
+      "score": 6,
+      "why": "drug \u00b7 food \u00b7 closes in 25d",
+      "title": "Gastroenterology-Urology Devices; Reclassification of Diagnostic Endoscopic Light Source Systems To Be Renamed Cystoscopic Systems Intended as an Aid for Detection of Bladder Cancer",
+      "agencies": [
+        "Health and Human Services Department",
+        "Food and Drug Administration"
+      ],
+      "document_number": "2026-16728",
+      "publication_date": "2026-08-17",
+      "comments_close_on": "2026-10-16",
+      "days_left": 25,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/FDA-2026-N-8249-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/17/2026-16728/gastroenterology-urology-devices-reclassification-of-diagnostic-endoscopic-light-source-systems-to",
+      "docket_ids": [
+        "Docket No. FDA-2026-N-8249"
+      ],
+      "abstract": "The Food and Drug Administration (FDA) is proposing to reclassify diagnostic endoscopic light source systems (product code OAY), which are postamendments class III devices, from class III (premarket approval) into class II (special controls), subject to premarket notification.\u2026",
+      "rank": 8
+    },
+    {
+      "score": 6,
+      "why": "drug \u00b7 food \u00b7 closes in 25d",
+      "title": "Medical Devices; Classification of Accessories Distinct From Other Devices; Proposed List of Accessories Suitable for Class I; Request for Comments",
+      "agencies": [
+        "Health and Human Services Department",
+        "Food and Drug Administration"
+      ],
+      "document_number": "2026-16729",
+      "publication_date": "2026-08-17",
+      "comments_close_on": "2026-10-16",
+      "days_left": 25,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-6224-0011",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/17/2026-16729/medical-devices-classification-of-accessories-distinct-from-other-devices-proposed-list-of",
+      "docket_ids": [
+        "Docket No. FDA-2025-N-6224"
+      ],
+      "abstract": "As required by the FDA Reauthorization Act of 2017 (FDARA), the Food and Drug Administration (FDA or Agency) has identified a list of accessories for which the Agency believes general controls alone are sufficient to provide reasonable assurance of safety and effectiveness,\u2026",
+      "rank": 9
+    },
+    {
+      "score": 5,
+      "why": "labor \u00b7 immigration \u00b7 closes in 3d",
+      "title": "Fee for Certain H-1B Petitions",
+      "agencies": [
+        "Homeland Security Department"
+      ],
+      "document_number": "2026-17324",
+      "publication_date": "2026-08-25",
+      "comments_close_on": "2026-09-24",
+      "days_left": 3,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0298-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/25/2026-17324/fee-for-certain-h-1b-petitions",
+      "docket_ids": [
+        "CIS No. 2861-26",
+        "DHS Docket No. USCIS-2026-0298"
+      ],
+      "abstract": "The Department of Homeland Security (DHS) proposes to establish a $103,265 fee, payable at the time of filing, for all H-1B cap-subject petitions, including those eligible for the advanced degree exemption, which would be imposed in addition to all other applicable fees or\u2026",
+      "rank": 10
+    },
+    {
+      "score": 5,
+      "why": "clean air \u00b7 grant \u00b7 closes in 4d",
+      "title": "Response to Clean Air Act Section 176A Petition From New Hampshire",
+      "agencies": [
+        "Environmental Protection Agency"
+      ],
+      "document_number": "2026-16331",
+      "publication_date": "2026-08-11",
+      "comments_close_on": "2026-09-25",
+      "days_left": 4,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2026-2179-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/11/2026-16331/response-to-clean-air-act-section-176a-petition-from-new-hampshire",
+      "docket_ids": [
+        "EPA-HQ-OAR-2026-2179",
+        "FRL-13567-01-R1"
+      ],
+      "abstract": "The Environmental Protection Agency (EPA) is proposing to grant a Clean Air Act (CAA or Act) petition submitted by the state of New Hampshire on December 24, 2025. The petition requests that the EPA remove the State of New Hampshire from the Ozone Transport Region (OTR) based on\u2026",
+      "rank": 11
+    },
+    {
+      "score": 5,
+      "why": "significant \u00b7 closes in 7d",
+      "title": "Black Lung Benefits Act: Authorization of Self-Insurers",
+      "agencies": [
+        "Labor Department",
+        "Workers' Compensation Programs Office"
+      ],
+      "document_number": "2026-15325",
+      "publication_date": "2026-07-30",
+      "comments_close_on": "2026-09-28",
+      "days_left": 7,
+      "significant": true,
+      "comment_url": "https://www.regulations.gov/commenton/WCPO-2026-0529-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/30/2026-15325/black-lung-benefits-act-authorization-of-self-insurers",
+      "docket_ids": [],
+      "abstract": "The Department is proposing revisions to regulations under the Black Lung Benefits Act (BLBA or the Act) governing authorization of self-insurers. These rules will determine the process for coal mine operators to apply for authorization to self-insure, the requirements operators\u2026",
       "rank": 12
     }
   ]
