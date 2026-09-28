@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-21T18:41:51Z",
+  "generated": "2026-09-28T20:06:55Z",
   "window": {
     "min_days": 3,
     "max_days": 60
@@ -7,8 +7,29 @@
   "count": 12,
   "dockets": [
     {
+      "score": 10,
+      "why": "medicare \u00b7 prescription \u00b7 drug \u00b7 closes in 56d",
+      "title": "Request for Information; Medicare Part D Reasonable and Relevant Pharmacy Contracting Standards",
+      "agencies": [
+        "Health and Human Services Department",
+        "Centers for Medicare & Medicaid Services"
+      ],
+      "document_number": "2026-19535",
+      "publication_date": "2026-09-24",
+      "comments_close_on": "2026-11-23",
+      "days_left": 56,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/CMS-2026-3037-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/09/24/2026-19535/request-for-information-medicare-part-d-reasonable-and-relevant-pharmacy-contracting-standards",
+      "docket_ids": [
+        "CMS-4217-NC"
+      ],
+      "abstract": "This request for information (RFI) solicits input from interested parties for purposes of establishing standards for reasonable and relevant pharmacy contract terms and conditions under the Medicare prescription drug benefit. Section 6223(a) of the Consolidated Appropriations\u2026",
+      "rank": 1
+    },
+    {
       "score": 9,
-      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 18d",
+      "why": "housing \u00b7 financial assistance \u00b7 significant \u00b7 closes in 11d",
       "title": "HUD's Implementation of the Fair Housing Act's Disparate Impact Standard; Amendments to HUD's Title VI Regulations",
       "agencies": [
         "Housing and Urban Development Department"
@@ -16,7 +37,7 @@
       "document_number": "2026-16228",
       "publication_date": "2026-08-10",
       "comments_close_on": "2026-10-09",
-      "days_left": 18,
+      "days_left": 11,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/HUD-2026-0034-0609",
       "html_url": "https://www.federalregister.gov/documents/2026/08/10/2026-16228/huds-implementation-of-the-fair-housing-acts-disparate-impact-standard-amendments-to-huds-title-vi",
@@ -24,33 +45,11 @@
         "Docket No. FR-6540-P-02"
       ],
       "abstract": "HUD published a notice of proposed rulemaking in January of 2026 that proposed to remove HUD's disparate-impact regulations and leave interpretation of disparate-impact liability under the Fair Housing Act to the courts. This supplemental notice of proposed rulemaking continues\u2026",
-      "rank": 1
-    },
-    {
-      "score": 8,
-      "why": "immigration \u00b7 significant \u00b7 closes in 7d",
-      "title": "Civil Money Penalty for Actions in Contempt of an Immigration Judge's Proper Exercise of Authority",
-      "agencies": [
-        "Justice Department",
-        "Executive Office for Immigration Review"
-      ],
-      "document_number": "2026-15458",
-      "publication_date": "2026-07-30",
-      "comments_close_on": "2026-09-28",
-      "days_left": 7,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/EOIR-2026-0100-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/30/2026-15458/civil-money-penalty-for-actions-in-contempt-of-an-immigration-judges-proper-exercise-of-authority",
-      "docket_ids": [
-        "Docket No. EOIR-26-AB02",
-        "Dir. Order No. 07-2026"
-      ],
-      "abstract": "This notice of proposed rulemaking (\"NPRM\") would implement a provision of the Immigration and Nationality Act (\"INA\" or \"the Act\") that authorizes Immigration Judges, under regulations prescribed by the Attorney General, to sanction by civil money penalty any action (or\u2026",
       "rank": 2
     },
     {
       "score": 8,
-      "why": "clean air \u00b7 emission \u00b7 climate \u00b7 closes in 42d",
+      "why": "clean air \u00b7 emission \u00b7 climate \u00b7 closes in 35d",
       "title": "Rescission of the Greenhouse Gas Findings for Fossil Fuel-Fired Power Plants and Repeal of Regulations for Power Plant Greenhouse Gas Emissions Under Clean Air Act Section 111",
       "agencies": [
         "Environmental Protection Agency"
@@ -58,7 +57,7 @@
       "document_number": "2026-19072",
       "publication_date": "2026-09-17",
       "comments_close_on": "2026-11-02",
-      "days_left": 42,
+      "days_left": 35,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2025-0124-2920",
       "html_url": "https://www.federalregister.gov/documents/2026/09/17/2026-19072/rescission-of-the-greenhouse-gas-findings-for-fossil-fuel-fired-power-plants-and-repeal-of",
@@ -71,7 +70,7 @@
     },
     {
       "score": 7,
-      "why": "clean water \u00b7 significant \u00b7 closes in 18d",
+      "why": "clean water \u00b7 significant \u00b7 closes in 11d",
       "title": "Updated Definition of \u201cWaters of the United States\u201d",
       "agencies": [
         "Defense Department",
@@ -81,7 +80,7 @@
       "document_number": "2026-18317",
       "publication_date": "2026-09-09",
       "comments_close_on": "2026-10-09",
-      "days_left": 18,
+      "days_left": 11,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OW-2025-0322-15447",
       "html_url": "https://www.federalregister.gov/documents/2026/09/09/2026-18317/updated-definition-of-waters-of-the-united-states",
@@ -93,50 +92,28 @@
       "rank": 4
     },
     {
-      "score": 6,
-      "why": "clean air \u00b7 emission \u00b7 closes in 7d",
-      "title": "Approval and Promulgation of State Air Quality Plans for Designated Facilities and Pollutants; Puerto Rico; Negative Declaration for the Oil and Gas Industry",
+      "score": 7,
+      "why": "drinking water \u00b7 consumer \u00b7 closes in 25d",
+      "title": "Public Water System Supervision Program Revision for the State of Arkansas",
       "agencies": [
         "Environmental Protection Agency"
       ],
-      "document_number": "2026-17495",
-      "publication_date": "2026-08-27",
-      "comments_close_on": "2026-09-28",
-      "days_left": 7,
+      "document_number": "2026-19500",
+      "publication_date": "2026-09-23",
+      "comments_close_on": "2026-10-23",
+      "days_left": 25,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/EPA-R02-OAR-2026-2741-0002",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/27/2026-17495/approval-and-promulgation-of-state-air-quality-plans-for-designated-facilities-and-pollutants-puerto",
+      "comment_url": "https://www.regulations.gov/commenton/EPA_FRDOC_0001-33165",
+      "html_url": "https://www.federalregister.gov/documents/2026/09/23/2026-19500/public-water-system-supervision-program-revision-for-the-state-of-arkansas",
       "docket_ids": [
-        "EPA-R02-OAR-2026-2741",
-        "FRL-13326-01-R2"
+        "FRL-13495-01-R6"
       ],
-      "abstract": "Pursuant to the Clean Air Act, the Environmental Protection Agency is proposing to approve a negative declaration for oil and natural gas facilities within the Commonwealth of Puerto Rico. This negative declaration formally certifies that there are no existing crude oil or\u2026",
+      "abstract": "Notice is hereby given that the State of Arkansas is revising its approved Public Water System Supervision (PWSS) program. Arkansas has adopted the Environmental Protection Agency (EPA) drinking water rules for the Consumer Confidence Report Rule Revisions. Therefore, the EPA\u2026",
       "rank": 5
     },
     {
       "score": 6,
-      "why": "emission \u00b7 public health \u00b7 closes in 11d",
-      "title": "High-Speed Train Noise Emission Standards",
-      "agencies": [
-        "Transportation Department",
-        "Federal Railroad Administration"
-      ],
-      "document_number": "2026-15724",
-      "publication_date": "2026-08-03",
-      "comments_close_on": "2026-10-02",
-      "days_left": 11,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/FRA-2025-0786-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/03/2026-15724/high-speed-train-noise-emission-standards",
-      "docket_ids": [
-        "Docket No. FRA-2025-0786, Notice No. 1"
-      ],
-      "abstract": "This NPRM seeks to amend the noise emission regulations to address the unique noise emission characteristics of trains operating at speeds exceeding 160 miles per hour (mph). Specifically, the proposed regulation would provide an alternative standard for noise emissions from\u2026",
-      "rank": 6
-    },
-    {
-      "score": 6,
-      "why": "drug \u00b7 food \u00b7 closes in 18d",
+      "why": "drug \u00b7 food \u00b7 closes in 11d",
       "title": "Radiology Devices; Reclassification of Digital Breast Tomosynthesis System",
       "agencies": [
         "Health and Human Services Department",
@@ -145,7 +122,7 @@
       "document_number": "2026-16209",
       "publication_date": "2026-08-10",
       "comments_close_on": "2026-10-09",
-      "days_left": 18,
+      "days_left": 11,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2026-N-7630-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/10/2026-16209/radiology-devices-reclassification-of-digital-breast-tomosynthesis-system",
@@ -153,11 +130,11 @@
         "Docket No. FDA-2026-N-7630"
       ],
       "abstract": "The Food and Drug Administration (FDA) is proposing to reclassify digital breast tomosynthesis (DBT) systems, product code OTE, which are postamendments class III devices, from class III (premarket approval) into class II (special controls), subject to premarket notification.\u2026",
-      "rank": 7
+      "rank": 6
     },
     {
       "score": 6,
-      "why": "drug \u00b7 food \u00b7 closes in 25d",
+      "why": "drug \u00b7 food \u00b7 closes in 18d",
       "title": "Gastroenterology-Urology Devices; Reclassification of Diagnostic Endoscopic Light Source Systems To Be Renamed Cystoscopic Systems Intended as an Aid for Detection of Bladder Cancer",
       "agencies": [
         "Health and Human Services Department",
@@ -166,7 +143,7 @@
       "document_number": "2026-16728",
       "publication_date": "2026-08-17",
       "comments_close_on": "2026-10-16",
-      "days_left": 25,
+      "days_left": 18,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2026-N-8249-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/17/2026-16728/gastroenterology-urology-devices-reclassification-of-diagnostic-endoscopic-light-source-systems-to",
@@ -174,11 +151,11 @@
         "Docket No. FDA-2026-N-8249"
       ],
       "abstract": "The Food and Drug Administration (FDA) is proposing to reclassify diagnostic endoscopic light source systems (product code OAY), which are postamendments class III devices, from class III (premarket approval) into class II (special controls), subject to premarket notification.\u2026",
-      "rank": 8
+      "rank": 7
     },
     {
       "score": 6,
-      "why": "drug \u00b7 food \u00b7 closes in 25d",
+      "why": "drug \u00b7 food \u00b7 closes in 18d",
       "title": "Medical Devices; Classification of Accessories Distinct From Other Devices; Proposed List of Accessories Suitable for Class I; Request for Comments",
       "agencies": [
         "Health and Human Services Department",
@@ -187,7 +164,7 @@
       "document_number": "2026-16729",
       "publication_date": "2026-08-17",
       "comments_close_on": "2026-10-16",
-      "days_left": 25,
+      "days_left": 18,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-6224-0011",
       "html_url": "https://www.federalregister.gov/documents/2026/08/17/2026-16729/medical-devices-classification-of-accessories-distinct-from-other-devices-proposed-list-of",
@@ -195,67 +172,91 @@
         "Docket No. FDA-2025-N-6224"
       ],
       "abstract": "As required by the FDA Reauthorization Act of 2017 (FDARA), the Food and Drug Administration (FDA or Agency) has identified a list of accessories for which the Agency believes general controls alone are sufficient to provide reasonable assurance of safety and effectiveness,\u2026",
+      "rank": 8
+    },
+    {
+      "score": 5,
+      "why": "emission \u00b7 public health \u00b7 closes in 4d",
+      "title": "High-Speed Train Noise Emission Standards",
+      "agencies": [
+        "Transportation Department",
+        "Federal Railroad Administration"
+      ],
+      "document_number": "2026-15724",
+      "publication_date": "2026-08-03",
+      "comments_close_on": "2026-10-02",
+      "days_left": 4,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/FRA-2025-0786-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/03/2026-15724/high-speed-train-noise-emission-standards",
+      "docket_ids": [
+        "Docket No. FRA-2025-0786, Notice No. 1"
+      ],
+      "abstract": "This NPRM seeks to amend the noise emission regulations to address the unique noise emission characteristics of trains operating at speeds exceeding 160 miles per hour (mph). Specifically, the proposed regulation would provide an alternative standard for noise emissions from\u2026",
       "rank": 9
     },
     {
       "score": 5,
-      "why": "labor \u00b7 immigration \u00b7 closes in 3d",
-      "title": "Fee for Certain H-1B Petitions",
+      "why": "gun \u00b7 closes in 7d",
+      "title": "Fingerprint and Photograph Requirements for Firearms Applications",
       "agencies": [
-        "Homeland Security Department"
+        "Justice Department",
+        "Alcohol, Tobacco, Firearms, and Explosives Bureau"
       ],
-      "document_number": "2026-17324",
-      "publication_date": "2026-08-25",
-      "comments_close_on": "2026-09-24",
-      "days_left": 3,
+      "document_number": "2026-13587",
+      "publication_date": "2026-07-06",
+      "comments_close_on": "2026-10-05",
+      "days_left": 7,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0298-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/25/2026-17324/fee-for-certain-h-1b-petitions",
+      "comment_url": "https://www.regulations.gov/commenton/ATF-2026-0397-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/06/2026-13587/fingerprint-and-photograph-requirements-for-firearms-applications",
       "docket_ids": [
-        "CIS No. 2861-26",
-        "DHS Docket No. USCIS-2026-0298"
+        "Docket No. ATF-2026-0397",
+        "ATF 2025R-14P"
       ],
-      "abstract": "The Department of Homeland Security (DHS) proposes to establish a $103,265 fee, payable at the time of filing, for all H-1B cap-subject petitions, including those eligible for the advanced degree exemption, which would be imposed in addition to all other applicable fees or\u2026",
+      "abstract": "The Bureau of Alcohol, Tobacco, Firearms, and Explosives (\"ATF\") proposes amending regulatory requirements to submit fingerprints and photographs with firearms applications. Currently, applicants must submit 2\" x 2\" passport-style photographs and either one or two fingerprint\u2026",
       "rank": 10
     },
     {
       "score": 5,
-      "why": "clean air \u00b7 grant \u00b7 closes in 4d",
-      "title": "Response to Clean Air Act Section 176A Petition From New Hampshire",
+      "why": "voting \u00b7 closes in 7d",
+      "title": "National Poultry Improvement Plan and Auxiliary Provisions",
       "agencies": [
-        "Environmental Protection Agency"
+        "Agriculture Department",
+        "Animal and Plant Health Inspection Service"
       ],
-      "document_number": "2026-16331",
-      "publication_date": "2026-08-11",
-      "comments_close_on": "2026-09-25",
-      "days_left": 4,
+      "document_number": "2026-15845",
+      "publication_date": "2026-08-05",
+      "comments_close_on": "2026-10-05",
+      "days_left": 7,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2026-2179-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/11/2026-16331/response-to-clean-air-act-section-176a-petition-from-new-hampshire",
+      "comment_url": "https://www.regulations.gov/commenton/APHIS-2025-0033-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/05/2026-15845/national-poultry-improvement-plan-and-auxiliary-provisions",
       "docket_ids": [
-        "EPA-HQ-OAR-2026-2179",
-        "FRL-13567-01-R1"
+        "Docket No. APHIS-2025-0033"
       ],
-      "abstract": "The Environmental Protection Agency (EPA) is proposing to grant a Clean Air Act (CAA or Act) petition submitted by the state of New Hampshire on December 24, 2025. The petition requests that the EPA remove the State of New Hampshire from the Ozone Transport Region (OTR) based on\u2026",
+      "abstract": "We are proposing to amend the regulations governing the National Poultry Improvement Plan (NPIP). These amendments would, among other things, clarify existing provisions of the regulations, fix editorial errors, and align the regulations more closely with current producer\u2026",
       "rank": 11
     },
     {
       "score": 5,
-      "why": "significant \u00b7 closes in 7d",
-      "title": "Black Lung Benefits Act: Authorization of Self-Insurers",
+      "why": "credit \u00b7 tax \u00b7 closes in 7d",
+      "title": "Application of the Personal Responsibility and Work Opportunity Reconciliation Act of 1996 to the Refunded Portion of Certain Federal Refundable Tax Credits",
       "agencies": [
-        "Labor Department",
-        "Workers' Compensation Programs Office"
+        "Treasury Department",
+        "Internal Revenue Service"
       ],
-      "document_number": "2026-15325",
-      "publication_date": "2026-07-30",
-      "comments_close_on": "2026-09-28",
+      "document_number": "2026-16985",
+      "publication_date": "2026-08-20",
+      "comments_close_on": "2026-10-05",
       "days_left": 7,
-      "significant": true,
-      "comment_url": "https://www.regulations.gov/commenton/WCPO-2026-0529-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/07/30/2026-15325/black-lung-benefits-act-authorization-of-self-insurers",
-      "docket_ids": [],
-      "abstract": "The Department is proposing revisions to regulations under the Black Lung Benefits Act (BLBA or the Act) governing authorization of self-insurers. These rules will determine the process for coal mine operators to apply for authorization to self-insure, the requirements operators\u2026",
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/IRS-2026-1057-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/20/2026-16985/application-of-the-personal-responsibility-and-work-opportunity-reconciliation-act-of-1996-to-the",
+      "docket_ids": [
+        "REG-119882-25"
+      ],
+      "abstract": "This document contains proposed regulations that would provide that the refunded portion of certain refundable Federal income tax credits available to individuals is a \"Federal public benefit\" under the Personal Responsibility and Work Opportunity Reconciliation Act of 1996\u2026",
       "rank": 12
     }
   ]
