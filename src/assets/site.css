@@ -38,13 +38,17 @@ body { background:var(--paper); color:var(--ink); overflow-x:clip;
   width:min(720px, calc(100vw - 32px)); background:var(--paper); border:2px solid var(--ink);
   box-shadow:0 22px 54px -18px rgba(13,13,13,.45); padding:22px 24px; }
 .nav-menu.open { display:block; }
-.nav-cols { display:flex; gap:32px; align-items:flex-start; }
-.nav-col { flex:1; min-width:0; }
-.nav-h { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.2em;
-  text-transform:uppercase; color:var(--gold); margin:0 0 9px; }
-.nav-col .nav-h:not(:first-child) { margin-top:20px; }
+.nav-cols { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 30px; align-items:start; }
+.nav-col { min-width:0; }
+.nav-h { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold); margin:0 0 8px; padding-bottom:6px;
+  border-bottom:1px solid var(--rule); }
+.nav-col .nav-h:not(:first-child) { margin-top:22px; }
+/* These links sit inside .band-nav, which sets uppercase + .16em tracking for
+   the masthead. Reset both here or every puzzle title is shouted in wide caps. */
 .nav-menu a[role="menuitem"] { display:block; font-family:'Playfair Display',serif; font-weight:700;
-  font-size:15px; color:var(--ink); text-decoration:none; padding:4px 0; line-height:1.22; }
+  font-size:15.5px; color:var(--ink); text-decoration:none; padding:5px 0; line-height:1.3;
+  text-transform:none; letter-spacing:0; text-wrap:pretty; }
 .nav-menu a[role="menuitem"]:hover { color:var(--red); }
 .nav-soon { display:block; font-family:'Playfair Display',serif; font-style:italic; font-size:14px;
   color:var(--muted); padding:4px 0; line-height:1.22; }
@@ -57,7 +61,7 @@ body { background:var(--paper); color:var(--ink); overflow-x:clip;
 @media (max-width:560px) {
   .nav-menu { position:fixed; top:52px; left:0; right:0; width:100%; max-height:calc(100vh - 56px);
     overflow-y:auto; border-left:none; border-right:none; box-shadow:0 22px 40px -12px rgba(13,13,13,.5); }
-  .nav-cols { flex-direction:column; gap:0; }
+  .nav-cols { grid-template-columns:1fr; gap:0; }   /* .nav-cols is a grid now */
   .nav-col .nav-h:first-child { margin-top:0; }
   .nav-col:not(:first-child) .nav-h:first-child { margin-top:20px; }
 }
@@ -301,13 +305,13 @@ html.disco .figure.playing #lockb:not(:disabled)::after {
 @media (min-width:900px) { .hub-list { display:grid; grid-template-columns:1fr 1fr; gap:0 48px; align-items:start; } }
 .hub-list li { border-bottom:1px solid var(--rule); padding:13px 0;
   display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
-.hub-num { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-  letter-spacing:.1em; color:var(--muted); flex:none; width:78px; }
+.hub-num { font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700;
+  letter-spacing:.08em; color:var(--muted); flex:none; width:84px; white-space:nowrap; }
 .hub-t { font-family:'Playfair Display',serif; font-weight:900; font-style:italic;
   font-size:22px; color:var(--ink); text-decoration:none; }
 .hub-t:hover { color:var(--red); }
 .hub-hook { flex-basis:100%; font-size:16px; font-style:italic; color:var(--muted);
-  padding-left:90px; }
+  padding-left:96px; }
 @media (max-width:560px){ .hub-hook { padding-left:0; } }
 .hub-new { font-family:'JetBrains Mono',monospace; font-size:9px; font-weight:700;
   letter-spacing:.14em; color:var(--green); border:1px solid var(--green);
@@ -747,7 +751,7 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
   color:var(--muted); max-width:72ch; }
 .fgt-foot .fgt-paid { margin-left:0; }
 .nav-menu .nav-n { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:400;
-  letter-spacing:.1em; color:var(--muted); vertical-align:2px; margin-left:4px; }
+  letter-spacing:.06em; color:var(--muted); vertical-align:1px; margin-left:5px; white-space:nowrap; }
 /* long handles/URLs must wrap inside their card, not overflow the grid track */
 .fgt > span:last-child { min-width:0; }
 .fgt .ins-u, .fgt .fgt-d, .fgt .fgt-n { overflow-wrap:anywhere; }
