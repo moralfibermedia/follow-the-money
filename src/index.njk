@@ -19,10 +19,10 @@ ogImage: "/preview.png"
 <h2>The pro-democracy directory</h2>
 <p>We aggregate and amplify: the people and organizations doing the work, and the projects this one stands on. Every entry is a live link — go read them, then come back.</p>
 <ul class="hub-list">
-  <li><span class="hub-num">★ directory</span>
+  <li><span class="hub-num">directory</span>
       <a class="hub-t" href="/fighters/">Pro-Democracy Fighters</a>
       <span class="hub-hook">{{ fightersAll | length }} commentators, lawyers, historians, strategists and organizations — grouped by what they actually do.</span></li>
-  <li><span class="hub-num">★ directory</span>
+  <li><span class="hub-num">directory</span>
       <a class="hub-t" href="/inspiredby/">Inspired By</a>
       <span class="hub-hook">{{ inspired | length }} projects and organizations whose work informs this one — the shoulders we stand on.</span></li>
 </ul>
@@ -32,7 +32,7 @@ ogImage: "/preview.png"
 <ul class="hub-list">
 {%- set jtfFirst = true %}
 {%- for p in puzzles.puzzles | reverse %}{% if p.template == "text-match" and p.status == "live" %}
-  <li><span class="hub-num">★ text match</span>
+  <li><span class="hub-num">text match</span>
       <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
       {% if jtfFirst %}<span class="hub-new">New</span>{% set jtfFirst = false %}{% endif %}
       <span class="hub-hook">{{ p.hook }}</span></li>
@@ -43,7 +43,7 @@ ogImage: "/preview.png"
 <p>Put the record in order — rank the numbers, sequence the events, call higher-or-lower. Sources on every answer.</p>
 <ul class="hub-list">
 {%- for p in puzzles.puzzles | reverse %}{% if (p.template == "rank" or p.template == "timeline" or p.template == "over-under") and p.status == "live" %}
-  <li><span class="hub-num">★ {{ p.template | replace("-", " ") }}</span>
+  <li><span class="hub-num">{{ p.template | replace("-", " ") | replace("over under", "over/under") }}</span>
       <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
       <span class="hub-hook">{{ p.hook }}</span></li>
 {%- endif %}{% endfor %}
@@ -58,7 +58,7 @@ ogImage: "/preview.png"
       <span class="hub-hook">{{ p.hook }}</span></li>
 {%- endif %}{% endfor %}
 {%- for p in barcharts %}{% if not p.number %}
-  <li><span class="hub-num">★ special</span>
+  <li><span class="hub-num">special</span>
       <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
       <span class="hub-hook">{{ p.hook }}</span></li>
 {%- endif %}{% endfor %}
