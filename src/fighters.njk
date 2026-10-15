@@ -19,7 +19,7 @@ ogImage: "/fighters/preview.png"
 {%- for f in group.items %}
   <a class="fgt{% if f.support %} is-paid{% endif %}" href="{{ f.url }}" target="_blank" rel="noopener">
     <span class="fgt-i">✊</span>
-    <span><span class="fgt-n">{{ f.name }}</span>{% if f.support %}{%- set form = f.support if f.support is string else "money behind it" -%}<span class="fgt-paid" title="We pay for this — {{ form }}" aria-label="We pay for this — {{ form }}">$</span>{% endif %}<br><span class="fgt-d">{{ f.description }}</span><br><span class="ins-u">{{ f.display_url }}</span></span>
+    <span><span class="fgt-n">{{ f.name }}</span>{% if f.support %}{%- set form = f.support if f.support is string else "member" -%}<span class="fgt-paid" title="{{ form }}" aria-label="we pay for this: {{ form }}">$</span>{% endif %}<br><span class="fgt-d">{{ f.description }}</span><br><span class="ins-u">{{ f.display_url }}</span></span>
   </a>
 {%- endfor %}
 </div>
