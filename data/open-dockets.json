@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T21:43:53Z",
+  "generated": "2026-10-19T19:19:43Z",
   "window": {
     "min_days": 3,
     "max_days": 60
@@ -8,7 +8,7 @@
   "dockets": [
     {
       "score": 10,
-      "why": "medicare \u00b7 prescription \u00b7 drug \u00b7 closes in 42d",
+      "why": "medicare \u00b7 prescription \u00b7 drug \u00b7 closes in 35d",
       "title": "Request for Information; Medicare Part D Reasonable and Relevant Pharmacy Contracting Standards",
       "agencies": [
         "Health and Human Services Department",
@@ -17,7 +17,7 @@
       "document_number": "2026-19535",
       "publication_date": "2026-09-24",
       "comments_close_on": "2026-11-23",
-      "days_left": 42,
+      "days_left": 35,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/CMS-2026-3037-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/09/24/2026-19535/request-for-information-medicare-part-d-reasonable-and-relevant-pharmacy-contracting-standards",
@@ -29,7 +29,7 @@
     },
     {
       "score": 9,
-      "why": "credit \u00b7 tax \u00b7 school \u00b7 closes in 50d",
+      "why": "credit \u00b7 tax \u00b7 school \u00b7 closes in 43d",
       "title": "Federal Scholarship Tax Credit",
       "agencies": [
         "Treasury Department",
@@ -38,7 +38,7 @@
       "document_number": "2026-20277",
       "publication_date": "2026-10-02",
       "comments_close_on": "2026-12-01",
-      "days_left": 50,
+      "days_left": 43,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/IRS-2026-1354-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/10/02/2026-20277/federal-scholarship-tax-credit",
@@ -50,7 +50,7 @@
     },
     {
       "score": 9,
-      "why": "drug \u00b7 food \u00b7 significant \u00b7 closes in 58d",
+      "why": "drug \u00b7 food \u00b7 significant \u00b7 closes in 51d",
       "title": "Substances Generally Recognized as Safe",
       "agencies": [
         "Health and Human Services Department",
@@ -59,7 +59,7 @@
       "document_number": "2026-16296",
       "publication_date": "2026-08-11",
       "comments_close_on": "2026-12-09",
-      "days_left": 58,
+      "days_left": 51,
       "significant": true,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-3262-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/08/11/2026-16296/substances-generally-recognized-as-safe",
@@ -71,7 +71,7 @@
     },
     {
       "score": 8,
-      "why": "clean air \u00b7 emission \u00b7 climate \u00b7 closes in 21d",
+      "why": "clean air \u00b7 emission \u00b7 climate \u00b7 closes in 14d",
       "title": "Rescission of the Greenhouse Gas Findings for Fossil Fuel-Fired Power Plants and Repeal of Regulations for Power Plant Greenhouse Gas Emissions Under Clean Air Act Section 111",
       "agencies": [
         "Environmental Protection Agency"
@@ -79,7 +79,7 @@
       "document_number": "2026-19072",
       "publication_date": "2026-09-17",
       "comments_close_on": "2026-11-02",
-      "days_left": 21,
+      "days_left": 14,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/EPA-HQ-OAR-2025-0124-2920",
       "html_url": "https://www.federalregister.gov/documents/2026/09/17/2026-19072/rescission-of-the-greenhouse-gas-findings-for-fossil-fuel-fired-power-plants-and-repeal-of",
@@ -92,7 +92,7 @@
     },
     {
       "score": 8,
-      "why": "drug \u00b7 food \u00b7 public health \u00b7 closes in 56d",
+      "why": "drug \u00b7 food \u00b7 public health \u00b7 closes in 49d",
       "title": "Nonclinical Testing Terminology",
       "agencies": [
         "Health and Human Services Department",
@@ -101,7 +101,7 @@
       "document_number": "2026-19349",
       "publication_date": "2026-09-22",
       "comments_close_on": "2026-12-07",
-      "days_left": 56,
+      "days_left": 49,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/FDA-2026-N-5347-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/09/22/2026-19349/nonclinical-testing-terminology",
@@ -113,7 +113,48 @@
     },
     {
       "score": 7,
-      "why": "drinking water \u00b7 consumer \u00b7 closes in 11d",
+      "why": "immigration \u00b7 citizenship \u00b7 closes in 25d",
+      "title": "Removing Deference to Prior USCIS Determinations of Eligibility",
+      "agencies": [
+        "Homeland Security Department"
+      ],
+      "document_number": "2026-20941",
+      "publication_date": "2026-10-14",
+      "comments_close_on": "2026-11-13",
+      "days_left": 25,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0529-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/10/14/2026-20941/removing-deference-to-prior-uscis-determinations-of-eligibility",
+      "docket_ids": [
+        "CIS No. 2870-26",
+        "DHS Docket No. USCIS-2026-0529"
+      ],
+      "abstract": "The U.S. Department of Homeland Security (DHS), U.S. Citizenship and Immigration Services (USCIS), proposes to remove 8 CFR 214.1(c)(5), which generally provides that USCIS gives deference to a prior approval involving the same facts when adjudicating a request to extend a\u2026",
+      "rank": 6
+    },
+    {
+      "score": 7,
+      "why": "privacy \u00b7 immigration \u00b7 closes in 28d",
+      "title": "Privacy Act of 1974; Implementation",
+      "agencies": [
+        "Justice Department"
+      ],
+      "document_number": "2026-21063",
+      "publication_date": "2026-10-15",
+      "comments_close_on": "2026-11-16",
+      "days_left": 28,
+      "significant": false,
+      "comment_url": "https://www.regulations.gov/commenton/DOJ_FRDOC_0001-0336",
+      "html_url": "https://www.federalregister.gov/documents/2026/10/15/2026-21063/privacy-act-of-1974-implementation",
+      "docket_ids": [
+        "CPCLO Order No. 014-2026"
+      ],
+      "abstract": "In the Notice section of today's Federal Register, the Executive Office for Immigration Review (EOIR), a component within the United States Department of Justice (DOJ or Department), has published a notice of a new system of records titled \"Fraud and Abuse Prevention Program\u2026",
+      "rank": 7
+    },
+    {
+      "score": 6,
+      "why": "drinking water \u00b7 consumer \u00b7 closes in 4d",
       "title": "Public Water System Supervision Program Revision for the State of Arkansas",
       "agencies": [
         "Environmental Protection Agency"
@@ -121,7 +162,7 @@
       "document_number": "2026-19500",
       "publication_date": "2026-09-23",
       "comments_close_on": "2026-10-23",
-      "days_left": 11,
+      "days_left": 4,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/EPA_FRDOC_0001-33165",
       "html_url": "https://www.federalregister.gov/documents/2026/09/23/2026-19500/public-water-system-supervision-program-revision-for-the-state-of-arkansas",
@@ -129,11 +170,11 @@
         "FRL-13495-01-R6"
       ],
       "abstract": "Notice is hereby given that the State of Arkansas is revising its approved Public Water System Supervision (PWSS) program. Arkansas has adopted the Environmental Protection Agency (EPA) drinking water rules for the Consumer Confidence Report Rule Revisions. Therefore, the EPA\u2026",
-      "rank": 6
+      "rank": 8
     },
     {
       "score": 6,
-      "why": "clean air \u00b7 emission \u00b7 closes in 28d",
+      "why": "clean air \u00b7 emission \u00b7 closes in 21d",
       "title": "Air Quality Plan; Arizona; Maricopa County Air Quality Department; New Source Review; Emission Reduction Credits-Rule 204",
       "agencies": [
         "Environmental Protection Agency"
@@ -141,7 +182,7 @@
       "document_number": "2026-20612",
       "publication_date": "2026-10-08",
       "comments_close_on": "2026-11-09",
-      "days_left": 28,
+      "days_left": 21,
       "significant": false,
       "comment_url": "https://www.regulations.gov/commenton/EPA-R09-OAR-2026-4654-0001",
       "html_url": "https://www.federalregister.gov/documents/2026/10/08/2026-20612/air-quality-plan-arizona-maricopa-county-air-quality-department-new-source-review-emission-reduction",
@@ -150,109 +191,68 @@
         "FRL-13434-01-R9"
       ],
       "abstract": "The U.S. Environmental Protection Agency (EPA) is proposing to approve a revision to the Maricopa County Air Quality Department (MCAQD or \"Department\") portion of the Arizona State Implementation Plan (SIP). This revision establishes a federally enforceable program allowing\u2026",
-      "rank": 7
-    },
-    {
-      "score": 6,
-      "why": "drug \u00b7 food \u00b7 closes in 42d",
-      "title": "Requirements for Additional Traceability Records for Certain Foods: Enforcement Policy for Certain Retail Food Establishments and Restaurants; Draft Guidance for Industry; Availability",
-      "agencies": [
-        "Health and Human Services Department",
-        "Food and Drug Administration"
-      ],
-      "document_number": "2026-20721",
-      "publication_date": "2026-10-09",
-      "comments_close_on": "2026-11-23",
-      "days_left": 42,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/FDA-2025-D-6952-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/10/09/2026-20721/requirements-for-additional-traceability-records-for-certain-foods-enforcement-policy-for-certain",
-      "docket_ids": [
-        "Docket No. FDA-2025-D-6952"
-      ],
-      "abstract": "The Food and Drug Administration (FDA, we, or the Agency) is announcing the availability of a draft guidance for industry titled \"Requirements for Additional Traceability Records for Certain Foods: Enforcement Policy for Certain Retail Food Establishments and Restaurants.\" The\u2026",
-      "rank": 8
-    },
-    {
-      "score": 5,
-      "why": "drug \u00b7 food \u00b7 closes in 4d",
-      "title": "Gastroenterology-Urology Devices; Reclassification of Diagnostic Endoscopic Light Source Systems To Be Renamed Cystoscopic Systems Intended as an Aid for Detection of Bladder Cancer",
-      "agencies": [
-        "Health and Human Services Department",
-        "Food and Drug Administration"
-      ],
-      "document_number": "2026-16728",
-      "publication_date": "2026-08-17",
-      "comments_close_on": "2026-10-16",
-      "days_left": 4,
-      "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/FDA-2026-N-8249-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/17/2026-16728/gastroenterology-urology-devices-reclassification-of-diagnostic-endoscopic-light-source-systems-to",
-      "docket_ids": [
-        "Docket No. FDA-2026-N-8249"
-      ],
-      "abstract": "The Food and Drug Administration (FDA) is proposing to reclassify diagnostic endoscopic light source systems (product code OAY), which are postamendments class III devices, from class III (premarket approval) into class II (special controls), subject to premarket notification.\u2026",
       "rank": 9
     },
     {
-      "score": 5,
-      "why": "drug \u00b7 food \u00b7 closes in 4d",
-      "title": "Medical Devices; Classification of Accessories Distinct From Other Devices; Proposed List of Accessories Suitable for Class I; Request for Comments",
+      "score": 6,
+      "why": "clean air \u00b7 emission \u00b7 closes in 30d",
+      "title": "Air Quality Plan; Arizona; Pinal County Air Quality Control District; West Pinal County PM10 Nonattainment Area; Fugitive Dust Rules",
       "agencies": [
-        "Health and Human Services Department",
-        "Food and Drug Administration"
+        "Environmental Protection Agency"
       ],
-      "document_number": "2026-16729",
-      "publication_date": "2026-08-17",
-      "comments_close_on": "2026-10-16",
-      "days_left": 4,
+      "document_number": "2026-21287",
+      "publication_date": "2026-10-19",
+      "comments_close_on": "2026-11-18",
+      "days_left": 30,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/FDA-2025-N-6224-0011",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/17/2026-16729/medical-devices-classification-of-accessories-distinct-from-other-devices-proposed-list-of",
+      "comment_url": "https://www.regulations.gov/commenton/EPA-R09-OAR-2026-5581-0001",
+      "html_url": "https://www.federalregister.gov/documents/2026/10/19/2026-21287/air-quality-plan-arizona-pinal-county-air-quality-control-district-west-pinal-county-pm10",
       "docket_ids": [
-        "Docket No. FDA-2025-N-6224"
+        "EPA-R09-OAR-2026-5581",
+        "FRL-13513-01-R9"
       ],
-      "abstract": "As required by the FDA Reauthorization Act of 2017 (FDARA), the Food and Drug Administration (FDA or Agency) has identified a list of accessories for which the Agency believes general controls alone are sufficient to provide reasonable assurance of safety and effectiveness,\u2026",
+      "abstract": "The U.S. Environmental Protection Agency (EPA) is proposing to approve revisions to the Pinal County Air Quality Control District (PCAQCD or \"District\") portion of the Arizona State Implementation Plan (SIP). These revisions concern emissions of particulate matter (PM) that is\u2026",
       "rank": 10
     },
     {
-      "score": 5,
-      "why": "immigration \u00b7 closes in 8d",
-      "title": "Genealogy Program Regulations To Clarify the Impact of Federal Records Requirements",
+      "score": 6,
+      "why": "clean air \u00b7 emission \u00b7 closes in 30d",
+      "title": "Air Quality Plan; Arizona; Agricultural Best Management Practices Rules for the West Pinal County PM10 Nonattainment Area",
       "agencies": [
-        "Homeland Security Department"
+        "Environmental Protection Agency"
       ],
-      "document_number": "2026-17119",
-      "publication_date": "2026-08-21",
-      "comments_close_on": "2026-10-20",
-      "days_left": 8,
+      "document_number": "2026-21289",
+      "publication_date": "2026-10-19",
+      "comments_close_on": "2026-11-18",
+      "days_left": 30,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/USCIS-2026-0331-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/08/21/2026-17119/genealogy-program-regulations-to-clarify-the-impact-of-federal-records-requirements",
+      "comment_url": "https://www.regulations.gov/commenton/EPA-R09-OAR-2024-0600-0017",
+      "html_url": "https://www.federalregister.gov/documents/2026/10/19/2026-21289/air-quality-plan-arizona-agricultural-best-management-practices-rules-for-the-west-pinal-county-pm10",
       "docket_ids": [
-        "CIS No. 2798-25",
-        "DHS Docket No. USCIS-2026-0331"
+        "EPA-R09-OAR-2024-0600",
+        "FRL-13422-01-R9"
       ],
-      "abstract": "The U.S. Department of Homeland Security (DHS) proposes to amend its regulation governing genealogy program related records requests to revise its genealogy program regulations to clarify the impact of statutory and regulatory federal records requirements. This is necessary for\u2026",
+      "abstract": "The U.S. Environmental Protection Agency (EPA) is proposing to approve a revision to the Arizona Department of Environmental Quality (ADEQ or \"State\") portion of the Arizona State Implementation Plan (SIP). This revision concerns emissions of particulate matter (PM) that are 10\u2026",
       "rank": 11
     },
     {
-      "score": 5,
-      "why": "social security \u00b7 closes in 23d",
-      "title": "Reforming Federal Reporting and Assessments in Child Welfare",
+      "score": 6,
+      "why": "clean air \u00b7 emission \u00b7 closes in 30d",
+      "title": "New Source Performance Standards and National Emission Standards for Hazardous Air Pollutants; Delegation of Authority to Northwest Clean Air Agency, Washington State",
       "agencies": [
-        "Health and Human Services Department",
-        "Children and Families Administration"
+        "Environmental Protection Agency"
       ],
-      "document_number": "2026-20329",
-      "publication_date": "2026-10-05",
-      "comments_close_on": "2026-11-04",
-      "days_left": 23,
+      "document_number": "2026-21383",
+      "publication_date": "2026-10-19",
+      "comments_close_on": "2026-11-18",
+      "days_left": 30,
       "significant": false,
-      "comment_url": "https://www.regulations.gov/commenton/ACF-2026-0562-0001",
-      "html_url": "https://www.federalregister.gov/documents/2026/10/05/2026-20329/reforming-federal-reporting-and-assessments-in-child-welfare",
-      "docket_ids": [],
-      "abstract": "ACF proposes to remove regulations that implement title IV-B of the Social Security Act (the Act) because they are outdated and refer to dates that have passed, have been superseded by subsequent amendments to the Act, duplicate or restate requirements already in title IV-B of\u2026",
+      "comment_url": "https://www.regulations.gov/commenton/EPA-R10-OAR-2026-4291-0013",
+      "html_url": "https://www.federalregister.gov/documents/2026/10/19/2026-21383/new-source-performance-standards-and-national-emission-standards-for-hazardous-air-pollutants",
+      "docket_ids": [
+        "EPA-R10-OAR-2026-4291, FRL-13409-01-R10"
+      ],
+      "abstract": "The Northwest Clean Air Agency (NWCAA), located in Washington State, submitted updated regulations for receiving delegation and approval of its program for the implementation and enforcement of newly issued or revised New Source Performance Standards (NSPS) and National Emission\u2026",
       "rank": 12
     }
   ]
