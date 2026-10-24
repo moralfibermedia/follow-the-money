@@ -1,0 +1,72 @@
+---
+layout: layouts/base.njk
+permalink: /rules/index.html
+license: by
+pageTitle: "Federal Register — the rules we're watching | Moral Fiber Media"
+pageDescription: "Proposed federal rules we track: what each one changes, whether the public comment window is open, and how many comments are on the record."
+canonicalPath: "/rules"
+ogImage: "/preview.png"
+---
+<div class="kicker"><a href="/">Moral Fiber Media</a> · section</div>
+<h1>Federal <em>Register</em></h1>
+<div class="standfirst">Proposed rules change what the government may do, and almost nobody reads them. These are the ones we're watching — what each would change, whether you can still comment, and what's on the record.</div>
+<p>A proposed rule is a law the public never votes on. Anyone may file a comment while the window is open — no lawyer, no standing required — and the agency is required to consider the record before it finalises anything.</p>
+
+{%- for r in watchedRules %}
+<div class="rule is-{{ r.state }}">
+  <div class="rule-head">
+    <span class="rule-agency">{{ r.agency or "Federal agency" }}</span>
+    <span class="rule-state">
+      {%- if r.state == "open" or r.state == "closing" -%}Open for comment
+      {%- elif r.state == "resolved" -%}Final rule published
+      {%- else -%}Comment window closed{%- endif -%}
+    </span>
+  </div>
+  <h2 class="rule-t">{{ r.title or r.id }}</h2>
+  {%- if r.citation or r.docket %}
+  <div class="rule-cite">{{ r.citation }}{% if r.citation and r.docket %} · {% endif %}{% if r.docket %}Docket {{ r.docket }}{% endif %} · {{ r.id }}</div>
+  {%- endif %}
+  {%- if r.summary %}<p class="rule-sum">{{ r.summary }}</p>{% endif %}
+
+  <div class="rule-meta" data-cc-doc="{{ r.id }}">
+    {%- if r.state == "open" or r.state == "closing" %}
+    <a class="ccta-btn" href="{{ r.comment_url }}" target="_blank" rel="noopener">Add your comment ↗</a>
+    <span class="rule-when">Closes {{ r.deadlineLabel }}{% if r.daysLeft != null %} · <b>{{ r.daysLeft }} day{% if r.daysLeft != 1 %}s{% endif %} left</b>{% endif %}</span>
+    {%- elif r.state == "resolved" %}
+    <a class="ccta-btn" href="{{ r.final_rule_url }}" target="_blank" rel="noopener">Read the final rule ↗</a>
+    <span class="rule-when">Published {{ r.finalRuleLabel }}</span>
+    {%- else %}
+    <a class="ccta-btn ghost" href="{{ r.comment_closed_url or r.rule_url }}" target="_blank" rel="noopener">Read the comments on the record ↗</a>
+    <span class="rule-when">Closed {{ r.deadlineLabel }}</span>
+    {%- endif %}
+    <span class="ccta-count" hidden><b data-cc-count>—</b> comments posted</span>
+  </div>
+
+  {%- if r.coverage and r.coverage.length %}
+  <div class="rule-cov"><span class="rule-cov-l">Our coverage</span>
+    {%- for c in r.coverage %}<a href="{{ c.url }}">{{ c.title }}</a>{% endfor %}
+  </div>
+  {%- endif %}
+</div>
+{%- else %}
+<p class="lb-empty">No rules on the watch list right now.</p>
+{%- endfor %}
+
+<p class="fgt-foot">Comment counts come from regulations.gov and lag by weeks on big dockets — a closed window keeps counting for a while. We stop polling 60 days after a deadline, or once the final rule publishes.</p>
+<p style="margin-top:22px"><a href="/">← All sections</a></p>
+
+<script>
+// Fill live posted counts for every rule on the page.
+fetch("/data/comment-counts.json", { cache: "no-store" })
+  .then(function (r) { return r.ok ? r.json() : null; })
+  .then(function (d) {
+    if (!d) return;
+    document.querySelectorAll("[data-cc-doc]").forEach(function (box) {
+      var rec = d[box.dataset.ccDoc];
+      if (!rec || typeof rec.posted !== "number") return;
+      var n = box.querySelector("[data-cc-count]"); if (n) n.textContent = rec.posted.toLocaleString("en-US");
+      var c = box.querySelector(".ccta-count"); if (c) c.hidden = false;
+    });
+  })
+  .catch(function () {});
+</script>

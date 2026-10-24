@@ -1,0 +1,26 @@
+{
+  "_comment": "Presentation metadata for the federal rules we track, keyed by regulations.gov document id. Lifecycle data (deadline, comment URLs, final rule) comes from a puzzle's comment_cta where one exists — this file never duplicates it. Entries carrying their own urls/deadline are rules we cover WITHOUT a puzzle CTA.",
+  "rules": {
+    "OMB-2026-0034-0001": {
+      "title": "Regulation for Federal Financial Assistance",
+      "agency": "Office of Management and Budget",
+      "citation": "2 CFR Part 200",
+      "summary": "The biggest rewrite of how federal grant money works in over a decade — $1.1 trillion a year across 40-plus agencies. Flexible guidance becomes binding law, without a vote in Congress."
+    },
+    "DOJ-OAG-2026-0001-0001": {
+      "title": "Ethical Standards for Attorneys for the Government",
+      "agency": "Department of Justice",
+      "citation": "28 CFR Part 77",
+      "docket": "OAG199",
+      "summary": "Would let Justice Department lawyers opt out of the state bar rules that bind every other attorney — the department policing its own ethics.",
+      "rule_url": "https://www.regulations.gov/document/DOJ-OAG-2026-0001-0001",
+      "comment_url": "https://www.regulations.gov/commenton/DOJ-OAG-2026-0001-0001",
+      "comment_closed_url": "https://www.regulations.gov/document/DOJ-OAG-2026-0001-0001/comment",
+      "comment_deadline": "2026-04-06T23:59:00-04:00",
+      "coverage": [
+        { "title": "The DOJ Bar-Rule Change", "url": "/doj/bar-rule-infographic/" },
+        { "title": "Bar-Rule Action Guide", "url": "/doj/bar-rule-action/" }
+      ]
+    }
+  }
+}

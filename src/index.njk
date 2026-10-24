@@ -3,82 +3,61 @@ layout: layouts/base.njk
 permalink: /index.html
 license: by
 creditData: "puzzle data sources credited on each puzzle"
-pageTitle: "Follow the Money — Puzzle Hub | Moral Fiber Media"
-pageDescription: "Interactive civic puzzles built on public data: political donations, lobbying, court records, federal contracts. Free, sourced, no login. We do the research — you solve the puzzle."
+pageTitle: "Follow the Money — civic puzzles, bill tracking, rule watching | Moral Fiber Media"
+pageDescription: "We do the research, you solve the puzzle. Civic puzzles on public data, state legislature bill tracking, federal rule watching, and a directory of the people doing the work."
 canonicalPath: "/"
 ogImage: "/preview.png"
 ---
 <div class="hub-head">
   <img class="hub-mark" src="/assets/mfm-mark.png" alt="Moral Fiber Media — fist and megaphones mark" width="72" height="72">
-  <div class="kicker">Moral Fiber Media · Civic Puzzles</div>
+  <div class="kicker">Moral Fiber Media</div>
   <h1>Follow the <em>Money</em></h1>
-  <div class="standfirst">Interactive puzzles built on public data — political donations, lobbying bills, court records, federal contracts. Every answer reveals its source.</div>
+  <div class="standfirst">We read the public record so you don't have to — then cut it into puzzles, scorecards and watch-lists. Every claim links to its source.</div>
   <div class="hub-tagline">{{ site.tagline }} &nbsp;·&nbsp; free · sourced · no login</div>
 </div>
 
-<h2>The pro-democracy directory</h2>
-<p>We aggregate and amplify: the people and organizations doing the work, and the projects this one stands on. Every entry is a live link — go read them, then come back.</p>
-<ul class="hub-list">
-  <li><span class="hub-num">directory</span>
-      <a class="hub-t" href="/fighters/">Pro-Democracy Fighters</a>
-      <span class="hub-hook">{{ fightersAll | length }} commentators, lawyers, historians, strategists and organizations — grouped by what they actually do.</span></li>
-  <li><span class="hub-num">directory</span>
-      <a class="hub-t" href="/inspiredby/">Inspired By</a>
-      <span class="hub-hook">{{ inspired | length }} projects and organizations whose work informs this one — the shoulders we stand on.</span></li>
-</ul>
+<div class="sections">
 
-<h2>Just the Facts</h2>
-<p>One story from the record, cut into facts — match each claim to where it belongs. Every match reveals its sources. Newest first.</p>
-<ul class="hub-list">
-{%- set jtfFirst = true %}
-{%- for p in puzzles.puzzles | reverse %}{% if p.template == "text-match" and p.status == "live" %}
-  <li><span class="hub-num">text match</span>
-      <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
-      {% if jtfFirst %}<span class="hub-new">New</span>{% set jtfFirst = false %}{% endif %}
-      <span class="hub-hook">{{ p.hook }}</span></li>
-{%- endif %}{% endfor %}
-</ul>
+  <a class="sect" href="/puzzles/">
+    <span class="sect-k">Play</span>
+    <span class="sect-t">The Puzzles</span>
+    <span class="sect-d">Match the facts, rank the numbers, order the timeline. Built on donations, lobbying, court records and federal contracts — every answer reveals its source.</span>
+    <span class="sect-n">{{ livePuzzles | length }} puzzles · 5 ways to play</span>
+  </a>
 
-<h2>Rankings &amp; timelines</h2>
-<p>Put the record in order — rank the numbers, sequence the events, call higher-or-lower. Sources on every answer.</p>
-<ul class="hub-list">
-{%- for p in puzzles.puzzles | reverse %}{% if (p.template == "rank" or p.template == "timeline" or p.template == "over-under") and p.status == "live" %}
-  <li><span class="hub-num">{{ p.template | replace("-", " ") | replace("over under", "over/under") }}</span>
-      <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
-      <span class="hub-hook">{{ p.hook }}</span></li>
-{%- endif %}{% endfor %}
-</ul>
+  <a class="sect" href="/legislatures/">
+    <span class="sect-k">Track</span>
+    <span class="sect-t">State Legislatures</span>
+    <span class="sect-d">Most of what happens to voting happens in state capitols, in bills nobody reads. Scored, sourced, and explained — including what the process jargon actually means.</span>
+    <span class="sect-n">Georgia · Florida</span>
+  </a>
 
-<h2>The bar-chart series</h2>
-<p>Where it started: three companies, three donation profiles — match the company to the cash. Data from OpenSecrets.org, 2024 cycle.</p>
-<ul class="hub-list">
-{%- for p in barcharts %}{% if p.number %}
-  <li><span class="hub-num">Puzzle #{{ p.number }}</span>
-      <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
-      <span class="hub-hook">{{ p.hook }}</span></li>
-{%- endif %}{% endfor %}
-{%- for p in barcharts %}{% if not p.number %}
-  <li><span class="hub-num">special</span>
-      <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
-      <span class="hub-hook">{{ p.hook }}</span></li>
-{%- endif %}{% endfor %}
-</ul>
+  <a class="sect" href="/rules/">
+    <span class="sect-k">Watch</span>
+    <span class="sect-t">Federal Register</span>
+    <span class="sect-d">Proposed rules are laws the public never votes on — but anyone may comment while the window is open. We track what each would change, and what's on the record.</span>
+    <span class="sect-n">{{ rulesSummary.total }} rule{% if rulesSummary.total != 1 %}s{% endif %} watched{% if rulesSummary.open %} · <b class="sect-live">{{ rulesSummary.open }} open for comment</b>{% endif %}</span>
+  </a>
 
-<h2>Reports · read the receipts</h2>
-<ul class="hub-list">
-  <li><span class="hub-num">Report</span><a class="hub-t" href="/2026-ga-elections-legislation/">2026 Georgia Election Bills</a>
-      <span class="hub-hook">Every election-related bill in the Georgia legislature — scored, sourced, tracked.</span></li>
-  <li><span class="hub-num">Report</span><a class="hub-t" href="/doj/bar-rule-infographic/">The DOJ Bar-Rule Change</a>
-      <span class="hub-hook">What the proposed rule says, what it changes, and the receipts.</span></li>
-  <li><span class="hub-num">Action</span><a class="hub-t" href="/doj/bar-rule-action/">Bar-Rule Action Guide</a>
-      <span class="hub-hook">How to be heard on the record.</span></li>
-</ul>
+  <a class="sect" href="/fighters/">
+    <span class="sect-k">Amplify</span>
+    <span class="sect-t">Pro-Democracy Fighters</span>
+    <span class="sect-d">The commentators, lawyers, historians, strategists and organizations doing the work — grouped by what they actually do. Every entry is a live link.</span>
+    <span class="sect-n">{{ fightersAll | length }} fighters</span>
+  </a>
 
-{%- if puzzles.coming_soon and puzzles.coming_soon.length %}
-<h2>Coming soon</h2>
-<p class="coming">
-{%- for c in puzzles.coming_soon %}
-  <b>"{{ c.title }}"</b> — {{ c.companies | join(" · ") }}{% if not loop.last %}<br>{% endif %}
-{%- endfor %}
-</p>
-{%- endif %}
+  <a class="sect" href="/backed/">
+    <span class="sect-k">Put money in</span>
+    <span class="sect-t">The ones we back</span>
+    <span class="sect-d">Listing someone is already support. These are the ones we also pay for ourselves — subscriptions, memberships, donations, books — named, with what we bought.</span>
+    <span class="sect-n">{{ backedFighters.count }} backed</span>
+  </a>
+
+  <a class="sect" href="/inspiredby/">
+    <span class="sect-k">Credit</span>
+    <span class="sect-t">Inspired By</span>
+    <span class="sect-d">The projects, newsletters and research that informed this one — the shoulders we stand on, named rather than quietly borrowed from.</span>
+    <span class="sect-n">{{ inspired | length }} projects</span>
+  </a>
+
+</div>

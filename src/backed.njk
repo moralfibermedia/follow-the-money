@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+permalink: /backed/index.html
+license: by
+pageTitle: "The ones we back — where our money goes | Moral Fiber Media"
+pageDescription: "Listing someone in our directory is support. These are the ones we also pay for — subscriptions, memberships, donations and books — named, with what we bought."
+canonicalPath: "/backed"
+ogImage: "/preview.png"
+---
+<div class="kicker"><a href="/">Moral Fiber Media</a> · section</div>
+<h1>The ones we <em>back</em></h1>
+<div class="standfirst">Listing someone in our directory is already support — that is what the directory is for. This page is the narrower claim: the {{ backedFighters.count }} we also pay for out of our own pocket, and what we bought.</div>
+<p>Independent work runs on subscriptions, memberships and donations. We think you should know who we actually fund, not just who we recommend — and we'd rather name it than imply it.</p>
+
+{%- for g in backedFighters.groups %}
+<h2>{{ g.label }} <span class="fgt-cat-n">{{ g.items | length }}</span></h2>
+<div class="fighters">
+{%- for f in g.items %}
+  <a class="fgt" href="{{ f.url }}" target="_blank" rel="noopener">
+    <span class="fgt-i">✊</span>
+    <span><span class="fgt-n">{{ f.name }}</span><br><span class="fgt-d">{{ f.description }}</span><br><span class="ins-u">{{ f.display_url }}</span></span>
+  </a>
+{%- endfor %}
+</div>
+{%- endfor %}
+
+<div class="fgt-foot">No one pays us for a place here, and nobody listed knows this page exists unless they find it. Everyone in the <a href="/fighters/">full directory</a> is worth your attention — these are simply the ones our money is already behind.</div>
+<p style="margin-top:22px"><a href="/fighters/">The full directory →</a><br><a href="/">← All sections</a></p>

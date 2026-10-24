@@ -755,3 +755,47 @@ html.disco .shimmer-toggle { color:var(--red); border-color:var(--red); }
 /* long handles/URLs must wrap inside their card, not overflow the grid track */
 .fgt > span:last-child { min-width:0; }
 .fgt .ins-u, .fgt .fgt-d, .fgt .fgt-n { overflow-wrap:anywhere; }
+
+/* ---- homepage section cards ---- */
+.sections { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:16px; margin:28px 0 8px; }
+.sect { display:flex; flex-direction:column; gap:7px; padding:20px 20px 18px;
+  border:2px solid var(--ink); background:#fff; text-decoration:none; color:var(--ink);
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+.sect:hover { transform:translateY(-3px); box-shadow:0 4px 0 rgba(13,13,13,.16); border-color:var(--red); }
+.sect:active { transform:translateY(0); }
+.sect-k { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
+.sect-t { font-family:'Playfair Display',serif; font-weight:900; font-size:27px;
+  line-height:1.1; text-wrap:balance; }
+.sect:hover .sect-t { color:var(--red); }
+.sect-d { font-size:15.5px; line-height:1.55; color:var(--muted); flex:1; }
+.sect-n { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.06em;
+  color:var(--ink); border-top:1px solid var(--rule); padding-top:9px; margin-top:3px; }
+.sect-live { color:var(--red); }
+@media (max-width:560px) { .sect { padding:16px 15px 14px; } .sect-t { font-size:23px; } }
+
+/* ---- a watched federal rule ---- */
+.rule { border:2px solid var(--ink); background:#fff; padding:18px 20px; margin:22px 0; }
+.rule.is-open, .rule.is-closing { border-color:var(--red); }
+.rule-head { display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline;
+  font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase; }
+.rule-agency { color:var(--gold); }
+.rule-state { margin-left:auto; color:var(--muted); }
+.rule.is-open .rule-state, .rule.is-closing .rule-state { color:var(--red); }
+.rule-t { font-family:'Playfair Display',serif; font-weight:900; font-size:24px;
+  line-height:1.18; margin:8px 0 4px; text-wrap:balance; }
+.rule-cite { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted);
+  letter-spacing:.04em; margin-bottom:9px; overflow-wrap:anywhere; }
+.rule-sum { font-size:16px; line-height:1.6; margin:0 0 14px; max-width:62ch; }
+.rule-meta { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center;
+  font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); }
+.rule-when b { color:var(--red); }
+.rule-cov { margin-top:13px; padding-top:10px; border-top:1px solid var(--rule);
+  display:flex; flex-wrap:wrap; gap:4px 14px; align-items:baseline;
+  font-family:'JetBrains Mono',monospace; font-size:11px; }
+.rule-cov-l { font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+.rule-cov a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule); }
+.rule-cov a:hover { color:var(--red); border-color:var(--red); }
+@media (max-width:560px) { .rule-state { margin-left:0; } }
