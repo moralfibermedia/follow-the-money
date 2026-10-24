@@ -25,10 +25,6 @@ module.exports = function (eleventyConfig) {
    "speak-now/**/*.png", "speak-now/**/preview.json",
   ].forEach(g => eleventyConfig.addPassthroughCopy(g));
 
-  // v1 arcade archive — the pre-migration pages, kept for side-by-side
-  // comparison at /compare/ (noindex; canonicals point at the live pages)
-  eleventyConfig.addPassthroughCopy("v1");
-
   // preview art for the generated bar-chart pages (html for those is generated)
   eleventyConfig.addPassthroughCopy("puzzles/**/*.png");
   eleventyConfig.addPassthroughCopy("puzzles/**/preview.json");
@@ -79,7 +75,7 @@ module.exports = function (eleventyConfig) {
     srcs: Object.fromEntries(p.companies.map(c => [c.id, c.opensecrets_url])),
   }));
 
-  // leading-party-first bar rows, matching the v1 pages
+  // leading-party-first bar rows
   eleventyConfig.addFilter("barRows", c => {
     const dem = { p: "dem", label: "DEM", pct: c.dem_pct, amt: c.dem_amount };
     const rep = { p: "rep", label: "REP", pct: c.rep_pct, amt: c.rep_amount };
