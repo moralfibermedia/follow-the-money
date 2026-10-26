@@ -1,22 +1,14 @@
-// The fighters we put money behind, grouped by the form that support takes.
-// Derived from data/fighters.json — /backed/ never holds its own copy.
+// The fighters we put money behind. Subscriptions and memberships are one
+// group — the distinction didn't survive contact with reality (a paid Substack
+// and a membership are the same act), and we don't use "donation" language.
+// Books live separately in data/books.json, where the titles are named.
 const fighters = require("../../data/fighters.json").fighters || [];
-const ORDER = ["paid subscriber", "member", "bought the books"];
-const LABEL = {
-  "paid subscriber": "Paid subscriptions",
-  "member": "Memberships & donations",
-  "bought the books": "Books we bought",
-};
+const SUBS = new Set(["paid subscriber", "member"]);
 const backed = fighters.filter((f) => f.support);
-const forms = [...new Set(backed.map((f) => (typeof f.support === "string" ? f.support : "member")))]
-  .sort((a, b) => (ORDER.indexOf(a) + 1 || 99) - (ORDER.indexOf(b) + 1 || 99));
-
+const subscribed = backed.filter((f) => SUBS.has(f.support));
 module.exports = {
   all: backed,
   count: backed.length,
-  groups: forms.map((form) => ({
-    form,
-    label: LABEL[form] || form,
-    items: backed.filter((f) => (typeof f.support === "string" ? f.support : "member") === form),
-  })),
+  subscribed,
+  subscribedCount: subscribed.length,
 };
