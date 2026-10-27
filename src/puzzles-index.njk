@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+permalink: /puzzles/index.html
+license: by
+creditData: "puzzle data sources credited on each puzzle"
+pageTitle: "All Puzzles — Follow the Money | Moral Fiber Media"
+pageDescription: "Every Follow the Money puzzle: text-match, rankings, timelines, higher-or-lower, and the original bar-chart donation series. Free, sourced, no login."
+canonicalPath: "/puzzles"
+ogImage: "/preview.png"
+---
+<div class="kicker"><a href="/">Moral Fiber Media</a> · section</div>
+<h1>The <em>Puzzles</em></h1>
+<div class="standfirst">Every puzzle we've built, by what it asks you to do. {{ livePuzzles | length }} live — each one built on the public record, with sources on every answer.</div>
+
+<h2>Just the Facts</h2>
+<p>One story from the record, cut into facts — match each claim to where it belongs. Every match reveals its sources. Newest first.</p>
+<ul class="hub-list">
+{%- set jtfFirst = true %}
+{%- for p in puzzles.puzzles | reverse %}{% if p.template == "text-match" and p.status == "live" %}
+  <li><span class="hub-num">text match</span>
+      <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
+      {% if jtfFirst %}<span class="hub-new">New</span>{% set jtfFirst = false %}{% endif %}
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+</ul>
+
+<h2>Rankings &amp; timelines</h2>
+<p>Put the record in order — rank the numbers, sequence the events, call higher-or-lower. Sources on every answer.</p>
+<ul class="hub-list">
+{%- for p in puzzles.puzzles | reverse %}{% if (p.template == "rank" or p.template == "timeline" or p.template == "over-under") and p.status == "live" %}
+  <li><span class="hub-num">{{ p.template | replace("-", " ") | replace("over under", "over/under") }}</span>
+      <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+</ul>
+
+<h2>The bar-chart series</h2>
+<p>Where it started: three companies, three donation profiles — match the company to the cash. Data from OpenSecrets.org, 2024 cycle.</p>
+<ul class="hub-list">
+{%- for p in barcharts %}{% if p.number %}
+  <li><span class="hub-num">Puzzle #{{ p.number }}</span>
+      <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+{%- for p in barcharts %}{% if not p.number %}
+  <li><span class="hub-num">special</span>
+      <a class="hub-t" href="/puzzles/{{ p.id }}">"{{ p.title }}"</a>
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+</ul>
+
+{%- if puzzles.coming_soon and puzzles.coming_soon.length %}
+<h2>Coming soon</h2>
+<p class="coming">
+{%- for c in puzzles.coming_soon %}
+  <b>"{{ c.title }}"</b> — {{ c.companies | join(" · ") }}{% if not loop.last %}<br>{% endif %}
+{%- endfor %}
+</p>
+{%- endif %}
+
+<p style="margin-top:26px"><a href="/">← All sections</a></p>

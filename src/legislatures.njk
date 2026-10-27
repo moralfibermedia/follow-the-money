@@ -1,0 +1,47 @@
+---
+layout: layouts/base.njk
+permalink: /legislatures/index.html
+license: by
+pageTitle: "State Legislatures — bill tracking | Moral Fiber Media"
+pageDescription: "What state legislatures are doing to voting and elections — bills scored and sourced, plus plain-language guides to how the process actually works."
+canonicalPath: "/legislatures"
+ogImage: "/preview.png"
+---
+<div class="kicker"><a href="/">Moral Fiber Media</a> · section</div>
+<h1>State <em>Legislatures</em></h1>
+<div class="standfirst">Most of what happens to voting happens in state capitols, in bills nobody reads. We track them, score them, and link every claim to the bill text itself.</div>
+
+<h2>Georgia</h2>
+<p>The 2026 session, bill by bill — what each one would change, who moved it, and where it died.</p>
+<ul class="hub-list">
+  <li><span class="hub-num">scorecard</span>
+      <a class="hub-t" href="/2026-ga-elections-legislation/">2026 Georgia Election Bills</a>
+      <span class="hub-hook">Every election-related bill in the Georgia legislature — scored, sourced, tracked.</span></li>
+  <li><span class="hub-num">the bills</span>
+      <a class="hub-t" href="/2026-ga-elections-legislation/provoter-bills/">Pro-Voter Bills That Deserved a Hearing</a>
+      <span class="hub-hook">The bills that would have made voting easier — and never got a vote.</span></li>
+  <li><span class="hub-num">how it works</span>
+      <a class="hub-t" href="/2026-ga-elections-legislation/bill-status/">Reading a Bill's Status</a>
+      <span class="hub-hook">Crossover Day, committee death, "passed one chamber" — what the jargon actually means for a bill's odds.</span></li>
+</ul>
+
+<h2>Florida</h2>
+<p>New here — starting with how the process works, because Florida's deadline is constitutional rather than procedural, and it kills more bills than any vote does.</p>
+<ul class="hub-list">
+  <li><span class="hub-num">how it works</span>
+      <a class="hub-t" href="/legislatures/florida/bill-status/">Reading a Florida Bill's Status</a>
+      <span class="hub-hook">The 60-day constitutional clock, the committees a bill must clear, and the Legislature's own words for what happened to it.</span></li>
+</ul>
+
+<h2>Puzzles from the statehouse</h2>
+<p>The same record, built to play.</p>
+<ul class="hub-list">
+{%- for p in puzzles.puzzles | reverse %}{% if p.status == "live" and (p.id == "georgia-on-my-mind" or p.id == "behind-the-bench" or p.id == "fl-primaries") %}
+  <li><span class="hub-num">{{ p.template | replace("-", " ") }}</span>
+      <a class="hub-t" href="/{{ p.path or ("puzzles/" + p.id) }}">"{{ p.title }}"</a>
+      <span class="hub-hook">{{ p.hook }}</span></li>
+{%- endif %}{% endfor %}
+</ul>
+
+<div class="fgt-foot">Georgia and Florida so far — this section grows a state at a time, as we find records worth reading. Know a statehouse fight that belongs here? contact@moralfibermedia.com</div>
+<p style="margin-top:22px"><a href="/">← All sections</a></p>

@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+permalink: /backed/index.html
+license: by
+pageTitle: "The ones we back — where our money goes | Moral Fiber Media"
+pageDescription: "Listing someone in our directory is support. These are the ones we also pay for — subscriptions, memberships, and the books we bought, read or listened to — named, with what we bought."
+canonicalPath: "/backed"
+ogImage: "/preview.png"
+---
+<div class="kicker"><a href="/">Moral Fiber Media</a> · section</div>
+<h1>The ones we <em>back</em></h1>
+<div class="standfirst">Listing someone in our directory is already support — that is what the directory is for. This page is the narrower claim: the ones we also pay for out of our own pocket, and what we bought.</div>
+<p>Independent work runs on subscriptions and memberships, and writers live or die by whether anyone actually buys the book. We think you should know who we fund, not just who we recommend — and we'd rather name it than imply it.</p>
+
+<h2>Subscriptions &amp; memberships <span class="fgt-cat-n">{{ backedFighters.subscribedCount }}</span></h2>
+<p>Paid subscriptions and paid memberships — the recurring kind, the sort that keeps the lights on.</p>
+<div class="fighters">
+{%- for f in backedFighters.subscribed %}
+  <a class="fgt" href="{{ f.url }}" target="_blank" rel="noopener">
+    <span class="fgt-i">✊</span>
+    <span><span class="fgt-n">{{ f.name }}</span><br><span class="fgt-d">{{ f.description }}</span><br><span class="ins-u">{{ f.display_url }}</span></span>
+  </a>
+{%- endfor %}
+</div>
+
+<h2>Books bought, read or listened to <span class="fgt-cat-n">{{ backedBooks.count }}</span></h2>
+<p>Hardback, paperback or audiobook — all of it counts, and all of it was paid for.</p>
+<div class="books">
+{%- for a in backedBooks.authors %}
+  <div class="bk">
+    <div class="bk-a">{% if a.url %}<a href="{{ a.url }}" target="_blank" rel="noopener">{{ a.author }}</a>{% else %}{{ a.author }}{% endif %}</div>
+    <ul class="bk-l">
+    {%- for t in a.titles %}
+      <li>{{ t }}</li>
+    {%- endfor %}
+    </ul>
+  </div>
+{%- endfor %}
+</div>
+
+<div class="fgt-foot">No one pays us for a place here, and nobody listed knows this page exists unless they find it. Everyone in the <a href="/fighters/">full directory</a> is worth your attention — these are simply the ones our money is already behind.</div>
+<p style="margin-top:22px"><a href="/fighters/">The full directory →</a><br><a href="/">← All sections</a></p>

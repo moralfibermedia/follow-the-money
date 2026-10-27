@@ -20,13 +20,14 @@
       {%- endif %}{%- endfor %}
     </div>
     <div class="nav-col">
+      <div class="nav-h">Sections</div>
+      <a role="menuitem" href="/puzzles/">All Puzzles <span class="nav-n">{{ livePuzzles | length }}</span></a>
+      <a role="menuitem" href="/legislatures/">State Legislatures</a>
+      <a role="menuitem" href="/rules/">Federal Register <span class="nav-n">{{ rulesSummary.total }}</span></a>
       <div class="nav-h">The directory</div>
       <a role="menuitem" href="/fighters/">Pro-Democracy Fighters <span class="nav-n">{{ fightersAll | length }}</span></a>
+      <a role="menuitem" href="/backed/">The ones we back <span class="nav-n">{{ backedFighters.count }}</span></a>
       <a role="menuitem" href="/inspiredby/">Inspired By <span class="nav-n">{{ inspired | length }}</span></a>
-      <div class="nav-h">Reports</div>
-      <a role="menuitem" href="/2026-ga-elections-legislation/">2026 Georgia Election Bills</a>
-      <a role="menuitem" href="/doj/bar-rule-infographic/">The DOJ Bar-Rule Change</a>
-      <a role="menuitem" href="/doj/bar-rule-action/">Bar-Rule Action Guide</a>
       {%- if puzzles.coming_soon and puzzles.coming_soon.length %}
       <div class="nav-h">Coming soon</div>
       {%- for c in puzzles.coming_soon %}
