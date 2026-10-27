@@ -11,7 +11,7 @@ Monorepo for FactPuzzles by Moral Fiber Media — interactive civic puzzles buil
 - **CC BY 4.0** for original content. **CC BY-NC-SA 3.0** for OpenSecrets-derived puzzles.
 
 ## Architecture
-Single Netlify site at `followthemoney.moralfibermedia.com`, **built with Eleventy 3** (July 2026 migration): Netlify runs `npm run build` → publishes `_site/`. Sources live in `src/` (layouts, templates, assets); **`data/puzzles.json` is the single source of truth — every puzzle page, the index, and the sitemap are generated from it.** Bespoke visual reports (`doj/`, `2026-ga-elections-legislation/`) and `review/` pass through verbatim; preview art stays beside each puzzle's old content dir. The pre-migration arcade pages are archived at `/v1/{id}/` (noindex) and paired with the live pages on `/compare/`, which also hosts the `design-feedback` Netlify Form. Workspace dirs (`template/` — now deprecated, `marketing/`, `scripts/`, `drafts/`, `data/` except `comment-counts.json`) never ship; internal root `.md` docs are 404'd in `netlify.toml`.
+Single Netlify site at `followthemoney.moralfibermedia.com`, **built with Eleventy 3** (July 2026 migration): Netlify runs `npm run build` → publishes `_site/`. Sources live in `src/` (layouts, templates, assets); **`data/puzzles.json` is the single source of truth — every puzzle page, the index, and the sitemap are generated from it.** Bespoke visual reports (`doj/`, `2026-ga-elections-legislation/`) and `review/` pass through verbatim; preview art stays beside each puzzle's old content dir. Workspace dirs (`template/` — now deprecated, `marketing/`, `scripts/`, `drafts/`, `data/` except `comment-counts.json`) never ship; internal root `.md` docs are 404'd in `netlify.toml`.
 
 ## Git Config
 - **GitHub org:** moralfibermedia
@@ -43,4 +43,4 @@ Write platform-tailored promo copy into `marketing/{campaign}/{channel}.md` (sub
 Add to `data/fighters.json` — `/fighters/` regenerates at build. The 9 featured on every page's tail live in `src/_data/featuredFighters.json`; Inspired By in `src/_data/inspired.json`.
 
 ### Design changes
-Layout/typography live once in `src/_includes/` + `src/assets/site.css` — edit there, never per-page. The v2 editorial treatment (article-first, puzzle-as-figure, 4-size scale) is the house format; `/compare/` collects invited design feedback.
+Layout/typography live once in `src/_includes/` + `src/assets/site.css` — edit there, never per-page. The v2 editorial treatment (article-first, puzzle-as-figure, 4-size scale) is the house format. (The `/v1/` arcade archive and the `/compare/` design lab were retired in October 2026; each old URL 301s to its live page.)

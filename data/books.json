@@ -1,0 +1,50 @@
+{
+  "_comment": "Books we bought, read or listened to. Titles are the editor's own record of what was actually read — not sourced from a bookseller. `fighter` links an author to their entry in data/fighters.json where the names differ (Robert Reich writes through Inequality Media); where the author name matches a fighter exactly the link is found automatically.",
+  "books": [
+    {
+      "title": "Pardon Power",
+      "author": "Kimberly Wehle"
+    },
+    {
+      "title": "How to Think Like a Lawyer — and Why",
+      "author": "Kimberly Wehle"
+    },
+    {
+      "title": "How to Read the Constitution — and Why",
+      "author": "Kimberly Wehle"
+    },
+    {
+      "title": "The Common Good",
+      "author": "Robert Reich",
+      "fighter": "Inequality Media"
+    },
+    {
+      "title": "The Scheme",
+      "author": "Sheldon Whitehouse"
+    },
+    {
+      "title": "Captured",
+      "author": "Sheldon Whitehouse"
+    },
+    {
+      "title": "Democracy Awakening",
+      "author": "Heather Cox Richardson"
+    },
+    {
+      "title": "Shameless",
+      "author": "Brian Tyler Cohen"
+    },
+    {
+      "title": "The Day After",
+      "author": "Brian Tyler Cohen"
+    },
+    {
+      "title": "Nexus",
+      "author": "Yuval Noah Harari"
+    },
+    {
+      "title": "Saving Democracy",
+      "author": "David Pepper"
+    }
+  ]
+}

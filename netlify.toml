@@ -22,6 +22,129 @@
 
 # Exception: the live comment-count feed for the Public Comment CTA must be
 # fetchable client-side. Listed BEFORE the /data/* block so it wins (first match).
+# The v1 arcade archive and the /compare/ design lab were retired in
+# October 2026. Each archived page 301s to its live equivalent; the
+# comparison hub goes to the puzzle index. Permanent, hence 301.
+
+[[redirects]]
+  from = "/v1/americas-250th/*"
+  to = "/puzzles/americas-250th/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/behind-the-bench/*"
+  to = "/puzzles/behind-the-bench/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/can-you-hear-me-now/*"
+  to = "/puzzles/can-you-hear-me-now/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/fill-er-up/*"
+  to = "/puzzles/fill-er-up/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/georgia-on-my-mind/*"
+  to = "/puzzles/georgia-on-my-mind/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/golden-parachutes/*"
+  to = "/puzzles/golden-parachutes/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/grocery-run/*"
+  to = "/puzzles/grocery-run/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/hardware-giants/*"
+  to = "/puzzles/hardware-giants/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/lobby-or-not/*"
+  to = "/puzzles/lobby-or-not/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/morning-fix/*"
+  to = "/puzzles/morning-fix/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/now-boarding/*"
+  to = "/puzzles/now-boarding/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/office-supplies/*"
+  to = "/puzzles/office-supplies/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/pardon-my-receipts/*"
+  to = "/americas-250th/pardon-my-receipts/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/power-grab/*"
+  to = "/speak-now/power-grab/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/power-to-pardon/*"
+  to = "/americas-250th/power-to-pardon/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/prescription-politics/*"
+  to = "/puzzles/prescription-politics/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/stream-wars/*"
+  to = "/puzzles/stream-wars/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/the-docket/*"
+  to = "/puzzles/the-docket/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/under-new-management/*"
+  to = "/puzzles/under-new-management/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/who-owns-your-feed/*"
+  to = "/puzzles/who-owns-your-feed/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/who-spends-your-money/*"
+  to = "/just-the-facts/who-spends-your-money/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/your-whole-paycheck/*"
+  to = "/puzzles/your-whole-paycheck/"
+  status = 301
+
+[[redirects]]
+  from = "/v1/*"
+  to = "/puzzles/"
+  status = 301
+
+[[redirects]]
+  from = "/compare/*"
+  to = "/puzzles/"
+  status = 301
 # The 2028 Dream Ticket straw poll is PARKED (Sept 2026) — the page no longer
 # builds, so send old shared links home rather than to a 404. 302, not 301:
 # this is reversible and we may bring the poll back.
@@ -116,18 +239,6 @@
 # publishing: verify the data, then move the folder to /puzzles/{slug}/.
 [[headers]]
   for = "/drafts/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-# Format-comparison tool: v1 arcade archive + /compare/ hub. Servable,
-# never indexed; v1 pages canonical to the live (v2) pages.
-[[headers]]
-  for = "/v1/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-[[headers]]
-  for = "/compare/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
 
